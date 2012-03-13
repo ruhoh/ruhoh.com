@@ -1,0 +1,46 @@
+---
+layout : default
+---
+
+<div class="page-header">
+  <h1>{{ page.title }} <small>{{ page.tagline }}</small></h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    {{ content }}
+    <hr>
+    <div class="pagination">
+      <ul>
+        {{#post_previous}}
+          <li class="prev"><a href="{{ url }}" title="{{ title }}">&larr; Previous</a></li>
+        {{else}}
+          <li class="prev disabled"><a>&larr; Previous</a></li>
+        {{/post_previous}}
+        
+          <li><a href="/archive.html">Archive</a></li>
+       
+        {{#post_next}}
+          <li class="next"><a href="{{ url }}" title="{{ title }}">Next &rarr;</a></li>
+        {{else}}
+          <li class="next disabled"><a>Next &rarr;</a>
+        {{/post_next}}
+
+      </ul>
+    </div>
+    <hr>
+    {{{comments}}}
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>{{ page.date }}</span></div>
+
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    {{# page.tags?to_tags }}
+      {{> tags_list }}
+    {{/ page.tags?to_tags }}
+    </ul>
+  </div>
+</div>

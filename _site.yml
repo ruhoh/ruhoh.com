@@ -1,0 +1,14 @@
+title : Ruhoh
+tagline: Site Tagline
+author :
+  name : Jade Dominguez
+  email : blah@email.test
+  github : username
+  twitter : username
+  feedburner : feedname
+
+navigation :
+  - quick-start.md
+  - ruhoh-introduction.md
+  - how-it-works.md
+  - api.html

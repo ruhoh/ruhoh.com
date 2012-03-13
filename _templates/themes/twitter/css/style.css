@@ -1,0 +1,102 @@
+/* Override some defaults */
+html, body {
+  background-color: #FFF;
+  
+}
+.content {
+}
+
+/* tag_box ======================================================== */
+
+.tag_box {
+	list-style:none;
+	margin:0;
+	padding:5px 0 ;
+	overflow:hidden;
+}
+.tag_box li {
+	line-height:28px;
+}
+.tag_box.inline li {
+	float:left;
+}
+.tag_box a {
+	padding: 3px 6px;
+	margin: 2px;
+	background: #eee;
+	color:#005F6B;
+	border-radius: 3px;
+	text-decoration:none;
+}
+.tag_box a span{
+	vertical-align:super;
+	font-size:0.8em;
+}
+.tag_box a.active {
+	background:#57A957;
+	border:1px solid #4C964D;
+	color:#FFF;
+}
+	
+ul.folder-tree {
+  margin-left:0;
+}	
+ul.folder-tree, ul.folder-tree ul {
+  list-style:none;
+}
+
+ul.folder-tree li em , ul.folder-tree ul li em{ 
+  text-decoration:normal;
+  font-style:normal;
+  padding:1px 8px;
+  border-radius:3px;
+}
+
+ul.folder-tree li em.config {
+  background-color:#FFA398;
+}
+ul.folder-tree li em.post {
+  background-color:#FCE5C0;
+}
+ul.folder-tree li em.page {
+  background-color:#9AD9D2;
+}
+ul.folder-tree ul.template em, ul.folder-tree em.template-light {
+  background-color:#E9FFE1;
+}
+ul.folder-tree li em.template {
+  background-color:#D0F7A6;
+}
+
+/* 
+	Silk Sprites
+	http://xheo.com/silk?icons=422,442,443,505,507,607,608,609,610,617,619,623,628,635,636,643,646,652,656,674,704,756,990&size=25
+*/
+
+.ui-silk { width: 25px; height: 25px; display:block; background: transparent url(/_media/silk-sprite.png?634672676400377835) no-repeat; text-indent: -99999px; overflow: hidden; }
+.ui-silk.gray, .ui-silk.gray, .ui-silk.hover { background-image: url(/_media/silk-sprite-gray.png?634672676400377835); }
+*.ui-silk.inline{ display: inline-block; vertical-align: middle; border: 0; outline: 0; }
+
+.ui-silk.hover:hover{background-image: url(/_media/silk-sprite.png?634672676400377835);}.ui-silk-folder { background-position: -0px -0px }
+.ui-silk-folder-page { background-position: -25px -0px }
+.ui-silk-folder-page-white { background-position: -50px -0px }
+.ui-silk-layout { background-position: -75px -0px }
+.ui-silk-layout-content { background-position: -100px -0px }
+.ui-silk-page { background-position: -125px -0px }
+.ui-silk-page-add { background-position: -150px -0px }
+.ui-silk-page-attach { background-position: -175px -0px }
+.ui-silk-page-code { background-position: -200px -0px }
+.ui-silk-page-gear { background-position: -225px -0px }
+.ui-silk-page-green { background-position: -250px -0px }
+.ui-silk-page-paintbrush { background-position: -275px -0px }
+.ui-silk-page-white { background-position: -300px -0px }
+.ui-silk-page-white-code { background-position: -325px -0px }
+.ui-silk-page-white-code-red { background-position: -350px -0px }
+.ui-silk-page-white-database { background-position: -375px -0px }
+.ui-silk-page-white-edit { background-position: -400px -0px }
+.ui-silk-page-white-gear { background-position: -425px -0px }
+.ui-silk-page-white-horizontal { background-position: -450px -0px }
+.ui-silk-page-white-text { background-position: -475px -0px }
+.ui-silk-picture { background-position: -500px -0px }
+.ui-silk-ruby { background-position: -525px -0px }
+.ui-silk-wrench { background-position: -550px -0px }

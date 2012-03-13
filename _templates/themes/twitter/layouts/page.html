@@ -1,0 +1,70 @@
+---
+layout : default
+---
+<style type='text/css'>
+
+html, body {
+  font-family:verdana;
+}
+.navbar a.brand  {
+  color:#607848;
+  font-weight:bold;
+  font-family: 'Voces', verdana, serif;
+}
+.navbar ul.nav > li > a {
+  color:#607848;
+  font-family: verdana, serif;
+}
+p {
+  font-family:verdana;
+  font-size:1.1em;
+  line-height:1.5em;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Voces', verdana, serif;
+}
+h1 {
+  margin-bottom:15px;
+}
+  h2 {
+    border-top:3px solid #F0F0D8;
+    padding-top:10px;
+    margin-top:20px;
+    margin-bottom:10px;
+    margin-left:-20px;
+  }
+  table thead th {
+    text-align:left;
+    
+  }
+  
+  table td, table th {
+    padding:15px;
+  }
+  table td.module {
+    width:120px;
+    font-weight:bold;
+    color:#604848;
+    vertical-align:top;
+  }
+  table td.module ul li{ 
+    color:#444;
+    font-weight:normal;
+  }
+  img {
+    border:3px solid #F0F0D8; border-radius:3px;
+  }
+  p {
+  }
+  dl dd {
+    margin-bottom:10px;
+  }
+</style>
+
+<h1>{{ page.title }} <small>{{ page.tagline }}</small></h1>
+
+<div class="row">
+  <div class="span10 offset1">
+    {{ content }}
+  </div>
+</div>
