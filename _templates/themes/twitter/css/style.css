@@ -29,6 +29,7 @@ h2 {
   margin-top:20px;
   margin-bottom:10px;
   margin-left:-20px;
+  color:#607848;
 }
 table thead th {
   text-align:left;
@@ -57,8 +58,18 @@ dl dd {
   margin-bottom:10px;
 }
 
+.table-of-contents {
+  top:0; 
+  position:fixed;
+  padding:20px;
+  height:80%;
+  margin-left:20px;
+  border-left:2px solid #F0F0D8;
+  overflow:auto; 
+  background:#FFF;
+}
 .table-of-contents h4 {
-  border-top:2px solid #eee;
+  border-top:2px solid #F0F0D8;
   padding-top:8px;
   margin-bottom:8px;
   color:#444;
@@ -107,6 +118,9 @@ dl dd {
 	
 ul.folder-tree {
   margin-left:0;
+  border:1px solid #ccc;
+  border-radius:3px;
+  padding:10px;
 }	
 ul.folder-tree, ul.folder-tree ul {
   list-style:none;
@@ -139,8 +153,6 @@ ul.folder-tree li em.template {
 ul.folder-key {
   margin-left:0;
   margin-bottom:10px;
-  padding-bottom:10px;
-  border-bottom:1px solid #ccc;
 }
 ul.folder-key li {
   display:inline;
