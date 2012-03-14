@@ -207,6 +207,14 @@ Secondly, files contained in this directory have three vectors of specificity:
 
 ## Directory Structure
 
+<ul class="folder-key">
+  <li><strong>Key:</strong></li>
+  <li class="config">Config Data</li>
+  <li class="post">Posts Data</li>
+  <li class="template">Template Data</li>
+  <li class="page">Page Data</li>
+</ul>
+
 <ul class="folder-tree">
   <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em class="config">_config.yml</em></li>
   <li><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>_site.yml</em></li>
@@ -259,3 +267,23 @@ Secondly, files contained in this directory have three vectors of specificity:
   <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="page">about.md</em></li>
   <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="page">random-folder</em></li>
 </ul>
+
+- **\_config.yml**  
+  The config file is written in YAML and contains site-wide configuration options such as active theme, comments-provider, analytics providers, etc.
+- **\_site.yml**  
+  The site YAML file is used to specify site-wide _data_ that can be used throughout your pages and templates.
+  A good example is defining a navigation array that the templater can use to create your primary navigation bar.
+- **\_compiled**  
+  The compiled folder is the default location the Compiler will output pages into.
+  In other words, when you run the Compiler, your fully rendered blog will output to this folder.
+- **\_media** 
+ The media folder should hold static media assets such as images, videos, pdfs, downloads, etc.
+ Note theme-specific assets should NOT exist in the media folder, but rather in the themes folder.
+- **\_posts**  
+  All files contained in the posts folder will be processed as posts.
+- **\_templates**  
+  The templates folder holds partials, layouts, and theme-specific assets such as CSS, images, javascript, etc.
+  Templates consists of partials, layouts, and assets, but you'll note they are packaged together as "themes".
+  Themes in this context serve primarily as a **namespace**.
+
+

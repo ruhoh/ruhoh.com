@@ -1,17 +1,28 @@
 ---
 layout : default
 ---
+<style type="text/css">
+  h1 {
+    margin-left:-20px;
+    margin-top:30px;
+    font-size:28px;
+  }
+</style>
 
-<h3 style="margin-bottom:20px">Getting Started</h3>
-
-<div class="row" style="ackground:#EEE;">
-  <div class="span3">
-    <h3>Development Setup</h3>
+<div style="height:50px;"></div>
+<div class="row">
+  
+  <div class="span8">
+    {{ content }}
+  </div>
+  
+  <div class="span3 offset1 table-of-contents">
+    <h4>Development Setup</h4>
     <ul>
       <li><a href="#">Ruby</a></li>
     </ul>
 
-    <h3>Main Configuration</h3>
+    <h4>Configuration</h4>
     <ul>
       <li><a href="#">Set permalink format</a></li>
       <li><a href="#">Set theme</a></li>
@@ -20,47 +31,62 @@ layout : default
       <li><a href="#">Set asset_path (CDN)</a></li>
     </ul>
 
-  </div>
-
-  <div class="span3">
-
-    <h3>Content</h3>
+    <h4>Create Pages</h4>
     <ul>
       <li><a href="">Create a page</a></li>
+    </ul>
+    
+    <h4>Create Posts</h4>
+    <ul>
       <li><a href="">Create a post</a></li>
       <li><a href="">Create a post-draft</a></li>
+    </ul>
+    
+    <h4>Media</h4>
+    <ul>
       <li><a href="">Embed and highlight code</a></li>
       <li><a href="">Insert pictures, slides, media</a></li>
     </ul>
-
-  </div>
-
-
-  <div class="span3">
-
-    <h3>Templating</h3>
-
+    
+    
+    
+    <h4>Templating</h4>
+    
+    <h5>Layouts</h5>
     <ul>
-      <li><a href="#">Working with Themes</a></li>
+      <li><a href="#">Create Layout</a></li>
+    </ul>
+    <h5>Partials</h5>
+    <ul>
+      <li><a href="#">Create Partial</a></li>
+      <li><a href="#">Overload Partial</a></li>
+    </ul>
+
+    <h5>Themes</h5>
+    <ul>
       <li><a href="#">Install Themes</a></li>
       <li><a href="#">Customize Themes</a></li>
       <li><a href="#">Create Themes</a></li>
     </ul>
-
+    
+    <h4>Mustache API</h4>
+    <ul>
+      <li><a href="#">Helper Methods</a></li>
+      <li><a href="#">Data Objects</a></li>
+    </ul>
+    
+    <h4>Publishing</h4>
+    <ul>
+      <li><a href="#">ruhoh.com</a></li>
+      <li><a href="#">github.com</a></li>
+      <li><a href="#">Amazon S3</a></li>
+      <li><a href="#">rsync</a></li>
+      <li><a href="#">scp</a></li>
+      <li><a href="#">dropbox</a></li>
+      <li><a href="#">webhooks</a></li>
+      <li><a href="#">heroku.com</a></li>
+      <li><a href="#">ftp</a></li>
+    </ul>
   </div>
 
-
-  <div class="span3">
-
-    <h3>Publish</h3>
-
-  </div>
-
-</div>
-
-
-<div class="row">
-  <div class="span12">
-  {{ content }}
-  </div>
 </div>

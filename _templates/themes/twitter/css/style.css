@@ -1,11 +1,78 @@
 /* Override some defaults */
+
 html, body {
-  background-color: #FFF;
+  font-family:verdana;
+}
+.navbar a.brand  {
+  color:#607848;
+  font-weight:bold;
+  font-family: 'Voces', verdana, serif;
+}
+.navbar ul.nav > li > a {
+  color:#607848;
+  font-family: verdana, serif;
+}
+p {
+  font-family:verdana;
+  font-size:1.1em;
+  line-height:1.5em;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Voces', verdana, serif;
+}
+h1 {
+  margin-bottom:15px;
+}
+h2 {
+  border-top:3px solid #F0F0D8;
+  padding-top:10px;
+  margin-top:20px;
+  margin-bottom:10px;
+  margin-left:-20px;
+}
+table thead th {
+  text-align:left;
   
 }
-.content {
+
+table td, table th {
+  padding:15px;
+}
+table td.module {
+  width:120px;
+  font-weight:bold;
+  color:#604848;
+  vertical-align:top;
+}
+table td.module ul li{ 
+  color:#444;
+  font-weight:normal;
+}
+img {
+  border:3px solid #F0F0D8; border-radius:3px;
+}
+p {
+}
+dl dd {
+  margin-bottom:10px;
 }
 
+.table-of-contents h4 {
+  border-top:2px solid #eee;
+  padding-top:8px;
+  margin-bottom:8px;
+  color:#444;
+}
+.table-of-contents h5 {
+  color:#555;
+}
+
+.table-of-contents ul {
+  margin-left:0px;
+}
+.table-of-contents ul, .table-of-contents ul li {
+  list-style:none;
+}
 /* tag_box ======================================================== */
 
 .tag_box {
@@ -52,21 +119,36 @@ ul.folder-tree li em , ul.folder-tree ul li em{
   border-radius:3px;
 }
 
-ul.folder-tree li em.config {
+ul.folder-tree li em.config, ul.folder-key li.config {
   background-color:#FFA398;
 }
-ul.folder-tree li em.post {
+ul.folder-tree li em.post, ul.folder-key li.post {
   background-color:#FCE5C0;
 }
-ul.folder-tree li em.page {
+ul.folder-tree li em.page, ul.folder-key li.page {
   background-color:#9AD9D2;
 }
-ul.folder-tree ul.template em, ul.folder-tree em.template-light {
+ul.folder-tree ul.template em, ul.folder-tree em.template-light,
+ul.folder-key li.template {
   background-color:#E9FFE1;
 }
 ul.folder-tree li em.template {
   background-color:#D0F7A6;
 }
+
+ul.folder-key {
+  margin-left:0;
+  margin-bottom:10px;
+  padding-bottom:10px;
+  border-bottom:1px solid #ccc;
+}
+ul.folder-key li {
+  display:inline;
+  padding:2px 8px;
+  margin-right:2px;
+  border-radius:3px;
+}
+
 
 /* 
 	Silk Sprites
