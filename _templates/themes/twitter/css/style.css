@@ -31,6 +31,13 @@ h2 {
   margin-left:-20px;
   color:#607848;
 }
+h3 {
+  margin-bottom:10px;
+}
+table, pre {
+  margin-bottom:10px;
+}
+
 table thead th {
   text-align:left;
   
@@ -53,6 +60,10 @@ img {
   border:3px solid #F0F0D8; border-radius:3px;
 }
 p {
+}
+dl {
+}
+dt {
 }
 dl dd {
   margin-bottom:10px;

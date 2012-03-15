@@ -357,8 +357,7 @@ A good example would be defining a partial for an HTML list which you'd use to r
 
 ## Create a Partial
 
-
-All files contained in the default `partials` folder at : `_templates/partials` are known as _default\_partials_.
+Create a _default\_partial_ by creating a file in the default partials folder at : `_templates/partials`.
 These partials should be theme independent.
 
 Additionally you may also create _theme\_specific_ partials by creating files at:
@@ -431,12 +430,245 @@ The Ruhoh command-line client can automatically create scaffolding for building 
 Scaffolding for _new-theme-name_ will be available at : `./_templates/themes/new-theme-name`
 
 
+
+## Data Payload
+
+
+    {
+      "page"    => {},
+      "site"    => Ruhoh::DB.site,
+      "pages"   => Ruhoh::DB.pages,
+      "_posts"  => {
+        "dictionary" => {...},
+        "chronological" => [...],
+        "collated" => [...],
+        "tags" => {
+          "tag1" => {...},
+          "tag2" => {...},
+        },
+        "categories" => {
+          "category1" => {...},
+          "category2" => {...},
+        }
+      },
+      "ASSET_PATH" => Ruhoh.config.asset_path
+    }
+    
+      
+# Mustache Overview
+
+
+
+Ruhoh uses [Mustache](http://mustache.github.com/) as its primary Templating system.
+If you are unfamiliar with Mustache's philosophy and syntax you can get up to speed in about 10 minutes by going through the 
+[README Examples](https://github.com/defunkt/mustache#readme)
+
+Mustache takes in three main parameters when expanding a template:
+
+<dl class="dl-horizontal">
+  <dt>Template</dt>
+  <dd>This is just a string of content. In Ruhoh this will be the layout content plus the injected page content.</dd>
+  
+  <dt>View</dt>
+  <dd>This is a ruby class which defines helper methods that can be used in the layout.</dd>
+  
+  <dt>Payload</dt>
+  <dd>This is a Hash of your blog's data objects which are accessible in the Mustache Template.</dd>
+</dl>
+
+All pages in Ruhoh are expanded using one single, global Mustache View (ruby class).
+This class defines helper methods useful for displaying your blog's data efficiently:
+
+
+# Mustache Helpers
+
+Ruhoh extends Mustache to include "helper methods".
+Helper methods act on a given context (a data-structure), usually tranforming it into
+a new data-structure then passing it back to the block context as if the data was used initially.
+
+
+## ?to_posts
+
+This helper method takes in a single or Array of post ids and expands them to their corresponding Post Objects.
+
+### List site-wide posts
+
+{{#raw_code}}
+  <ul>
+  {{# _posts?to_posts }}
+    <li><a href="{{url}}">{{title}}</a></li>
+  {{/ _posts?to_posts }}
+  </ul>
+{{/raw_code}}
+
+
+### List posts from a given category
+
+{{#raw_code}}
+  <ul>
+  {{# _posts.categories.ruby.posts?to_posts }}
+    <li><a href="{{url}}">{{title}}</a></li>
+  {{/ _posts.categories.ruby.posts?to_posts }}
+  </ul>
+{{/raw_code}}
+
+## ?to_pages
+
+This helper method takes in a single or Array of page ids and expands them to their corresponding Page Objects.
+
+### List site-wide pages.
+
+{{#raw_code}}
+  <ul>
+  {{# pages?to_pages }}
+    <li><a href="{{url}}">{{title}}</a></li>
+  {{/ pages?to_pages }}
+  </ul>
+{{/raw_code}}
+
+### List a user-specified list of pages.
+
+Assume we define a navigation array in `_site.yml`:
+
+    navigation:
+      - index.md
+      - about.md
+      - projects/startup.html
+      - contact.md
+
+We can can expand these page ids:
+
+{{#raw_code}}
+  <ul>
+  {{# site.navigation?to_pages }}
+    <li><a href="{{url}}">{{title}}</a></li>
+  {{/ site.navigation?to_pages }}
+  </ul>
+{{/raw_code}}
+
+
+## ?to_categories
+
+This helper method takes in a single or Array of category names and expands them to their corresponding Category Objects.
+
+### List site-wide categories.
+
+{{#raw_code}}
+  <ul>
+  {{# _posts.categories?to_categories }}
+    <li><a href="{{url}}">{{name}} <span>{{count}}</span></a></li>
+  {{/ _posts.categories?to_categories }}
+  </ul>
+{{/raw_code}}
+
+### List categories on a given post.
+
+Assuming the current `page` object is a post:
+
+{{#raw_code}}
+  <ul>
+  {{# page.categories?to_categories }}
+    <li><a href="{{url}}">{{name}} <span>{{count}}</span></a></li>
+  {{/ page.categories?to_categories }}
+  </ul>
+{{/raw_code}}
+
+### List categories on a collection of posts.
+
+{{#raw_code}}
+  {{# posts?to_posts }}
+    <h3>{{title}}</h3>
+    <h4>Tags</h4>
+    <ul>
+    {{# categories?to_categories }}
+      <li><a href="{{url}}">{{name}} <span>{{count}}</span></a></li>
+    {{/ categories?to_categories }}
+    </ul>
+  {{/ posts?to_posts }}
+{{/raw_code}}
+
+
+## ?to_tags
+
+This helper method takes in a single or Array of tag names and expands them to their corresponding Tag Objects.
+
+### List site-wide tags.
+
+{{#raw_code}}
+  <ul>
+  {{# _posts.tags?to_tags }}
+    <li><a href="{{url}}">{{name}} <span>{{count}}</span></a></li>
+  {{/ _posts.tags?to_tags }}
+  </ul>
+{{/raw_code}}
+
+### List tags on a given post.
+
+Assuming the current `page` object is a post:
+
+{{#raw_code}}
+  <ul>
+  {{# page.tags?to_tags }}
+    <li><a href="{{url}}">{{name}} <span>{{count}}</span></a></li>
+  {{/ page.tags?to_tags }}
+  </ul>
+{{/raw_code}}
+
+### List tags on a collection of posts.
+
+{{#raw_code}}
+  {{# posts?to_posts }}
+    <h3>{{title}}</h3>
+    <h4>Tags</h4>
+    <ul>
+    {{# tags?to_tags }}
+      <li><a href="{{url}}">{{name}} <span>{{count}}</span></a></li>
+    {{/ tags?to_tags }}
+    </ul>
+  {{/ posts?to_posts }}
+{{/raw_code}}
+
+
 # Data Objects
 
+Your posts and pages exist as "data objects" in the Ruhoh system, which in turn have
+other data objects associated with them, namely a URL, categories, tags, and so on.
 
-# Mustache API
+These data objects are passed into the Templating system along with your layouts and partials
+which all come together to render the final page views.
 
+The following outlines the full data objects available in the Ruhoh system.
+Next we'll document how to use this data throughout your pages using the Templating system.
 
+## Site
+
+The site object is a global data object used primarily as a convenience strategy.
+
+Define any valid YAML data structure in `_site.yml` and this data will be globally accessible to all pages, layouts, and partials via the `site` variable.
+
+Two useful examples would be defining authorship data:
+
+    author :
+      name : Pau Gasol
+      email : blah@email.test
+      github : username
+      twitter : username
+      feedburner : feedname
+
+Or composing an Array of page ids, to be used for rendering the primary Navigation:
+
+    navigation :
+      - quick-start.md
+      - how-it-works.md
+      - usage.md
+      
+
+Lastly, in case you ever need it, the full `_config.yml` hash is injected into the site variable at the key : `config`
+
+This makes available, for example, your current theme:
+
+    site.config.theme
+    # returns 'twitter'
 
 
 
