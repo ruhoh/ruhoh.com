@@ -94,7 +94,7 @@ Naturally, Ruhoh works out of the box. But you can fine-tine some settings in `_
 ### Examples
 
 Given the post filename: `2009-04-29-green-milk-tea.md`   
-with categories: `['california', 'food']`
+with categories: `['california/food', 'dairy']`
 
 <table class="table-striped table-bordered">
   <thead>
@@ -284,7 +284,71 @@ When you are ready to publish, just move the file from the `_drafts` folder to t
 
 ## Tags
 
+Add one or more tags to a post by including them into the post's YAML Front Matter.
+This is the YAML block is at the top of the file:
+
+    ---
+    layout: post
+    title: a nice title
+    tags: javascript
+    ---
+    
+To add multiple tags, use an Array:
+
+    ---
+    layout: post
+    title: a nice title
+    tags: [javascript, tutorials, expert]
+    ---
+
+or
+
+    ---
+    layout: post
+    title: a nice title
+    tags: 
+      - javascript
+      - tutorials
+      - expert
+    ---
+    
 ## Categories
+
+Add one or more categories to a post by including them into the post's YAML Front Matter.
+This is the YAML block is at the top of the file:
+
+    ---
+    layout: post
+    title: a nice title
+    categories: code
+    ---
+   
+A category can be multiple levels deep:
+
+    categories: "code/android/games"
+    
+This defines **one** category named `code/android/games`.
+
+Also note that `code`, and `code/android` **will not exist** unless you explicitly define them as categories themselves.
+
+
+To place the post in multiple categories you'll need to pass in an Array:
+
+    ---
+    layout: post
+    title: a nice title
+    categories: ['code/android/games', 'game-downloads']
+    ---
+
+or
+
+    ---
+    layout: post
+    title: a nice title
+    categories :
+      - 'code/android/games'
+      - 'game-downloads'
+    ---
 
 
 # Media
@@ -304,9 +368,7 @@ Media folder ...
 
 
 
-# Templating
-
-## Layouts
+# Layouts
 
 Layout files are used to provide context around a page's content.
 
@@ -329,23 +391,23 @@ Edit your layout as desired, then make sure to specify your new layout within th
     categories : ruby
     ---
 
-## Render Page Content in a Layout
+## Insert page content into layout
 
-Use the special template variable: `{ { content } }` to render a page's content within the given layout.
+Use the special template variable: {{#raw_code}}{{content}}{{/raw_code}} to render a page's content within the given layout.
 
-    ---
-    layout: default
-    ---
-    <body>
-      <div id="sidebar"> ... </div>
-      <div id="main">
-        { { content } }
-      </div>
-    </body>
+{{#raw_code}}
+---
+layout: default
+---
+<body>
+  <div id="sidebar"> ... </div>
+  <div id="main">
+    {{content}}
+  </div>
+</body>
+{{/raw_code}}
 
-
-
-## Partials
+# Partials
 
 Partials are files which contain arbitrary layout code, usually HTML, that can be dynamically included
 into any page or layout.
@@ -357,11 +419,43 @@ A good example would be defining a partial for an HTML list which you'd use to r
 
 ## Create a Partial
 
-Create a _default\_partial_ by creating a file in the default partials folder at : `_templates/partials`.
+Create a _default\_partial_ by creating a file in the default partials folder at: 
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
+    <ul class="template">
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template">partials</em><br>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">[...your-partial-file...]</em> &larr;</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+    
 These partials should be theme independent.
 
 Additionally you may also create _theme\_specific_ partials by creating files at:
-`./_templates/themes/[ACTIVE-THEME]/partials/...`
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
+    <ul class="template">
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em><br>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[ACTIVE-THEME]</em>
+            <ul>
+              <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template">partials</em><br>
+                <ul>
+                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">[...your-partial-file...]</em> &larr;</li>
+                </ul>
+              </li>
+            </ul> 
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
 Theme specific partials are useful when you want to include theme dependent HTML and/or css classes.
 
@@ -370,7 +464,7 @@ Theme specific partials are useful when you want to include theme dependent HTML
 Theme specific partials have a higher priority than default partials. That is they will overload default partials of the same name.
 
 
-## Themes
+# Themes
 
 A theme's primary role is to act as a namespace.
 A theme is simply a collection of layouts, partials, and assets that those partials and layouts depend on (CSS, images, javascripts).
@@ -413,51 +507,48 @@ The theme structure is as detailed below:
   </li>
 </ul>
 
-## Install a New Theme
+## Install New Theme
 
-To install a new theme just download the folder and place it in the `./_templates/themes` directory.
+To install a new theme just download the folder and place it in the "themes" directory:
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
+    <ul class="template">
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em><br>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[...NEW-THEME-NAME...]</em> &larr;</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
 Then update your `_config.yml` to set the theme to this new theme name
 
-    theme : new-theme
+    theme : new-theme-name
 
 
-## Create a New Theme
+## Create New Theme
 
 The Ruhoh command-line client can automatically create scaffolding for building a new theme.
 
     $ ruhoh theme new-theme-name
 
-Scaffolding for _new-theme-name_ will be available at : `./_templates/themes/new-theme-name`
+Scaffolding for _new-theme-name_ will be available at:
 
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
+    <ul class="template">
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em><br>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>new-theme-name</em> &larr;</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-
-## Data Payload
-
-
-    {
-      "page"    => {},
-      "site"    => Ruhoh::DB.site,
-      "pages"   => Ruhoh::DB.pages,
-      "_posts"  => {
-        "dictionary" => {...},
-        "chronological" => [...],
-        "collated" => [...],
-        "tags" => {
-          "tag1" => {...},
-          "tag2" => {...},
-        },
-        "categories" => {
-          "category1" => {...},
-          "category2" => {...},
-        }
-      },
-      "ASSET_PATH" => Ruhoh.config.asset_path
-    }
-    
-      
 # Mustache Overview
-
-
 
 Ruhoh uses [Mustache](http://mustache.github.com/) as its primary Templating system.
 If you are unfamiliar with Mustache's philosophy and syntax you can get up to speed in about 10 minutes by going through the 
@@ -479,12 +570,47 @@ Mustache takes in three main parameters when expanding a template:
 All pages in Ruhoh are expanded using one single, global Mustache View (ruby class).
 This class defines helper methods useful for displaying your blog's data efficiently:
 
+# Template Data
+
+Your posts and pages exist as "data objects" in the Ruhoh system, which in turn have
+other data objects associated with them, namely a URL, categories, tags, and so on.
+
+These data objects are passed into the Templating system along with your layouts and partials
+which all come together to render the final page views.
+
+## Payload
+
+This following hash outlines the **top-level endpoints** accessible within the Templating System.
+The unabridged version is comprehensively documented in the API section.
+
+    {
+      "page"    => {},
+      "site"    => {},
+      "pages"   => {},
+      "_posts"  => {
+        "dictionary" => {...},
+        "chronological" => [...],
+        "collated" => [...],
+        "tags" => {
+          "tag1" => {...},
+          "tag2" => {...},
+        },
+        "categories" => {
+          "category1" => {...},
+          "category2" => {...},
+        }
+      },
+      "ASSET_PATH" => "/_templates/themes/some-theme/"
+    }
+    
+Next we'll document how to use this data throughout your pages using the Templating system.
+
 
 # Mustache Helpers
 
 Ruhoh extends Mustache to include "helper methods".
 Helper methods act on a given context (a data-structure), usually tranforming it into
-a new data-structure then passing it back to the block context as if the data was used initially.
+a new data-structure then passing it back to the block context as if that data was was passed in directly.
 
 
 ## ?to_posts
@@ -629,52 +755,8 @@ Assuming the current `page` object is a post:
 {{/raw_code}}
 
 
-# Data Objects
+# Hosting
 
-Your posts and pages exist as "data objects" in the Ruhoh system, which in turn have
-other data objects associated with them, namely a URL, categories, tags, and so on.
-
-These data objects are passed into the Templating system along with your layouts and partials
-which all come together to render the final page views.
-
-The following outlines the full data objects available in the Ruhoh system.
-Next we'll document how to use this data throughout your pages using the Templating system.
-
-## Site
-
-The site object is a global data object used primarily as a convenience strategy.
-
-Define any valid YAML data structure in `_site.yml` and this data will be globally accessible to all pages, layouts, and partials via the `site` variable.
-
-Two useful examples would be defining authorship data:
-
-    author :
-      name : Pau Gasol
-      email : blah@email.test
-      github : username
-      twitter : username
-      feedburner : feedname
-
-Or composing an Array of page ids, to be used for rendering the primary Navigation:
-
-    navigation :
-      - quick-start.md
-      - how-it-works.md
-      - usage.md
-      
-
-Lastly, in case you ever need it, the full `_config.yml` hash is injected into the site variable at the key : `config`
-
-This makes available, for example, your current theme:
-
-    site.config.theme
-    # returns 'twitter'
-
-
-
-
-
-## Publish
 
 After you've added posts or made changes to your theme or other files, simply commit them to your git repo and push the commits up to GitHub.
 
@@ -684,3 +766,12 @@ After you've added posts or made changes to your theme or other files, simply co
 
 A GitHub post-commit hook will automatically deploy your changes to your hosted blog. You will receive a success or failure notice for every commit you make to your blog.
 
+## ruhoh.com
+## github.com
+## Amazon S3
+## rsync
+## scp
+## dropbox
+## webhooks
+## heroku.com
+## ftp
