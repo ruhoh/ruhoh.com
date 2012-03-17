@@ -2,7 +2,6 @@
 layout: docs
 ---
 
-
 # Development Setup
 
 ## Ruby 
@@ -356,16 +355,49 @@ or
 
 ## Embed Code
 
-Embed a gist.
+Not implemented yet!
+
+A templating mechanism for embedding a Gist as well embedding blocks of code specified in a remote file.
+This will work similar to partials but be optimized for code.
+
 
 ## Highlight Code
 
-Grr
+Content specified in `<pre></pre>` and/or `<code></code>` blocks is automatically highlighted
+via [Google Prettify](http://google-code-prettify.googlecode.com/svn/trunk/README.html)
+
+Google Prettify is a client-side javascript library for highlighting code.
+
+Prettify (tries to) automatically detect the language and highlight the syntax appropriately. 
+
+### Customize Styling
+
+The syntax styles are all contained in the `./_media/syntax/highlight.css` file.
+Play around with the styles to customize your own theme.
+
+### Disable Google Prettify
+
+Most likely you'd disable Prettify if you intend to use your own highlighting system, whether server-side or 
+via another Javascript library.
+
+Disable Google Prettify in your `_config.yml` file:
+
+    # config.yml
+    prettify_code : false
+
+### Usinng other Custom Highlighting Providers
+
+The initial version of Ruhoh supports only Google Prettify because it's the easiest
+to get running. It is also accessible to the most users due to its client-side runtime.
+I'd imagine these are the same reasons [Twitter Bootstrap](http://twitter.github.com/bootstrap/base-css.html#code) makes the same decision.
+
+[Pygments](http://pygments.org/), in contrast is likely much more powerful but requires server-side dependencies 
+that are out of the scope of Ruhoh beta. I do plan to support the most comprehensive code highlighting options available,
+but I have to ship early and often!
 
 ## Insert Pictures and slides
 
 Media folder ...
-
 
 
 # Layouts
