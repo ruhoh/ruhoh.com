@@ -111,5 +111,16 @@
     Toc.init('#side-content', '#main-content');
     })
   </script>
+  
+  
+  <!-- CODE HIGHLIGHTING -->
+  <link rel="stylesheet" href="/_media/code-highlight/sunburst.css" type="text/css" media="screen" charset="utf-8">
+  <script src="/_media/code-highlight/prettify.js"></script>
+  <script>
+    $(function(){
+      $('pre').addClass("prettyprint linenums");
+      prettyPrint();
+    })
+  </script>
   </body>
 </html>
