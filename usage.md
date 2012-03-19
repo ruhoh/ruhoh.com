@@ -32,7 +32,14 @@ Your blog is now available at: [http://localhost:9292/](http://localhost:9292/)
 
 # Configuration
 
-Naturally, Ruhoh works out of the box. But you can fine-tine some settings in `_config.yml`
+Naturally, Ruhoh works out of the box. But you can fine-tine some settings in `_config.yml`:
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>_config.yml</em> &larr;</li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_media</em></li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_templates</em></li>
+</ul>
 
 ## Set Permalink Format
 
@@ -73,7 +80,7 @@ Naturally, Ruhoh works out of the box. But you can fine-tine some settings in `_
     
     <tr>
       <td>:categories</td>
-      <td>The specified categories for this post. Jekyll automatically parses out double slashes in the URLs, so if no categories are present, it basically ignores this.</td>
+      <td>The specified categories for this post. If more than one category is set, only the first one is used. If no categories exist, the URL omits this parameter.</td>
     </tr>
     
     <tr>
@@ -242,14 +249,36 @@ Page stubs can automatically be created using the Ruhoh command-line client.
 
     $ ruhoh page about.md
 
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
+  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>about.md</em> &larr;</li>
+</ul>
+    
 Create a page within a subdirectory:
 
     $ ruhoh page pages/about.md
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>pages</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>about.md</em> &larr;</li>
+    </ul>
+  </li>
+</ul>
     
 Create a page with a "pretty" path:
 
     $ ruhoh page projects/android
-    # this will create the file: ./projects/android/index.html
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
+    <li><span class="ui-silk inline ui-silk-folder">.</span> <em>android</em>
+      <ul>
+        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>index.html</em> &larr;</li>
+      </ul>
+    </li>
+</ul>
 
 The client automatically creates a page file with properly formatted filename and YAML Front Matter.
 
@@ -261,6 +290,14 @@ Post stubs can automatically be created using the Ruhoh command-line client.
 
     $ ruhoh post 'Hello World'
 
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>2012-01-01-hello-world.md</em> &larr;</li>
+    </ul>
+  </li>
+</ul>
+    
 The client automatically creates a file with properly formatted filename and YAML Front Matter.
 By default, the date is the current date. You can additionally pass in a custom date:
 
@@ -278,6 +315,14 @@ but _will not_ be output via the Compiler. Additionally any meta-data on draft-p
 Create drafts as you would a post, but instead use the word 'draft':
 
     $ ruhoh draft 'Hello World' 2012-10-10
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_drafts</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>2012-10-10-hello-world.md</em> &larr;</li>
+    </ul>
+  </li>
+</ul>
 
 When you are ready to publish, just move the file from the `_drafts` folder to the `_posts` folder.
 
@@ -357,7 +402,7 @@ or
 
 Not implemented yet!
 
-A templating mechanism for embedding a Gist as well embedding blocks of code specified in a remote file.
+A templating mechanism for embedding a Gist as well as embedding blocks of code specified in a remote file.
 This will work similar to partials but be optimized for code.
 
 
@@ -372,7 +417,7 @@ Prettify (tries to) automatically detect the language and highlight the syntax a
 
 ### Customize Styling
 
-The syntax styles are all contained in the `./_media/syntax/highlight.css` file.
+The syntax styles are all contained in the `./_media/highlight/syntax.css` file.
 Play around with the styles to customize your own theme.
 
 ### Disable Google Prettify
@@ -385,19 +430,33 @@ Disable Google Prettify in your `_config.yml` file:
     # config.yml
     prettify_code : false
 
-### Usinng other Custom Highlighting Providers
+### Using other Custom Highlighting Providers
 
 The initial version of Ruhoh supports only Google Prettify because it's the easiest
 to get running. It is also accessible to the most users due to its client-side runtime.
-I'd imagine these are the same reasons [Twitter Bootstrap](http://twitter.github.com/bootstrap/base-css.html#code) makes the same decision.
 
 [Pygments](http://pygments.org/), in contrast is likely much more powerful but requires server-side dependencies 
-that are out of the scope of Ruhoh beta. I do plan to support the most comprehensive code highlighting options available,
-but I have to ship early and often!
+that are beyond the scope of Ruhoh beta.  More comprehensive code highlighting options will be available over time.
 
-## Insert Pictures and slides
+## Insert Images
 
-Media folder ...
+The media folder is used as a convenient place to store your blog's media:
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_media</em><br>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-picture">.</span> <em class="template">[...my-media-file...]</em> &larr;</li>
+    </ul>
+  </li>
+</ul>
+
+Organize your files any way you wish, then use the special `MEDIA` template variable to refer the media folder:
+
+{{#raw_code}}
+<img src="{{MEDIA}}/my-media-file.jpg">
+{{/raw_code}}
+    
+Using a dynamic path is helpful when you want to switch to a CDN and or reorganize the way you handle your media.
 
 
 # Layouts
@@ -414,7 +473,28 @@ Be aware that layouts will not be nested more than two levels deep.
 The Ruhoh command-line client can automatically create layouts for the active theme.
 
     $ ruhoh layout splash
-    # this will create a file at: ./_templates/themes/[ACTIVE-THEME]/layouts/splash.html
+
+The command will create a file at:
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
+    <ul class="template">
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[ACTIVE-THEME]</em>
+            <ul>
+              <li><span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
+                <ul>
+                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>splash.html</em> &larr;</li>
+                </ul>
+              </li>
+            </ul>  
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
 Edit your layout as desired, then make sure to specify your new layout within the pages' YAML Front Matter:
 
@@ -425,7 +505,7 @@ Edit your layout as desired, then make sure to specify your new layout within th
 
 ## Insert page content into layout
 
-Use the special template variable: {{#raw_code}}{{content}}{{/raw_code}} to render a page's content within the given layout.
+Use the special template variable: {{#raw_code}}{{content}}{{/raw_code}} ... to render a page's content within the given layout.
 
 {{#raw_code}}
 ---
@@ -600,7 +680,7 @@ Mustache takes in three main parameters when expanding a template:
 </dl>
 
 All pages in Ruhoh are expanded using one single, global Mustache View (ruby class).
-This class defines helper methods useful for displaying your blog's data efficiently:
+This class defines helper methods useful for displaying your blog's data efficiently.
 
 # Template Data
 
@@ -640,9 +720,13 @@ Next we'll document how to use this data throughout your pages using the Templat
 
 # Mustache Helpers
 
-Ruhoh extends Mustache to include "helper methods".
-Helper methods act on a given context (a data-structure), usually tranforming it into
+Ruhoh extends Mustache to include context-aware helper methods.
+Helper methods act on a given context (a data-structure), usually transforming it into
 a new data-structure then passing it back to the block context as if that data was was passed in directly.
+
+This strategy allows us to pass around **ids** of objects rather than the objects themselves.
+Now whenever we need an object, we use the helpers to _expand_ those ids into their full objects.
+Let's take a look at some common usage examples:
 
 
 ## ?to_posts
