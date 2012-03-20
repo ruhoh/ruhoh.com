@@ -8,10 +8,16 @@ html, body {
   font-weight:bold;
   font-family: 'Voces', verdana, serif;
 }
-.navbar ul.nav > li > a {
+.navbar ul.nav > li > a, 
+.navbar ul.nav > li > a:hover {
   color:#607848;
   font-family: verdana, serif;
 }
+.navbar ul.nav > li > a.active,
+.navbar ul.nav > li > a.active:hover {
+  background-color:#607848;
+}
+
 p {
   font-family:verdana;
   font-size:1.1em;
