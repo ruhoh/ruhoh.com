@@ -30,245 +30,6 @@ Use this to create your new blog scaffold:
 Your blog is now available at: [http://localhost:9292/](http://localhost:9292/)
 
 
-# Configuration
-
-Naturally, Ruhoh works out of the box. But you can fine-tine some settings in `_config.yml`:
-
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>_config.yml</em> &larr;</li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_media</em></li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_templates</em></li>
-</ul>
-
-## Set Permalink Format
-
-    # _config.yml
-    
-    permalink: /:categories/:title
-
-
-
-<table class="table-striped table-bordered table-condensed">
-  <thead>
-    <tr>
-      <th>Variable</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <tr>
-      <td>:year</td>
-      <td>Year from the post’s filename</td>
-    </tr>
-    
-    <tr>
-      <td>:month</td>
-      <td>Month from the post’s filename</td>
-    </tr>
-    
-    <tr>
-      <td>:day</td>
-      <td>Day from the post’s filename</td>
-    </tr>
-    
-    <tr>
-      <td>:title</td>
-      <td>Title from the post’s filename</td>
-    </tr>
-    
-    <tr>
-      <td>:categories</td>
-      <td>The specified categories for this post. If more than one category is set, only the first one is used. If no categories exist, the URL omits this parameter.</td>
-    </tr>
-    
-    <tr>
-      <td>:i_month</td>
-      <td>Month from the post’s filename without leading zeros.</td>
-    </tr>
-    
-    <tr>
-      <td>:i_day</td>
-      <td>Day from the post’s filename without leading zeros.</td>
-    </tr>
-    
-  </tbody>  
-</table>
-        
-
-### Examples
-
-Given the post filename: `2009-04-29-green-milk-tea.md`   
-with categories: `['california/food', 'dairy']`
-
-<table class="table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Permalink Format</th>
-      <th>Output</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>(default)</td>
-      <td>/2009/04/29/green-milk-tea.html</td>
-    </tr>
-    
-    <tr>
-      <td>/:categories/:title</td>
-      <td>/california/food/green-milk-tea/index.html</td>
-    </tr>
-    
-    <tr>
-      <td>/:month-:day-:year/:title.html</td>
-      <td>/04-29-2009/green-milk-tea.html</td>
-    </tr>
-    
-    <tr>
-      <td>/blog/:year/:month/:day/:title</td>
-      <td>/blog/2009/04/29/green-milk-tea/index.html</td>
-    </tr>
-
-  </tbody>  
-</table>
-
-
-## Set Theme
-  
-    # _config.yml
-  
-    theme: twitter
-
-
-# Comments
-
-Ruhoh provides widget codes for [Disqus](http://disqus.com), [Intense Debate](http://intensedebate.com), [livefyre](http://www.livefyre.com/), and [Facebook Comments](https://developers.facebook.com/docs/reference/plugins/comments/).
-
-## Add Comments
-
-To enable commenting for your blog you will need to have setup an account with one of these providers.
-In the `_config.yml` you should see a hash named `comments` as shown below:
-
-    # Settings for comments helper
-    # Set 'provider' to the comment provider you want to use.
-    # Set 'provider' to false to turn commenting off globally.
-
-    comments :
-      provider : disqus
-      disqus :
-        short_name : ruhoh
-      livefyre :
-        site_id : 123
-      intensedebate :
-        account : 123abc
-      facebook :
-        appid : 123
-        num_posts: 5
-        width: 580
-        colorscheme: light
-
-
-### Choose a Provider
-
-Set `provider` to the provider you intend to use. Make sure to specify your account credentials for the relevant provider within the hash named for _that_ provider.
-
-In the example above, the **disqus** provider will be used and will be provided with **ruhoh** as the account **short\_name**.
-
-### Custom Providers
-
-To use a custom provider, set `provider: custom`, then create a partial in the default partials folder:
-
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_templates</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_comments</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-This file will load wherever the theme has included its comments so you can inject your own widget code via this file.
-
-## Disable Comments
-
-Set `provider: false` to disable comments globally. 
-
-Disable comments for individual pages/posts by specifying `comments: false` in the page/post YAML Front Matter:
-
-    ---
-    layout: post
-    categories : lessons
-    comments : false
-    tags : [yay]
-    ---
-
-Internally, the value of "comments" will be cast to a String. So you must specify exactly the value `false` or `"false"` for this to work.
-
-
-# Analytics
-
-Ruhoh provides analytics codes for [Google](http://google.com/analytics), and [GetClicky](http://getclicky.com).
-
-## Add Analytics
-
-To enable analytics for your blog you will need to have setup an account with one of these providers.
-In the `_config.yml` you should see a hash named `analytics` as shown below:
-
-    # Settings for analytics helper
-    # Set 'provider' to the analytics provider you want to use.
-    # Set 'provider' to false to turn analytics off globally.
-    #        
-    analytics :
-      provider : google
-      google : 
-          tracking_id : 'UA-123-12'
-      getclicky :
-        site_id :
-
-
-### Choose a Provider
-
-Set `provider` to the provider you intend to use. Make sure to specify your account credentials for the relevant provider within the hash named for _that_ provider.
-
-In the example above, the **google** provider will be used and will be provided with **UA-123-12** as the account **tracking\_id**.
-
-### Custom Providers
-
-To use a custom provider, set `provider: custom`, then create a partial in the default partials folder:
-
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_templates</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_analytics</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-This file will load wherever the theme has included its analytics so you can inject your own widget code via this file.
-
-## Disable Analytics
-
-Set `provider: false` to disable analytics globally. 
-
-Disable analytics for individual pages/posts by specifying `analytics: false` in the post/page YAML Front Matter:
-
-    ---
-    layout: post
-    categories : lessons
-    analytics : false
-    tags : [yay]
-    ---
-
-Internally, the value of "analytics" will be cast to a String. So you must specify exactly the value `false` or `"false"` for this to work.
-
 # Pages
 
 ## Create a Page
@@ -425,16 +186,38 @@ or
 
 # Media
 
-
 ## Embed Code
 
-Not implemented yet!
+<span class="label label-important">Not Implemented</span>
+
 
 A templating mechanism for embedding a Gist as well as embedding blocks of code specified in a remote file.
 This will work similar to partials but be optimized for code.
 
+## Insert Images
 
-## Highlight Code
+The media folder is used as a convenient place to store your blog's media:
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_media</em><br>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-picture">.</span> <em class="template">[...my-media-file...]</em> &larr;</li>
+    </ul>
+  </li>
+</ul>
+
+Organize your files any way you wish, then use the special `MEDIA_PATH` template variable to refer the media folder:
+
+{{#raw_code}}
+<img src="{{MEDIA_PATH}}/my-media-file.jpg">
+{{/raw_code}}
+    
+Using a dynamic path is helpful when you want to switch to a CDN and or reorganize the way you handle your media.
+
+
+# Syntax Highlighting
+
+## Google Prettify
 
 Content specified in `<pre></pre>` and/or `<code></code>` blocks is automatically highlighted
 via [Google Prettify](http://google-code-prettify.googlecode.com/svn/trunk/README.html)
@@ -443,10 +226,13 @@ Google Prettify is a client-side javascript library for highlighting code.
 
 Prettify (tries to) automatically detect the language and highlight the syntax appropriately. 
 
-### Customize Styling
+### Customize Styling Rules
 
-The syntax styles are all contained in the `./_media/highlight/syntax.css` file.
-Play around with the styles to customize your own theme.
+The syntax styles are all contained in the `./_media/google_prettify.css` file.
+Extend the styles as needed.
+
+Google Prettify also has some [user-submitted themes](http://google-code-prettify.googlecode.com/svn/trunk/styles/index.html) available for use.
+
 
 ### Disable Google Prettify
 
@@ -466,25 +252,235 @@ to get running. It is also accessible to the most users due to its client-side r
 [Pygments](http://pygments.org/), in contrast is likely much more powerful but requires server-side dependencies 
 that are beyond the scope of Ruhoh beta.  More comprehensive code highlighting options will be available over time.
 
-## Insert Images
 
-The media folder is used as a convenient place to store your blog's media:
+# Comments
+
+Ruhoh provides widget codes for [Disqus](http://disqus.com), [Intense Debate](http://intensedebate.com), [livefyre](http://www.livefyre.com/), and [Facebook Comments](https://developers.facebook.com/docs/reference/plugins/comments/).
+
+## Add Comments
+
+To enable commenting for your blog you will need to have setup an account with one of these providers.
+In the `_config.yml` you should see a hash named `comments` as shown below:
+
+    # Settings for comments helper
+    # Set 'provider' to the comment provider you want to use.
+    # Set 'provider' to false to turn commenting off globally.
+
+    comments :
+      provider : disqus
+      disqus :
+        short_name : ruhoh
+      livefyre :
+        site_id : 123
+      intensedebate :
+        account : 123abc
+      facebook :
+        appid : 123
+        num_posts: 5
+        width: 580
+        colorscheme: light
+
+
+### Choose a Provider
+
+Set `provider` to the provider you intend to use. Make sure to specify your account credentials for the relevant provider within the hash named for _that_ provider.
+
+In the example above, the **disqus** provider will be used and will be provided with **ruhoh** as the account **short\_name**.
+
+### Custom Providers
+
+To use a custom provider, set `provider: custom`, then create a partial in the default partials folder:
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_media</em><br>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_templates</em>
     <ul>
-      <li><span class="ui-silk inline ui-silk-picture">.</span> <em class="template">[...my-media-file...]</em> &larr;</li>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_comments</em> &larr;</li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>
 
-Organize your files any way you wish, then use the special `MEDIA` template variable to refer the media folder:
+This file will load wherever the theme has included its comments so you can inject your own widget code via this file.
 
-{{#raw_code}}
-<img src="{{MEDIA}}/my-media-file.jpg">
-{{/raw_code}}
+## Disable Comments
+
+Set `provider: false` to disable comments globally. 
+
+Disable comments for individual pages/posts by specifying `comments: false` in the page/post YAML Front Matter:
+
+    ---
+    layout: post
+    categories : lessons
+    comments : false
+    tags : [yay]
+    ---
+
+Internally, the value of "comments" will be cast to a String. So you must specify exactly the value `false` or `"false"` for this to work.
+
+
+# Analytics
+
+Ruhoh provides analytics codes for [Google](http://google.com/analytics), and [GetClicky](http://getclicky.com).
+
+## Add Analytics
+
+To enable analytics for your blog you will need to have setup an account with one of these providers.
+In the `_config.yml` you should see a hash named `analytics` as shown below:
+
+    # Settings for analytics helper
+    # Set 'provider' to the analytics provider you want to use.
+    # Set 'provider' to false to turn analytics off globally.
+    #        
+    analytics :
+      provider : google
+      google : 
+          tracking_id : 'UA-123-12'
+      getclicky :
+        site_id :
+
+
+### Choose a Provider
+
+Set `provider` to the provider you intend to use. Make sure to specify your account credentials for the relevant provider within the hash named for _that_ provider.
+
+In the example above, the **google** provider will be used and will be provided with **UA-123-12** as the account **tracking\_id**.
+
+### Custom Providers
+
+To use a custom provider, set `provider: custom`, then create a partial in the default partials folder:
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_templates</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_analytics</em> &larr;</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+This file will load wherever the theme has included its analytics so you can inject your own widget code via this file.
+
+## Disable Analytics
+
+Set `provider: false` to disable analytics globally. 
+
+Disable analytics for individual pages/posts by specifying `analytics: false` in the post/page YAML Front Matter:
+
+    ---
+    layout: post
+    categories : lessons
+    analytics : false
+    tags : [yay]
+    ---
+
+Internally, the value of "analytics" will be cast to a String. So you must specify exactly the value `false` or `"false"` for this to work.
+
+
+# Permalinks
+
+Set the permalink format in the `_config.yml` file:
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>_config.yml</em> &larr;</li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>...</em></li>
+</ul>
+
+    permalink: /:categories/:title
+
+
+## Permalink Variables
+
+<table class="table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>:year</td>
+      <td>Year from the post’s filename</td>
+    </tr>
     
-Using a dynamic path is helpful when you want to switch to a CDN and or reorganize the way you handle your media.
+    <tr>
+      <td>:month</td>
+      <td>Month from the post’s filename</td>
+    </tr>
+    
+    <tr>
+      <td>:day</td>
+      <td>Day from the post’s filename</td>
+    </tr>
+    
+    <tr>
+      <td>:title</td>
+      <td>Title from the post’s filename</td>
+    </tr>
+    
+    <tr>
+      <td>:categories</td>
+      <td>The specified categories for this post. If more than one category is set, only the first one is used. If no categories exist, the URL omits this parameter.</td>
+    </tr>
+    
+    <tr>
+      <td>:i_month</td>
+      <td>Month from the post’s filename without leading zeros.</td>
+    </tr>
+    
+    <tr>
+      <td>:i_day</td>
+      <td>Day from the post’s filename without leading zeros.</td>
+    </tr>
+    
+  </tbody>  
+</table>
+        
+
+## Permalink Examples
+
+Given the post filename: `2009-04-29-green-milk-tea.md`   
+with categories: `['california/food', 'dairy']`
+
+<table class="table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Permalink Format</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(default)</td>
+      <td>/2009/04/29/green-milk-tea.html</td>
+    </tr>
+    
+    <tr>
+      <td>/:categories/:title</td>
+      <td>/california/food/green-milk-tea/index.html</td>
+    </tr>
+    
+    <tr>
+      <td>/:month-:day-:year/:title.html</td>
+      <td>/04-29-2009/green-milk-tea.html</td>
+    </tr>
+    
+    <tr>
+      <td>/blog/:year/:month/:day/:title</td>
+      <td>/blog/2009/04/29/green-milk-tea/index.html</td>
+    </tr>
+
+  </tbody>  
+</table>
+
 
 
 # Layouts
@@ -740,7 +736,8 @@ The unabridged version is comprehensively documented in the API section.
           "category2" => {...},
         }
       },
-      "ASSET_PATH" => "/_templates/themes/some-theme/"
+      "ASSET_PATH" => "/_templates/themes/some-theme/",
+      "MEDIA_PATH" => "/_media/"
     }
     
 Next we'll document how to use this data throughout your pages using the Templating system.
