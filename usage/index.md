@@ -115,7 +115,7 @@ Create drafts as you would a post, but instead use the word 'draft':
 
 When you are ready to publish, just move the file from the `_drafts` folder to the `_posts` folder.
 
-## Tags
+## Add Tags
 
 Add one or more tags to a post by including them into the post's YAML Front Matter.
 This is the YAML block is at the top of the file:
@@ -145,7 +145,7 @@ or
       - expert
     ---
     
-## Categories
+## Add Categories
 
 Add one or more categories to a post by including them into the post's YAML Front Matter.
 This is the YAML block is at the top of the file:
@@ -217,40 +217,83 @@ Using a dynamic path is helpful when you want to switch to a CDN and or reorgani
 
 # Syntax Highlighting
 
-## Google Prettify
 
-Content specified in `<pre></pre>` and/or `<code></code>` blocks is automatically highlighted
-via [Google Prettify](http://google-code-prettify.googlecode.com/svn/trunk/README.html)
+## Enable Highlighting
 
-Google Prettify is a client-side javascript library for highlighting code.
+Syntax highlighting is enabled by default using [Google Prettify](http://google-code-prettify.googlecode.com/svn/trunk/README.html).
+Content specified in `<pre></pre>` blocks will be automatically highlighted.
+Prettify tries to automatically detect the language and highlight the syntax appropriately. 
 
-Prettify (tries to) automatically detect the language and highlight the syntax appropriately. 
+### Settings
 
-### Customize Styling Rules
-
-The syntax styles are all contained in the `./_media/google_prettify.css` file.
-Extend the styles as needed.
-
-Google Prettify also has some [user-submitted themes](http://google-code-prettify.googlecode.com/svn/trunk/styles/index.html) available for use.
+In the `_config.yml` you should see a hash named `syntax` as shown below:
 
 
-### Disable Google Prettify
+    syntax :
+      provider : google_prettify
+      google_prettify : 
+          theme: sunburst
+          linenums : true
 
-Most likely you'd disable Prettify if you intend to use your own highlighting system, whether server-side or 
-via another Javascript library.
+In the example above, the **google_prettify** provider will be used and will be provided with **sunburst** as the theme and **linenums** enabled.
 
-Disable Google Prettify in your `_config.yml` file:
+## Edit Styling Rules
 
-    # config.yml
-    prettify_code : false
+All styling rules are maintained in their own theme-specific CSS file.
+These files are name-spaced by the specific syntax highlighting provider you've chosen:
 
-### Using other Custom Highlighting Providers
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_templates</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>syntax</em>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>google_prettify</em>
+            <ul>
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>default.css</em></li>
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>desert.css</em></li>
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>sons-of-obsidian.css</em></li>
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>sunburst.css</em></li>
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>twitter-bootstrap.css</em> &larr; (default)</li>
+            </ul>  
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+Ruhoh blogs come with all four of Google Prettify's [user-submitted themes](http://google-code-prettify.googlecode.com/svn/trunk/styles/index.html) as well as 
+the code-highlighting theme packaged with [Twitter Bootstrap](http://twitter.github.com/bootstrap/base-css.html#code)
+
+Add more themes or edit existing ones, then remember to specify your theme choice in `_config.yml`:
+
+    syntax :
+      provider : google_prettify
+      google_prettify : 
+          theme: sunburst # specify theme name here with .css extension omitted.
+          linenums : true
+
+## Custom Providers
 
 The initial version of Ruhoh supports only Google Prettify because it's the easiest
 to get running. It is also accessible to the most users due to its client-side runtime.
 
 [Pygments](http://pygments.org/), in contrast is likely much more powerful but requires server-side dependencies 
 that are beyond the scope of Ruhoh beta.  More comprehensive code highlighting options will be available over time.
+
+
+## Disable Highlighting
+
+Most likely you'd disable Prettify if you intend to use your own highlighting system, whether server-side or 
+via another Javascript library.
+
+Set `provider: false` to disable syntax highlighting globally. 
+
+    syntax :
+      provider : false
+      google_prettify : 
+          theme: sunburst
+          linenums : true
 
 
 # Comments
@@ -736,7 +779,7 @@ The unabridged version is comprehensively documented in the API section.
           "category2" => {...},
         }
       },
-      "ASSET_PATH" => "/_templates/themes/some-theme/",
+      "THEME_PATH" => "/_templates/themes/some-theme/",
       "MEDIA_PATH" => "/_media/"
     }
     
