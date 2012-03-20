@@ -141,9 +141,11 @@ with categories: `['california/food', 'dairy']`
     theme: twitter
 
 
-## Set Comments
+# Comments
 
 Ruhoh provides widget codes for [Disqus](http://disqus.com), [Intense Debate](http://intensedebate.com), [livefyre](http://www.livefyre.com/), and [Facebook Comments](https://developers.facebook.com/docs/reference/plugins/comments/).
+
+## Add Comments
 
 To enable commenting for your blog you will need to have setup an account with one of these providers.
 In the `_config.yml` you should see a hash named `comments` as shown below:
@@ -177,11 +179,21 @@ In the example above, the **disqus** provider will be used and will be provided 
 
 To use a custom provider, set `provider: custom`, then create a partial in the default partials folder:
 
-    ./_templates/partials/comments
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_templates</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_comments</em> &larr;</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
 This file will load wherever the theme has included its comments so you can inject your own widget code via this file.
 
-### Disabling Comments
+## Disable Comments
 
 Set `provider: false` to disable comments globally. 
 
@@ -194,10 +206,14 @@ Disable comments for individual pages/posts by specifying `comments: false` in t
     tags : [yay]
     ---
 
+Internally, the value of "comments" will be cast to a String. So you must specify exactly the value `false` or `"false"` for this to work.
 
-## Set Analytics
+
+# Analytics
 
 Ruhoh provides analytics codes for [Google](http://google.com/analytics), and [GetClicky](http://getclicky.com).
+
+## Add Analytics
 
 To enable analytics for your blog you will need to have setup an account with one of these providers.
 In the `_config.yml` you should see a hash named `analytics` as shown below:
@@ -224,11 +240,21 @@ In the example above, the **google** provider will be used and will be provided 
 
 To use a custom provider, set `provider: custom`, then create a partial in the default partials folder:
 
-    ./_templates/partials/analytics
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_templates</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_analytics</em> &larr;</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
 This file will load wherever the theme has included its analytics so you can inject your own widget code via this file.
 
-### Disabling Analytics
+## Disable Analytics
 
 Set `provider: false` to disable analytics globally. 
 
@@ -240,6 +266,8 @@ Disable analytics for individual pages/posts by specifying `analytics: false` in
     analytics : false
     tags : [yay]
     ---
+
+Internally, the value of "analytics" will be cast to a String. So you must specify exactly the value `false` or `"false"` for this to work.
 
 # Pages
 
