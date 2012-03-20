@@ -4,7 +4,6 @@ permalink: /:categories/:title
 theme : twitter
 
 production_url : http://username.github.com
-ASSET_PATH : false
 
 archive_path: /archive.html
 categories_path : /categories.html
@@ -30,3 +29,9 @@ analytics :
       tracking_id : 'UA-123-12'
   getclicky :
     site_id : 
+
+syntax :
+  provider : google_prettify
+  google_prettify : 
+      theme: sunburst-custom
+      linenums : true
