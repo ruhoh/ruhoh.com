@@ -96,25 +96,6 @@ The date must be in the format: `YYYY-MM-DD` else the client will give you a nic
 
 The client will never overwrite existing posts unless you tell it to.
 
-## Create a Draft
-
-A post draft is useful for including a post into your blog that will preview in your development environment
-but _will not_ be output via the Compiler. Additionally any meta-data on draft-posts are not added to the site-wide meta-data (e.g tag and category aggregates).
-
-Create drafts as you would a post, but instead use the word 'draft':
-
-    $ ruhoh draft 'Hello World' 2012-10-10
-
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_drafts</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>2012-10-10-hello-world.md</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
-
-When you are ready to publish, just move the file from the `_drafts` folder to the `_posts` folder.
-
 ## Add Tags
 
 Add one or more tags to a post by including them into the post's YAML Front Matter.
@@ -182,6 +163,41 @@ or
       - 'code/android/games'
       - 'game-downloads'
     ---
+
+# Drafts
+
+Drafts function exactly the same as regular posts as outlined above.
+The main difference is drafts and draft meta-data like tags and categories are not aggregated with the main posts data.
+
+## Create a Draft
+
+A post draft is useful for including a post into your blog that will preview in your development environment
+but _will not_ be output via the Compiler when you publish your blog.
+
+Create drafts as you would a post, but instead use the word 'draft':
+
+    $ ruhoh draft 'Hello World'
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_drafts</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>2012-10-10-hello-world.md</em> &larr;</li>
+    </ul>
+  </li>
+</ul>
+
+## Preview Drafts
+
+The Ruhoh Previewer recognizes a special page which lists links to all available post drafts:
+
+[http://localhost:9292/_drafts](http://localhost:9292/_drafts)
+
+Draft URLs work exactly as normal posts so you can get a full sense of how your draft will be available once it's published.
+
+## Publish Drafts
+
+When you are ready to publish, just move the file from the `_drafts` folder to the `_posts` folder.
+
 
 
 # Media
@@ -780,6 +796,7 @@ The unabridged version is comprehensively documented in the API section.
         }
       },
       "THEME_PATH" => "/_templates/themes/some-theme/",
+      "SYNTAX_PATH" => "/_templates/syntax/",
       "MEDIA_PATH" => "/_media/"
     }
     
