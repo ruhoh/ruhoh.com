@@ -191,3 +191,31 @@ We can simplify the concept of data into three Global data types:
     
   </tbody>  
 </table>
+
+
+## Vision
+
+Ruhoh's vision is to evolve the best and biggest technical blogging community in the world.
+
+The design choices reflect this vision. At it's simplest, Ruhoh only does two things:
+
+1. Parses a directory to build a Data API.
+2. Uses the Data API to build web pages.
+
+### Ruhoh's technical goals:
+
+- Universal Blog API for static blogging.
+- Modular, decoupled architecture.
+- Language independence.
+- Open and Free.
+
+Accomplishing the technical goals will help accomplish the main vision.
+The API can be free of any language dependency allowing users, regardless of language and/or platform,
+to join and evolve a common community.
+
+Technical blogging is important to me because programming literacy is a necessity for the future.
+
+Many people have shared their knowledge through blogs and documentation for which I would be nowhere close to where I am today without it.
+It is important I continue to proliferate knowledge for the good of all people.
+
+I can sure use your help. =D
