@@ -2,11 +2,24 @@
 layout: docs
 ---
 
+# Hello
+
+Ruhoh is stable and ready to deploy production quality blogs into the wild.
+This page outlines everything you need to get started, create excellent content, and deploy your blog.
+
+Ruhoh is in beta, so it may lack features you want and need.
+Help me build a great product we can all use and love.
+Feedback is extremely valuable and may be submitted through:
+
+- [GitHub Issues](https://github.com/ruhoh/ruhoh.rb/issues)
+- [#plusjade](https://twitter.com/plusjade)
+- [plusjade@gmail.com](mailto:plusjade@gmail.com)
+
 # Development Setup
 
 ## Ruby 
 
-Running your Ruhoh static blog in ruby is as easy as intalling the Ruhoh gem.
+Running your Ruhoh static blog in ruby is as easy as installing the Ruhoh gem.
 The ruhoh gem depends on:
 
 - **rack** - for web-server integration
@@ -64,20 +77,71 @@ Create a page with a "pretty" path:
   <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
     <li><span class="ui-silk inline ui-silk-folder">.</span> <em>android</em>
       <ul>
-        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>index.html</em> &larr;</li>
+        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>index.md</em> &larr;</li>
       </ul>
     </li>
 </ul>
 
-The client automatically creates a page file with properly formatted filename and YAML Front Matter.
+### Custom File Extensions.
 
+
+By default, Ruhoh uses the `.md` markdown extension.
+The extension can be customized by passing a custom extension via `--ext`:
+
+    $ ruhoh page projects/android --ext .html
+    
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
+    <li><span class="ui-silk inline ui-silk-folder">.</span> <em>android</em>
+      <ul>
+        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>index.html</em> &larr;</li>
+      </ul>
+    </li>
+</ul>
+    
 # Posts
 
-## Create a Post
+**All posts must start out as drafts first.**
 
-Post stubs can automatically be created using the Ruhoh command-line client.
+Drafts require no parameters so as to encourage a "write first" workflow.
+Drafts and their meta-data are never compiled as part of your finished static website.
+Conversely only published drafts are compiled.
 
-    $ ruhoh post 'Hello World'
+## Create a Draft
+
+To create a draft, execute the following command in the working directory of your blog:
+
+    $ ruhoh draft
+
+A file is created in the drafts folder of your blog, identified by its creation unix timestamp:
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_drafts</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>1332976976.md</em> &larr;</li>
+    </ul>
+  </li>
+</ul>
+
+## Preview Drafts
+
+The Ruhoh Previewer recognizes a special page which lists links to all available post drafts:
+
+[http://localhost:9292/_drafts](http://localhost:9292/_drafts)
+
+Note that since drafts do not require any parameters, the permalinks for drafts can not be determined so they are not used.
+
+Also, at this time, drafts do not show categories and tags.
+This is because tags and categories for drafts do not get parsed into the "database" so
+they are not query-able via the templating system.
+
+## Publish Drafts
+
+Publish a draft using the Ruhoh command-line client:
+
+    ruhoh publish
+
+Publishing a draft first validates the draft file, then moves it to the posts folder:
 
 <ul class="folder-tree">
   <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em>
@@ -87,14 +151,20 @@ Post stubs can automatically be created using the Ruhoh command-line client.
   </li>
 </ul>
     
-The client automatically creates a file with properly formatted filename and YAML Front Matter.
-By default, the date is the current date. You can additionally pass in a custom date:
+The above command publishes the **last active** draft.
+Internally, this is determined by the file's `ctime` or file modification (change) time.
 
-    $ ruhoh post 'Hello World' 2012-10-10
+The typical workflow would be to create a draft, edit it to your liking, then use `ruhoh publish`
+to publish the draft you just finished editing.
 
-The date must be in the format: `YYYY-MM-DD` else the client will give you a nice error.
 
-The client will never overwrite existing posts unless you tell it to.
+If you need to publish a specific draft, just make sure to modify that draft in some way before calling publish.
+An easy way to do so would be `touch`:
+
+    touch _draft/1332976976.md
+
+See here for info: <http://en.wikipedia.org/wiki/Touch_(Unix)>
+
 
 ## Add Tags
 
@@ -163,41 +233,6 @@ or
       - 'code/android/games'
       - 'game-downloads'
     ---
-
-# Drafts
-
-Drafts function exactly the same as regular posts as outlined above.
-The main difference is drafts and draft meta-data like tags and categories are not aggregated with the main posts data.
-
-## Create a Draft
-
-A post draft is useful for including a post into your blog that will preview in your development environment
-but _will not_ be output via the Compiler when you publish your blog.
-
-Create drafts as you would a post, but instead use the word 'draft':
-
-    $ ruhoh draft 'Hello World'
-
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_drafts</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>2012-10-10-hello-world.md</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
-
-## Preview Drafts
-
-The Ruhoh Previewer recognizes a special page which lists links to all available post drafts:
-
-[http://localhost:9292/_drafts](http://localhost:9292/_drafts)
-
-Draft URLs work exactly as normal posts so you can get a full sense of how your draft will be available once it's published.
-
-## Publish Drafts
-
-When you are ready to publish, just move the file from the `_drafts` folder to the `_posts` folder.
-
 
 
 # Media
@@ -956,23 +991,88 @@ Assuming the current `page` object is a post:
 {{/raw_code}}
 
 
+# Compiling
+
+When you are ready to publish your blog you'll first need to compile it.
+The compiling step expands all of your pages and templates to their final rendered state.
+
+## Compile Your Blog
+
+The ruhoh command-line client can be used to compile your blog:
+
+    ruhoh compile
+    
+Your blog is generated and output into the \_compiled directory:
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_compiled</em></li>
+</ul>
+
+## Preview Compiled Blog
+
+
+### Python
+
+Use python to preview your compiled static blog:
+
+    cd _compiled
+    python -m SimpleHTTPServer
+    
+
+<http://localhost:8000/>
+
+(credit to [linuxjournal.com](http://www.linuxjournal.com/content/tech-tip-really-simple-http-server-python))
+
+### PHP 5.4.x
+
+Oh boy the new PHP!
+
+    cd _compiled
+    php -S localhost:8000
+
+<http://localhost:8000/>
+
+(credit to [PHP Docs](http://php.net/manual/en/features.commandline.webserver.php))
+
+### Ruby
+    
+Would you believe how ridiculously hard it is to serve static files using rack?
+`Rack::Static` won't serve documentRoot index.html files. 
+
+If you insist, you can create your config.ru in \_compiled with the following content:
+
+    require 'rack'
+    use Rack::Lint
+    use Rack::ShowExceptions
+    use Rack::Static, {:urls => ['/'], :index => 'index.html' }
+    run Proc.new { }
+
+This will work for everything except url paths that should resolve to the documentRoot index.html file.
+ex: `http://localhost:9292/projects/` should show `http://localhost:9292/projects/index.html`
+but it appears to be a huge pain the ass to do it =/ If you know how to get this to work
+it will be much appreciated!
+
+
 # Hosting
 
+Ruhoh is made to be hosted as a static blog. That is you take the compiled version of your blog and 
+point a vanilla web-server to the directory which directly serves the static asset files.
 
-After you've added posts or made changes to your theme or other files, simply commit them to your git repo and push the commits up to GitHub.
+## More
 
-    $ git add .
-    $ git commit -m "Add new content"
-    $ git push origin master
+In the interest of shipping early and often I have shamefully neglected
+the Hosting part of the documentation.
 
-A GitHub post-commit hook will automatically deploy your changes to your hosted blog. You will receive a success or failure notice for every commit you make to your blog.
+The good news is I know you developers are quite highly self-sufficient.
+I'm rushing to add in stunningly easy deploy methods, but until then you can read
+the [Jekyll Custom Deploy Options](https://github.com/mojombo/jekyll/wiki/Deployment)
+as they will work exactly the same way. Just change `_site` for `_compiled`
 
-## ruhoh.com
-## github.com
-## Amazon S3
-## rsync
-## scp
-## dropbox
-## webhooks
-## heroku.com
-## ftp
+### On the RoadMap
+
+- Amazon s3
+- GitHub.com
+- Dropbox.com  
+- heroku.com
+- rack
+

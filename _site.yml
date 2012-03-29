@@ -1,4 +1,4 @@
-title : Ruhoh
+title : ruhoh
 tagline: Site Tagline
 author :
   name : Jade Dominguez
@@ -9,5 +9,6 @@ author :
 
 navigation :
   - quick-start.md
-  - how-it-works/index.md
   - usage/index.md
+  - how-it-works/index.md
+  - universal-api/index.md

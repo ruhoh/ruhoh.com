@@ -5,5 +5,5 @@ Ruhoh.setup
 
 use Rack::Lint
 use Rack::ShowExceptions
-use Rack::Static, {:urls => ['/_media', "/#{Ruhoh.folders.templates}"]}
-run Ruhoh::Preview.new
+use Rack::Static, {:urls => ["/#{Ruhoh.folders.media}", "/#{Ruhoh.folders.templates}"]}
+run Ruhoh::Previewer.new
