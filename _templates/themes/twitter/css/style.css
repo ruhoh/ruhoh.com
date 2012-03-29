@@ -101,6 +101,11 @@ dl dd {
 .table-of-contents ul, .table-of-contents ul li {
   list-style:none;
 }
+
+.table-of-contents ul li.active a {
+  color:orange;
+  font-weight:bold;
+}
 /* tag_box ======================================================== */
 
 .tag_box {
@@ -135,9 +140,10 @@ dl dd {
 	
 ul.folder-tree {
   margin-left:0;
-  border:1px solid #ccc;
-  border-radius:3px;
   padding:10px;
+  border-radius:3px;
+  background:#FFF url('/_media/stripe.png') repeat;
+  box-shadow:inset 0 0 5px #F0F0D8;
 }	
 ul.folder-tree, ul.folder-tree ul {
   list-style:none;
@@ -148,6 +154,7 @@ ul.folder-tree li em , ul.folder-tree ul li em{
   font-style:normal;
   padding:1px 8px;
   border-radius:3px;
+  background:#FFF;
 }
 
 ul.folder-tree li em.config, ul.folder-key li.config {
