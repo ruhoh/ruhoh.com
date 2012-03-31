@@ -1,5 +1,5 @@
 ---
-title: Universal API
+title: Universal Blog API
 description:
 
 layout: page

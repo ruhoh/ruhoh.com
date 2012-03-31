@@ -11,4 +11,4 @@ navigation :
   - quick-start.md
   - usage/index.md
   - how-it-works/index.md
-  - universal-api/index.md
+  - universal-blog-api/index.md

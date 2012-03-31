@@ -213,9 +213,6 @@ Accomplishing the technical goals will help accomplish the main vision.
 The API can be free of any language dependency allowing users, regardless of language and/or platform,
 to join and evolve a common community.
 
-Technical blogging is important to me because programming literacy is a necessity for the future.
-
-Many people have shared their knowledge through blogs and documentation for which I would be nowhere close to where I am today without it.
-It is important I continue to proliferate knowledge for the good of all people.
-
 I can sure use your help. =D
+
+Join me on [Ruhoh's GitHub Project Page](https://github.com/ruhoh/ruhoh.rb)
