@@ -20,14 +20,11 @@ html, body {
 
 /* social */
 .social {
-  list-style:none;
-  float:right;
-  position:relative;
-  right:100px;
-  top:10px;
+  margin:0 10px;
 }
-.social li {
-  display:inline;
+.social iframe{
+  position:relative;
+  top:10px;
 }
 
 p {
