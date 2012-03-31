@@ -18,6 +18,18 @@ html, body {
   background-color:#607848;
 }
 
+/* social */
+.social {
+  list-style:none;
+  float:right;
+  position:relative;
+  right:100px;
+  top:10px;
+}
+.social li {
+  display:inline;
+}
+
 p {
   font-family:verdana;
   font-size:1.1em;
