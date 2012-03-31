@@ -24,11 +24,11 @@ comments :
     colorscheme: light
 
 analytics :
-  provider : google
+  provider : getclicky
   google : 
       tracking_id : 'UA-123-12'
   getclicky :
-    site_id : 
+    site_id : 66563918
 
 syntax :
   provider : google_prettify
