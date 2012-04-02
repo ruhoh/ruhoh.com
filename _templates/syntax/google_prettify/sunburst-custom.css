@@ -14,13 +14,13 @@ pre .atv, code .atv { color: #65B042; } /* html/xml attribute value - green */
 pre .dec, code .dec { color: #3387CC; } /* decimal - blue */
 
 pre.prettyprint, code.prettyprint {
-	background-color: #333;
+	background-color: #221F26;
 	-moz-border-radius: 0 4px 4px 0;
 	-webkit-border-radius: 0 4px 4px 0;
 	-o-border-radius: 0 4px 4px 0;
 	-ms-border-radius: 0 4px 4px 0;
 	-khtml-border-radius: 0 4px 4px 0;
-	border-radius: 0 4px 4px 0;
+	border-radius: 4px 4px 4px 4px;
 }
 
 pre.prettyprint {
