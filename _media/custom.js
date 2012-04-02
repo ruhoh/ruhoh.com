@@ -8,8 +8,18 @@ var Toc = {
     Toc.$wrapper = $(wrapper);
 
     Toc.build();
-    Toc.toggle();
-    $(window).resize(function(){ Toc.toggle() })
+    
+    Toc.$container.find("button").click(function(){
+      Toc.$container.find('.toc-container').toggle();
+    })
+    
+    Toc.$container.find('.toc-container').find('a').live('click', function(e){
+      Toc.$container.find('.toc-container').toggle();
+      var top = $($(this).attr("href")).offset().top - 60;
+      $('html, body').scrollTop(top);
+      e.preventDefault();
+      return false;
+    })
   },
 
   build : function(){
@@ -22,22 +32,20 @@ var Toc = {
       h1.push(h);
     })
 
-    var cache = '';
-    h1.forEach(function(node){
-      cache += '<h4><a href="#'+ node.h1.id + '">'+$(node.h1).text()+'</a></h4>';
-
+    var half = Math.floor(h1.length / 2);
+    var cache = '<div class="pane">';
+    for(var i=0, len=h1.length; i < len; i++){
+      cache += '<h4><a href="#'+ h1[i].h1.id + '">'+$(h1[i].h1).text()+'</a></h4>';
       cache += "<ul>"
-      node.children.each(function(){
+      h1[i].children.each(function(){
         cache += '<li class="sub"><a href="#'+ this.id + '">'+ $(this).text() + '</a></li>';
       })
       cache += "</ul>";
-    })
+      if(i === half) cache += '</div><div class="pane">';
+    }
+    cache += '</div>';
 
-    Toc.$container.prepend(cache);
-  },
-
-  toggle :function(){
-    if($(window).width() > 1000) Toc.$container.show();
-    else Toc.$container.hide();
+    Toc.$container.find('.toc-container').prepend(cache);
   }
+
 }

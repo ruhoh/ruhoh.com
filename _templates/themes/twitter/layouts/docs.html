@@ -1,26 +1,18 @@
 ---
 layout : default
 ---
-<style type="text/css">
-  h1 {
-    margin-left:-40px;
-    font-size:28px;
-    font-family:verdana;
-    border-radius:3px;
-  }
-</style>
 
-<div class="row">
-  
-  <div id="main-content" class="span8 offset1">
-    {{ content }}
-  </div>
-  
-  <div class="span3">
-    <div class="table-of-contents" id="side-content">
+<div id="table-of-contents" class="navbar-fixed-top">
+  <div class="wrap">
+    <button class="btn btn-warning" style="position:absolute; right:0">Table of Contents</button>
+    <div class="toc-container" style="display:none">
       &#160;
     </div>
   </div>
+</div>
 
-
+<div class="row">
+  <div id="main-content" class="span10 offset1 docs">
+    {{ content }}
+  </div>
 </div>

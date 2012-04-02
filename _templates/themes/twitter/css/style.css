@@ -38,12 +38,19 @@ h1, h2, h3, h4, h5 {
 h1 {
   margin-bottom:15px;
 }
+#main-content.docs h1 {
+  margin:50px 0 50px 0;
+  font-size:38px;
+  font-family:verdana;
+  color:#221F26;
+  text-align:center;
+}
+
 h2 {
   border-top:3px solid #F0F0D8;
   padding-top:10px;
   margin-top:20px;
   margin-bottom:10px;
-  margin-left:-20px;
   color:#607848;
 }
 h3 {
@@ -84,37 +91,78 @@ dl dd {
   margin-bottom:10px;
 }
 
-.table-of-contents {
-  top:0; 
-  position:fixed;
+
+/* table of contents --------------------------------------- */
+
+.toc-container {
+  height:500px;
+  overflow:auto;
   padding:20px;
-  height:80%;
-  margin-left:20px;
-  border-left:2px solid #F0F0D8;
-  overflow:auto; 
-  background:#FFF;
+  margin-top:-1px;
+  background:#C0D860;
+  border:2px solid #F0F0D8;
+  border-radius:0 0 5px 5px;
 }
-.table-of-contents h4 {
-  border-top:2px solid #F0F0D8;
-  padding-top:8px;
-  margin-bottom:8px;
-  color:#444;
-}
-.table-of-contents h5 {
-  color:#555;
+.toc-container .pane {
+  width:48%;
+  float:left;
 }
 
-.table-of-contents ul {
-  margin-left:0px;
+.toc-container h4 {
+  margin-bottom:10px;
+  padding:3px 0;
+}  
+
+.toc-container h4 a {
+  color:#789048;
+  padding:3px 6px;
+  background:#FFF;
+  border-radius:3px;
 }
-.table-of-contents ul, .table-of-contents ul li {
+
+.toc-container ul {
+  margin-left:3px;
+  margin-bottom:10px;
+}
+.toc-container ul, .toc-container ul li {
   list-style:none;
 }
 
-.table-of-contents ul li.active a {
+.toc-container a, .toc-container ul li a {
+  color:#607848;
+}  
+
+.toc-container ul li.active a {
   color:orange;
   font-weight:bold;
 }
+
+#table-of-contents {
+  top:41px;
+  overflow:visible;
+}
+
+#table-of-contents div.wrap {
+  margin:auto;
+  width:780px;
+  position:relative;
+}
+
+
+/* contact-list */
+ul.contact-list {
+  margin-top:20px;
+  text-align:center;
+}
+ul.contact-list li {
+  list-style:none;
+  display:inline-block;
+  line-height:28px;
+  width:30%;
+}
+ul.contact-list li.tweet iframe { position:relative; top:5px}
+
+
 /* tag_box ======================================================== */
 
 .tag_box {
