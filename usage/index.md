@@ -2,7 +2,7 @@
 layout: docs
 ---
 
-# Hello
+# Status
 
 Ruhoh is stable and ready to deploy production quality blogs into the wild.
 This page outlines everything you need to get started, create excellent content, and deploy your blog.
@@ -11,9 +11,7 @@ Ruhoh is in beta, so it may lack features you want and need.
 Help me build a great product we can all use and love.
 Feedback is extremely valuable and may be submitted through:
 
-- [GitHub Issues](https://github.com/ruhoh/ruhoh.rb/issues)
-- [#plusjade](https://twitter.com/plusjade)
-- [plusjade@gmail.com](mailto:plusjade@gmail.com)
+{{> contact_list }}
 
 # Development Setup
 

@@ -12,13 +12,12 @@ title : Elite Technical Blogging
 Hi there, I'm Jade.  
 I built <http://jekyllbootstrap.com>, a framework to make blogging with Jekyll easy.
 
-
 My new project is called **ruhoh**.
 Ruhoh builds upon everything I learned through making Jekyll-Bootstrap.  
 My goal is to help _all developers_ share their knowledge which means ultimately ruhoh will be language independent.
 
 I still have much work to do but ruhoh is ready for beta-users.
-This is my best work yet, please take the time to try it out and tell me what you think:
+This is my best work yet, please take the time to try it out and tell me what you think.
 
 ## Get Started
 
@@ -79,11 +78,7 @@ Developers can take advantage of the Universal Blog API to implement modules in 
 
 I am happy to hear anything and everything:
 
-[GitHub Issues](https://github.com/ruhoh/ruhoh.rb/issues)
-
-<a href="https://twitter.com/intent/tweet?screen_name=ruhohBlog" class="twitter-mention-button" data-lang="en">Tweet to @ruhohBlog</a>
-
-[plusjade@gmail.com](mailto:plusjade@gmail.com)
+{{> contact_list }}
 
 ## Thank You
 
@@ -96,4 +91,3 @@ I'm asking for your help again, with ruhoh, to build out a solid next-generation
 There are still many features that need to be implemented. There is also much work to be done regarding themes.
 
 There is lot's to do and I hope you will join the community. I'll be here!
-
