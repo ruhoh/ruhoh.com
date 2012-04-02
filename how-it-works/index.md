@@ -4,21 +4,23 @@ layout : page
 
 ## Introduction
 
-Ruhoh is a static blog generator. 
-More importantly it defines a [Universal Blog API](/universal-api) for static blogging.
+Ruhoh is a static blog generator. Ruhoh's technical goal is to be useful to _all developers_.
 
-Understanding and adhering to the Universal Blog API allows us to _parse_
-the blog reliably in order to compile the finished static representation of your blog.
+To accomplish this goal, we employ 3 core design principles:
 
-Just _how_ that processing works is the topic of this outline.
+1. Ruhoh defines and adheres to the [Universal Blog API](/universal-blog-api) for static blogging.
+1. Ruhoh relies on the cross-language [Mustache](http://mustache.github.com) templating system.
+1. Ruhoh is built using a modular architecture.
+
+The Universal Blog API allows parsing modules, regardless of language, to reliably parse a ruhoh blog.
+Next we'll outline just _how_ that processing works.
 
 ## Design
 
 Ruhoh's guiding design principle is **modularization**.   
-Compiling a static blog is popular amongst hackers because we appreciate control and customization.   
 A modular architecture assumes an inherent level of customization in that modules can easily be extended or replaced to suit varying use-cases.
 
-Furthermore, clear, well-purposed modules written in one language allow for a general guideline
+Additionally, clear, well-purposed modules written in one language allow for a general guideline
 when implementing the module in _another_ language.
 
 
