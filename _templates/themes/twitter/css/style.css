@@ -45,6 +45,7 @@ h1 {
   color:#221F26;
   text-align:center;
 }
+#main-content.splash h1 {text-align:center; padding:24px; font-size:38px;}
 
 h2 {
   border-top:3px solid #F0F0D8;

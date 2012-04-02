@@ -3,10 +3,6 @@ layout : splash
 title : Elite Technical Blogging
 ---
 
-<style type="text/css">
-  h1 {text-align:center; padding:24px; font-size:38px;}
-</style>
-
 # A Better Static Blog Generator
 
 Hi there, I'm Jade.  
