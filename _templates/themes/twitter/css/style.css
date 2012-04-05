@@ -1,8 +1,45 @@
 /* Override some defaults */
-
-html, body {
+html, body, p, ul, a {
   font-family:verdana;
 }
+p {
+  font-size:1.1em;
+  line-height:1.5em;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Voces', verdana, serif;
+}
+h1 {
+  margin-bottom:15px;
+}
+img {
+  border:3px solid #F0F0D8; border-radius:3px;
+}
+dl dd {
+  margin-bottom:10px;
+}
+h2 {
+  border-top:3px solid #F0F0D8;
+  padding-top:10px;
+  margin-top:20px;
+  margin-bottom:10px;
+  color:#607848;
+}
+h3 {
+  margin-bottom:10px;
+}
+table, pre {
+  margin-bottom:10px;
+}
+table thead th {
+  text-align:left;
+}
+table td, table th {
+  padding:15px;
+}
+
+
+/* top navigation --------------------------------------*/
 .navbar a.brand  {
   color:#607848;
   font-weight:bold;
@@ -17,7 +54,6 @@ html, body {
 .navbar ul.nav > li > a.active:hover {
   background-color:#607848;
 }
-
 /* social */
 ul.social li iframe{
   position:relative;
@@ -25,36 +61,14 @@ ul.social li iframe{
   top:10px;
 }
 
-
-p {
-  font-family:verdana;
-  font-size:1.1em;
-  line-height:1.5em;
-}
-h1, h2, h3, h4, h5 {
-  font-family: 'Voces', verdana, serif;
-}
-h1 {
-  margin-bottom:15px;
-}
-#main-content.docs h1 {
-  margin:50px 0 50px 0;
-  font-size:38px;
-  font-family:verdana;
-  color:#221F26;
-  text-align:center;
-}
-
-
-/* splash-message */
+/* splash-message --------------------------------------*/
 .splash-message div.wrapper {
   padding:20px;
   margin-right:20px;
   background:#FFF;
-  border-radius:5px;
+  border-radius:10px 0 0 10px;
   border:1px solid #eee;
 }
-
 .splash-message h3,
 .splash-message ul {
   margin-bottom:20px;
@@ -63,8 +77,7 @@ h1 {
   padding:7px;
 }
 
-
-/* splash install */
+/* splash install -------------------------------------- */
 .splash-install h1{
   font-size:28px;
   text-align:center;
@@ -73,7 +86,7 @@ h1 {
   padding:20px; 
   background:#F0F0D8;
   border:1px solid #C0D860; 
-  border-radius:5px;
+  border-radius:0 10px 10px 0;
   box-shadow:inset 0 0 10px #C0D860;
 }
 .splash-install div.wrapper h3{ 
@@ -81,16 +94,14 @@ h1 {
   background:#C0D860;
   padding:0 14px;
   line-height:36px;
-  border-radius:3px;
+  border-radius:0 10px 10px 0;
   font-size:16px;
   margin:0 0 20px -30px;
   box-shadow: inset 0px 0px 2px #789048;
 }
-  
 .splash-install form {
   vertical-align:middle;
 }
-
 .splash-install form,
 .splash-install table,
 .splash-install pre,
@@ -102,7 +113,6 @@ h1 {
 .splash-install table {
   width:100%;
 }
-  
 .splash-install table td {
   border-bottom:1px solid #E0E4CC;
   padding:7px;
@@ -119,27 +129,13 @@ h1 {
 }
 
 
-h2 {
-  border-top:3px solid #F0F0D8;
-  padding-top:10px;
-  margin-top:20px;
-  margin-bottom:10px;
-  color:#607848;
-}
-h3 {
-  margin-bottom:10px;
-}
-table, pre {
-  margin-bottom:10px;
-}
-
-table thead th {
-  text-align:left;
-  
-}
-
-table td, table th {
-  padding:15px;
+/* documentation section -------------------------------------- */
+#main-content.docs h1 {
+  margin:50px 0 50px 0;
+  font-size:38px;
+  font-family:verdana;
+  color:#221F26;
+  text-align:center;
 }
 table td.module {
   width:120px;
@@ -151,22 +147,8 @@ table td.module ul li{
   color:#444;
   font-weight:normal;
 }
-img {
-  border:3px solid #F0F0D8; border-radius:3px;
-}
-p {
-}
-dl {
-}
-dt {
-}
-dl dd {
-  margin-bottom:10px;
-}
-
 
 /* table of contents --------------------------------------- */
-
 .toc-container {
   height:500px;
   overflow:auto;
@@ -180,19 +162,16 @@ dl dd {
   width:48%;
   float:left;
 }
-
 .toc-container h4 {
   margin-bottom:10px;
   padding:3px 0;
 }  
-
 .toc-container h4 a {
   color:#789048;
   padding:3px 6px;
   background:#FFF;
   border-radius:3px;
 }
-
 .toc-container ul {
   margin-left:3px;
   margin-bottom:10px;
@@ -200,21 +179,17 @@ dl dd {
 .toc-container ul, .toc-container ul li {
   list-style:none;
 }
-
 .toc-container a, .toc-container ul li a {
   color:#607848;
 }  
-
 .toc-container ul li.active a {
   color:orange;
   font-weight:bold;
 }
-
 #table-of-contents {
   top:41px;
   overflow:visible;
 }
-
 #table-of-contents div.wrap {
   margin:auto;
   width:780px;
@@ -222,7 +197,7 @@ dl dd {
 }
 
 
-/* contact-list */
+/* contact-list --------------------------------------- */
 ul.contact-list {
   margin-top:20px;
   text-align:center;
@@ -236,49 +211,48 @@ ul.contact-list li {
 ul.contact-list li.tweet iframe { position:relative; top:5px}
 
 
-/* tag_box ======================================================== */
-
+/* tag_box --------------------------------------- */
 .tag_box {
-	list-style:none;
-	margin:0;
-	padding:5px 0 ;
-	overflow:hidden;
+  list-style:none;
+  margin:0;
+  padding:5px 0 ;
+  overflow:hidden;
 }
 .tag_box li {
-	line-height:28px;
+  line-height:28px;
 }
 .tag_box.inline li {
-	float:left;
+  float:left;
 }
 .tag_box a {
-	padding: 3px 6px;
-	margin: 2px;
-	background: #eee;
-	color:#005F6B;
-	border-radius: 3px;
-	text-decoration:none;
+  padding: 3px 6px;
+  margin: 2px;
+  background: #eee;
+  color:#005F6B;
+  border-radius: 3px;
+  text-decoration:none;
 }
 .tag_box a span{
-	vertical-align:super;
-	font-size:0.8em;
+  vertical-align:super;
+  font-size:0.8em;
 }
 .tag_box a.active {
-	background:#57A957;
-	border:1px solid #4C964D;
-	color:#FFF;
+  background:#57A957;
+  border:1px solid #4C964D;
+  color:#FFF;
 }
-	
+
+/* folder tree --------------------------------------- */  
 ul.folder-tree {
   margin-left:0;
   padding:10px;
   border-radius:3px;
   background:#FFF url('/_media/stripe.png') repeat;
   box-shadow:inset 0 0 5px #F0F0D8;
-}	
+}  
 ul.folder-tree, ul.folder-tree ul {
   list-style:none;
 }
-
 ul.folder-tree li em , ul.folder-tree ul li em{ 
   text-decoration:normal;
   font-style:normal;
@@ -286,7 +260,6 @@ ul.folder-tree li em , ul.folder-tree ul li em{
   border-radius:3px;
   background:#FFF;
 }
-
 ul.folder-tree li em.config, ul.folder-key li.config {
   background-color:#FFA398;
 }
@@ -303,7 +276,6 @@ ul.folder-key li.template {
 ul.folder-tree li em.template {
   background-color:#D0F7A6;
 }
-
 ul.folder-key {
   margin-left:0;
   margin-bottom:10px;
@@ -317,8 +289,8 @@ ul.folder-key li {
 
 
 /* 
-	Silk Sprites
-	http://xheo.com/silk?icons=422,442,443,505,507,607,608,609,610,617,619,623,628,635,636,643,646,652,656,674,704,756,990&size=25
+  Silk Sprites
+  http://xheo.com/silk?icons=422,442,443,505,507,607,608,609,610,617,619,623,628,635,636,643,646,652,656,674,704,756,990&size=25
 */
 
 .ui-silk { width: 25px; height: 25px; display:block; background: transparent url(/_media/silk-sprite.png?634672676400377835) no-repeat; text-indent: -99999px; overflow: hidden; }
