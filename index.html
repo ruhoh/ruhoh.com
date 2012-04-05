@@ -2,56 +2,111 @@
 layout : splash
 title : 
 ---
+<div class="row">
 
-<div class="span6 splash">
-  Hello
-</div>
+  <div class="span6 splash">
+    <h1>ruhoh</h1>
+    <h3>The Universal Static Blogging Platform</h3>
+    
+    <h3>Examples</h3>
+    <p>This website: <a href="https://github.com/ruhoh/ruhoh.com">[source on GitHub]</a></p>
+  </div>
 
-<div class="span6 splash-install">
-  <h1>Instant Static Blog Hosting</h1>
-  <div class="wrapper">
-    <form action='#' class="form-inline" id="generate_code">
-      <input id='github_username' type='text' value="GitHub Username"/>
-      <button class='btn btn-success'>Personalize Install Code</button>
-    </form>
+  <div class="span6 splash-install">
+    <h1>Instant Static Blog Hosting</h1>
+    <div class="wrapper">
+      <form action='#' class="form-inline" id="generate_code">
+        <input id='github_username' type='text' value="GitHub Username" style="width:200px;"/>
+        <button class='btn btn-success' style="width:200px;">Personalize Install Code</button>
+      </form>
 
-    <h3>1 - Setup Your GitHub Repository</h3>
+      <h3>1 - Setup Your GitHub Repository</h3>
   
-    <table class="github-install table-condensed">
-      <tbody>
+      <table class="github-install table-condensed">
+        <tbody>
 
-        <tr>
-          <td>a. Login to GitHub:</td>
-          <td><a href='https://github.com/'>Your Github Dashboard</a></td>
-        </tr>
+          <tr>
+            <td>a. Login to GitHub:</td>
+            <td><a href='https://github.com/' class="btn" target="_blank">Go to Github Dashboard</a></td>
+          </tr>
 
-        <tr>
-          <td>b. Create repository:</td>
-          <td>USERNAME.ruhoh.com</td>
-        </tr>
+          <tr>
+            <td>b. Create repository:</td>
+            <td><input type="text" value="USERNAME.ruhoh.com" style="width:175px" /></td>
+          </tr>
 
-        <tr>
-          <td>c. Add Webhook: <a href="http://help.github.com/post-receive-hooks/" target="_blank" style="font-size:0.9em">[how-to]</a>
-          </td>
-          <td>http://post.ruhoh.com</td>
-        </tr>
+          <tr>
+            <td>c. Add Webhook: <a href="http://help.github.com/post-receive-hooks/" target="_blank" style="font-size:0.9em">[how-to?]</a>
+            </td>
+            <td><input type="text" value="http://post.ruhoh.com" style="width:175px" /></td>
+          </tr>
 
-      </tbody>  
-    </table>
+        </tbody>
+      </table>
   
-    <h3>2 - Push Your Blog</h3>
+      <h3>2 - Push Your Blog</h3>
   
-    Clone the ruhoh blog scaffolding then push it to your repo:
+      Clone the ruhoh blog scaffolding then push it to your repo:
   
-<pre style="overflow:auto;"><code style="white-space:nowrap;">$ git clone git://github.com/ruhoh/blog.git  USERNAME.ruhoh.com
+      <pre style="overflow:auto;"><code style="white-space:nowrap;">$ git clone git://github.com/ruhoh/blog.git  USERNAME.ruhoh.com
 $ cd USERNAME.ruhoh.cm
 $ git remote set-url origin git@github.com:USERNAME/USERNAME.ruhoh.com.git
 $ git push origin master</code></pre>
 
-    <h3>3 - Profit</h3>
-    <p>
-      <a href='http://USERNAME.ruhoh.com' id='blog_link'>http://USERNAME.ruhoh.com</a>
-    </p>
+      <h3>3 - Profit &#036;</h3>
+      <p>
+        <a href='http://USERNAME.ruhoh.com' id='blog_link'>http://USERNAME.ruhoh.com</a>
+      </p>
+
+      <p style="overflow:auto;">
+        <a href="/usage" class="btn btn-success btn-large pull-right">Quick Start &rarr;</a>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+<hr style="margin:50px;">
+
+<div class="row splash-more">
+  
+  <div class="span6">
+
+    <h2 id='universal_blog_api'>Universal Blog API</h2>
+
+    <p>My main vision is to make it easier for <em>all developers</em> to share their knowledge.</p>
+
+    <p>Through my experience with Jekyll-Bootstrap, it become apparent that not everyone has enough ruby experience to get a healthy development environment installed on their machine - and ruby is not trivial to install!</p>
+
+    <p>Ruhoh&#8217;s <a href='/universal-blog-api'>Universal Blog API</a> specification allows every developer, regardless of preferred language and platform to join the community.</p>
+
+    <h2 id='modular'>Modular</h2>
+
+    <p>Ruhoh uses a modular architecture. You can read more about <a href='/how-it-works'>how ruhoh works</a>. Modularization decouples the main Ruhoh components, allowing you to customize or replace individual components as needed.</p>
+
+    <p>Templaters, converters, parsers, compilers, even the command-line tool can be extended or simply swapped out - Ruhoh is made to be customized.</p>
+
+    <h2 id='language_indifferent'>Language Indifferent</h2>
+
+    <p>In the year 2000, there will be Ruhoh modules written in tons of languages, simply because there&#8217;s no reason why there couldn&#8217;t be!</p>
+
+    <p>Developers can take advantage of the Universal Blog API to implement modules in any language in any build environment.</p>
 
   </div>
+  
+  <div class="span6">
+
+    <h2 id='feedback'>Feedback</h2>
+    <p>I am happy to hear anything and everything:</p>
+    {{> contact_list }}
+
+    <h2 id='thank_you'>Thank You</h2>
+    <p>Building Jekyll Bootstrap is a great and very fulfilling experience because not only do people find it useful, but many people also take the time to offer feedback and contribute.</p>
+    <p><strong>I love Open Source.</strong></p>
+    <p>I&#8217;m asking for your help again, with ruhoh, to build out a solid next-generation blogging platform we all love <em>and actually use</em>. There are still many features that need to be implemented. There is also much work to be done regarding themes.</p>
+    <p>There is lot&#8217;s to do and I hope you will join the community. I&#8217;ll be here!</p>
+    
+  </div>
+  
 </div>
