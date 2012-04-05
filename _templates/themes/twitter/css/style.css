@@ -19,13 +19,12 @@ html, body {
 }
 
 /* social */
-.social {
-  margin:0 10px;
-}
-.social iframe{
+ul.social li iframe{
   position:relative;
+  margin:0 10px;
   top:10px;
 }
+
 
 p {
   font-family:verdana;
@@ -54,18 +53,42 @@ h1 {
 .splash-install div.wrapper {
   padding:20px; 
   background:#F0F0D8;
-  border:1px solid #E0E4CC; 
+  border:1px solid #C0D860; 
   border-radius:5px;
-  box-shadow:inset 0 0 3px #E0E4CC;
-}
-.splash-install form {
-  vertical-align:middle; 
+  box-shadow:inset 0 0 10px #C0D860;
 }
 
+.splash-install div.wrapper h3{ 
+  display:inline-block;
+  background:#C0D860;
+  padding:0 14px;
+  line-height:36px;
+  border-radius:3px;
+  font-size:16px;
+  margin:0 0 20px -30px;
+  box-shadow: inset 0px 0px 2px #789048;
+}
+  
+.splash-install form {
+  vertical-align:middle;
+}
+
+.splash-install form,
+.splash-install table,
+.splash-install pre,
+.splash-install p.profit-content {
+  margin-bottom:20px
+}
 
 /* github table */
+.splash-install table {
+  width:100%;
+}
+  
 .splash-install table td {
   border-bottom:1px solid #E0E4CC;
+  padding:7px;
+  vertical-align:center;
 }
 .splash-install .table-striped tbody tr:nth-child(odd) td,
 .splash-install .table-striped tbody tr:nth-child(odd) th{
@@ -76,7 +99,6 @@ h1 {
 .splash-install .table-bordered td {
   border-color:#E0E4CC;
 }
-
 
 
 h2 {
@@ -125,13 +147,6 @@ dl dd {
 }
 
 
-
-table.github-install {
-  width:100%;
-}
-table.github-install td {
-  padding:10px;
-}
 /* table of contents --------------------------------------- */
 
 .toc-container {

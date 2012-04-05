@@ -5,69 +5,95 @@ title :
 <div class="row">
 
   <div class="span6 splash">
-    <h1>ruhoh</h1>
+    <h1>ruhoh <em style="font-size:0.6em; vertical-align:super; color:#555">(beta)</em></h1>
     <h3>The Universal Static Blogging Platform</h3>
+    <p>
+      ruhoh is the <em>only</em> static blog generator
+      built to be language-agnostic,
+    </p>
+    <h3>Themeable</h3>
+    <h3>Comments</h3>
+    <h3>Analytics</h3>
+    <h3>Syntax Highlighting</h3>
+    <h3>Command-line</h3>
     
+    
+    <h3>Open Source</h3>
+    <p>
+      Released under the MIT license for all to enjoy.
+    </p>
+
     <h3>Examples</h3>
     <p>This website: <a href="https://github.com/ruhoh/ruhoh.com">[source on GitHub]</a></p>
+    
   </div>
 
   <div class="span6 splash-install">
-    <h1>Instant Static Blog Hosting</h1>
+    <h1>Claim Your Hosted Static Blog</h1>
     <div class="wrapper">
       <form action='#' class="form-inline" id="generate_code">
         <input id='github_username' type='text' value="GitHub Username" style="width:200px;"/>
-        <button class='btn btn-success' style="width:200px;">Personalize Install Code</button>
+        <button class='btn' style="width:200px;">Personalize Install Code</button>
       </form>
 
-      <h3>1 - Setup Your GitHub Repository</h3>
+      <h3>Setup Your GitHub Repository</h3>
   
       <table class="github-install table-condensed">
         <tbody>
 
           <tr>
-            <td>a. Login to GitHub:</td>
+            <td>1. Login to GitHub:</td>
             <td><a href='https://github.com/' class="btn" target="_blank">Go to Github Dashboard</a></td>
           </tr>
 
           <tr>
-            <td>b. Create repository:</td>
-            <td><input type="text" value="USERNAME.ruhoh.com" style="width:175px" /></td>
+            <td>2. Create repository:</td>
+            <td class="form-inline"><input type="text" value="USERNAME.ruhoh.com" style="width:175px" /></td>
           </tr>
 
           <tr>
-            <td>c. Add Webhook: <a href="http://help.github.com/post-receive-hooks/" target="_blank" style="font-size:0.9em">[how-to?]</a>
+            <td>3. Add webhook: <a href="http://help.github.com/post-receive-hooks/" target="_blank" style="font-size:0.9em">[how-to?]</a>
             </td>
-            <td><input type="text" value="http://post.ruhoh.com" style="width:175px" /></td>
+            <td class="form-inline"><input type="text" value="http://post.ruhoh.com" style="width:175px" /></td>
           </tr>
 
         </tbody>
       </table>
   
-      <h3>2 - Push Your Blog</h3>
+      <h3>Push Your New Blog</h3>
   
-      Clone the ruhoh blog scaffolding then push it to your repo:
+      <p>
+        Clone the ruhoh blog scaffolding then push it to your repo:
+      </p>
   
       <pre style="overflow:auto;"><code style="white-space:nowrap;">$ git clone git://github.com/ruhoh/blog.git  USERNAME.ruhoh.com
 $ cd USERNAME.ruhoh.cm
 $ git remote set-url origin git@github.com:USERNAME/USERNAME.ruhoh.com.git
 $ git push origin master</code></pre>
 
-      <h3>3 - Profit &#036;</h3>
-      <p>
-        <a href='http://USERNAME.ruhoh.com' id='blog_link'>http://USERNAME.ruhoh.com</a>
+      <p class="profit-content" style="text-align:center; clear:both;">
+        <a href='http://USERNAME.ruhoh.com' id="blog_link" target="_blank">http://USERNAME.ruhoh.com</a>
       </p>
-
-      <p style="overflow:auto;">
-        <a href="/usage" class="btn btn-success btn-large pull-right">Quick Start &rarr;</a>
-      </p>
+      
+      <h3>Development Locally</h3>
+      
+      <div style="clear:both">
+        <div class="pull-left" style="width:220px;">
+          Push updates to GitHub; 
+          <br>watch your blog update.
+        </div>
+        <a href="/usage" class="btn btn-warning btn-large pull-right">Get Started &rarr;</a>
+      </div>
+      <br style="clear:both">
     </div>
   </div>
 
 </div>
 
 
-<hr style="margin:50px;">
+<hr style="margin:50px; border:0">
+
+<h1 style="text-align:center; font-size:38px; padding:30px;">The Good Stuff</h1>
 
 <div class="row splash-more">
   
@@ -110,3 +136,6 @@ $ git push origin master</code></pre>
   </div>
   
 </div>
+
+
+<h1 style="text-align:center; font-size:38px; padding:30px;">Community</h1>

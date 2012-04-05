@@ -16,17 +16,23 @@
 <body>
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner" style="background:#F0F0D8; box-shadow: 0 0 0 0; border-bottom:1px solid #E0E4CC">
-      <div class="container">
+      <div class="container" style="width:100%; padding:0 15px;">
         <a class="brand" href="/">{{ site.title }}</a>
         <ul class="nav">
         {{# site.navigation?to_pages }}
           {{> pages_list }}
         {{/ site.navigation?to_pages }}
-          <li class="social">
+        </ul>
+        <ul class="nav social pull-right">
+          <li>
             <a href="https://twitter.com/ruhohBlog" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @ruhohBlog</a>
           </li>
-          <li class="social">
+          <li>
             <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://ruhoh.com" data-hashtags="ruhoh" data-text="New static blog generator for the hacker in all of us &rarr;">Tweet</a>
+          </li>
+          <li>
+            <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=ruhoh&repo=ruhoh.rb&type=watch&count=true"
+              allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="25px"></iframe>
           </li>
         </ul>
       </div>
@@ -49,7 +55,6 @@
     </footer>
 
   </div> <!-- /container -->
-  <a href="http://github.com/ruhoh/ruhoh.rb"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub"></a>
 
   <script type="text/javascript">
     WebFontConfig = {
