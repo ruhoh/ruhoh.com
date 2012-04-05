@@ -45,7 +45,42 @@ h1 {
   color:#221F26;
   text-align:center;
 }
-#main-content.splash h1 {text-align:center; padding:24px; font-size:38px;}
+#main-content.splash h1 {
+}
+
+
+
+.splash-install h1{
+  font-size:28px;
+  text-align:center;
+}
+.splash-install div.wrapper {
+  padding:20px; 
+  background:#F0F0D8;
+  border:1px solid #E0E4CC; 
+  border-radius:5px;
+  box-shadow:inset 0 0 3px #E0E4CC;
+}
+.splash-install form {
+  vertical-align:middle; 
+}
+
+
+/* github table */
+.splash-install table td {
+  border-bottom:1px solid #E0E4CC;
+}
+.splash-install .table-striped tbody tr:nth-child(odd) td,
+.splash-install .table-striped tbody tr:nth-child(odd) th{
+  background-color:#E0E4CC;
+}
+.splash-install .table-bordered,
+.splash-install .table-bordered th,
+.splash-install .table-bordered td {
+  border-color:#E0E4CC;
+}
+
+
 
 h2 {
   border-top:3px solid #F0F0D8;
@@ -93,6 +128,13 @@ dl dd {
 }
 
 
+
+table.github-install {
+  width:100%;
+}
+table.github-install td {
+  padding:10px;
+}
 /* table of contents --------------------------------------- */
 
 .toc-container {

@@ -1,0 +1,57 @@
+---
+layout : splash
+title : 
+---
+
+<div class="span6 splash">
+  Hello
+</div>
+
+<div class="span6 splash-install">
+  <h1>Instant Static Blog Hosting</h1>
+  <div class="wrapper">
+    <form action='#' class="form-inline" id="generate_code">
+      <input id='github_username' type='text' value="GitHub Username"/>
+      <button class='btn btn-success'>Personalize Install Code</button>
+    </form>
+
+    <h3>1 - Setup Your GitHub Repository</h3>
+  
+    <table class="github-install table-condensed">
+      <tbody>
+
+        <tr>
+          <td>a. Login to GitHub:</td>
+          <td><a href='https://github.com/'>Your Github Dashboard</a></td>
+        </tr>
+
+        <tr>
+          <td>b. Create repository:</td>
+          <td>USERNAME.ruhoh.com</td>
+        </tr>
+
+        <tr>
+          <td>c. Add Webhook: <a href="http://help.github.com/post-receive-hooks/" target="_blank" style="font-size:0.9em">[how-to]</a>
+          </td>
+          <td>http://post.ruhoh.com</td>
+        </tr>
+
+      </tbody>  
+    </table>
+  
+    <h3>2 - Push Your Blog</h3>
+  
+    Clone the ruhoh blog scaffolding then push it to your repo:
+  
+<pre style="overflow:auto;"><code style="white-space:nowrap;">$ git clone git://github.com/ruhoh/blog.git  USERNAME.ruhoh.com
+$ cd USERNAME.ruhoh.cm
+$ git remote set-url origin git@github.com:USERNAME/USERNAME.ruhoh.com.git
+$ git push origin master</code></pre>
+
+    <h3>3 - Profit</h3>
+    <p>
+      <a href='http://USERNAME.ruhoh.com' id='blog_link'>http://USERNAME.ruhoh.com</a>
+    </p>
+
+  </div>
+</div>
