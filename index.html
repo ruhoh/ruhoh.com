@@ -44,7 +44,7 @@ title :
 
           <tr>
             <td><i class="icon-ok-sign"></i> <strong>Automatic</strong></td>
-            <td>hassle-free hosting &rarr;</td>
+            <td>hassle-free hosting <i class="icon-arrow-right"></i></td>
           </tr>
         
         </tbody>
@@ -66,11 +66,11 @@ title :
 
   </div>
 
-  <div class="span6  splash-install">
+  <div class="span6 splash-install">
     <h1>Claim Your Hosted Static Blog</h1>
     <div class="wrapper">
       <form action='#' class="form-inline" id="generate_code">
-        <input id='github_username' type='text' value="GitHub Username" style="width:200px;"/>
+        <input id='github_username' type='text' placeholder="GitHub Username" style="width:200px;"/>
         <button class='btn' style="width:200px;">Personalize Install Code</button>
       </form>
 
@@ -86,7 +86,7 @@ title :
 
           <tr>
             <td>2. Create repository:</td>
-            <td class="form-inline"><input type="text" value="USERNAME.ruhoh.com" style="width:175px" /></td>
+            <td class="form-inline"><input id="repo_name" type="text" value="USERNAME.ruhoh.com" style="width:175px" /></td>
           </tr>
 
           <tr>
@@ -103,13 +103,14 @@ title :
       <p>
         Clone the ruhoh blog scaffolding then push it to your repo:
       </p>
-  
-      <pre style="overflow:auto; white-space:pre" class="nolinenums"><code>$ git clone git://github.com/ruhoh/blog.git  USERNAME.ruhoh.com
-$ cd USERNAME.ruhoh.cm
-$ git remote set-url origin git@github.com:USERNAME/USERNAME.ruhoh.com.git
-$ git push origin master</code></pre>
 
-      <p class="profit-content" style="text-align:center; clear:both;">
+      <pre id="install-code-wrapper" style="overflow:auto; white-space:pre" class="no-highlight">
+<code><span class="kwd">git</span> clone git://github.com/ruhoh/blog.git <span class="typ">USERNAME</span>.ruhoh.com
+<span class="kwd">cd</span> <span class="typ">USERNAME</span>.ruhoh.com
+<span class="kwd">git</span> remote set-url origin git@github.com:<span class="typ">USERNAME</span>/<span class="typ">USERNAME</span>.ruhoh.com.git
+<span class="kwd">git</span> push origin master</code></pre>
+
+      <p class="profit-content" style="text-align:center">
         <a href='http://USERNAME.ruhoh.com' id="blog_link" target="_blank">http://USERNAME.ruhoh.com</a>
       </p>
       

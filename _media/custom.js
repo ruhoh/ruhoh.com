@@ -49,3 +49,24 @@ var Toc = {
   }
 
 }
+// Personalize install code. 
+// Make sure to update this whenever landing page changes to ensure proper id values.
+var Pc = {
+  init : function(){
+    var $code = $("#install-code-wrapper").find("span.typ");
+    var $repoName = $("#repo_name");
+    var $blogLink = $("#blog_link");
+    $("#generate_code").submit(function(e){
+      var username = $("#github_username").val();
+      $code.text(username);
+      $repoName.val( username + ".github.com");
+      $blogLink.text("http://" + username + ".github.com").attr("href", "http://" + username + ".github.com");
+      if ($.trim(username) !== ""){ 
+        //if (typeof mpq !== 'undefined') mpq.track("install", {"username": username });
+        //if (typeof _gaq !== 'undefined') _gaq.push(['_trackEvent', 'Forms', 'Input', username]);
+      }  
+      e.preventDefault();
+      return false;
+    })
+  }
+}
