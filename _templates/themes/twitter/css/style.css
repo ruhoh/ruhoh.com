@@ -18,13 +18,6 @@ img {
 dl dd {
   margin-bottom:10px;
 }
-h2 {
-  border-top:3px solid #F0F0D8;
-  padding-top:10px;
-  margin-top:20px;
-  margin-bottom:10px;
-  color:#607848;
-}
 h3 {
   margin-bottom:10px;
 }
@@ -37,7 +30,7 @@ table thead th {
 table td, table th {
   padding:15px;
 }
-
+hr {clear:both; border:0}
 
 /* top navigation --------------------------------------*/
 .navbar a.brand  {
@@ -60,13 +53,44 @@ ul.social li iframe{
   margin:0 10px;
   top:10px;
 }
+.icon-github {
+  background-image:url('/_media/github_white_black_cat_32.png') !important;
+  background-position:0 0;
+}
+
+
+/* splash page */
+h1.splash-header {
+  text-align:center; font-size:38px; padding:30px;
+}
+
+.splash-more div.box {
+  padding:20px;
+  background:#FFF;
+  border:1px solid #eee;
+  border-radius:5px;
+  margin-bottom:20px;
+}
+.splash-more .box h2 {
+  display:inline-block;
+  background:#F0F0D8;
+  padding:0 14px;
+  line-height:36px;
+  border-radius:5px;
+  font-size:16px;
+  margin:0 0 20px -30px;
+  box-shadow: inset 0px 0px 10px #C9C9B5;
+}
+.splash-more ul.feedback li{
+  line-height:2em;
+}  
 
 /* splash-message --------------------------------------*/
 .splash-message div.wrapper {
   padding:20px;
   margin-right:20px;
   background:#FFF;
-  border-radius:10px 0 0 10px;
+  border-radius:5px;
   border:1px solid #eee;
 }
 .splash-message h3,
@@ -78,7 +102,7 @@ ul.social li iframe{
 }
 
 /* splash install -------------------------------------- */
-.splash-install h1{
+.splash-install h1 {
   font-size:28px;
   text-align:center;
 }
@@ -86,7 +110,7 @@ ul.social li iframe{
   padding:20px; 
   background:#F0F0D8;
   border:1px solid #C0D860; 
-  border-radius:0 10px 10px 0;
+  border-radius:5px;
   box-shadow:inset 0 0 10px #C0D860;
 }
 .splash-install div.wrapper h3{ 
@@ -94,7 +118,7 @@ ul.social li iframe{
   background:#C0D860;
   padding:0 14px;
   line-height:36px;
-  border-radius:0 10px 10px 0;
+  border-radius:5px;
   font-size:16px;
   margin:0 0 20px -30px;
   box-shadow: inset 0px 0px 2px #789048;
@@ -137,6 +161,14 @@ ul.social li iframe{
   color:#221F26;
   text-align:center;
 }
+#main-content.docs h2 {
+  border-top:3px solid #F0F0D8;
+  padding-top:10px;
+  margin-top:20px;
+  margin-bottom:10px;
+  color:#607848;
+}
+
 table td.module {
   width:120px;
   font-weight:bold;
