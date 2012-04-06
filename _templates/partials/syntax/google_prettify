@@ -4,7 +4,9 @@
 <script>
   var pres = document.getElementsByTagName("pre");
   for (var i=0; i < pres.length; ++i) {
-    if(pres[i].className === 'nolinenums')
+    if(pres[i].className === 'no-highlight')
+      continue;
+    else if(pres[i].className === 'nolinenums')
       pres[i].className = "prettyprint";
     else
       pres[i].className = "prettyprint {{# site.config.syntax.google_prettify.linenums }}linenums{{/site.config.syntax.google_prettify.linenums}}";

@@ -13,7 +13,10 @@ pre .atn, code .atn { color: #bdb76b; } /* html/xml attribute name  - khaki */
 pre .atv, code .atv { color: #65B042; } /* html/xml attribute value - green */
 pre .dec, code .dec { color: #3387CC; } /* decimal - blue */
 
-pre.prettyprint, code.prettyprint {
+pre.no-highlight {
+  color:#FFF;
+}
+pre.no-highlight, pre.prettyprint, code.prettyprint {
 	background-color: #221F26;
 	-moz-border-radius: 0 4px 4px 0;
 	-webkit-border-radius: 0 4px 4px 0;
@@ -23,7 +26,7 @@ pre.prettyprint, code.prettyprint {
 	border-radius: 4px 4px 4px 4px;
 }
 
-pre.prettyprint {
+pre.no-highlight, pre.prettyprint {
 	width: 95%;
 	margin: 1em auto;
 	padding: 1em;
@@ -34,7 +37,7 @@ pre.prettyprint {
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE; } /* IE indents via margin-left */
 
-.prettyprint {
+.no-highlight, .prettyprint {
   padding: 8px;
   background-color: #999;
   border:0;
