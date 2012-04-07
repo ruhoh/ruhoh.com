@@ -64,21 +64,21 @@ h1.splash-header {
   text-align:center; font-size:38px; padding:30px;
 }
 
-.splash-more div.box {
-  padding:20px;
-  background:#FFF;
-  border:1px solid #eee;
-  border-radius:3px;
+div.box {
+  padding:40px 20px 20px 20px;
   margin-bottom:20px;
+  border-left:2px solid #F0F0D8;
 }
-.splash-more .box h2 {
+.splash-more h2 {
   display:inline-block;
   background:#F0F0D8;
   padding:0 14px;
   line-height:36px;
   border-radius:3px;
   font-size:16px;
-  margin:0 0 20px -30px;
+  position:relative;
+  top:20px;
+  margin:0 0 0px 0px;
   box-shadow: inset 0px 0px 10px #C9C9B5;
 }
 .splash-more ul.feedback li{
@@ -86,13 +86,6 @@ h1.splash-header {
 }  
 
 /* splash-message --------------------------------------*/
-.splash-message div.wrapper {
-  padding:20px;
-  margin-right:20px;
-  background:#FFF;
-  border-radius:3px;
-  border:1px solid #eee;
-}
 .splash-message h3,
 .splash-message ul {
   margin-bottom:20px;
