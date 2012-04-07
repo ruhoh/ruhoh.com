@@ -40,6 +40,10 @@ Use this to create your new blog scaffold:
 
 Your blog is now available at: [http://localhost:9292/](http://localhost:9292/)
 
+The command-line tool will be part of your primary workflow:
+
+    $ ruhoh help
+
 
 # Pages
 
