@@ -75,6 +75,14 @@ Secondly, files contained in this directory have three vectors of specificity:
       <li><span class="ui-silk inline ui-silk-picture">.</span> <em>my-hockey-stick-graph.jpg</em></li>
     </ul>
   </li>
+  <li>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">_pages</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="page">index.md</em></li>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="page">about.md</em></li>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="page">random-folder</em></li>
+    </ul>
+  </li>
   <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="post">_posts</em><br>
     <ul>
       <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="post">20011-10-25-open-source-is-good.md</em></li>
@@ -114,9 +122,6 @@ Secondly, files contained in this directory have three vectors of specificity:
       </li>
     </ul>
   </li>
-  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="page">index.md</em></li>
-  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="page">about.md</em></li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="page">random-folder</em></li>
 </ul>
 
 <table class="table-striped table-bordered">
@@ -168,6 +173,13 @@ Secondly, files contained in this directory have three vectors of specificity:
     </tr>
     
     <tr>
+      <td>_pages</td>
+      <td>
+        All files contained in the pages folder will be processed as pages.
+      </td>
+    </tr>
+
+    <tr>
       <td>_posts</td>
       <td>
         All files contained in the posts folder will be processed as posts.
@@ -185,5 +197,3 @@ Secondly, files contained in this directory have three vectors of specificity:
 
   </tbody>
 </table>
-
-
