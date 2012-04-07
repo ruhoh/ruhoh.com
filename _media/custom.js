@@ -59,8 +59,8 @@ var Pc = {
     $("#generate_code").submit(function(e){
       var username = $("#github_username").val();
       $code.text(username);
-      $repoName.val( username + ".github.com");
-      $blogLink.text("http://" + username + ".github.com").attr("href", "http://" + username + ".github.com");
+      $repoName.val( username + ".ruhoh.com");
+      $blogLink.text("http://" + username + ".ruhoh.com").attr("href", "http://" + username + ".github.com");
       if ($.trim(username) !== ""){ 
         //if (typeof mpq !== 'undefined') mpq.track("install", {"username": username });
         //if (typeof _gaq !== 'undefined') _gaq.push(['_trackEvent', 'Forms', 'Input', username]);
