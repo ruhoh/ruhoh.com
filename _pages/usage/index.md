@@ -2,17 +2,6 @@
 layout: docs
 ---
 
-# Status
-
-Ruhoh is stable and ready to deploy production quality blogs into the wild.
-This page outlines everything you need to get started, create excellent content, and deploy your blog.
-
-Ruhoh is in beta, so it may lack features you want and need.
-Help me build a great product we can all use and love.
-Feedback is extremely valuable and may be submitted through:
-
-{{> contact_list }}
-
 # Development Setup
 
 ## Ruby 
@@ -259,10 +248,10 @@ The media folder is used as a convenient place to store your blog's media:
   </li>
 </ul>
 
-Organize your files any way you wish, then use the special `MEDIA_PATH` template variable to refer the media folder:
+Organize your files any way you wish, then use the special `paths.media` template variable to refer the media folder:
 
 {{#raw_code}}
-<img src="{{MEDIA_PATH}}/my-media-file.jpg">
+<img src="{{paths.media}}/my-media-file.jpg">
 {{/raw_code}}
     
 Using a dynamic path is helpful when you want to switch to a CDN and or reorganize the way you handle your media.
@@ -833,8 +822,8 @@ The unabridged version is comprehensively documented in the API section.
         }
       },
       "THEME_PATH" => "/_templates/themes/some-theme/",
-      "SYNTAX_PATH" => "/_templates/syntax/",
-      "MEDIA_PATH" => "/_media/"
+      "paths.syntax" => "/_templates/syntax/",
+      "paths.media" => "/_media/"
     }
     
 Next we'll document how to use this data throughout your pages using the Templating system.
