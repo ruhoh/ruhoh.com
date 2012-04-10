@@ -83,7 +83,7 @@ as they will work exactly the same way. Just change `_site` for `_compiled`
 
 # How to Compile
 
-When you are ready to publish your blog you'll first need to compile it.
+If you are self-hosting your blog you'll first need to compile it.
 The compiling step expands all of your pages and templates to their final rendered state.
 
 ## Compile Your Blog
