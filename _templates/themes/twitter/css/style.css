@@ -12,8 +12,19 @@ h1, h2, h3, h4, h5 {
 h1 {
   margin-bottom:15px;
 }
+ul.thumbnails div.thumbnail {
+}
+ul.thumbnails div.thumbnail a{ 
+  display:block;
+  font-size:30px;
+  line-height:120px;
+  color:#777;
+  background:#333;
+  border-radius:4px;
+  font-family: 'Voces', verdana, serif;
+}
 img {
-  border:3px solid #F0F0D8; border-radius:3px;
+  order:3px solid #F0F0D8; order-radius:3px;
 }
 dl dd {
   margin-bottom:10px;
@@ -344,3 +355,118 @@ ul.folder-key li {
 .ui-silk-picture { background-position: -500px -0px }
 .ui-silk-ruby { background-position: -525px -0px }
 .ui-silk-wrench { background-position: -550px -0px }
+
+
+
+
+
+
+/* Subnav */
+.subnav {
+  width: 100%;
+  height:39px;
+  background:#789048;
+  border:0;
+  border-bottom: 2px solid #607848;
+}
+.subnav a.brand {
+  color:#F0F0D8;
+  float:left;
+  line-height:38px;
+  margin-left:20px;
+}
+.subnav .nav {
+  margin-bottom: 0;
+  
+}
+
+.subnav a i.icon-white{ 
+  opacity:0.5
+}
+
+.subnav .nav > li > a {
+  margin: 0;
+  padding:13px;
+  border-left: 1px solid #607848;
+  border-right: 1px solid #607848;
+  color:#F0F0D8;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+.subnav .nav > li > a:hover {
+  background-color: #607848;
+}
+.subnav .nav > .active > a,
+.subnav .nav > .active > a:hover {
+  background-color: #F0F0D8;
+  color:#607848;
+  border:0;
+}
+
+.subnav .nav > .active > a i.icon-white {
+  background-image:url("../bootstrap/img/glyphicons-halflings.png") !important;
+}
+
+.subnav .nav > li:first-child > a,
+.subnav .nav > li:first-child > a:hover {
+  border-left: 0;
+  padding-left: 12px;
+}
+.subnav .nav > li:last-child > a {
+  border-right: 0;
+}
+
+
+/* Fixed subnav on scroll, but only for 980px and up (sorry IE!) */
+@media (min-width: 980px) {
+  .subnav-fixed {
+    position: fixed;
+    top: 40px;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+  }
+  .subnav-fixed .nav {
+    width: 938px;
+    margin: 0 auto;
+    padding: 0 1px;
+  }
+  .subnav .nav > li:first-child > a,
+  .subnav .nav > li:first-child > a:hover {
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+  }
+}
+
+
+
+
+/* subbie */
+
+#subbie {
+  top:41px;
+  background:#F0F0D8;
+  border-bottom: 2px solid #DDDDC7;
+}
+
+#subbie.subnav .nav > li > a {
+  border-left: 1px solid #DDDDC7;
+  border-right: 1px solid #DDDDC7;
+  border:0;
+  color:#789048;
+}
+#subbie.subnav .nav > li > a:hover {
+  background-color: #DDDDC7;
+}
+#subbie.subnav .nav > .active > a,
+#subbie.subnav .nav > .active > a:hover {
+  background-color: #DDDDC7;
+  border:0;
+}
+
+#subbie.subnav .nav > li > a i { 
+  opacity:0.3
+}

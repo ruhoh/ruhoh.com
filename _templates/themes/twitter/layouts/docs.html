@@ -2,14 +2,22 @@
 layout : default
 ---
 
-<div id="table-of-contents" class="navbar-fixed-top">
-  <div class="wrap">
-    <button class="btn btn-warning" style="position:absolute; right:0">Table of Contents</button>
-    <div class="toc-container" style="display:none">
-      &#160;
-    </div>
-  </div>
+<div class="subnav subnav-fixed">
+  <a class="brand" href="/"><i class="icon-home icon-white"></i> home</a>
+  <ul class="nav nav-pills">
+    {{#site.usage_navigation?to_pages}}
+      <li class="{{#is_active_page}}active{{/is_active_page}}">
+        <a href="{{url}}">{{#icon}}<i class="{{.}} icon-white"></i>{{/icon}} {{title}}</a>
+      </li>
+    {{/site.usage_navigation?to_pages}}
+  </ul>
 </div>
+
+
+<div id="subbie" class="subnav subnav-fixed">
+  <ul class="nav nav-pills"> </ul>
+</div>
+
 
 <div class="row">
   <div id="main-content" class="span10 offset1 docs">
