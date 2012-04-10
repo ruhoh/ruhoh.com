@@ -4,17 +4,15 @@ layout: docs
 icon : icon-star
 ---
 
-# New Blog
 
-The easiest way to start your ruhoh blog is to clone the ruhoh blog scaffold as outlined on the [homepage](/).
-Do that know if you haven't already.
+# Development Setup
 
-# Localhost
+Your ruhoh blog is meant to be developed and previewed on your local machine.
+Currently the ruhoh beta only supports ruby.
 
 ## Ruby 
 
-Running your Ruhoh static blog in ruby is as easy as installing the Ruhoh gem.
-The ruhoh gem depends on:
+Install the ruhoh gem to parse your blog using ruby. The ruhoh gem depends on:
 
 - **rack** - for web-server integration
 - **directory\_watcher** - for watching files for updates in realtime.
@@ -27,19 +25,32 @@ These gems will be installed along with Ruhoh if you don't already have them.
     
 If you run into a problem you can [create a support issue](https://github.com/plusjade/ruhoh.rb/issues) using GitHub Issues.
 
+## Ruhoh on the Command-Line
+
 Once the gem is installed your system should have an executable named `ruhoh`.
-Use this to create your new blog scaffold: 
+
+The command-line tool will be part of your primary workflow. View the help to
+see the available commands:
+
+    $ ruhoh help
+
+## Previewing Your Blog
+
+If you've followed the setup on the [homepage](/) you should already have your blog scaffold installed locally:
+
+    cd USERNAME.ruhoh.com
+    rackup -p 9292
+
+You can clone a new blog scaffold at any time using ruhoh:
 
     $ ruhoh new myblog
     $ cd myblog
     $ rackup -p 9292
 
-Your blog is now available at: [http://localhost:9292/](http://localhost:9292/)
+Using the `rackup` command spawns a web-server that pragmatically loads your blog's pages in real-time.
+This means as you update files, the updates are reflected immediately.
 
-The command-line tool will be part of your primary workflow:
-
-    $ ruhoh help
-
+View your blog at: [http://localhost:9292/](http://localhost:9292/)
 
 <h2 style="border:0; text-align:center">Now you're ready to create some content!</h2>
 <p style="text-align:center">

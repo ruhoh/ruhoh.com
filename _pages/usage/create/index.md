@@ -7,7 +7,6 @@ icon : icon-pencil
 ---
 
 
-
 # Pages
 
 ## Create a Page

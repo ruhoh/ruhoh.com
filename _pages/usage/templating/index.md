@@ -8,7 +8,7 @@ icon : icon-list-alt
 
 
 
-# Mustache Overview
+# Overview
 
 Ruhoh uses [Mustache](http://mustache.github.com/) as its primary Templating system.
 If you are unfamiliar with Mustache's philosophy and syntax you can get up to speed in about 10 minutes by going through the 
@@ -46,23 +46,27 @@ The unabridged version is comprehensively documented in the API section.
     {
       "page"    => {},
       "site"    => {},
-      "pages"   => {},
-      "_posts"  => {
-        "dictionary" => {...},
-        "chronological" => [...],
-        "collated" => [...],
-        "tags" => {
-          "tag1" => {...},
-          "tag2" => {...},
-        },
-        "categories" => {
-          "category1" => {...},
-          "category2" => {...},
+      "db"    => {
+        "pages" => {},
+        "posts" => {
+          "dictionary" => {...},
+          "chronological" => [...],
+          "collated" => [...],
+          "tags" => {
+            "tag1" => {...},
+            "tag2" => {...},
+          },
+          "categories" => {
+            "category1" => {...},
+            "category2" => {...},
+          }
         }
       },
-      "THEME_PATH" => "/_templates/themes/some-theme/",
-      "paths.syntax" => "/_templates/syntax/",
-      "paths.media" => "/_media/"
+      "paths" = {
+        "theme" => "/_templates/themes/some-theme/",
+        "syntax" => "/_templates/syntax/",
+        "media" => "/_media/"
+      }
     }
     
 Next we'll document how to use this data throughout your pages using the Templating system.
@@ -78,6 +82,15 @@ This strategy allows us to pass around **ids** of objects rather than the object
 Now whenever we need an object, we use the helpers to _expand_ those ids into their full objects.
 Let's take a look at some common usage examples:
 
+
+## Pages
+## Posts
+## Categories
+## Tags
+
+## ?next
+
+## ?previous
 
 ## ?to_posts
 
