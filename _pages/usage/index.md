@@ -25,7 +25,7 @@ These gems will be installed along with Ruhoh if you don't already have them.
     
 If you run into a problem you can [create a support issue](https://github.com/plusjade/ruhoh.rb/issues) using GitHub Issues.
 
-## Ruhoh on the Command-Line
+# Command-Line
 
 Once the gem is installed your system should have an executable named `ruhoh`.
 
@@ -34,7 +34,7 @@ see the available commands:
 
     $ ruhoh help
 
-## Previewing Your Blog
+# Previewing Your Blog
 
 If you've followed the setup on the [homepage](/) you should already have your blog scaffold installed locally:
 
