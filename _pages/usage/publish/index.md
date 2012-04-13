@@ -56,7 +56,17 @@ Your blog is now available at: <a href='http://USERNAME.ruhoh.com' id="blog_link
 
 ## 3. Publishing Updates
 
-Every commit you push to your GitHub master will trigger an update on ruhoh.com
+Every commit you push to your GitHub master will trigger an update on your ruhoh.com blog.
+
+## 4. Viewing Update Logs
+
+Ruhoh logs the result of each push it receives from your blog. Logs are available at `/log.txt` of your blog url.
+
+ex: <a href='http://USERNAME.ruhoh.com/log.txt' id="blog_log_link" target="_blank">http://USERNAME.ruhoh.com/log.txt</a>
+
+If your blog is not updating properly, and/or your logs are showing errors you need help with, please contact me:
+
+{{> contact_list }}
 
 # Self Hosting
 
