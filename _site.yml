@@ -8,9 +8,9 @@ author :
   feedburner : feedname
 
 navigation :
-  - usage/index.md
-  - how-it-works/index.md
-  - latest-updates/index.html
+  - usage.md
+  - how-it-works.md
+  - latest-updates.html
   
 usage_navigation :
   - usage.md
