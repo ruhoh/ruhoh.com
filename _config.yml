@@ -1,6 +1,6 @@
 ---
 version : 0.0.1
-permalink: /:categories/:title
+permalink: /blog/:categories/:title
 theme : twitter
 
 production_url : http://username.github.com
