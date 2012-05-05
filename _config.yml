@@ -1,5 +1,5 @@
 ---
-version : 0.0.1
+RuhohSpec: '0.2'
 permalink: /blog/:categories/:title
 theme : twitter
 
