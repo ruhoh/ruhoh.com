@@ -99,63 +99,69 @@ To create a draft, execute the following command in the working directory of you
 
     $ ruhoh draft
 
-A file is created in the drafts folder of your blog, identified by its creation unix timestamp:
+<p><span class="label label-info">CHANGED in v0.2.0</span></p>
+
+A file is created in the posts folder of your blog, named `untitled-n` where n is a just an iterated number:
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_drafts</em>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em>
     <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>1332976976.md</em> &larr;</li>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>untitled-1.md</em> &larr;</li>
     </ul>
   </li>
 </ul>
 
 ## Preview Drafts
 
-The Ruhoh Previewer recognizes a special page which lists links to all available post drafts:
+<p><span class="label label-info">CHANGED in v0.2.0</span></p>
 
-[http://localhost:9292/_drafts](http://localhost:9292/_drafts)
+The Ruhoh Previewer comes with a dashboard located at:
 
-Note that since drafts do not require any parameters, the permalinks for drafts can not be determined so they are not used.
+[http://localhost:9292/dash](http://localhost:9292/dash)
 
-Also, at this time, drafts do not show categories and tags.
-This is because tags and categories for drafts do not get parsed into the "database" so
-they are not query-able via the templating system.
+Draft pages work exactly like published pages _when developing locally_.
+Permalinks, dates, categories, and tags on all drafts get processed as if they were posts.
 
 ## Publish Drafts
 
-Publish a draft using the Ruhoh command-line client:
+<p><span class="label label-info">CHANGED in v0.2.0</span></p>
 
-    ruhoh publish
+To publish a draft, simply remove the **type** attribute from the draft's metadata.
 
-Publishing a draft first validates the draft file, then moves it to the posts folder:
+    ---
+    title: Hello World
+    date: '2012-04-12'
+    categories:
+    tags: []
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>2012-01-01-hello-world.md</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
-    
-The above command publishes the **last active** draft.
-Internally, this is determined by the file's `ctime` or file modification (change) time.
+    layout: post
+    type: draft
+    ---
 
-The typical workflow would be to create a draft, edit it to your liking, then use `ruhoh publish`
-to publish the draft you just finished editing.
+All drafts are identified _only_ by the "type" metadata attribute, so an empty type will be published.
+
+<p><span class="label label-important">Important!</span></p>
+
+In ruhoh 0.2.0+ dates specified in the filename are **optional**, therefore to publish a draft, 
+the draft file _must_ specify a valid YYY-MM-DD date in it's YAML meta-data.
 
 
-If you need to publish a specific draft, just make sure to modify that draft in some way before calling publish.
-An easy way to do so would be `touch`:
 
-    touch _draft/1332976976.md
+## Update Draft Filenames
 
-See here for info: <http://en.wikipedia.org/wiki/Touch_(Unix)>
+Since draft files are automatically named untitled-1, untitled-2, and so forth,
+it quickly becomes annoying to have to manually update the filename to the draft's eventual title.
 
+Use the ruhoh command line client to convert all untitled-n files to their corresponding post titles if set:
+
+    $ ruhoh titleize
+
+This command looks for any post file beginning with `untitled`, then attempts to rename it, but only if a post title has been set.
 
 ## Add Tags
 
 Add one or more tags to a post by including them into the post's YAML Front Matter.
-This is the YAML block is at the top of the file:
+This is the YAML block at the top of the file:
 
     ---
     layout: post
