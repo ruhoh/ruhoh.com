@@ -1,0 +1,104 @@
+---
+title:
+description:
+
+layout: splash
+---
+<style type="text/css">
+  h2 {margin:20px 0;}
+  #versions h3 {padding-top:10px; border-top:2px solid #F0F0D8}
+  .version {padding:10px}
+  #latest-header {text-align:center; margin-bottom:30px}
+</style>
+<script src="{{paths.media}}/mustache.js"></script>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+
+<h1 id="latest-header">Latest Version: [[#latest]]  [[version]] Released: [[date]] [[/latest]]</h1>
+
+<div style="float:right">
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 250,
+  height: 400,
+  theme: {
+    shell: {
+      background: '#789048',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#524b52',
+      links: '#678a21'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: true,
+    behavior: 'all'
+  }
+}).render().setUser('ruhohBlog').start();
+</script>
+</div>
+
+<h2>Blog Posts in category: releases</h2>
+<ul>
+{{#db.posts.categories.releases.posts?to_posts}}
+  <li><a href="{{url}}">{{title}}</a></li>
+{{/db.posts.categories.releases.posts?to_posts}}
+</ul>
+
+<h2>History</h2>
+<div id="versions" style="width:600px; float:left">
+  [[#versions]] 
+    <h3>Version: [[version]] - [[date]]</h3>
+    <div class="version">
+      <h4>Changes</h4>
+      <ul>
+      [[#changes]]  
+        <li>[[.]]</li>
+      [[/changes]]  
+      </ul>
+  
+      <h4>Bugs</h4>
+      <ul>
+      [[#bugs]]  
+        <li>[[.]]</li>
+      [[/bugs]]  
+      </ul>
+  
+      <h4>Features</h4>
+      <ul>
+      [[#features]]  
+        <li>[[.]]</li>
+      [[/features]]  
+      </ul>
+    </div>
+  [[/versions]]
+</div>  
+<div style="clear:both"></div>
+
+<script>
+  var url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20%20from%20json%20where%20url%3D'https%3A%2F%2Fraw.github.com%2Fruhoh%2Fruhoh.rb%2Fmaster%2Fhistory.json'&format=json";
+  $.ajax({
+    url: url,
+    cache : false,
+    dataType: 'jsonp',
+    success: function(data){
+      var versions = data.query.results.json.json;
+      // yql thinks it's cool to transform data on its on accord...
+      for(i=0; i<versions.length; i++){
+        if(typeof versions[i].changes === "string") versions[i].changes = [versions[i].changes];
+        if(typeof versions[i].bugs === "string") versions[i].bugs = [versions[i].bugs];
+        if(typeof versions[i].features === "string") versions[i].features = [versions[i].features];      
+      }
+
+      $('#latest-header').html(Mustache.render($('#latest-header').html(), {"latest" : versions[0] }));
+      $('#versions').html(Mustache.render($('#versions').html(), {"versions" : versions}));
+    }
+  });
+</script>
