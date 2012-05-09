@@ -8,14 +8,14 @@ author :
   feedburner : feedname
 
 navigation :
-  - quick-start.md
   - usage/index.md
   - how-it-works/index.md
+  - latest-updates/index.html
   
 usage_navigation :
-  - usage/index.md
-  - usage/create/index.md
-  - usage/configure/index.md
-  - usage/publish/index.md
-  - usage/templating/index.md
-  - usage/theming/index.md
+  - usage.md
+  - usage/create.md
+  - usage/configure.md
+  - usage/publish.md
+  - usage/templating.md
+  - usage/theming.md
