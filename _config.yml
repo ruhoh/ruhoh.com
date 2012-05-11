@@ -1,7 +1,9 @@
 ---
 RuhohSpec: '0.2'
 permalink: /blog/:categories/:title
-page_permalink : pretty
+pages:
+  permalink: pretty
+
 theme : twitter
 
 production_url : http://username.github.com
