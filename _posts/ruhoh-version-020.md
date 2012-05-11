@@ -68,7 +68,17 @@ Update `RuhohSpec` in `_config.yml` to 0.2:
       RuhohSpec: '0.2'
       
       ---
-      
+
+
+### config.ru
+
+Lastly change `config.ru` to look like this:
+
+    require 'rack'
+    require 'ruhoh'
+    run Ruhoh::Program.preview
+
+
 ### Workflow:
 
 **Create** a draft by using either:
