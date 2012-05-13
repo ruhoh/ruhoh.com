@@ -160,7 +160,7 @@ You can see this in use at the system level implementation of the "tags" helper:
 # Custom Converters
 
 Converters are responsible for processing the markup languages used to write your page content.
-Ruhoh provides the **RedCloth** markdown converter by default:
+Ruhoh provides the **Redcarpet** markdown converter by default:
 
     class Ruhoh
       module Converter
