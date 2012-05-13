@@ -68,6 +68,7 @@ If your blog is not updating properly, and/or your logs are showing errors you n
 
 {{> contact_list }}
 
+
 # Self Hosting
 
 To host your blog yourself, you'll simply generate the compiled version on a server 
