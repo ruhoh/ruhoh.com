@@ -17,7 +17,7 @@ Install the ruhoh gem to parse your blog using ruby. The ruhoh gem depends on:
 - **rack** - for web-server integration
 - **directory\_watcher** - for watching files for updates in realtime.
 - **mustache** - for templating.
-- **maruku** - for Markdown parsing.
+- **redcarpet** - for Markdown parsing.
 
 These gems will be installed along with Ruhoh if you don't already have them.
 

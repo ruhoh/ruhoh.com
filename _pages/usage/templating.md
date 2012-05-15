@@ -87,6 +87,7 @@ can be a page, post, or draft.
   </p>
 {{/raw_code}}
 
+
 ### Custom Meta-Data
 
 Note that any data added to a page's YAML meta-data will available in the `page` object.
@@ -131,7 +132,7 @@ This allows you to define arbitrary data you want access to throughout your temp
   <li><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>_site.yml</em> &larr;</li>
 </ul>
 
-Additionally, the site object places everything found in `_confi.yml` at the key `site.config`.
+Additionally, the site object places everything found in `_config.yml` at the key `site.config`.
 Now you can reference all your configuration data in your templates if you need to.
 
 ### Example Usage
@@ -154,6 +155,7 @@ In your templates:
   <li>github: {{site.author.github }}</li>
 </ul>
 {{/raw_code}}
+
 
 ## Paths
 
@@ -286,6 +288,7 @@ Use mustache syntax to iterate over the array:
   </ul>
 {{/raw_code}}
 
+
 ### is\_active\_page
 
 
@@ -305,6 +308,7 @@ This allows you to easily highlight the current active page in a navigation menu
   </ul>
 {{/raw_code}}
 
+
 ## Posts
 
 The `posts` helper method maps to an Array containing all posts objects in reverse chronological order.
@@ -317,6 +321,7 @@ Use mustache syntax to iterate over the array:
   {{/ posts }}
   </ul>
 {{/raw_code}}
+
 
 ## Categories
 
@@ -332,6 +337,7 @@ Use mustache syntax to iterate over the array:
 {{/ categories }}
 </ul>
 {{/raw_code}}
+
 
 ## Tags
 
@@ -401,6 +407,7 @@ This helper method takes in a single String post id or Array of post ids and exp
   </ul>
 {{/raw_code}}
 
+
 ## ?next
 
 This helper method takes in a single String post id or Post Object and returns the "next" post object
@@ -416,6 +423,7 @@ Assuming the current `page` object is a post:
   Newer: <a href="{{ url }}">{{ title }}</a></li>
 {{/ page?next }}
 {{/raw_code}}
+
 
 ### Finding Next Using a Post id
 
@@ -457,6 +465,7 @@ Assuming the current `page` object is a post:
   </ul>
 {{/raw_code}}
 
+
 ### List categories on a collection of posts.
 
 {{#raw_code}}
@@ -487,6 +496,7 @@ Assuming the current `page` object is a post:
   {{/ page.tags?to_tags }}
   </ul>
 {{/raw_code}}
+
 
 ### List tags on a collection of posts.
 
@@ -523,9 +533,10 @@ Mustache supports partials natively using the "greater than" character:
   {{> categories_list }}
 {{/raw_code}}
 
+
 ## Create a Partial
 
-Create a _default\_partial_ by creating a file in the default partials folder at: 
+Create a *default_partial* by creating a file in the default partials folder at: 
 
 <ul class="folder-tree">
   <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
@@ -541,7 +552,7 @@ Create a _default\_partial_ by creating a file in the default partials folder at
     
 These partials should be theme independent.
 
-Additionally you may also create _theme\_specific_ partials by creating files at:
+Additionally you may also create *theme_specific* partials by creating files at:
 
 <ul class="folder-tree">
   <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
