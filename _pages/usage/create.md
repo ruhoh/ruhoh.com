@@ -16,9 +16,9 @@ Page stubs can automatically be created using the Ruhoh command-line client.
     $ ruhoh page about.md
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em></li>
   <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>_pages</em>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>pages</em>
     <ul>
       <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>about.md</em> &larr;</li>
     </ul>
@@ -30,9 +30,9 @@ Create a page within a subdirectory:
     $ ruhoh page projects/android.md
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em></li>
   <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>_pages</em>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>pages</em>
     <ul>
       <span class="ui-silk inline ui-silk-folder">.</span> <em>projects</em>
       <ul>
@@ -47,9 +47,9 @@ Create a page with a "pretty" path:
     $ ruhoh page projects/android
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em></li>
   <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>_pages</em>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>pages</em>
     <ul>
       <span class="ui-silk inline ui-silk-folder">.</span> <em>projects</em>
       <ul>
@@ -73,9 +73,9 @@ The extension can be customized by passing a custom extension via `--ext`:
     $ ruhoh page projects/android --ext .html
     
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em></li>
   <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>_pages</em>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>pages</em>
     <ul>
       <span class="ui-silk inline ui-silk-folder">.</span> <em>projects</em>
       <ul>
@@ -87,77 +87,56 @@ The extension can be customized by passing a custom extension via `--ext`:
     
 # Posts
 
-**All posts must start out as drafts first.**
+Posts require no parameters so as to encourage a "write first" workflow.
 
-Drafts require no parameters so as to encourage a "write first" workflow.
-Drafts and their meta-data are never compiled as part of your finished static website.
-Conversely only published drafts are compiled.
+## Create a Post
 
-## Create a Draft
+To create a post, execute the following command in the working directory of your blog:
 
-To create a draft, execute the following command in the working directory of your blog:
-
-    $ ruhoh draft
-
-<p><span class="label label-info">CHANGED in v0.2.0</span></p>
-
-A file is created in the posts folder of your blog, named `untitled-n` where n is a just an iterated number:
+    $ ruhoh post
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em>
     <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>untitled-1.md</em> &larr;</li>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>untitled-post.md</em> &larr;</li>
     </ul>
   </li>
 </ul>
 
-## Preview Drafts
+You can optionally pass in a title:
 
-<p><span class="label label-info">CHANGED in v0.2.0</span></p>
+    $ ruhoh post "The Greatest Post Ever"
 
-The Ruhoh Previewer comes with a dashboard located at:
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>the-greatest-post-ever.md</em> &larr;</li>
+    </ul>
+  </li>
+</ul>
 
-[http://localhost:9292/dash](http://localhost:9292/dash)
-
-Draft pages work exactly like published pages _when developing locally_.
-Permalinks, dates, categories, and tags on all drafts get processed as if they were posts.
-
-## Publish Drafts
-
-<p><span class="label label-info">CHANGED in v0.2.0</span></p>
-
-To publish a draft, simply remove the **type** attribute from the draft's metadata.
+Post files receive default meta-data, specifically, the date is always set the current date:
 
     ---
-    title: Hello World
     date: '2012-04-12'
     categories:
     tags: []
-
-    layout: post
-    type: draft
     ---
 
-All drafts are identified _only_ by the "type" metadata attribute, so an empty type will be published.
+Posts always use the _implicit_ "post.html" layout if no layout is specified.
+Feel free to manually specify a layout on a per-post basis:
 
-<p><span class="label label-important">Important!</span></p>
+    ---
+    date: '2012-04-12'
+    categories:
+    tags: []
+    
+    layout: 'super-post' # <------ specify your own layout
+    ---
 
-In ruhoh 0.2.0+ dates specified in the filename are **optional**, therefore to publish a draft, 
-the draft file _must_ specify a valid YYY-MM-DD date in it's YAML meta-data.
 
-
-
-## Update Draft Filenames
-
-Since draft files are automatically named untitled-1, untitled-2, and so forth,
-it quickly becomes annoying to have to manually update the filename to the draft's eventual title.
-
-Use the ruhoh command line client to convert all untitled-n files to their corresponding post titles if set:
-
-    $ ruhoh titleize
-
-This command looks for any post file beginning with `untitled`, then attempts to rename it, but only if a post title has been set.
-
+# Tags
+  
 ## Add Tags
 
 Add one or more tags to a post by including them into the post's YAML Front Matter.
@@ -187,7 +166,9 @@ or
       - tutorials
       - expert
     ---
-    
+ 
+# Categories
+   
 ## Add Categories
 
 Add one or more categories to a post by including them into the post's YAML Front Matter.
@@ -226,6 +207,98 @@ or
       - 'game-downloads'
     ---
 
+# Drafts
+
+Drafts work exactly the same as posts except they are never included into your compiled (production) website.
+Conversely only published drafts are compiled.
+
+## Create a Draft
+
+To create a draft, execute the following command in the working directory of your blog:
+
+    $ ruhoh draft
+
+A file is created in the posts folder of your blog, named `untitled-draft-n` where n is an iterated number:
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>untitled-draft-1.md</em> &larr;</li>
+    </ul>
+  </li>
+</ul>
+
+Optionally pass in a title:
+
+    $ ruhoh draft "The Greatest Draft Ever"
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>the-greatest-draft-ever.md</em> &larr;</li>
+    </ul>
+  </li>
+</ul>
+
+## Publish Drafts
+
+To publish a draft, simply remove the **type** attribute from the draft's metadata.
+
+    ---
+    title: Hello World
+    date: '2012-04-12'
+    categories:
+    tags: []
+
+    layout: post
+    type: draft # <---- this is the only draft signifier.
+    ---
+
+All drafts are identified _only_ by the "type" metadata attribute, so an empty type will be published.
+
+
+### A Note About Dates
+
+<p><span class="label label-important">Important!</span></p>
+
+In ruhoh 0.2.0+ dates specified in the filename are **optional**, therefore to publish a draft, 
+the draft file _must_ specify a valid YYY-MM-DD date in it's YAML meta-data.
+
+
+
+## Working with Drafts in Preview Mode
+
+**Drafts always display as posts when in development mode**.  
+This is a feature, it allows you to see and work with all meta-data and permalink structures for the draft in question.
+
+Uses ruhoh's built in dashboard to view all your pages: [http://localhost:9292/dash](http://localhost:9292/dash)
+
+## Preview Your Blog in Production Mode
+
+You can omit displaying drafts in preview mode by setting the ruhoh environment to "production".
+
+In config.ru:
+
+    require 'rack'
+    require 'ruhoh'
+    run Ruhoh::Program.preview(:env => 'production')
+
+Make sure to kill current preview session, then restart it:
+  
+    $ rackup -p 9292
+
+
+## Update Draft Filenames
+
+Since draft files are automatically named untitled-1, untitled-2, and so forth,
+it quickly becomes annoying to have to manually update the filename to the draft's eventual title.
+
+Use the ruhoh command line client to convert all untitled-n files to their corresponding post titles if set:
+
+    $ ruhoh titleize
+
+This command looks for any post file beginning with `untitled`, then attempts to rename it, but only if a post title has been set.
+
 
 # Media
 
@@ -242,17 +315,17 @@ This will work similar to partials but be optimized for code.
 The media folder is used as a convenient place to store your blog's media:
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_media</em><br>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">media</em><br>
     <ul>
       <li><span class="ui-silk inline ui-silk-picture">.</span> <em class="template">[...my-media-file...]</em> &larr;</li>
     </ul>
   </li>
 </ul>
 
-Organize your files any way you wish, then use the special `paths.media` template variable to refer the media folder:
+Organize your files any way you wish, then use the special `urls.media` template variable to refer the media folder:
 
 {{#raw_code}}
-<img src="{{paths.media}}/my-media-file.jpg">
+<img src="{{urls.media}}/my-media-file.jpg">
 {{/raw_code}}
     
-Using a dynamic path is helpful when you want to switch to a CDN and or reorganize the way you handle your media.
+Using a dynamic url path is helpful when you want to switch to a CDN and or reorganize the way you handle your media.

@@ -81,7 +81,7 @@ In the interest of shipping early and often I have shamefully neglected the Host
 The good news is I know you developers are quite highly self-sufficient.
 I'm rushing to add in stunningly easy deploy methods, but until then you can read
 the [Jekyll Custom Deploy Options](https://github.com/mojombo/jekyll/wiki/Deployment)
-as they will work exactly the same way. Just change `_site` for `_compiled`
+as they will work exactly the same way. Just change `_site` for `compiled`
 
 ### On the RoadMap
 
@@ -103,10 +103,10 @@ The ruhoh command-line client can be used to compile your blog:
 
     ruhoh compile
     
-Your blog is generated and output into the \_compiled directory:
+Your blog is generated and output into the compiled directory:
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_compiled</em></li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>compiled</em></li>
 </ul>
 
 ## Preview Compiled Blog
@@ -116,7 +116,7 @@ Your blog is generated and output into the \_compiled directory:
 
 Use python to preview your compiled static blog:
 
-    cd _compiled
+    cd compiled
     python -m SimpleHTTPServer
     
 
@@ -128,7 +128,7 @@ Use python to preview your compiled static blog:
 
 Oh boy the new PHP!
 
-    cd _compiled
+    cd compiled
     php -S localhost:8000
 
 <http://localhost:8000/>
@@ -140,7 +140,7 @@ Oh boy the new PHP!
 Would you believe how ridiculously hard it is to serve static files using rack?
 `Rack::Static` won't serve documentRoot index.html files. 
 
-If you insist, you can create your config.ru in \_compiled with the following content:
+If you insist, you can create your config.ru in compiled with the following content:
 
     require 'rack'
     use Rack::Lint

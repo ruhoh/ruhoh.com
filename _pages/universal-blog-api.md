@@ -5,24 +5,165 @@ description:
 layout: page
 ---
 
-## The Big Deal
 
-Ruhoh is _a big deal_ because it attempts to define a Universal Blog API.
+## RuhohSpec v1.0 Directory Structure
 
-Do you like [JSON](http://www.json.org/)?
+<p>
+  The following outlines your blog's directory structure and 
+  includes helpful information and links to full documentation.
+</p>
 
-Everybody likes JSON because it's universal. You get concise data transporting across all languages!
-
-Isn't that such a Good&#8482; thing?
-
-In Ruhoh, we define an Interface Specification - as long as your blog adheres to the specification, 
-it can be consumed by any Ruhoh compatible parser.
-
-In the year **2000** there will be parsers in every language and every hacker, young and old, Mac/Windows/Linux 
-will come together in a blaze of glory! 
-
-**United** - **Free** - **Open**
-
+<ul class="folder-tree">
+  <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em class="config">config.yml</em></li>
+  <li class="info">
+    <strong>[Required]</strong>
+    The config file is written in YAML and contains site-wide configuration options.
+    <a href="usage/configure">config documentation</a>
+  </li>
+  <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>dash.html</em> </li>
+  <li class="info">
+    <strong>[Optional]</strong>
+    dash.html provides a custom view of your dashboard, located at /dash in development mode.
+    dash.html is optional; ruhoh will use its system level view if dash.html is not provided.
+  </li>
+  <li class="endpoint"><span class="ui-silk inline ui-silk-folder">.</span> <em>compiled</em> </li>
+  <li class="info">
+    <strong>[Optional]</strong>
+    The compiled folder is the default location the Compiler will output pages into.
+    When you run the Compiler, your fully rendered blog will output to this folder.
+    <a href="/usage/publish#toc_8">compile documentation</a>
+  </li>
+  <li class="endpoint">
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>media</em> 
+    <ul>
+      <li><span class="ui-silk inline ui-silk-picture">.</span> <em>my-hockey-stick-graph.jpg</em></li>
+    </ul>
+  </li>
+  <li class="info">
+    <strong>[Optional]</strong>
+    The media folder holds global static media assets such as images, videos, pdfs, downloads, etc.
+    Theme-specific assets should NOT exist in this media folder, but rather in the theme's media folder.
+    <a href="/usage/create#toc_10">media documentation</a>
+  </li>
+  <li class="endpoint">
+    <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">pages</em> 
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="page">index.md</em></li>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="page">about.md</em></li>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="page">random-folder</em></li>
+    </ul>
+  </li>
+  <li class="info">
+    <strong>[Optional]</strong>
+    All files contained in the pages folder will be processed as pages.
+    <a href="/usage/create">pages documentation</a>
+  </li>
+  <li class="endpoint">
+    <span class="ui-silk inline ui-silk-folder">.</span> <em class="partial">partials</em> 
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="partial">pages_list</em></li>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="partial">pages_collate</em></li>
+    </ul>
+  </li>
+  <li class="info">
+    <strong>[Optional]</strong>
+    Partials are files which contain arbitrary layout code, usually HTML, that can be dynamically included into any page or layout.
+  </li>
+  <li class="endpoint">
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>plugins</em> 
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>kramdown.rb</em></li>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>tag_cloud.rb</em></li>
+    </ul>
+  </li>
+  <li class="info">
+    <strong>[Optional]</strong>
+    Plugins extend and/or overload the base ruhoh functionality. There are 3 types of plugins: mustache helpers, converters, and compiler tasks.
+    <a href="usage/plugins">plugin documentation</a>
+  </li>
+  <li class="endpoint">
+    <span class="ui-silk inline ui-silk-folder">.</span> <em class="post">posts</em> 
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="post">open-source-is-good.md</em></li>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="post">hello-world.md</em></li>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="post">untitled-draft.md</em></li>
+    </ul>
+  </li>
+  <li class="info">
+    <strong>[Optional]</strong>
+    All files contained in the posts folder will be processed as posts.
+    <a href="/usage/create#toc_3">posts documentation</a>
+  </li>
+  <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>site.yml</em> </li>
+  <li class="info">
+    <strong>[Optional]</strong>
+    The site YAML file is used to specify site-wide data that can be used throughout your pages and layouts.
+    A useful example is defining a navigation array that the templater can use to create your primary navigation bar.
+  </li>
+  <li class="endpoint">
+    <span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">themes</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em></li>
+          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
+            <ul>
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>default.html</em></li>
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>page.html</em></li>
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>post.html</em></li>
+            </ul>
+          </li>
+          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>media</em></li>
+          <li>
+            <span class="ui-silk inline ui-silk-folder">.</span> <em class="partial">partials</em>
+            <ul>
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="partial">posts_collate</em></li>
+            </ul>
+          </li>
+          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>theme.yml</em></li>
+          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em></li>
+        </ul> 
+      </li>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>another-theme</em></li>
+    </ul>
+  </li>
+  <li class="info">
+    <strong>[Required]</strong>
+    The themes folder holds all your themes. Themes are packaged into folders containing all
+    layouts, partials, stylesheets, media, and javascripts necessary to style the website.
+    <a href="/usage/theming">theme documentation</a>
+  </li>
+  <li class="endpoint">
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>widgets</em> 
+    <ul>
+      <li>
+        <span class="ui-silk inline ui-silk-folder">.</span> <em>some_widget_name</em>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em></li>
+          <li>
+            <span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em>
+            <ul>
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>some_widget_name.js</em></li>
+            </ul>
+          </li>
+          <li>
+            <span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
+            <ul>
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>some_widget_name.html</em></li>
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>alternative_view.html</em></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li class="info">
+    <strong>[Optional]</strong> Widgets define encapsulated mustache helpers to allow for customized
+    HTML snippets that can optionally run javascripts and take in arbitrary configuration parameters.
+    Client-side comments, analytics, and syntax highlighting are some automatically provided widgets.
+    <a href="/usage/widgets">widget documentation</a>
+  </li>
+</ul>
 
 ## Interface Specification
 
@@ -41,7 +182,7 @@ Secondly, files contained in this directory have three vectors of specificity:
   <dd>
     Secondly, a file's name may define it's role. 
     For example the main configuration file must be in a specific position (the root) <em>and</em> it 
-    must be named exactly _config.yml. 
+    must be named exactly config.yml. 
   </dd>
   <dt>File Contents</dt>
   <dd>
@@ -50,150 +191,3 @@ Secondly, files contained in this directory have three vectors of specificity:
     and files in the layouts folder must have a valid layout as its content.
   </dd>
 </dl>
-
-## Directory Structure
-
-<ul class="folder-key">
-  <li><strong>Key:</strong></li>
-  <li class="config">Config Data</li>
-  <li class="post">Posts Data</li>
-  <li class="template">Template Data</li>
-  <li class="page">Page Data</li>
-</ul>
-
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em class="config">_config.yml</em></li>
-  <li><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>_site.yml</em></li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_compiled</em></li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_drafts</em><br>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>20012-10-10-my-draft.md</em></li>
-    </ul>
-  </li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_media</em><br>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-picture">.</span> <em>my-hockey-stick-graph.jpg</em></li>
-    </ul>
-  </li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">_pages</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="page">index.md</em></li>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="page">about.md</em></li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="page">random-folder</em></li>
-    </ul>
-  </li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="post">_posts</em><br>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="post">20011-10-25-open-source-is-good.md</em></li>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="post">20011-04-26-hello-world.md</em></li>
-    </ul>
-  </li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
-    <ul class="template">
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template">partials</em><br>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">pages_list</em></li>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">pages_collate</em></li>
-        </ul>
-      </li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em><br>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em>css</em></li>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em>images</em></li>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template">layouts</em><br>
-                <ul>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">default.html</em></li>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">page.html</em></li>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">post.html</em></li>
-                </ul>
-              </li>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template">partials</em><br>
-                <ul>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">posts_collate</em></li>
-                </ul>
-              </li>
-            </ul> 
-          </li>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>another-theme</em></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<table class="table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>File/Folder</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <tr>
-      <td>_config.yml</td>
-      <td>
-        The config file is written in YAML and contains site-wide configuration options such as active theme, comments-provider, analytics providers, etc.
-      </td>
-    </tr>
-    
-    <tr>
-      <td>_site.yml</td>
-      <td>
-        The site YAML file is used to specify site-wide _data_ that can be used throughout your pages and templates.
-        A good example is defining a navigation array that the templater can use to create your primary navigation bar.
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>_compiled</td>
-      <td>
-        The compiled folder is the default location the Compiler will output pages into.
-        In other words, when you run the Compiler, your fully rendered blog will output to this folder.
-      </td>
-    </tr>
-    
-    <tr>
-      <td>_drafts</td>
-      <td>
-        All files contained in the drafts folder will be processed as drafts.
-      </td>
-    </tr>
-    
-    <tr>
-      <td>_media</td>
-      <td>
-        The media folder should hold static media assets such as images, videos, pdfs, downloads, etc.
-        Note theme-specific assets should NOT exist in the media folder, but rather in the themes folder.
-      </td>
-    </tr>
-    
-    <tr>
-      <td>_pages</td>
-      <td>
-        All files contained in the pages folder will be processed as pages.
-      </td>
-    </tr>
-
-    <tr>
-      <td>_posts</td>
-      <td>
-        All files contained in the posts folder will be processed as posts.
-      </td>
-    </tr>
-    
-    <tr>
-      <td>_templates</td>
-      <td>
-        The templates folder holds partials, layouts, and theme-specific assets such as CSS, images, javascript, etc.
-        Templates consists of partials, layouts, and assets, but you'll note they are packaged together as "themes".
-        Themes in this context serve primarily as a **namespace**.
-      </td>
-    </tr>
-
-  </tbody>
-</table>

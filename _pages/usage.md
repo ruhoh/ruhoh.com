@@ -18,6 +18,7 @@ Install the ruhoh gem to parse your blog using ruby. The ruhoh gem depends on:
 - **directory\_watcher** - for watching files for updates in realtime.
 - **mustache** - for templating.
 - **redcarpet** - for Markdown parsing.
+- **nokogiri** - for HTML handling and RSS support.
 
 These gems will be installed along with Ruhoh if you don't already have them.
 
@@ -51,6 +52,8 @@ Using the `rackup` command spawns a web-server that pragmatically loads your blo
 This means as you update files, the updates are reflected immediately.
 
 View your blog at: [http://localhost:9292/](http://localhost:9292/)
+
+The **dashboard** conveniently lists all your pages: [http://localhost:9292/dash](http://localhost:9292/dash)
 
 <h2 style="border:0; text-align:center">Now you're ready to create some content!</h2>
 <p style="text-align:center">

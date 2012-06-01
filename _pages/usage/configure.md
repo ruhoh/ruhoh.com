@@ -7,17 +7,18 @@ icon : icon-cog
 ---
 
 
-# Permalinks
+# Post Permalinks
 
-Set the permalink format in the `_config.yml` file:
+Set the post permalink format in the `config.yml` file:
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>_config.yml</em> &larr;</li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
+  <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em> &larr;</li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em></li>
   <li><span class="ui-silk inline ui-silk-folder">.</span> <em>...</em></li>
 </ul>
 
-    permalink: /:categories/:title
+    posts:
+      permalink: '/:categories/:title'
 
 
 ## Permalink Variables
@@ -49,6 +50,11 @@ Set the permalink format in the `_config.yml` file:
     <tr>
       <td>:title</td>
       <td>Title from the post’s filename</td>
+    </tr>
+    
+    <tr>
+      <td>:filename</td>
+      <td>NEW! The post file's filename (not including path).</td>
     </tr>
     
     <tr>
@@ -107,6 +113,15 @@ with categories: `['california/food', 'dairy']`
 </table>
 
 
+    :pages_exclude,
+    :pages_permalink,
+    :pages_layout,
+    :posts_exclude,
+    :posts_layout,
+    :posts_permalink,
+    :theme
+
+
 # Comments
 
 Ruhoh provides widget codes for [Disqus](http://disqus.com), [Intense Debate](http://intensedebate.com), [livefyre](http://www.livefyre.com/), and [Facebook Comments](https://developers.facebook.com/docs/reference/plugins/comments/).
@@ -114,7 +129,7 @@ Ruhoh provides widget codes for [Disqus](http://disqus.com), [Intense Debate](ht
 ## Add Comments
 
 To enable commenting for your blog you will need to have setup an account with one of these providers.
-In the `_config.yml` you should see a hash named `comments` as shown below:
+In the `config.yml` you should see a hash named `comments` as shown below:
 
     # Settings for comments helper
     # Set 'provider' to the comment provider you want to use.
@@ -182,7 +197,7 @@ Ruhoh provides analytics codes for [Google](http://google.com/analytics), and [G
 ## Add Analytics
 
 To enable analytics for your blog you will need to have setup an account with one of these providers.
-In the `_config.yml` you should see a hash named `analytics` as shown below:
+In the `config.yml` you should see a hash named `analytics` as shown below:
 
     # Settings for analytics helper
     # Set 'provider' to the analytics provider you want to use.
@@ -248,7 +263,7 @@ Prettify tries to automatically detect the language and highlight the syntax app
 
 ### Settings
 
-In the `_config.yml` you should see a hash named `syntax` as shown below:
+In the `config.yml` you should see a hash named `syntax` as shown below:
 
 
     syntax :
@@ -287,7 +302,7 @@ These files are name-spaced by the specific syntax highlighting provider you've 
 Ruhoh blogs come with all four of Google Prettify's [user-submitted themes](http://google-code-prettify.googlecode.com/svn/trunk/styles/index.html) as well as 
 the code-highlighting theme packaged with [Twitter Bootstrap](http://twitter.github.com/bootstrap/base-css.html#code)
 
-Add more themes or edit existing ones, then remember to specify your theme choice in `_config.yml`:
+Add more themes or edit existing ones, then remember to specify your theme choice in `config.yml`:
 
     syntax :
       provider : google_prettify
