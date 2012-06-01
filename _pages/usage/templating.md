@@ -11,7 +11,7 @@ icon : icon-list-alt
 # Overview
 
 Ruhoh uses [Mustache](http://mustache.github.com/) as its primary Templating system.
-If you are unfamiliar with Mustache's philosophy and syntax you can get up to speed in about 10 minutes by going through the 
+If you are unfamiliar with Mustache's philosophy and syntax you can get up to speed in about 10 minutes by going through the
 [README Examples](https://github.com/defunkt/mustache#readme)
 
 Mustache takes in three main parameters when expanding a template:
@@ -19,10 +19,10 @@ Mustache takes in three main parameters when expanding a template:
 <dl class="dl-horizontal">
   <dt>Template</dt>
   <dd>This is just a string of content. In Ruhoh this will be the current page body as rendered in its given layout(s).</dd>
-  
+
   <dt>View Helpers</dt>
   <dd>The View is a ruby class which defines helper methods that can be used in the layout.</dd>
-  
+
   <dt>Payload</dt>
   <dd>This is a Hash of your blog's data objects which are accessible in the Mustache Template.</dd>
 </dl>
@@ -34,7 +34,7 @@ This class defines helper methods useful for displaying your blog's data efficie
 # Template Data
 
 Much of ruhoh's job is to parse data from your blog. Once the data is processed, it is provided
-to the templater to be used in the mustache templating system. 
+to the templater to be used in the mustache templating system.
 The following outlines the main data objects available to you:
 
 ## Page
@@ -98,7 +98,7 @@ Note that any data added to a page's YAML meta-data will available in the `page`
     days :
       - monday
       - tuesday
-    ---  
+    ---
 
 Above, we've set special attributes `icon` and `days` which are now availble:
 
@@ -179,7 +179,7 @@ In your templates:
       <td>paths.media</td>
       <td>The URL path to the media folder.</td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -235,22 +235,22 @@ Think of these main keys as the **top-level endpoints** available to you in must
 This is an abridged version. The ruhoh command-line tool provides a full output of your payload hash at any given time:
 
     $ ruhoh payload
-    
+
 You may also want to save it to a file to view it better:
 
     $ ruhoh payload > payload.txt
-    
+
 Viewing the payload is useful to understand what exactly is accessible to you in your templates.
 It also provides insight into how ruhoh works with data.
 
 ## Database
 
 Most all data is actually in the `db` object of the payload.
-ruhoh stores "dictionaries" of all pages, posts, categories, and tags. 
+ruhoh stores "dictionaries" of all pages, posts, categories, and tags.
 A dictionary is an object of objects whose keys are the object ids.
 
     # example page dictionary:
-    
+
     { "/my-page.md" => {
         "title" => "My Page",
         "id"  => "/my-page.md",
@@ -265,7 +265,7 @@ The dictionaries are important because they store all the page, post, category, 
 Everywhere else in the payload that references these objects **references only the object id**.
 
 This optimizes the data-structures but it makes using the data with Mustache rather hard.
-Firstly mustache does not iterate over objects/hashes, and secondly, when you reference a page id, you don't 
+Firstly mustache does not iterate over objects/hashes, and secondly, when you reference a page id, you don't
 want to work with only the id, you want the page object that id represents.
 
 This is where ruhoh's built-in helpers come in:
@@ -277,7 +277,7 @@ Ruhoh's base mustache helper methods makes accessing your data easier and more c
 
 ## Pages
 
-The `pages` helper method maps to an Array containing all page objects. 
+The `pages` helper method maps to an Array containing all page objects.
 Use mustache syntax to iterate over the array:
 
 {{#raw_code}}
@@ -322,10 +322,23 @@ Use mustache syntax to iterate over the array:
   </ul>
 {{/raw_code}}
 
+### Post Content
+When using the 'posts' helper method, calling "{{content}}" will return unescaped raw HTML.
+To get the HTML to render properly, escape "{{content}}" with an adition pair of {} brackets.
+
+{{#raw_code}}
+  <ul>
+  {{# posts }}
+    <li><a href="{{url}}">{{title}}</a></li>
+    {{{content}}}
+  {{/ posts }}
+  </ul>
+{{/raw_code}}
+
 
 ## Categories
 
-The `categories` helper method maps to an Array containing all category objects. 
+The `categories` helper method maps to an Array containing all category objects.
 Use mustache syntax to iterate over the array:
 
 {{#raw_code}}
@@ -341,7 +354,7 @@ Use mustache syntax to iterate over the array:
 
 ## Tags
 
-The `tags` helper method maps to an Array containing all tag objects. 
+The `tags` helper method maps to an Array containing all tag objects.
 Use mustache syntax to iterate over the array:
 
 {{#raw_code}}
@@ -430,7 +443,7 @@ Assuming the current `page` object is a post:
     # _site.yml
     ---
     featured_post : '_posts/2020-10-25-greatest-post-ever.md'
-    
+
 
 Use the id to find the next post:
 
@@ -445,7 +458,7 @@ Use the id to find the next post:
 
 This helper method takes in a single String post id or Post Object and returns the "previous" post object
 where previous is the _older_ post in the list of reverse chronologically ordered posts.
-Nothing is returned if there is no older post. 
+Nothing is returned if there is no older post.
 
 Use this helper exactly as you would the `?next` helper, just replace it with `?previous` =D
 
@@ -519,7 +532,7 @@ Assuming the current `page` object is a post:
 Partials are files which contain arbitrary layout code, usually HTML, that can be dynamically included
 into any page or layout.
 
-Partials are very useful when used in conjunction with the templating language as they can provide 
+Partials are very useful when used in conjunction with the templating language as they can provide
 standardized layouts for data-structures used throughout your blog.
 
 You'll note that ruhoh's base blog scaffold includes default partials for displaying common data-structures:
@@ -536,7 +549,7 @@ Mustache supports partials natively using the "greater than" character:
 
 ## Create a Partial
 
-Create a *default_partial* by creating a file in the default partials folder at: 
+Create a *default_partial* by creating a file in the default partials folder at:
 
 <ul class="folder-tree">
   <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
@@ -549,7 +562,7 @@ Create a *default_partial* by creating a file in the default partials folder at:
     </ul>
   </li>
 </ul>
-    
+
 These partials should be theme independent.
 
 Additionally you may also create *theme_specific* partials by creating files at:
@@ -566,7 +579,7 @@ Additionally you may also create *theme_specific* partials by creating files at:
                   <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">[...your-partial-file...]</em> &larr;</li>
                 </ul>
               </li>
-            </ul> 
+            </ul>
           </li>
         </ul>
       </li>
