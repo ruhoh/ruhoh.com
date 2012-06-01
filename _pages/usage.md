@@ -53,6 +53,8 @@ This means as you update files, the updates are reflected immediately.
 
 View your blog at: [http://localhost:9292/](http://localhost:9292/)
 
+## Blog Dashboard
+
 The **dashboard** conveniently lists all your pages: [http://localhost:9292/dash](http://localhost:9292/dash)
 
 <h2 style="border:0; text-align:center">Now you're ready to create some content!</h2>

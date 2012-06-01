@@ -100,69 +100,9 @@ layout: page
     The site YAML file is used to specify site-wide data that can be used throughout your pages and layouts.
     A useful example is defining a navigation array that the templater can use to create your primary navigation bar.
   </li>
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">themes</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em></li>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>default.html</em></li>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>page.html</em></li>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>post.html</em></li>
-            </ul>
-          </li>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>media</em></li>
-          <li>
-            <span class="ui-silk inline ui-silk-folder">.</span> <em class="partial">partials</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="partial">posts_collate</em></li>
-            </ul>
-          </li>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>theme.yml</em></li>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em></li>
-        </ul> 
-      </li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>another-theme</em></li>
-    </ul>
-  </li>
-  <li class="info">
-    <strong>[Required]</strong>
-    The themes folder holds all your themes. Themes are packaged into folders containing all
-    layouts, partials, stylesheets, media, and javascripts necessary to style the website.
-    <a href="/usage/theming">theme documentation</a>
-  </li>
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>widgets</em> 
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>some_widget_name</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em></li>
-          <li>
-            <span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>some_widget_name.js</em></li>
-            </ul>
-          </li>
-          <li>
-            <span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>some_widget_name.html</em></li>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>alternative_view.html</em></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li class="info">
-    <strong>[Optional]</strong> Widgets define encapsulated mustache helpers to allow for customized
-    HTML snippets that can optionally run javascripts and take in arbitrary configuration parameters.
-    Client-side comments, analytics, and syntax highlighting are some automatically provided widgets.
-    <a href="/usage/widgets">widget documentation</a>
-  </li>
+
+{{> trees/themes }}
+{{> trees/widgets }}
 </ul>
 
 ## Interface Specification

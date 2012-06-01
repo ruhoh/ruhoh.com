@@ -6,6 +6,8 @@ layout: docs
 icon : icon-upload
 ---
 
+I want you to publish now, publish fast, and publish prolifically. If you can't do these things then ruhoh is not doing it's job.
+[What's getting in your way?](mailto:plusjade@gmail.com)
 
 # Publish to ruhoh.com
 

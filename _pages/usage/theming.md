@@ -6,50 +6,20 @@ layout: docs
 icon : icon-adjust
 ---
 
-
-
-
 # Themes
 
 A theme's primary role is to act as a namespace.
-A theme is simply a collection of layouts, partials, and assets that those partials and layouts depend on (CSS, images, javascripts).
+A theme is simply a collection of layouts, partials, and assets that those partials and layouts depend on (stylesheets, images, javascripts).
 
 ## Edit Your Theme
 
-To edit your theme, just edit the layouts, partials, css, etc for the currently active theme.
-Your active theme will be the theme specified in `_config.yml`.
+To edit your theme, just edit the layouts, partials, stylesheets, etc for the currently active theme.
+Your active theme will be the theme specified in `config.yml`.
 
 The theme structure is as detailed below:
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
-    <ul class="template">
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template">partials</em></li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em><br>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em>css</em></li>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em>images</em></li>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template">layouts</em><br>
-                <ul>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">default.html</em></li>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">page.html</em></li>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">post.html</em></li>
-                </ul>
-              </li>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template">partials</em><br>
-                <ul>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">posts_collate</em></li>
-                </ul>
-              </li>
-            </ul> 
-          </li>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>another-theme</em></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+{{> trees/themes }}
 </ul>
 
 ## Install New Theme
@@ -57,38 +27,32 @@ The theme structure is as detailed below:
 To install a new theme just download the folder and place it in the "themes" directory:
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
-    <ul class="template">
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em><br>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[...NEW-THEME-NAME...]</em> &larr;</li>
-        </ul>
-      </li>
+  <li class="endpoint">
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[...NEW-THEME-NAME...]</em> &larr;</li>
     </ul>
   </li>
 </ul>
 
-Then update your `_config.yml` to set the theme to this new theme name
+Then update your `config.yml` to set the theme to this new theme name
 
-    theme : new-theme-name
+    theme : 'new-theme-name'
 
 
 ## Create New Theme
 
 The Ruhoh command-line client can automatically create scaffolding for building a new theme.
 
-    $ ruhoh theme new-theme-name
+    $ ruhoh theme 'new-theme-name'
 
 Scaffolding for _new-theme-name_ will be available at:
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
-    <ul class="template">
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em><br>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>new-theme-name</em> &larr;</li>
-        </ul>
-      </li>
+  <li>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>new-theme-name</em> &larr;</li>
     </ul>
   </li>
 </ul>
@@ -112,26 +76,23 @@ The Ruhoh command-line client can automatically create layouts for the active th
 The command will create a file at:
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
-    <ul class="template">
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em>
+  <li>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[ACTIVE-THEME]</em>
         <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[ACTIVE-THEME]</em>
+          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
             <ul>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
-                <ul>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>splash.html</em> &larr;</li>
-                </ul>
-              </li>
-            </ul>  
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>splash.html</em> &larr;</li>
+            </ul>
           </li>
-        </ul>
+        </ul>  
       </li>
     </ul>
   </li>
 </ul>
 
-Edit your layout as desired, then make sure to specify your new layout within the pages' YAML Front Matter:
+Edit your layout as desired, then make sure to specify your new layout within the pages' YAML meta-data:
 
     ---
     layout: splash
@@ -140,7 +101,10 @@ Edit your layout as desired, then make sure to specify your new layout within th
 
 ## Insert page content into layout
 
-Use the special template variable: {{#raw_code}}{{content}}{{/raw_code}} ... to render a page's content within the given layout.
+Use the mustache helper: {{#raw_code}}{{{ content }}}{{/raw_code}} ... to render a page's content within the given layout.  
+
+**Note we use the triple mustache syntax here so HTML content passes through unescaped**  
+See the [mustache manual](http://mustache.github.com/mustache.5.html) for more info.
 
 {{#raw_code}}
 ---
@@ -149,8 +113,13 @@ layout: default
 <body>
   <div id="sidebar"> ... </div>
   <div id="main">
-    {{content}}
+    {{{ content }}}
   </div>
 </body>
 {{/raw_code}}
 
+# Stylesheets
+
+# Javascripts
+
+# Widgets

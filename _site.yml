@@ -19,6 +19,7 @@ usage_navigation :
   - usage/publish.md
   - usage/templating.md
   - usage/theming.md
+  - usage/widgets.md
   - usage/plugins.md
   
 030_usage_navigation :

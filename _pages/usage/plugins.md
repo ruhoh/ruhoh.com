@@ -6,12 +6,14 @@ layout: docs
 icon : icon-gift
 ---
 
-<p><span class="label label-info">New since ruhoh v0.3.0</span></p>
+# Overview
 
-Plugins may be added by placing ruby files into the `_plugins` folder in the root of your blog directory:
+Plugins may be added by placing ruby files into the `plugins` folder in the root of your blog directory:
+
+**NOTE for security reasons, your plugins will not run when publishing to *.ruhoh.com, but I plan to support many plugins as long as they are vetted!**
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_plugins</em>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>plugins</em>
     <ul>
       <li><span class="ui-silk inline ui-silk-page-code">.</span> <em>helpers.rb</em> &larr;</li>
     </ul>
@@ -22,7 +24,7 @@ You can also place them in folders for better organization:
 
 <ul class="folder-tree">
   <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>_plugins</em>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>plugins</em>
     <ul>
       <li>
         <span class="ui-silk inline ui-silk-folder">.</span> <em>template-helpers</em>
@@ -82,7 +84,7 @@ Since methods may be added directly to the module, be careful to respect system 
 As a guideline, please be descriptive with your name but also concise.
 
 All system level helper methods are outlined here:
-<https://github.com/ruhoh/ruhoh.rb/blob/master/lib/ruhoh/templaters/helpers.rb>.  
+<https://github.com/ruhoh/ruhoh.rb/tree/master/lib/ruhoh/templaters>  
 Study these methods to provide a guideline for hacking your own!
 
 
@@ -170,13 +172,13 @@ Ruhoh provides the **Redcarpet** markdown converter by default:
             ['.md', '.markdown']
           end
 
-          def self.convert(page)
+          def self.convert(content)
             require 'redcarpet'
             markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(:with_toc_data => true),
               :autolink => true, 
               :fenced_code_blocks => true, 
             )
-            markdown.render(page.content)
+            markdown.render(content)
           end
         end
       end
@@ -193,9 +195,9 @@ You can re-implement this converter to use your preferred markdown processor:
             ['.md', '.markdown']
           end
 
-          def self.convert(page)
+          def self.convert(content)
             require 'kramdown'
-            Kramdown::Document.new(page.content).to_html
+            Kramdown::Document.new(content).to_html
           end
         end
       end
@@ -212,14 +214,14 @@ You can also specify additional converters:
             ['.up', '.upcase']
           end
 
-          def self.convert(page)
-            page.content.upcase
+          def self.convert(content)
+            content.upcase
           end
         end
       end
     end
 
-Here we just upcase our entire page content.
+Here we just upcase our entire content string.
 Be sure to provide unique module names when adding converters. Specifying the same module will re-implement the module rather add it as an additional option.
 
 
@@ -265,36 +267,38 @@ Here's a user-submitted compile task created by [David Long](https://github.com/
     require 'nokogiri'
     class Ruhoh
       module Compiler
+        # This rss compiler is provided by David Long 
+        # http://www.davejlong.com/ 
+        # https://github.com/davejlong
+        # Thanks David!
         module Rss
-
+          # TODO: This renders the page content even though we already need to
+          # render the content to save to disk. This will be a problem when posts numbers expand. Merge this in later.
           def self.run(target, page)
             feed = Nokogiri::XML::Builder.new do |xml|
              xml.rss(:version => '2.0') {
                xml.channel {
                  xml.title_ Ruhoh::DB.site['title']
                  xml.link_ Ruhoh::DB.site['config']['production_url']
-                 #xml.generator "Ruhoh (v#{Ruhoh.version}"
                  xml.pubDate_ Time.now
-                 Ruhoh::DB.posts['chronological'].each do |postid|
-                   post = Ruhoh::DB.posts['dictionary'][postid]
+                 Ruhoh::DB.posts['chronological'].each do |post_id|
+                   post = Ruhoh::DB.posts['dictionary'][post_id]
+                   page.change(post_id)
                    xml.item {
                      xml.title_ post['title']
                      xml.link "#{Ruhoh::DB.site['config']['production_url']}#{post['url']}"
                      xml.pubDate_ post['date']
-                     xml.description_ (post['description'] ? post['description'] : post['content'])
+                     xml.description_ (post['description'] ? post['description'] : page.render)
                    }
                  end
                }
              }
             end
-
-            File.open(File.join(target,'rss.xml'), 'w'){ |p| p.puts feed.to_xml }
+            File.open(File.join(target, 'rss.xml'), 'w'){ |p| p.puts feed.to_xml }
           end
-
         end #Rss
       end #Compiler
     end #Ruhoh
     
-I'm thinking about adding this as a default task, but I'm hesitant to require the additional nokogiri dependency -- what do you think?    
-    
+This rss generator is part of the system compiler tasks so it will automatically run for you.
 

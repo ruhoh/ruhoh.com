@@ -135,78 +135,6 @@ Feel free to manually specify a layout on a per-post basis:
     ---
 
 
-# Tags
-  
-## Add Tags
-
-Add one or more tags to a post by including them into the post's YAML Front Matter.
-This is the YAML block at the top of the file:
-
-    ---
-    layout: post
-    title: a nice title
-    tags: javascript
-    ---
-    
-To add multiple tags, use an Array:
-
-    ---
-    layout: post
-    title: a nice title
-    tags: [javascript, tutorials, expert]
-    ---
-
-or
-
-    ---
-    layout: post
-    title: a nice title
-    tags: 
-      - javascript
-      - tutorials
-      - expert
-    ---
- 
-# Categories
-   
-## Add Categories
-
-Add one or more categories to a post by including them into the post's YAML Front Matter.
-This is the YAML block is at the top of the file:
-
-    ---
-    layout: post
-    title: a nice title
-    categories: code
-    ---
-   
-A category can be multiple levels deep:
-
-    categories: "code/android/games"
-    
-This defines **one** category named `code/android/games`.
-
-Also note that `code`, and `code/android` **will not exist** unless you explicitly define them as categories themselves.
-
-
-To place the post in multiple categories you'll need to pass in an Array:
-
-    ---
-    layout: post
-    title: a nice title
-    categories: ['code/android/games', 'game-downloads']
-    ---
-
-or
-
-    ---
-    layout: post
-    title: a nice title
-    categories :
-      - 'code/android/games'
-      - 'game-downloads'
-    ---
-
 # Drafts
 
 Drafts work exactly the same as posts except they are never included into your compiled (production) website.
@@ -298,6 +226,80 @@ Use the ruhoh command line client to convert all untitled-n files to their corre
     $ ruhoh titleize
 
 This command looks for any post file beginning with `untitled`, then attempts to rename it, but only if a post title has been set.
+
+
+# Categories
+   
+## Add Categories
+
+Add one or more categories to a post by including them into the post's YAML meta-data.
+This is the YAML block is at the top of the file:
+
+    ---
+    layout: post
+    title: a nice title
+    categories: code
+    ---
+   
+A category can be multiple levels deep:
+
+    categories: "code/android/games"
+    
+This defines **one** category named `code/android/games`.
+
+Also note that `code`, and `code/android` **will not exist** unless you explicitly define them as categories themselves.
+
+
+To place the post in multiple categories you'll need to pass in an Array:
+
+    ---
+    layout: post
+    title: a nice title
+    categories: ['code/android/games', 'game-downloads']
+    ---
+
+or
+
+    ---
+    layout: post
+    title: a nice title
+    categories :
+      - 'code/android/games'
+      - 'game-downloads'
+    ---
+
+
+# Tags
+  
+## Add Tags
+
+Add one or more tags to a post by including them into the post's YAML meta-data.
+This is the YAML block at the top of the file:
+
+    ---
+    layout: post
+    title: a nice title
+    tags: javascript
+    ---
+    
+To add multiple tags, use an Array:
+
+    ---
+    layout: post
+    title: a nice title
+    tags: [javascript, tutorials, expert]
+    ---
+
+or
+
+    ---
+    layout: post
+    title: a nice title
+    tags: 
+      - javascript
+      - tutorials
+      - expert
+    ---
 
 
 # Media

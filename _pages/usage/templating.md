@@ -30,6 +30,8 @@ Mustache takes in three main parameters when expanding a template:
 All pages in Ruhoh are expanded using one single, global Mustache View (ruby class).
 This class defines helper methods useful for displaying your blog's data efficiently.
 
+The mustache class and all of the included helpers are viewable here: <https://github.com/ruhoh/ruhoh.rb/tree/master/lib/ruhoh/templaters>
+
 
 # Template Data
 
@@ -71,12 +73,18 @@ can be a page, post, or draft.
       <td>The page layout as set in the page's YAML meta-data.</td>
     </tr>
     <tr>
-      <td>page.content</td>
-      <td>The un-converted raw contents of the page.</td>
+      <td>page.sub_layout</td>
+      <td>The page sub_layout as processed by ruhoh</td>
     </tr>
+    <tr>
+      <td>page.master_layout</td>
+      <td>The page master_layout as processed by ruhoh. May not be set if the post uses only one layout.</td>
+    </tr>
+    
   </tbody>
 </table>
 
+ 
 ### Example Usage:
 
 {{#raw_code}}
@@ -124,20 +132,20 @@ Above, we've set special attributes `icon` and `days` which are now availble:
 
 ## Site
 
-`site` is a globally accessible object that contains all data from your `_site.yml` file.
+`site` is a globally accessible object that contains all data from your `site.yml` file.
 This allows you to define arbitrary data you want access to throughout your templates such as navigational lists.
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>_config.yml</em></li>
-  <li><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>_site.yml</em> &larr;</li>
+  <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em></li>
+  <li><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>site.yml</em> &larr;</li>
 </ul>
 
-Additionally, the site object places everything found in `_config.yml` at the key `site.config`.
+Additionally, the site object places everything found in `config.yml` at the key `site.config`.
 Now you can reference all your configuration data in your templates if you need to.
 
 ### Example Usage
 
-    # _site.yml
+    # site.yml
     ---
     author :
       name : Jade Dominguez
@@ -157,7 +165,7 @@ In your templates:
 {{/raw_code}}
 
 
-## Paths
+## URL Paths
 
 <table class="table-striped table-bordered table-condensed">
   <thead>
@@ -168,18 +176,21 @@ In your templates:
   </thead>
   <tbody>
     <tr>
-      <td>paths.theme</td>
-      <td>The URL path to the currently enabled theme assets.</td>
+      <td>urls.theme_stylesheets</td>
+      <td>The URL path to the currently enabled theme stylesheets folder.</td>
     </tr>
     <tr>
-      <td>paths.syntax</td>
-      <td>The URL path to the currently enabled syntax highlighting assets.</td>
+      <td>urls.theme_javascripts</td>
+      <td>The URL path to the currently enabled theme javascripts folder.</td>
     </tr>
     <tr>
-      <td>paths.media</td>
-      <td>The URL path to the media folder.</td>
+      <td>urls.theme_media</td>
+      <td>The URL path to the currently enabled theme media folder.</td>
     </tr>
-    
+    <tr>
+      <td>urls.media</td>
+      <td>The URL path to the global media folder.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -187,11 +198,11 @@ In your templates:
 
 {{#raw_code}}
 <head>
-  <link href="{{ paths.theme }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="{{ paths.theme }}/css/style.css?body=adsf" media="all">
+  <link href="{{ urls.theme_stylesheets }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ urls.theme_stylesheets }}/css/style.css?body=adsf" media="all">
 </head>
 ...
-<img src="{{paths.media}}/images/happy-face.jpg">
+<img src="{{urls.media}}/images/happy-face.jpg">
 {{/raw_code}}
 
 
@@ -225,9 +236,10 @@ Think of these main keys as the **top-level endpoints** available to you in must
           }
         }
       },
-      "paths" = {
-        "theme" => "/..",
-        "syntax" => "/..",
+      "urls" = {
+        "theme_stylesheets" => "/..",
+        "theme_javascripts" => "/..",
+        "theme_media" => "/..",
         "media" => "/.."
       }
     }
@@ -373,7 +385,7 @@ This helper method takes in a single String page id or Array of page ids and exp
 
 ### List a user-specified list of pages.
 
-Assume we define a navigation array in `_site.yml`:
+Assume we define a navigation array in `site.yml`:
 
     navigation:
       - index.md
@@ -427,7 +439,7 @@ Assuming the current `page` object is a post:
 
 ### Finding Next Using a Post id
 
-    # _site.yml
+    # site.yml
     ---
     featured_post : '_posts/2020-10-25-greatest-post-ever.md'
     
@@ -523,6 +535,8 @@ Partials are very useful when used in conjunction with the templating language a
 standardized layouts for data-structures used throughout your blog.
 
 You'll note that ruhoh's base blog scaffold includes default partials for displaying common data-structures:
+
+### CHANGE THIS 
 <https://github.com/ruhoh/blog/tree/master/_templates/partials>
 
 ## Using Partials
@@ -539,13 +553,11 @@ Mustache supports partials natively using the "greater than" character:
 Create a *default_partial* by creating a file in the default partials folder at: 
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
-    <ul class="template">
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template">partials</em><br>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">[...your-partial-file...]</em> &larr;</li>
-        </ul>
-      </li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">posts</em></li>
+  <li>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>[...your-partial-file...]</em> &larr;</li>
     </ul>
   </li>
 </ul>
@@ -555,20 +567,17 @@ These partials should be theme independent.
 Additionally you may also create *theme_specific* partials by creating files at:
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
-    <ul class="template">
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em><br>
+  <li>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[ACTIVE-THEME]</em>
         <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[ACTIVE-THEME]</em>
+          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
             <ul>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template">partials</em><br>
-                <ul>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">[...your-partial-file...]</em> &larr;</li>
-                </ul>
-              </li>
-            </ul> 
+              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>[...your-partial-file...]</em> &larr;</li>
+            </ul>
           </li>
-        </ul>
+        </ul> 
       </li>
     </ul>
   </li>
