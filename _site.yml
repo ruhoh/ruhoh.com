@@ -20,3 +20,13 @@ usage_navigation :
   - usage/templating.md
   - usage/theming.md
   - usage/plugins.md
+  
+030_usage_navigation :
+  - 0.3.0/usage.md
+  - 0.3.0/usage/create.md
+  - 0.3.0/usage/configure.md
+  - 0.3.0/usage/publish.md
+  - 0.3.0/usage/templating.md
+  - 0.3.0/usage/theming.md
+  - 0.3.0/usage/plugins.md
+    
