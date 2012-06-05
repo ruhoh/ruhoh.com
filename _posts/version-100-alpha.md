@@ -1,5 +1,5 @@
 ---
-title: version 0.4.0
+title: version 1.0.0-alpha
 date: '2012-06-05'
 description:
 categories: releases
@@ -10,14 +10,14 @@ layout: post
 
 <style type="text/css">
   h2, h3 {
-    margin:10px 0;
+    margin:15px 0;
   }
   h2 {margin-left:-20px}
 </style>
 
 ## I Just Broke Everything
 
-ruhoh version *0.4.0* has some major API overhauls and pretty much
+ruhoh version *1.0.0-alpha* has some major API overhauls and pretty much
 destroys all the old directory API endpoints for your blog directory.
 
 I've provided a rake task to help the upgrade process below.
@@ -27,21 +27,47 @@ Following that is a quick outline all the new changes.
 ## Installing
 
 ```` bash
-$ gem install ruhoh --version '0.4.0'
+$ gem install ruhoh --version '1.0.0-alpha'
 ````
 
 ## Upgrading
 
-This rake task will upgrade _most_ of your blog directory.
+> **Use this [Rakefile Gist](https://gist.github.com/2876853) to Upgrade Your Blog Directory**
 
-[blah](/meep)
+This rake task will upgrade _most_ of your blog directory but it does not upgrade
+any themes to the new theme API because won't be able to catch everything.
 
-The rake task cannot upgrade any theme you've customized because the Theme API has changed too much.
-What it does do is provide the new site with the latest stock theme for you to try out and investigate a little.
+The new stock twitter theme is provided at `themes/twitter-for-1.0`. 
+You can optionally set this to your theme in `config.yml` in order to check out the changes.
+
+Most notably you will need to change any mustache helper that outputs HTML from double mustaches to **triple mustaches**.
+
+Change all instances of:
+
+{{#raw_code}}
+  {{ content }}
+{{/raw_code}}
+
+to
+
+{{#raw_code}}
+  {{{ content }}}
+{{/raw_code}}
+
+Next you should take a look at how stylesheets and javascripts are now handled.
+
+Ideally themes should use the mustache helper `assets` to render all asset dependencies:
+
+{{#raw_code}}
+  {{{ assets }}}
+{{/raw_code}}
+
+The full [Theming Documentation](/usage/theming) covers how to handle assets in depth.
 
 Please contact me personally if you need assistance with porting your customized theme.
+{{> contact_list }}
 
-
+<div style="height:10px; margin:20px 0; background:#eee"></div>
 
 ## New config.yml Format + Optons.
 
@@ -77,7 +103,7 @@ URLs, tags, categories, and other arbitrary meta-data may be set using Internati
 ## Overhauled Permalink formatting
 
 Users reported a lot of problems with the way permalinks were generated. 
-I've add these fixes which should take care of all reported issues:
+I've added these fixes which should take care of all reported issues:
 
 - Supports international characters via unicode regular expressions.
 - All non-word characters are now omitted from the URL rather than CGI escaped.
@@ -111,7 +137,7 @@ automatic rss.xml feed generation during compilation.
 
 ## Add ability to run previewer in production mode
 
-If you ever want to run the preview in production mode:
+If you ever want to run the previewer in production mode:
 
     run Ruhoh::Program.preview(:env => 'production')
     
