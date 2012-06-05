@@ -335,6 +335,66 @@ Use mustache syntax to iterate over the array:
 {{/raw_code}}
 
 
+## Posts_latest
+
+The `posts_latest` helper method is the same as `posts` but is limited to the latest _n_ posts as configured
+by your blog. See the [Configuration documentation](/usage/configure) for steps on configuring the posts\_latest limit.
+
+Use mustache syntax to iterate over the array:
+
+{{#raw_code}}
+  <ul>
+  {{# posts_latest }}
+    <li>
+      <a href="{{url}}">{{title}}</a>
+      {{{ content }}}
+    </li>
+  {{/ posts_latest }}
+  </ul>
+{{/raw_code}}
+
+
+## Summary
+
+The `summary` helper method displays a summary of your post rendered by processing the first _n_ lines of the given post.
+See the [Configuration Documentation](/usage/configure) for steps on configuring a custom line-count for summary.
+
+Summary may be used within any block of iterated posts:
+
+{{#raw_code}}
+  <ul>
+  {{# posts_latest }}
+    <li>
+      <a href="{{url}}">{{title}}</a>
+      {{{ summary }}}
+    </li>
+  {{/ posts_latest }}
+  </ul>
+{{/raw_code}}
+
+Summary may also be used for the _current_ page object:
+
+{{#raw_code}}
+<h2><a href="{{url}}">{{title}}</a></h2>
+
+{{{ summary }}}
+{{/raw_code}}
+
+
+### How it Works
+
+Summary is optimized for markdown files where content is structured largely into 
+contextual blocks and separated by blank lines. (This is also usually true for well-written HTML)
+
+Internally, ruhoh does not count blank lines against the "line count".
+Once the line count is reached ruhoh will only break on the "next blank line".
+This (theoretically) ensures that the summary outputs only whole blocks of content.
+
+[View Code](https://github.com/ruhoh/ruhoh.rb/blob/0.4.0/lib/ruhoh/templaters/base_helpers.rb#L17) for details.
+
+
+
+
 ## Categories
 
 The `categories` helper method maps to an Array containing all category objects. 
@@ -533,11 +593,6 @@ into any page or layout.
 
 Partials are very useful when used in conjunction with the templating language as they can provide 
 standardized layouts for data-structures used throughout your blog.
-
-You'll note that ruhoh's base blog scaffold includes default partials for displaying common data-structures:
-
-### CHANGE THIS 
-<https://github.com/ruhoh/blog/tree/master/_templates/partials>
 
 ## Using Partials
 
