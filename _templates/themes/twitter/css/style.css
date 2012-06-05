@@ -281,9 +281,7 @@ ul.contact-list li.tweet iframe { position:relative; top:5px}
 ul.folder-tree {
   margin-left:0;
   padding:10px;
-  border-radius:3px;
-  background:#FFF url('/_media/stripe.png') repeat;
-  box-shadow:inset 0 0 5px #F0F0D8;
+  ox-shadow:inset 0 0 5px #F0F0D8;
 }  
 ul.folder-tree, ul.folder-tree ul {
   list-style:none;
@@ -295,6 +293,35 @@ ul.folder-tree li em , ul.folder-tree ul li em{
   border-radius:3px;
   background:#FFF;
 }
+
+ul.folder-tree > li.endpoint  {
+  position:relative;
+  margin-bottom:5px;
+  padding:5px 0;
+  border:1px solid #F0F0D8;
+  background:#FFF url('/_media/stripe.png') repeat;
+  border-radius:3px;
+  box-shadow:inset 0 0 5px #F0F0D8;
+}
+ul.folder-tree > li.endpoint a {
+  position:absolute;
+  eft:-40px;
+  right:10px;
+  top:5px;
+}
+ul.folder-tree > li.info  { 
+  padding:10px 20px;
+  margin-bottom:5px;
+  background:#F5F0D0;
+  border:1px solid #D2CC65;
+  display:none;
+}
+ul.folder-tree > li > em {
+  font-weight:bold;
+}
+
+/* COLORS */ 
+/*
 ul.folder-tree li em.config, ul.folder-key li.config {
   background-color:#FFA398;
 }
@@ -311,6 +338,12 @@ ul.folder-key li.template {
 ul.folder-tree li em.template {
   background-color:#D0F7A6;
 }
+ul.folder-tree ul.partial em, ul.folder-tree em.partial,
+ul.folder-tree li.partial em {
+  background-color:#C7F464;
+}
+
+*/
 ul.folder-key {
   margin-left:0;
   margin-bottom:10px;

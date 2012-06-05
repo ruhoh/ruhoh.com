@@ -12,7 +12,7 @@
 
   <!-- Le styles -->
   <link href="{{ paths.theme }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="{{ paths.theme }}/css/style.css?body=a" rel="stylesheet" type="text/css" media="all">
+  <link href="{{ paths.theme }}/css/style.css?body=aadf" rel="stylesheet" type="text/css" media="all">
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="/_media/jquery.min.js"><\/script>')</script>
@@ -80,6 +80,14 @@
     $(function(){
       Pc.init();
       Toc.init('#subbie', '#main-content');
+      
+      $('ul.folder-tree').find('li.info').hide();
+      $('ul.folder-tree').find('li.endpoint').prepend('<a href="#" class="info">info</a>');
+      $('ul.folder-tree').find('a.info').click(function(e){
+        $(this).parent('li').next('li').toggle();
+        e.preventDefault();
+        return false;
+      })
     })
   </script>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
