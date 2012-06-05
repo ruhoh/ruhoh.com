@@ -1,5 +1,5 @@
 ---
-title: version 1.0.0-alpha
+title: version 1.0.0.alpha
 date: '2012-06-05'
 description:
 categories: releases
@@ -17,7 +17,7 @@ layout: post
 
 ## I Just Broke Everything
 
-ruhoh version *1.0.0-alpha* has some major API overhauls and pretty much
+ruhoh version *1.0.0.alpha* has some major API overhauls and pretty much
 destroys all the old directory API endpoints for your blog directory.
 
 I've provided a rake task to help the upgrade process below.
@@ -27,7 +27,7 @@ Following that is a quick outline all the new changes.
 ## Installing
 
 ```` bash
-$ gem install ruhoh --version '1.0.0-alpha'
+$ gem install ruhoh --version '1.0.0.alpha'
 ````
 
 ## Upgrading
