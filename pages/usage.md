@@ -23,7 +23,7 @@ Install the ruhoh gem to parse your blog using ruby. The ruhoh gem depends on:
 
 These gems will be installed along with Ruhoh if you don't already have them.
 
-    $ gem install ruhoh
+    $ gem install ruhoh --version '1.0.0.alpha'
     
 If you run into a problem you can [create a support issue](https://github.com/ruhoh/ruhoh.rb/issues) using GitHub Issues.
 
