@@ -65,7 +65,7 @@ ul.social li iframe{
   top:10px;
 }
 .icon-github {
-  background-image:url('/_media/github_white_black_cat_32.png') !important;
+  background-image:url('../media/github_white_black_cat_32.png') !important;
   background-position:0 0;
 }
 
@@ -299,7 +299,7 @@ ul.folder-tree > li.endpoint  {
   margin-bottom:5px;
   padding:5px 0;
   border:1px solid #F0F0D8;
-  background:#FFF url('/_media/stripe.png') repeat;
+  background:#FFF url('../media/stripe.png') repeat;
   border-radius:3px;
   box-shadow:inset 0 0 5px #F0F0D8;
 }
@@ -361,11 +361,11 @@ ul.folder-key li {
   http://xheo.com/silk?icons=422,442,443,505,507,607,608,609,610,617,619,623,628,635,636,643,646,652,656,674,704,756,990&size=25
 */
 
-.ui-silk { width: 25px; height: 25px; display:block; background: transparent url(/_media/silk-sprite.png?634672676400377835) no-repeat; text-indent: -99999px; overflow: hidden; }
-.ui-silk.gray, .ui-silk.gray, .ui-silk.hover { background-image: url(/_media/silk-sprite-gray.png?634672676400377835); }
+.ui-silk { width: 25px; height: 25px; display:block; background: transparent url(../media/silk-sprite.png?634672676400377835) no-repeat; text-indent: -99999px; overflow: hidden; }
+.ui-silk.gray, .ui-silk.gray, .ui-silk.hover { background-image: url(../media/silk-sprite-gray.png?634672676400377835); }
 *.ui-silk.inline{ display: inline-block; vertical-align: middle; border: 0; outline: 0; }
 
-.ui-silk.hover:hover{background-image: url(/_media/silk-sprite.png?634672676400377835);}.ui-silk-folder { background-position: -0px -0px }
+.ui-silk.hover:hover{background-image: url(../media/silk-sprite.png?634672676400377835);}.ui-silk-folder { background-position: -0px -0px }
 .ui-silk-folder-page { background-position: -25px -0px }
 .ui-silk-folder-page-white { background-position: -50px -0px }
 .ui-silk-layout { background-position: -75px -0px }
@@ -438,7 +438,7 @@ ul.folder-key li {
 }
 
 .subnav .nav > .active > a i.icon-white {
-  background-image:url("../bootstrap/img/glyphicons-halflings.png") !important;
+  background-image:url("../media/glyphicons-halflings.png") !important;
 }
 
 .subnav .nav > li:first-child > a,

@@ -1,0 +1,12 @@
+---
+RuhohSpec: '1.0'
+pages:
+  permalink: pretty
+theme: twitter
+production_url: http://username.github.com
+archive_path: /archive.html
+categories_path: /categories.html
+tags_path: /tags.html
+posts:
+  permalink: /blog/:categories/:title
+  exclude: 
