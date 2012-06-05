@@ -4,6 +4,7 @@ layout: docs
 icon : icon-star
 ---
 
+Docs are for current version: **v1.0.0.alpha** - [View Deprecated 0.3.0 Documentation](/0-3-0/usage)
 
 # Development Setup
 
