@@ -8,8 +8,10 @@ icon : icon-adjust
 
 # Overview
 
-A theme's primary role is to act as a namespace.
-A theme is simply a collection of layouts, partials, and assets that those partials and layouts depend on (stylesheets, images, javascripts).
+A theme's primary role is to provide styling and assets to your your content.
+Ideally a theme should do this in an unobtrusive and modular way, always acting as an asset namespace.
+
+A theme is simply a collection of layouts, partials, and assets such as stylesheets, images, and javascripts that those partials and layouts depend on.
 
 The theme structure is as detailed below:
 
@@ -144,12 +146,15 @@ Note the triple mustache syntax which is required for rendering non-escaped HTML
 
 Reference media in stylesheet files using relative paths: `../media`
 
-Reference stylesheets in layouts using mustache: 
+Manually reference stylesheets in layouts using mustache: 
 
 {{#raw_code}}
-<link href="{{urls.theme_stylesheets}}" rel="stylesheet" type="text/css" media="all">
-<link src="{{urls.theme_media}}/some-image.png">
+<link href="{{urls.theme_stylesheets}}/some-stylesheet.css" rel="stylesheet" type="text/css" media="all">
 {{/raw_code}}
+
+
+Note manually referencing stylesheets is discouraged because they will be unregistered with ruhoh's asset manager.
+
 
 # Javascripts
 
@@ -210,11 +215,14 @@ Load dependencies are managed by ruhoh and are output via the mustache helper: `
 Note the triple mustache syntax which is required for rendering non-escaped HTML syntax.
 
 
-Reference media in layouts using mustache: 
+Manually reference javascripts in layouts using mustache: 
 
 {{#raw_code}}
-<img src="{{urls.theme_media}}/some-image.png">
+<script src="{{urls.theme_javascripts}}/some-javascript-file.js"></script>
 {{/raw_code}}
+
+
+Note manually referencing javascripts is discouraged because they will be unregistered with ruhoh's asset manager.
 
 
 # Media 
@@ -245,6 +253,7 @@ Reference media in layouts using mustache:
 {{#raw_code}}
 <img src="{{urls.theme_media}}/some-image.png">
 {{/raw_code}}
+
 
 
 # Bundling

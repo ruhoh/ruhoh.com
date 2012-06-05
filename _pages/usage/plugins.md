@@ -10,10 +10,10 @@ icon : icon-gift
 
 Plugins may be added by placing ruby files into the `plugins` folder in the root of your blog directory:
 
-**NOTE for security reasons, your plugins will not run when publishing to *.ruhoh.com, but I plan to support many plugins as long as they are vetted!**
+**NOTE for security reasons, your plugins will not run when publishing to *.ruhoh.com, but I plan to support many plugins once they are reviewed!**
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>plugins</em>
+  <li class="endpoint"><span class="ui-silk inline ui-silk-folder">.</span> <em>plugins</em>
     <ul>
       <li><span class="ui-silk inline ui-silk-page-code">.</span> <em>helpers.rb</em> &larr;</li>
     </ul>
@@ -23,7 +23,7 @@ Plugins may be added by placing ruby files into the `plugins` folder in the root
 You can also place them in folders for better organization:
 
 <ul class="folder-tree">
-  <li>
+  <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em>plugins</em>
     <ul>
       <li>

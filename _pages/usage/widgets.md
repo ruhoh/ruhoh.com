@@ -116,13 +116,13 @@ To use a custom provider, create a layout with widget code for that provider and
       <li>
         <span class="ui-silk inline ui-silk-folder">.</span> <em>comments</em>
         <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em> &larr;</li>
+          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em></li>
         </ul>
       </li>
       <li>
         <span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
         <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_comments.html</em></li>
+          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_comments.html</em> &larr;</li>
         </ul>
       </li>
     </ul>
@@ -131,7 +131,7 @@ To use a custom provider, create a layout with widget code for that provider and
 
 ## Disable Comments
 
-Set `provider: false` to disable comments globally. 
+Set `layout: false` to disable comments globally. 
 
 Disable comments for individual pages/posts by specifying `comments: false` in the page/post YAML meta-data:
 
@@ -197,13 +197,13 @@ To use a custom provider, create a layout with widget code for that provider and
       <li>
         <span class="ui-silk inline ui-silk-folder">.</span> <em>analytics</em>
         <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em> &larr;</li>
+          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em></li>
         </ul>
       </li>
       <li>
         <span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
         <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_analytics.html</em></li>
+          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_analytics.html</em> &larr;</li>
         </ul>
       </li>
     </ul>
