@@ -62,7 +62,17 @@ Ideally themes should use the mustache helper `assets` to render all asset depen
   {{{ assets }}}
 {{/raw_code}}
 
+All the urls have been changed from `paths` to `urls`:
+
+<pre>
+&lt;img src="&#123;&#123;urls.media}}/pic.jpg"&gt;
+&lt;img src="&#123;&#123;urls.theme_media}}/pic.jpg"&gt;
+&lt;link href="&#123;&#123;urls.theme_stylesheets}}/some-stylesheet.css" type="text/css" rel="stylesheet" media="all"&gt;
+&lt;script src="&#123;&#123;urls.theme_javascripts}}/some-script.js"&gt; &lt;/script&gt;
+</pre>
+
 The full [Theming Documentation](/usage/theming) covers how to handle assets in depth.
+
 
 Please contact me personally if you need assistance with porting your customized theme.
 {{> contact_list }}
