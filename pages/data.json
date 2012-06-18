@@ -1,0 +1,8 @@
+---
+layout: false
+---
+
+{
+  "greeting" : "Hello",
+  "subject" : "world"
+}
