@@ -28,7 +28,7 @@ when implementing the module in _another_ language.
 
 The following graphic illustrates the procedure implemented by the core modules to render your blog.
 
-<img src="/_media/flow.png" />
+<img src="{{ urls.media }}/flow.png" />
 Description:
 
 1. Parsers extract the data from your blog directory for the Database to consume.
