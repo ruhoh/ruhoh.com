@@ -31,3 +31,41 @@ usage_navigation :
   - 0.3.0/usage/theming.md
   - 0.3.0/usage/plugins.md
     
+users :
+  -
+    url: http://abunsen.ruhoh.com/
+    gravatar: cfbc18690525ba268dc11a7847f72f3f
+    github: abunsen
+  - 
+    url: http://freemind.pluskid.org/
+    gravatar: b02979bc1549a16515c880ce836c3023
+    github: pluskid
+  - 
+    url: http://davejlong.ruhoh.com/
+    gravatar: 0f4cd2db63210532694411de42a9e649
+    github: davejlong
+  - 
+    url: http://jamisondance.com/
+    gravatar: 6b3da28d67c0c30048665399688f0fdc
+    github: jergason
+  - 
+    url: http://blog.blynt.com
+    gravatar: null
+    github : null
+  - 
+    url: http://orva.fi/
+    gravatar: 358edc6d49d0e756b514001b9ffd6446
+    github: orva
+  - 
+    url: http://jacobmgreer.ruhoh.com/
+    gravatar: 698330a3618700144fc4f8d1ec481422
+    github: jacobmgreer
+  - 
+    url: http://jianzwang.ruhoh.com/
+    gravatar: 6363dfcadb2262fd38a6f1b14c0be895
+    github: jianzwang
+  - 
+    url: http://plusjade.ruhoh.com/
+    gravatar: b835c3656fab4a9241d6b7f983d6fce3
+    github: plusjade
+        

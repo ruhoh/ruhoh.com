@@ -2,18 +2,16 @@
 layout : splash
 title : Home
 ---
-<div class="row splash">
 
+<h1 class="splash-header">The Universal Static Blogging Platform.</h1>
+
+<div class="row splash stripe">
   <div class="span6 splash-message">
-    <h1>ruhoh <em style="font-size:0.5em; position:relative; top:-12px; color:#607848;">(beta)</em></h1>
-    <h3 style="margin-bottom:10px">The Universal Static Blogging Platform.</h3>
-    <p style="margin-bottom:20px">
-      ruhoh is the <em>only</em> static blog generator built with
-      <br>language-agnostic APIs.
-      <br>Blogging like a hacker just got more hackerish:
-    </p>
-    
-    <div class="box" style="padding:20px; margin-right:20px">
+    <div class="wrapper" style="padding:20px">
+      <p style="margin-bottom:20px">
+        <strong>ruhoh</strong> is the <em>only</em> static blog generator built with
+        <br>language-agnostic APIs. Blogging like a hacker just got more hackerish:
+      </p>
       <table class="table-condensed" style="margin:0; width:100%">
         <tbody>
           <tr>
@@ -43,68 +41,113 @@ title : Home
 
           <tr>
             <td><i class="icon-ok-sign"></i> <strong>Automatic</strong></td>
-            <td>hassle-free hosting <i class="icon-arrow-right"></i></td>
+            <td>hassle-free hosting <i class="icon-arrow-down"></i></td>
           </tr>
-          
+        
           <tr>
             <td><i class="icon-ok-sign"></i> <strong>Full-Control</strong></td>
             <td>Multiple <a href="/usage/publish">self-hosting</a> options.</i></td>
           </tr>
-          
+        
         </tbody>
       </table>
     </div>
-    
-    <h3>Examples</h3>
-    <ul style="margin-right:20px">
-      <li>This website: <a href="https://github.com/ruhoh/ruhoh.com">[source]</a></li>
-      <li><a href="http://plusjade.ruhoh.com">plusjade.ruhoh.com</a> <a href="https://github.com/plusjade/plusjade.ruhoh.com">[source]</a></li>
-    </ul>
-    
-    <h3>*Notes on Beta</h3>  
-    <p style="margin-right:20px">
-      ruhoh beta is currently written in <span class="badge badge-inverse">ruby</span>.
-      Once the APIs are stabilized, ruhoh will address
-      PHP, node.js, and Python to start.
-    </p>
-
   </div>
 
-  <div class="span6 splash-install">
-    <h1>Claim Your Hosted Static Blog</h1>
-    <div class="wrapper">
-      <form action='#' class="form-inline" id="generate_code">
-        <input id='github_username' type='text' placeholder="GitHub Username" style="width:200px;"/>
-        <button class='btn' style="width:200px;">Personalize Install Code</button>
-      </form>
+  <div class="span6 splash-message">
 
+    <div class="wrapper" style="padding:20px">
+      <h3>Mailing List</h3>
+      <!-- Begin MailChimp Signup Form -->
+      <div id="mc_embed_signup">
+      <form action="http://ruhoh.us1.list-manage.com/subscribe/post?u=af7ae466c004441192ef9e2c5&amp;id=3302121f75" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank">
+      <div class="mc-field-group">
+        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="email address">
+        <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-success">Subscribe</button>
+      </div>
+      </form>
+      </div>
+      <!--End mc_embed_signup-->
+      <div>
+        <p>
+          Keep up on the bleeding edge of development.
+        </p>
+        <ul>
+          <li>New version and feature releases.</li>
+          <li>New service rollouts.</li>
+          <li>Priority access to premium features.</li>
+        </ul>
+      </div>
+      
+      <h3>Who's Using Ruhoh.</h3>
+      <ul id="user-list">
+      {{#site.users}}
+        <li>
+          <a href="{{url}}" target="_blank">
+            <img src="http://0.gravatar.com/avatar/{{gravatar}}.jpg?size=40" alt="">
+          </a>
+        </li>
+      {{/site.users}}
+      </ul>
+      
+      <div style="text-align:right">
+        <a href="/usage" class="btn btn-warning btn-large">Get Started &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<hr>
+
+<h1 class="splash-header">Host Your Blog, Free.</h1>
+<p style="text-align:center">
+  Use GitHub? Push your blog to a GitHub repository and ruhoh instantly hosts it on the Internet.
+  <br>Every push to master triggers an automatic blog update.
+</p>
+<div class="splash-install">
+  <div class="row wrapper">
+    
+    <div class="span5">  
       <h3>1. Setup Your GitHub Repository</h3>
-  
-      <table class="github-install table-condensed">
+      <form action='#' class="form-inline" id="generate_code">
+        
+        <p>
+          <label>Your username is case-sensitive!</label>
+          <input id='github_username' type='text' placeholder="GitHub Username" style="width:250px">
+        </p>
+        <button class='btn' style="width:260px">Personalize Install Code</button>
+      </form>
+    </div>
+
+    <div class="span7">
+      <h3 style="visibility:hidden">&nbsp;</h3>
+      <table class="github-install">
         <tbody>
 
           <tr>
             <td>1. Login to GitHub:</td>
-            <td><a href='https://github.com/' class="btn" target="_blank">Go to Github Dashboard</a></td>
+            <td><a href='https://github.com/' class="btn" target="_blank" style="width:240px">Go to Github Dashboard</a></td>
           </tr>
 
           <tr>
             <td>2. Create repository:</td>
-            <td class="form-inline"><input id="repo_name" type="text" value="USERNAME.ruhoh.com" style="width:175px" /></td>
+            <td class="form-inline"><input id="repo_name" type="text" value="USERNAME.ruhoh.com" style="width:250px"></td>
           </tr>
 
           <tr>
-            <td>3. Add webhook: <a href="http://help.github.com/post-receive-hooks/" target="_blank" style="font-size:0.9em">[how-to?]</a>
+            <td>3. Add webhook: <a href="http://help.github.com/post-receive-hooks/" target="_blank">[how-to?]</a>
             </td>
-            <td class="form-inline"><input type="text" value="http://post.ruhoh.com" style="width:175px" /></td>
+            <td class="form-inline"><input type="text" value="http://post.ruhoh.com" style="width:250px"></td>
           </tr>
 
         </tbody>
       </table>
-  
+    </div>
+
+    <div class="span12" style="margin-bottom:15px">
       <h3>2. Push Your New Blog</h3>
-  
-      <p>
+      <p style="text-align:center">
         Clone the ruhoh blog scaffolding then push it to your repo:
       </p>
 
@@ -113,28 +156,20 @@ title : Home
 <span class="kwd">cd</span> <span class="typ">USERNAME</span>.ruhoh.com
 <span class="kwd">git</span> remote set-url origin git@github.com:<span class="typ">USERNAME</span>/<span class="typ">USERNAME</span>.ruhoh.com.git
 <span class="kwd">git</span> push origin master</code></pre>
-
-      <p style="text-align:center">
-        <a href='http://USERNAME.ruhoh.com' id="blog_link" target="_blank">http://USERNAME.ruhoh.com</a>
-        <br><small style="color:#333">updates are logged to: <a href="http://USERNAME.ruhoh.com/log.txt" id="blog_log_link" target="_blank">/log.txt</a></small>
-      </p>
-      
-      <h3>3. Develop Locally</h3>
-      
-      <div style="clear:both">
-        <div class="pull-left" style="width:220px;">
-          Push updates to GitHub; 
-          <br>watch your blog update.
-        </div>
-        <a href="/usage" class="btn btn-warning btn-large pull-right">Get Started &rarr;</a>
-      </div>
-      <br style="clear:both">
     </div>
+
+
+    <div class="span6" style="ext-align:right;">
+      <a href='http://USERNAME.ruhoh.com' id="blog_link" target="_blank">http://USERNAME.ruhoh.com</a>
+      | <small style="color:#333">updates are logged to: <a href="http://USERNAME.ruhoh.com/log.txt" id="blog_log_link" target="_blank">/log.txt</a></small>
+    </div>
+    <div class="span6" style="text-align:right;">
+      <a href="/usage" class="btn btn-warning btn-large" style="margin-right:15px">Get Started &rarr;</a>
+    </div>
+    <br style="clear:both">  
   </div>
+</div>  
 
-</div>
-
-<hr>
 
 <h1 class="splash-header">So How is ruhoh Better?</h1>
 <div class="row splash-more">
@@ -190,68 +225,23 @@ title : Home
   
 </div>
 
-<h1 class="splash-header">Community</h1>
-<div class="row splash-more">
-  <div class="span6">
-
-    <h2>Mailing List</h2>
-    <div class="box">
-      <h4>Frequency: max once per week.</h4>
-      <p>
-        This newsletter will keep you up on the bleeding edge of development.
-      </p>
-      <ul>
-        <li>New version and feature releases.</li>
-        <li>New service rollouts.</li>
-        <li>Priority access to premium features.</li>
-      </ul>
-      <!-- Begin MailChimp Signup Form -->
-      <div id="mc_embed_signup">
-      <form action="http://ruhoh.us1.list-manage.com/subscribe/post?u=af7ae466c004441192ef9e2c5&amp;id=3302121f75" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank">
-      <div class="mc-field-group">
-        <label for="mce-EMAIL"><strong>Email Address</strong>  <span class="asterisk">*</span></label>
-        <br><input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-        <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-success">Subscribe</button>
-      </div>
-      </form>
-      </div>
-      <!--End mc_embed_signup-->
-    </div>
-    
-  </div>
-  
-  <div class="span6">
-    <h2>Provide Feedback</h2>
-    <div class="box">
-      <p>
-        ruhoh is an exercise in <a href="http://sivers.org/sharing">sharing</a>.
-        All feedback, troubleshooting help, and feature requests are welcome.
-      </p>
-      <ul class="feedback">
-        <li><a href="https://github.com/ruhoh/ruhoh.rb/issues">GitHub Issues</a></li>
-        <li class="tweet"><a href="https://twitter.com/intent/tweet?screen_name=ruhohBlog" class="twitter-mention-button" data-lang="en">Tweet to @ruhohBlog</a></li>
-        <li><a href="mailto:plusjade@gmail.com"><i class="icon-envelope"></i> plusjade@gmail.com</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
 <h1 class="splash-header">About</h1>
 <div class="row splash-more">
   
   <div class="span6">
     <h2>I made Jekll-Bootstrap</h2>
     <div class="box">
+      <p>ruhoh is an exercise in <a href="http://sivers.org/sharing">sharing</a>.</p>
       <p>ruhoh is inspired by Jekyll and designed based on everything I learned from creating <a href="http://jekyllbootstrap.com">jekyllbootstrap.com</a></p>
       <p>
         ruhoh is the next iteration of what I think static, technical blogging can be.
         
       </p>
-      <p><strong>I work on ruhoh full-time.</strong></p>
+      <p><strong>I work on ruhoh part-time.</strong></p>
       <p>
         <img src="{{urls.media}}/first-post.jpg" style="float:left;margin-right:10px; border:1px solid #ccc">
-        I was going to look for employment in San Francisco, but decided to give this a go.
-        I currently work out of milk-tea and coffee shops throughout SoCal B]
+        Update: I have accepted a position at <a href="//gild.com">Gild.com</a> so I now
+        work on ruhoh weekends at tea shops in San Francisco B]
       </p>
     </div>
   </div>

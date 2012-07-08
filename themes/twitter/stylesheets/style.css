@@ -70,6 +70,25 @@ ul.social li iframe{
 }
 
 
+.stripe {
+  background:#FFF url('../media/stripe.png') repeat;
+  border-radius:3px;
+  box-shadow:inset 0 0 5px #F0F0D8;
+}
+#user-list {
+  margin:0;
+  margin-bottom:20px;
+  padding:0;
+  list-style:none;
+}
+#user-list li {
+  display:inline;
+} 
+#user-list li img { 
+  border:1px solid #777;
+  background:#FFF;
+  border-radius:1px;
+}
 /* splash page */
 h1.splash-header {
   text-align:center; font-size:38px; padding:30px;
@@ -111,11 +130,20 @@ div.box {
   text-align:center;
 }
 .splash-install div.wrapper {
-  padding:20px; 
+  padding:20px 0;
   background:#F0F0D8;
-  border:1px solid #C0D860; 
+  order:1px solid #C0D860; 
   border-radius:3px;
   box-shadow:inset 0 0 10px #C0D860;
+  
+  order:1px solid #F0F0D8;
+  background:#FFF url('../media/stripe.png') repeat;
+  border-radius:3px;
+  box-shadow:inset 0 0 5px #F0F0D8;
+  
+}
+.splash-install div.wrapper > div {
+
 }
 .splash-install div.wrapper h3{ 
   display:inline-block;
@@ -142,18 +170,24 @@ div.box {
   width:100%;
 }
 .splash-install table td {
-  border-bottom:1px solid #E0E4CC;
-  padding:7px;
+  padding:10px 12px;
+  font-size:14px;
+  font-weight:bold;
   vertical-align:center;
 }
 .splash-install .table-striped tbody tr:nth-child(odd) td,
-.splash-install .table-striped tbody tr:nth-child(odd) th{
+.splash-install .table-striped tbody tr:nth-child(odd) th {
   background-color:#E0E4CC;
 }
 .splash-install .table-bordered,
 .splash-install .table-bordered th,
 .splash-install .table-bordered td {
   border-color:#E0E4CC;
+}
+
+.splash-install button {
+  font-weight:bold;
+  font-size:14px;
 }
 
 

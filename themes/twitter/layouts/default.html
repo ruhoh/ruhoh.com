@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>{{page.title}} | ruhoh universal static blog generator</title>
   <meta charset="utf-8">
+  <title>{{ page.title }} | ruhoh universal static blog generator</title>
   <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -69,13 +69,11 @@
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(wf, s);
     })(); </script>
-  {{{ syntax }}}
   
   <script src="{{urls.media}}/custom.js?v1"></script>
   <script>
     $(function(){
       Pc.init();
-      Toc.init('#subbie', '#main-content');
       
       $('ul.folder-tree').find('li.info').hide();
       $('ul.folder-tree').find('li.endpoint').prepend('<a href="#" class="info">info</a>');
