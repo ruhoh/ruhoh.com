@@ -53,6 +53,10 @@ users :
     gravatar: null
     github : null
   - 
+    url: http://shawnps.net/
+    gravatar: dbeddf6d60f3622c7aced47c131e892b
+    github : shawnps
+  - 
     url: http://orva.fi/
     gravatar: 358edc6d49d0e756b514001b9ffd6446
     github: orva
