@@ -4,7 +4,7 @@ layout: docs
 icon : icon-star
 ---
 
-Docs are for current version: **v1.0.0.alpha** - [View Deprecated 0.3.0 Documentation](/0-3-0/usage)
+Docs are for current version: **v1.0** - [View Deprecated 0.3.0 Documentation](/0-3-0/usage)
 
 # Development Setup
 
@@ -23,7 +23,7 @@ Install the ruhoh gem to parse your blog using ruby. The ruhoh gem depends on:
 
 These gems will be installed along with Ruhoh if you don't already have them.
 
-    $ gem install ruhoh --version '1.0.0.alpha'
+    $ gem install ruhoh
     
 If you run into a problem you can [create a support issue](https://github.com/ruhoh/ruhoh.rb/issues) using GitHub Issues.
 

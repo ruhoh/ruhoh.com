@@ -8,5 +8,5 @@ archive_path: /archive.html
 categories_path: /categories.html
 tags_path: /tags.html
 posts:
-  permalink: /blog/:categories/:title
+  permalink: /blog/:categories/:title/
   exclude: 

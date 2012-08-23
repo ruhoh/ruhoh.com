@@ -10,7 +10,7 @@ layout: post
 Ruhoh v0.2.0 is just released! Most notably there is a more intuitive draft/publish workflow
 enabled by a more comprehensive /dash panel for managing your files.
 
-[history.txt](https://github.com/ruhoh/ruhoh.rb/blob/master/history.txt) reference.
+[history.json](https://github.com/ruhoh/ruhoh.rb/blob/master/history.json) reference.
 
 
 ## API changes:
