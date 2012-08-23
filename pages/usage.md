@@ -73,7 +73,7 @@ The **dashboard** conveniently lists all your pages: [http://localhost:9292/dash
   <li class="info">
     <strong>[Required]</strong>
     The config file is written in YAML and contains site-wide configuration options.
-    <a href="usage/configure">config documentation</a>
+    <a href="/usage/configure">config documentation</a>
   </li>
   <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>dash.html</em> </li>
   <li class="info">
@@ -134,7 +134,7 @@ The **dashboard** conveniently lists all your pages: [http://localhost:9292/dash
   <li class="info">
     <strong>[Optional]</strong>
     Plugins extend and/or overload the base ruhoh functionality. There are 3 types of plugins: mustache helpers, converters, and compiler tasks.
-    <a href="usage/plugins">plugin documentation</a>
+    <a href="/usage/plugins">plugin documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em class="post">posts</em> 
