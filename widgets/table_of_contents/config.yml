@@ -1,0 +1,17 @@
+#layout: custom
+target_id : 'toc'
+wrapper_id: 'novel'
+
+greeting: haro
+people:
+  - Jadeachu
+  - Bob
+  - bologna
+
+fruits:
+  - apple
+  - peach
+  - lemon
+  - orange
+  - banana
+  - strawberry
