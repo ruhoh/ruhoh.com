@@ -2,45 +2,57 @@
 layout : default
 ---
 
-<div class="page-header">
-  <h1>{{ page.title }} <small>{{ page.tagline }}</small></h1>
+<div id="post-header" class="row">
+  <div class="span8 offset2">
+    <h1>{{ page.title }} <small>{{ page.tagline }}</small></h1>
+  </div>
 </div>
 
-<div class="row">
-  <div class="span8">
-    {{{ content }}}
-    <hr>
-    <div class="pagination">
-      <ul>
-        {{#post_previous}}
-          <li class="prev"><a href="{{ url }}" title="{{ title }}">&larr; Previous</a></li>
-        {{else}}
-          <li class="prev disabled"><a>&larr; Previous</a></li>
-        {{/post_previous}}
-        
-          <li><a href="/archive.html">Archive</a></li>
-       
-        {{#post_next}}
-          <li class="next"><a href="{{ url }}" title="{{ title }}">Next &rarr;</a></li>
-        {{else}}
-          <li class="next disabled"><a>Next &rarr;</a>
-        {{/post_next}}
-
+<div id="post-wrapper" class="row">
+  <div class="meta span2">
+    <div style="">
+      <h4 class="date">{{ page.date }}</h4>
+      <br>
+      <h4>Categories</h4>
+      <ul class="tag_box">
+      {{# page.categories?to_categories }}
+        {{> categories_list }}
+      {{/ page.categories?to_categories }}
+      </ul>
+      
+      <br>
+      <h4>Tags</h4>
+      <ul class="tag_box">
+      {{# page.tags?to_tags }}
+        {{> tags_list }}
+      {{/ page.tags?to_tags }}
       </ul>
     </div>
-    <hr>
+  </div>
+  
+  <div class="body span8">
+    {{{ content }}}
+
+    <div class="pagination">
+      <ul>
+        {{# page?previous }}
+          <li class="prev"><a href="{{ url }}" title="{{ title }}">&larr; Older</a></li>
+        {{/ page?previous }}
+        {{^ page?previous }}
+          <li class="prev disabled"><a>&larr; Older</a></li>
+        {{/ page?previous }}
+
+          <li><a href="/archive">Archive</a></li>
+
+        {{# page?next }}
+          <li class="next"><a href="{{ url }}" title="{{ title }}">Newer &rarr;</a></li>
+        {{/ page?next }}
+        {{^ page?next }}
+          <li class="next disabled"><a>Newer &rarr;</a>
+        {{/ page?next }}
+      </ul>    </div>
+
     {{{ comments }}}
   </div>
   
-  <div class="span4">
-    <h4>Published</h4>
-    <div class="date"><span>{{ page.date }}</span></div>
-
-    <h4>Tags</h4>
-    <ul class="tag_box">
-    {{# page.tags?to_tags }}
-      {{> tags_list }}
-    {{/ page.tags?to_tags }}
-    </ul>
-  </div>
 </div>

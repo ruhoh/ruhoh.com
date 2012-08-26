@@ -294,10 +294,11 @@ ul.contact-list li.tweet iframe { position:relative; top:5px}
   float:left;
 }
 .tag_box a {
-  padding: 3px 6px;
+  padding: 2px 4px;
   margin: 2px;
-  background: #eee;
-  color:#005F6B;
+  background: #efefef;
+  color:#555;
+  border:1px dashed #ccc;
   border-radius: 3px;
   text-decoration:none;
 }
@@ -536,4 +537,35 @@ ul.folder-key li {
 
 #subbie.subnav .nav > li > a i { 
   opacity:0.3
+}
+
+/* POST template */
+#post-header h1 {
+  padding-bottom:20px;
+}
+#post-wrapper h2 {
+  margin:0;
+  margin-bottom:20px;
+  padding-top:20px;
+  border-top:3px solid #F0F0D8;
+}
+#post-wrapper h3 {
+  display:inline-block;
+  padding:3px 12px;
+  border-radius:3px;
+  background-color:#F0F0D8;
+}
+#post-wrapper div.meta > div {
+  padding-right:20px; 
+  text-align:right;
+}
+#post-wrapper div.meta h4 {
+  color:#555;
+}  
+#post-wrapper .body > p, #post-wrapper .body > pre {
+  margin-bottom:15px;
+}
+#post-wrapper .pagination {
+  padding:20px 0 ;
+  border-bottom:3px solid #F0F0D8;
 }

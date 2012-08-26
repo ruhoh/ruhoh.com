@@ -5,8 +5,6 @@ description:
 categories: releases
 ---
 
-[history.json](https://github.com/ruhoh/ruhoh.rb/blob/master/history.json) reference.
-
 ## How to Upgrade
 
 Fetch version 1.0 from rubygems:
@@ -18,7 +16,7 @@ If you're using bundler you can:
     $ bundle update ruhoh
 
 
-## API changes:
+## API Changes
 
 ### New Ruhoh.setup
 
@@ -124,7 +122,7 @@ Absolute paths to assets now work as expected.
 ### urls.theme
 
 {{#raw_code}}
-  &#123;&#123; urls.theme &#125;&#125;
+  {{urls.theme}} 
 {{/raw_code}}
 
 provides the url to the current theme's folder. This provides an easy way to link
@@ -137,3 +135,5 @@ to arbitrary files packaged within your theme.
 {{/raw_code}}
 
 ?to&#95;json can be done to any raw data-structure.
+
+[reference: [history.json](https://github.com/ruhoh/ruhoh.rb/blob/master/history.json)]
