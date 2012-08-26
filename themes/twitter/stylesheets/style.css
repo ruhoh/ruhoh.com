@@ -12,6 +12,9 @@ h1, h2, h3, h4, h5 {
 h1 {
   margin-bottom:15px;
 }
+pre, code {
+  overflow: auto !important;
+}
 ul.thumbnails div.thumbnail {
 }
 ul.thumbnails div.thumbnail a{ 
@@ -561,7 +564,7 @@ ul.folder-key li {
 }
 #post-wrapper div.meta h4 {
   color:#555;
-}  
+}
 #post-wrapper .body > p, #post-wrapper .body > pre {
   margin-bottom:15px;
 }
