@@ -4,7 +4,7 @@ layout: docs
 icon : icon-star
 ---
 
-Docs are for current version: **v1.0** - [View Deprecated 0.3.0 Documentation](/0-3-0/usage)
+Docs are for current version: **v1.1** - [View Deprecated 0.3.0 Documentation](/0-3-0/usage)
 
 # Development Setup
 
@@ -57,6 +57,26 @@ View your blog at: [http://localhost:9292/](http://localhost:9292/)
 ## Blog Dashboard
 
 The **dashboard** conveniently lists all your pages: [http://localhost:9292/dash](http://localhost:9292/dash)
+
+
+# Console
+
+Your blog may also be loaded as an IRB console session:
+
+    $ ruhoh console
+    
+Once the console is running you can inspect your data and run commands:
+
+    > Ruhoh::DB.update_all
+      6/6 Posts processed.
+      23/23 Pages processed.
+      6/6 Layouts processed.
+      5/5 Widgets processed.
+       => [:site, :posts, :pages, :routes, :layouts, :partials, :widgets, :theme_config, :stylesheets, :javascripts, :payload, :scaffolds]
+    >
+    > Ruhoh::DB.stylesheets
+     => {"default"=>[{"url"=>"/assets/twitter/stylesheets/bootstrap.min.css", "id"=>"/Users/jade/Dropbox/active/ruhoh/ruhoh.com/themes/twitter/stylesheets/bootstrap.min.css"}, {"url"=>"/assets/twitter/stylesheets/style.css", "id"=>"/Users/jade/Dropbox/active/ruhoh/ruhoh.com/themes/twitter/stylesheets/style.css"}], "widgets"=>[{"url"=>"/assets/twitter/widgets/google_prettify/stylesheets/sunburst-custom.css", "id"=>"/Users/jade/Dropbox/active/ruhoh/ruhoh.com/themes/twitter/widgets/google_prettify/stylesheets/sunburst-custom.css"}]}
+    >
 
 
 # Directory API
@@ -155,7 +175,18 @@ The **dashboard** conveniently lists all your pages: [http://localhost:9292/dash
     The site YAML file is used to specify site-wide data that can be used throughout your pages and layouts.
     A useful example is defining a navigation array that the templater can use to create your primary navigation bar.
   </li>
-
+  <li class="endpoint">
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>scaffolds</em> 
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>page.html</em></li>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>post.html</em></li>
+    </ul>
+  </li>
+  <li class="info">
+    <strong>[Optional]</strong>
+    Scaffolds are ....
+    <a href="/usage/create#toc_3">scaffolds documentation</a>
+  </li>
 {{> trees/themes }}
 {{> trees/widgets }}
 </ul>

@@ -176,6 +176,11 @@ In your templates:
   </thead>
   <tbody>
     <tr>
+      <td>urls.theme</td>
+      <td>The URL path to the currently enabled theme folder.</td>
+    </tr>
+
+    <tr>
       <td>urls.theme_stylesheets</td>
       <td>The URL path to the currently enabled theme stylesheets folder.</td>
     </tr>
@@ -237,6 +242,7 @@ Think of these main keys as the **top-level endpoints** available to you in must
         }
       },
       "urls" = {
+        "theme" => "/..",
         "theme_stylesheets" => "/..",
         "theme_javascripts" => "/..",
         "theme_media" => "/..",
