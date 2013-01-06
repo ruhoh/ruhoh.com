@@ -209,6 +209,28 @@ div.box {
   color:#607848;
 }
 
+#main-content.edge h1 {
+  margin:25px 0 25px 0;
+  padding:20px;
+  font-size:34px;
+  color:#221F26;
+  background:#F0F0D8;
+  text-align:center;
+}
+#main-content.edge h2 {
+  margin:40px 0 40px 0;
+  font-size:30px;
+  color:#221F26;
+  text-align:center;
+}
+#main-content.edge h3 {
+  border-top:3px solid #F0F0D8;
+  padding-top:10px;
+  margin-top:20px;
+  margin-bottom:10px;
+  color:#607848;
+}
+
 table td.module {
   width:120px;
   font-weight:bold;
@@ -571,4 +593,9 @@ ul.folder-key li {
 #post-wrapper .pagination {
   padding:20px 0 ;
   border-bottom:3px solid #F0F0D8;
+}
+
+.edge-table-of-contents {
+  position:relative;
+  top:-50px;
 }

@@ -7,14 +7,14 @@ var Toc = {
     Toc.$container = $(container);
     Toc.$wrapper = $(wrapper);
 
-    Toc.build();
+    Toc.buildFull();
     
-    Toc.$container.find('ul.nav-pills').find('a').live('click', function(e){
-      var top = $($(this).attr("href")).offset().top - 100;
-      $('html, body').scrollTop(top);
-      e.preventDefault();
-      return false;
-    })
+    // Toc.$container.find('ul.nav-pills').find('a').live('click', function(e){
+    //   var top = $($(this).attr("href")).offset().top - 100;
+    //   $('html, body').scrollTop(top);
+    //   e.preventDefault();
+    //   return false;
+    // })
   },
 
   // just the H1s
@@ -56,6 +56,20 @@ var Toc = {
       cache += '</li>';
     }
     Toc.$container.find('ul.nav').prepend(cache)
+    
+    var cache = '';
+    for(var i=0, len=h1.length; i < len; i++){
+      cache += '<li>';
+        cache += '<a href="#'+ h1[i].h1.id + '">'+$(h1[i].h1).text()+'</a>';
+        cache += '<ul>';
+        h1[i].children.each(function(){
+          cache += '<li><a href="#'+ this.id + '">'+ $(this).text() + '</a></li>';
+        })
+        cache += '</ul>';
+      cache += '</li>';
+    }
+    
+    $("#main-content").prepend($("<ul class='edge-table-of-contents'></ul>").prepend(cache));
   }
 
 }
