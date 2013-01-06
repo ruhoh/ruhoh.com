@@ -1,0 +1,29 @@
+---
+layout : default
+---
+  
+<div class="subnav subnav-fixed">
+  <a class="brand" href="/"><i class="icon-home icon-white"></i> home</a>
+  <ul class="nav nav-pills">
+    {{#site.edge_usage_navigation?to_pages}}
+      <li class="{{#is_active_page}}active{{/is_active_page}}">
+        <a href="{{url}}">{{#icon}}<i class="{{.}} icon-white"></i>{{/icon}} {{title}}</a>
+      </li>
+    {{/site.edge_usage_navigation?to_pages}}
+  </ul>
+</div>
+
+
+<div style="text-align:center; position:relative; top:-50px">
+<h4 >YOU ARE IN RUHOH 2.0 EDGE!</h4>
+ <a href="/0-3-0/usage">[0.3.0 Docs]</a> - 
+ <a href="/usage">[1.1.0 Docs]</a>
+</div>
+
+{{{ table_of_contents }}}
+
+<div class="row">
+  <div id="main-content" class="span10 offset1 edge">
+    {{{ content }}}
+  </div>
+</div>

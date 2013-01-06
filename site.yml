@@ -30,6 +30,19 @@ usage_navigation :
   - 0.3.0/usage/templating.md
   - 0.3.0/usage/theming.md
   - 0.3.0/usage/plugins.md
+
+edge_usage_navigation :
+  - edge/index.md
+  - edge/usage.md
+  - edge/usage/pages.md
+  - edge/usage/posts.md
+  - edge/usage/drafts.md
+  - edge/usage/views.md
+  - edge/usage/themes.md
+  - edge/usage/widgets.md
+  - edge/usage/publish.md
+  - edge/usage/plugins.md
+
     
 users :
   -
