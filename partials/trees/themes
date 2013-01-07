@@ -54,5 +54,5 @@
   <strong>[Required]</strong>
   The themes folder holds all your themes. Themes are packaged into folders containing all
   layouts, partials, stylesheets, media, and javascripts necessary to style the website.
-  <a href="/usage/theming">theme documentation</a>
+  <a href="/docs/1/theming">theme documentation</a>
 </li>

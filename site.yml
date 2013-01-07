@@ -8,40 +8,40 @@ author :
   feedburner : feedname
 
 navigation :
-  - usage.md
-  - how-it-works.md
+  - docs/2/index.md
+  - docs/1/setup.md
   - latest-updates.html
   
-usage_navigation :
-  - usage.md
-  - usage/create.md
-  - usage/configure.md
-  - usage/publish.md
-  - usage/templating.md
-  - usage/theming.md
-  - usage/widgets.md
-  - usage/plugins.md
-  
 030_usage_navigation :
-  - 0.3.0/usage.md
-  - 0.3.0/usage/create.md
-  - 0.3.0/usage/configure.md
-  - 0.3.0/usage/publish.md
-  - 0.3.0/usage/templating.md
-  - 0.3.0/usage/theming.md
-  - 0.3.0/usage/plugins.md
+  - docs/0/setup.md
+  - docs/0/create.md
+  - docs/0/configure.md
+  - docs/0/publish.md
+  - docs/0/templating.md
+  - docs/0/theming.md
+  - docs/0/plugins.md
 
+usage_navigation :
+  - docs/1/setup.md
+  - docs/1/create.md
+  - docs/1/configure.md
+  - docs/1/publish.md
+  - docs/1/templating.md
+  - docs/1/theming.md
+  - docs/1/widgets.md
+  - docs/1/plugins.md
+  
 edge_usage_navigation :
-  - edge/index.md
-  - edge/usage.md
-  - edge/usage/pages.md
-  - edge/usage/posts.md
-  - edge/usage/drafts.md
-  - edge/usage/views.md
-  - edge/usage/themes.md
-  - edge/usage/widgets.md
-  - edge/usage/publish.md
-  - edge/usage/plugins.md
+  - docs/2/index.md
+  - docs/2/setup.md
+  - docs/2/pages.md
+  - docs/2/posts.md
+  - docs/2/drafts.md
+  - docs/2/views.md
+  - docs/2/themes.md
+  - docs/2/widgets.md
+  - docs/2/publish.md
+  - docs/2/plugins.md
 
     
 users :

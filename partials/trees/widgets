@@ -26,5 +26,5 @@
   <strong>[Optional]</strong> Widgets define encapsulated mustache helpers to allow for customized
   HTML snippets that can optionally run javascripts and take in arbitrary configuration parameters.
   Client-side comments, analytics, and syntax highlighting are some automatically provided widgets.
-  <a href="/usage/widgets">widget documentation</a>
+  <a href="/docs/1/widgets">widget documentation</a>
 </li>

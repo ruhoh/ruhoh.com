@@ -71,7 +71,7 @@ All the urls have been changed from `paths` to `urls`:
 &lt;script src="&#123;&#123;urls.theme_javascripts}}/some-script.js"&gt; &lt;/script&gt;
 </pre>
 
-The full [Theming Documentation](/usage/theming) covers how to handle assets in depth.
+The full [Theming Documentation](/docs/1/theming) covers how to handle assets in depth.
 
 
 Please contact me personally if you need assistance with porting your customized theme.
@@ -94,14 +94,14 @@ Breaking changes for `permalink` and `exclude`. Must now be name-spaced into `po
       layout: ''
     
 Pages and posts have default layouts named respectively, and can set default global layout in config
-as documented in [Configure Documentation](/usage/configure)
+as documented in [Configure Documentation](/docs/1/configure)
 
 ## New summary and posts_latest Helper Methods
 
 An often requested feature was support for a "posts index" page which
 displayed the latest n posts and a summary of each post body.
 
-This is now supported view `posts_latest` and `summary` which are outlined in the [Templating Documentation](/usage/templating)
+This is now supported view `posts_latest` and `summary` which are outlined in the [Templating Documentation](/docs/1/templating)
 
 Additionally you can see an example implementation within the default [blog scaffold](https://github.com/ruhoh/blog/blob/1.0/pages/index.html#L16-26)
 
@@ -138,7 +138,7 @@ and
     $ ruhoh post
     
 These methods additionally take in an optional title argument as specified
-in the [Create Documentation](/usage/create)
+in the [Create Documentation](/docs/1/create)
 
 ## Native RSS compiler
 
@@ -158,7 +158,7 @@ This does stuff like omit drafts from displaying and affecting tag/category aggr
 
 Converters now take in `(content, id)`, rather than a page object: `(page)`
 
-View the new [Plugin Documentation](/usage/plugins/) for more info.
+View the new [Plugin Documentation](/docs/1/plugins/) for more info.
 
 
 ## New Widgets System
@@ -166,12 +166,12 @@ View the new [Plugin Documentation](/usage/plugins/) for more info.
 A new "widget" system has been implemented. Analytics, comments, and syntax highlighting
 have been re-implemented as widgets.
 
-View the new [Widget Documentation](/usage/widgets/) for full information.
+View the new [Widget Documentation](/docs/1/widgets/) for full information.
 
 ## Overhauled Theme API.
 
 Themes have a new, more sensical, directory structure and API as outlined in the new 
-[Theming Documentation](/usage/documentation)
+[Theming Documentation](/docs/1/documentation)
 
 All old themes formats will now be **completely broken**, but it's for the best.
 
@@ -194,6 +194,6 @@ Themes now have a concept of a javascripts manager for asset bundling and post-p
 
 ## Thanks!
 
-Thanks for your support. I encourage everyone to give the [documentation](/usage) 
+Thanks for your support. I encourage everyone to give the [documentation](/docs/1/setup) 
 another read-through to get up to speed with all the new stuff.
 
