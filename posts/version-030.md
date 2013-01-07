@@ -22,7 +22,7 @@ You can now do fenced-code-blocks and links will linkify themselves automaticall
 
 ## Plugin System Released
 
-[Ruhoh's full-featured plugin documentation now available](/usage/plugins).
+[Ruhoh's full-featured plugin documentation now available](/docs/0/plugins).
 
 ### Contributing Plugins
 

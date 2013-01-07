@@ -1,5 +1,5 @@
 ---
-title: Start
+title: 0.x Docs
 layout: 0.3.0-docs
 icon : icon-star
 ---
@@ -54,5 +54,5 @@ View your blog at: [http://localhost:9292/](http://localhost:9292/)
 
 <h2 style="border:0; text-align:center">Now you're ready to create some content!</h2>
 <p style="text-align:center">
-  <a href="/usage/create" class="btn btn-warning btn-large">Create Content &rarr;</a>
+  <a href="/docs/1/create" class="btn btn-warning btn-large">Create Content &rarr;</a>
 </p>  
