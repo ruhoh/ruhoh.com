@@ -2,7 +2,7 @@
 title:
 description:
 icon: icon-plus-sign
-layout: two-docs
+layout: docs-2
 ---
 
 

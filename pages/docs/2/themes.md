@@ -2,7 +2,7 @@
 title:
 description:
 
-layout: two-docs
+layout: docs-2
 icon : icon-adjust
 ---
 

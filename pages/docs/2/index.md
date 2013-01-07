@@ -1,6 +1,6 @@
 ---
 title: 2.x Docs
-layout: two-docs
+layout: docs-2
 icon : icon-star
 ---
 
