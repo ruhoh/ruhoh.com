@@ -2,7 +2,7 @@
 title:
 description:
 
-layout: edge-docs
+layout: two-docs
 icon : icon-list-alt
 ---
 

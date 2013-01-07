@@ -1,6 +1,6 @@
 ---
-title: Intro
-layout: edge-docs
+title: 2.x Docs
+layout: two-docs
 icon : icon-star
 ---
 
@@ -58,7 +58,7 @@ Rather than being shoe-horned into the "posts" system,
 ruhoh 2.0 allows you to define a new resource that can act like a post, but maintain
 it's own specific namespace and behavior.
 
-You can read a more in-depth [](/edge/technical)
+You can read a more in-depth [](/docs/2/technical)
 # Upgrading
 
 
@@ -85,14 +85,14 @@ When working with resources, you now have to namespace your command:
     $ ruhoh posts new
     
 
---ext no longer exists, in favor of [default ext per resource](/edge/usage/pages#toc_31) in config.yml
+--ext no longer exists, in favor of [default ext per resource](/docs/2/pages#toc_31) in config.yml
 
     
 ## config.yml
 
 **Most configuration formatting has changed.**
 
-Now all the resource specific configuration is namespaced by the resource name. See [Pages Configuration](/edge/usage/pages#toc_30)
+Now all the resource specific configuration is namespaced by the resource name. See [Pages Configuration](/docs/2/pages#toc_30)
 
 ### Theme config
 
@@ -306,7 +306,7 @@ Which means you can load javascripts at the end of the document if you want.
 
 ### urls
 
-The `urls` object has all different attribute names: see [View 'view urls' docs](/edge/usage/views#toc_11)
+The `urls` object has all different attribute names: see [View 'view urls' docs](/docs/2/views#toc_11)
 
 ### site renamed to data
 
@@ -331,7 +331,7 @@ new:
 {{/raw_code}}
 
 
-[data.yml docs](/edge/usage/views#toc_23)
+[data.yml docs](/docs/2/views#toc_23)
 
 
 
@@ -385,7 +385,7 @@ All resource-based helpers are namespaced and belong to the resource's Collectio
     Ruhoh::Resources::Pages::CollectionView.send(:include, PagesCollectionViewAddons)
 
 
-See [Plugin Docs](/edge/usage/plugins) for more info.
+See [Plugin Docs](/docs/2/plugins) for more info.
 
 
 ## Compiler Plugins
@@ -424,7 +424,7 @@ Converter plugins are currently the same.
 ## Pages URL
 
 The default page URL format is now "pretty" which omits any filename extension even if 
-the page is not an index.html page. To preserve the old style and include the .html extension, have a look at the [Page Permalink Docs](/edge/usage/pages#toc_33)
+the page is not an index.html page. To preserve the old style and include the .html extension, have a look at the [Page Permalink Docs](/docs/2/pages#toc_33)
 
 ## post.ruhoh.com
 
@@ -437,7 +437,7 @@ post.ruhoh.com DOES NOT support ruhoh 2.0 yet.
 
 ## Posts Paginator
 
-Yay, finally implementated a paginator. [Paginator docs](/edge/usage/posts)
+Yay, finally implementated a paginator. [Paginator docs](/docs/2/posts)
 
 ## Categories on Pages
 

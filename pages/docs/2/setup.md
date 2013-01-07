@@ -1,6 +1,6 @@
 ---
 title: Setup
-layout: edge-docs
+layout: two-docs
 icon : icon-star
 ---
 
@@ -106,7 +106,7 @@ generate your RSS feed and other features. **This setting has nothing to do with
   <li class="info">
     <strong>[Required]</strong>
     The config file is written in YAML and contains site-wide configuration options.
-    <a href="/usage/configure">config documentation</a>
+    <a href="/docs/1/configure">config documentation</a>
   </li>
   <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>dash.html</em> </li>
   <li class="info">
@@ -119,7 +119,7 @@ generate your RSS feed and other features. **This setting has nothing to do with
     <strong>[Optional]</strong>
     The compiled folder is the default location the Compiler will output pages into.
     When you run the Compiler, your fully rendered blog will output to this folder.
-    <a href="/usage/publish#toc_8">compile documentation</a>
+    <a href="/docs/1/publish#toc_8">compile documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em>media</em> 
@@ -131,7 +131,7 @@ generate your RSS feed and other features. **This setting has nothing to do with
     <strong>[Optional]</strong>
     The media folder holds global static media assets such as images, videos, pdfs, downloads, etc.
     Theme-specific assets should NOT exist in this media folder, but rather in the theme's media folder.
-    <a href="/usage/create#toc_10">media documentation</a>
+    <a href="/docs/1/create#toc_10">media documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">pages</em> 
@@ -144,7 +144,7 @@ generate your RSS feed and other features. **This setting has nothing to do with
   <li class="info">
     <strong>[Optional]</strong>
     All files contained in the pages folder will be processed as pages.
-    <a href="/usage/create">pages documentation</a>
+    <a href="/docs/1/create">pages documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em class="partial">partials</em> 
@@ -167,7 +167,7 @@ generate your RSS feed and other features. **This setting has nothing to do with
   <li class="info">
     <strong>[Optional]</strong>
     Plugins extend and/or overload the base ruhoh functionality. There are 3 types of plugins: mustache helpers, converters, and compiler tasks.
-    <a href="/usage/plugins">plugin documentation</a>
+    <a href="/docs/1/plugins">plugin documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em class="post">posts</em> 
@@ -180,7 +180,7 @@ generate your RSS feed and other features. **This setting has nothing to do with
   <li class="info">
     <strong>[Optional]</strong>
     All files contained in the posts folder will be processed as posts.
-    <a href="/usage/create#toc_3">posts documentation</a>
+    <a href="/docs/1/create#toc_3">posts documentation</a>
   </li>
   <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>data.yml</em> </li>
   <li class="info">
@@ -197,5 +197,5 @@ generate your RSS feed and other features. **This setting has nothing to do with
 
 <h2 style="border:0; text-align:center">Create some content!</h2>
 <p style="text-align:center">
-  <a href="/edge/usage/pages" class="btn btn-warning btn-large">Create Content &rarr;</a>
+  <a href="/docs/1/pages" class="btn btn-warning btn-large">Create Content &rarr;</a>
 </p>  

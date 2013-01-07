@@ -1,6 +1,6 @@
 ---
 title: Edge
-layout: edge-docs
+layout: two-docs
 icon : icon-star
 ---
 
