@@ -16,7 +16,7 @@ The `config.yml` file holds your blog's global configuration settings.
 </ul>
 
 **NOTE:** All settings for comments, analytics, and syntax highlighting are now encapsulated into their respective widget modules.
-Read the [Widgets Documentation](/usage/widgets) for more information.
+Read the [Widgets Documentation](/docs/1/widgets) for more information.
 
 # Base Settings
 
@@ -48,7 +48,7 @@ A custom summary line-count may be specified in the config file:
       summary_lines : 30   # default is 20
 
 The summary helper method has an "intelligent" way of counting lines so be sure to
-read the [summary documentation](/usage/templating) for more info.
+read the [summary documentation](/docs/1/templating) for more info.
 
 ## Post Latest
 

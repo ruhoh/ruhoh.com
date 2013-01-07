@@ -1,10 +1,10 @@
 ---
-title: Usage Docs
+title: 1.x Docs
 layout: docs
 icon : icon-star
 ---
 
-Docs are for current version: **v1.1** - [View Deprecated 0.3.0 Documentation](/0-3-0/usage)
+Docs are for current version: **v1.1** - [View Deprecated 0.3.0 Documentation](/docs/0/setup)
 
 # Development Setup
 
@@ -93,7 +93,7 @@ Once the console is running you can inspect your data and run commands:
   <li class="info">
     <strong>[Required]</strong>
     The config file is written in YAML and contains site-wide configuration options.
-    <a href="/usage/configure">config documentation</a>
+    <a href="/docs/1/configure">config documentation</a>
   </li>
   <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>dash.html</em> </li>
   <li class="info">
@@ -106,7 +106,7 @@ Once the console is running you can inspect your data and run commands:
     <strong>[Optional]</strong>
     The compiled folder is the default location the Compiler will output pages into.
     When you run the Compiler, your fully rendered blog will output to this folder.
-    <a href="/usage/publish#toc_8">compile documentation</a>
+    <a href="/docs/1/publish#toc_8">compile documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em>media</em> 
@@ -118,7 +118,7 @@ Once the console is running you can inspect your data and run commands:
     <strong>[Optional]</strong>
     The media folder holds global static media assets such as images, videos, pdfs, downloads, etc.
     Theme-specific assets should NOT exist in this media folder, but rather in the theme's media folder.
-    <a href="/usage/create#toc_10">media documentation</a>
+    <a href="/docs/1/create#toc_10">media documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">pages</em> 
@@ -131,7 +131,7 @@ Once the console is running you can inspect your data and run commands:
   <li class="info">
     <strong>[Optional]</strong>
     All files contained in the pages folder will be processed as pages.
-    <a href="/usage/create">pages documentation</a>
+    <a href="/docs/1/create">pages documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em class="partial">partials</em> 
@@ -154,7 +154,7 @@ Once the console is running you can inspect your data and run commands:
   <li class="info">
     <strong>[Optional]</strong>
     Plugins extend and/or overload the base ruhoh functionality. There are 3 types of plugins: mustache helpers, converters, and compiler tasks.
-    <a href="/usage/plugins">plugin documentation</a>
+    <a href="/docs/1/plugins">plugin documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em class="post">posts</em> 
@@ -167,7 +167,7 @@ Once the console is running you can inspect your data and run commands:
   <li class="info">
     <strong>[Optional]</strong>
     All files contained in the posts folder will be processed as posts.
-    <a href="/usage/create#toc_3">posts documentation</a>
+    <a href="/docs/1/create#toc_3">posts documentation</a>
   </li>
   <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>site.yml</em> </li>
   <li class="info">
@@ -185,7 +185,7 @@ Once the console is running you can inspect your data and run commands:
   <li class="info">
     <strong>[Optional]</strong>
     Scaffolds are ....
-    <a href="/usage/create#toc_3">scaffolds documentation</a>
+    <a href="/docs/1/create#toc_3">scaffolds documentation</a>
   </li>
 {{> trees/themes }}
 {{> trees/widgets }}
@@ -224,5 +224,5 @@ Secondly, files contained in this directory have three vectors of specificity:
 
 <h2 style="border:0; text-align:center">Now you're ready to create some content!</h2>
 <p style="text-align:center">
-  <a href="/usage/create" class="btn btn-warning btn-large">Create Content &rarr;</a>
+  <a href="/docs/1/create" class="btn btn-warning btn-large">Create Content &rarr;</a>
 </p>  

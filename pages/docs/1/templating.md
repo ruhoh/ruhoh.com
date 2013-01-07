@@ -344,7 +344,7 @@ Use mustache syntax to iterate over the array:
 ## Posts_latest
 
 The `posts_latest` helper method is the same as `posts` but is limited to the latest _n_ posts as configured
-by your blog. See the [Configuration documentation](/usage/configure) for steps on configuring the posts\_latest limit.
+by your blog. See the [Configuration documentation](/docs/1/configure) for steps on configuring the posts\_latest limit.
 
 Use mustache syntax to iterate over the array:
 
@@ -363,7 +363,7 @@ Use mustache syntax to iterate over the array:
 ## Summary
 
 The `summary` helper method displays a summary of your post rendered by processing the first _n_ lines of the given post.
-See the [Configuration Documentation](/usage/configure) for steps on configuring a custom line-count for summary.
+See the [Configuration Documentation](/docs/1/configure) for steps on configuring a custom line-count for summary.
 
 Summary may be used within any block of iterated posts:
 
