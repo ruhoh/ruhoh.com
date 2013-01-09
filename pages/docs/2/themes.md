@@ -262,7 +262,7 @@ Reference media in stylesheet files using relative paths `../media`
 Reference media in layouts using mustache: 
 
 {{#raw_code}}
-<img src="{{urls.theme_media}}/some-image.png">
+<img src="{{urls.theme}}/media/some-image.png">
 {{/raw_code}}
 
 
