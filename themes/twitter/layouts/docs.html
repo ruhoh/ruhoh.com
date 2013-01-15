@@ -5,22 +5,22 @@ layout : default
 <div class="subnav subnav-fixed">
   <a class="brand" href="/"><i class="icon-home icon-white"></i> home</a>
   <ul class="nav nav-pills">
-    {{#site.usage_navigation?to_pages}}
+    {{#data.usage_navigation?to_pages?mark_active_page}}
       <li class="{{#is_active_page}}active{{/is_active_page}}">
         <a href="{{url}}">{{#icon}}<i class="{{.}} icon-white"></i>{{/icon}} {{title}}</a>
       </li>
-    {{/site.usage_navigation?to_pages}}
+    {{/data.usage_navigation?to_pages?mark_active_page}}
   </ul>
 </div>
 
 
 <div id="subbie" class="subnav subnav-fixed">
-  {{{ table_of_contents }}}
+  {{{ widgets.table_of_contents }}}
 </div>
 
 
 <div class="row">
   <div id="main-content" class="span10 offset1 docs">
-    {{{ content }}}
+    {{{ page.content }}}
   </div>
 </div>

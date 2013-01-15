@@ -15,44 +15,44 @@ layout : default
       <br>
       <h4>Categories</h4>
       <ul class="tag_box">
-      {{# page.categories?to_categories }}
+      {{# page.categories }}
         {{> categories_list }}
-      {{/ page.categories?to_categories }}
+      {{/ page.categories }}
       </ul>
       
       <br>
       <h4>Tags</h4>
       <ul class="tag_box">
-      {{# page.tags?to_tags }}
+      {{# page.tags }}
         {{> tags_list }}
-      {{/ page.tags?to_tags }}
+      {{/ page.tags }}
       </ul>
     </div>
   </div>
   
   <div class="body span8">
-    {{{ content }}}
+    {{{ page.content }}}
 
     <div class="pagination">
       <ul>
-        {{# page?previous }}
+        {{# page.previous }}
           <li class="prev"><a href="{{ url }}" title="{{ title }}">&larr; Older</a></li>
-        {{/ page?previous }}
-        {{^ page?previous }}
+        {{/ page.previous }}
+        {{^ page.previous }}
           <li class="prev disabled"><a>&larr; Older</a></li>
-        {{/ page?previous }}
+        {{/ page.previous }}
 
           <li><a href="/archive">Archive</a></li>
 
-        {{# page?next }}
+        {{# page.next }}
           <li class="next"><a href="{{ url }}" title="{{ title }}">Newer &rarr;</a></li>
-        {{/ page?next }}
-        {{^ page?next }}
+        {{/ page.next }}
+        {{^ page.next }}
           <li class="next disabled"><a>Newer &rarr;</a>
-        {{/ page?next }}
+        {{/ page.next }}
       </ul>    </div>
 
-    {{{ comments }}}
+    {{{ widgets.comments }}}
   </div>
   
 </div>

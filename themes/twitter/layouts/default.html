@@ -8,7 +8,9 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
-  {{{ assets }}}
+  {{{ stylesheets.all }}}
+  {{{ javascripts.all }}}
+  
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="{{ urls.theme_javascripts }}/jquery.min.js"><\/script>')</script>
@@ -18,11 +20,11 @@
   <div class="navbar">
     <div class="navbar-inner" style="background:#F0F0D8; box-shadow: 0 0 0 0; border-bottom:1px solid #E0E4CC">
       <div class="container" style="width:100%; padding:0 20px;">
-        <a class="brand" href="/">{{ site.title }}</a>
+        <a class="brand" href="/">{{ data.title }}</a>
         <ul class="nav">
-        {{# site.navigation?to_pages }}
+        {{# data.navigation?to_pages }}
           {{> pages_list }}
-        {{/ site.navigation?to_pages }}
+        {{/ data.navigation?to_pages }}
         </ul>
         <ul class="nav social pull-right">
           <li><a href="https://github.com/ruhoh/ruhoh.rb/">Code on GitHub</a></li>
@@ -82,8 +84,8 @@
     })
   </script>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  {{{ google_prettify }}}
-  {{{ analytics }}}
+  {{{ widgets.google_prettify }}}
+  {{{ widgets.analytics }}}
   
   </body>
 </html>

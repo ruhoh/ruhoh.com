@@ -5,11 +5,11 @@ layout : default
 <div class="subnav subnav-fixed">
   <a class="brand" href="/"><i class="icon-home icon-white"></i> home</a>
   <ul class="nav nav-pills">
-    {{#site.edge_usage_navigation?to_pages}}
+    {{#data.edge_usage_navigation?to_pages?mark_active_page}}
       <li class="{{#is_active_page}}active{{/is_active_page}}">
         <a href="{{url}}">{{#icon}}<i class="{{.}} icon-white"></i>{{/icon}} {{title}}</a>
       </li>
-    {{/site.edge_usage_navigation?to_pages}}
+    {{/data.edge_usage_navigation?to_pages?mark_active_page}}
   </ul>
 </div>
 
@@ -20,10 +20,10 @@ layout : default
  <a href="/docs/0/setup">[0.x Docs]</a>
 </div>
 
-{{{ table_of_contents }}}
+{{{ widgets.table_of_contents }}}
 
 <div class="row">
   <div id="main-content" class="span10 offset1 edge">
-    {{{ content }}}
+    {{{ page.content }}}
   </div>
 </div>
