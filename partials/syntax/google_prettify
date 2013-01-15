@@ -1,5 +1,5 @@
 <!-- Overloaded Google Prettify -->
-<link rel="stylesheet" href="{{ paths.syntax }}/google_prettify/{{ site.config.syntax.google_prettify.theme }}.css" type="text/css" media="screen" charset="utf-8">
+<link rel="stylesheet" href="{{ paths.syntax }}/google_prettify/{{ data.config.syntax.google_prettify.theme }}.css" type="text/css" media="screen" charset="utf-8">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
 <script>
   var pres = document.getElementsByTagName("pre");
@@ -9,8 +9,10 @@
     else if(pres[i].className === 'nolinenums')
       pres[i].className = "prettyprint";
     else
-      pres[i].className = "prettyprint {{# site.config.syntax.google_prettify.linenums }}linenums{{/site.config.syntax.google_prettify.linenums}}";
+      pres[i].className = "prettyprint {{# data.config.syntax.google_prettify.linenums }}linenums{{/data.config.syntax.google_prettify.linenums}}";
   }
   prettyPrint();
 </script>
 <!-- end Overloaded Google Prettify -->
+
+DERP DERP

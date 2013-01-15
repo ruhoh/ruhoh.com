@@ -47,9 +47,9 @@ new TWTR.Widget({
 
 <h2>Blog Posts in category: releases</h2>
 <ul>
-{{#db.posts.categories.releases.posts?to_posts}}
+{{#posts.categories.releases.posts?to_posts.sort}}
   <li><a href="{{url}}">{{title}}</a></li>
-{{/db.posts.categories.releases.posts?to_posts}}
+{{/posts.categories.releases.posts?to_posts.sort}}
 </ul>
 
 <h2>History</h2>
