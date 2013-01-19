@@ -196,10 +196,10 @@ div.box {
 
 /* documentation section -------------------------------------- */
 #main-content.docs h1 {
-  margin:50px 0 50px 0;
-  font-size:40px;
+  margin:25px 0;
+  padding:15px 0;
+  font-size:38px;
   color:#221F26;
-  text-align:center;
 }
 #main-content.docs h2 {
   border-top:3px solid #F0F0D8;
@@ -209,13 +209,12 @@ div.box {
   color:#607848;
 }
 
-#main-content.edge h1 {
+#main-content-off h1 {
   margin:25px 0 25px 0;
   padding:20px;
   font-size:34px;
   color:#221F26;
   background:#F0F0D8;
-  text-align:center;
 }
 #main-content.edge h2 {
   margin:40px 0 40px 0;
@@ -293,8 +292,9 @@ table td.module ul li{
 
 /* contact-list --------------------------------------- */
 ul.contact-list {
+  margin:0;
+  padding:0;
   margin-top:20px;
-  text-align:center;
 }
 ul.contact-list li {
   list-style:none;
@@ -458,12 +458,12 @@ ul.folder-key li {
 .subnav {
   width: 100%;
   height:39px;
-  background:#789048;
+  background:#789048; /*GREEN*/
   border:0;
-  border-bottom: 2px solid #607848;
+  border-bottom: 2px solid #607848; /*DARK GREEN*/
 }
 .subnav a.brand {
-  color:#F0F0D8;
+  color:#F0F0D8; /*YELLOW*/
   float:left;
   line-height:38px;
   margin-left:20px;
@@ -537,32 +537,6 @@ ul.folder-key li {
 
 
 
-/* subbie */
-
-#subbie {
-  top:41px;
-  background:#F0F0D8;
-  border-bottom: 2px solid #DDDDC7;
-}
-
-#subbie.subnav .nav > li > a {
-  border-left: 1px solid #DDDDC7;
-  border-right: 1px solid #DDDDC7;
-  border:0;
-  color:#789048;
-}
-#subbie.subnav .nav > li > a:hover {
-  background-color: #DDDDC7;
-}
-#subbie.subnav .nav > .active > a,
-#subbie.subnav .nav > .active > a:hover {
-  background-color: #DDDDC7;
-  border:0;
-}
-
-#subbie.subnav .nav > li > a i { 
-  opacity:0.3
-}
 
 /* POST template */
 #post-header h1 {
@@ -598,4 +572,143 @@ ul.folder-key li {
 .edge-table-of-contents {
   position:relative;
   top:-50px;
+}
+
+
+
+
+/*GREEN       #789048 */
+/*DARK GREEN  #607848 */
+/*YELLOW      #F0F0D8 */
+#toc a {color:#607848;}
+#toc {
+  list-style:none;
+  margin:0; padding:0;
+}
+#toc > li { 
+  border-bottom:1px solid #607848;
+  border-right:1px solid #607848;
+}
+#toc > li > a {
+  display:block;
+  text-decoration:none;
+  padding:5px 10px;
+  background-color:#789048;
+  color:#F0F0D8;
+}
+
+#toc > li > a:hover { 
+  background:#607848;
+}
+#toc > li.active {
+  background-color:#FFF;
+  border-right:0;
+  
+  background:#FFF url('../media/stripe.png') repeat;
+  box-shadow:inset 0 0 5px #F0F0D8;
+  
+}
+#toc > li.active > a { 
+  margin-bottom:10px;
+  background-color:#F0F0D8;
+  color:#607848;
+}
+
+#toc > li > a i.icon { 
+  opacity:0.8;
+}
+
+
+#toc ul.nest {
+  padding:10px;
+  margin:0;
+  list-style:none;
+}
+#toc ul.nest li { 
+  list-style:none;
+  margin-bottom:7px;
+}
+#toc ul.nest li strong { 
+  padding:3px 8px;  
+  background:#F0F0D8; 
+  border-radius:2px;
+  font-weight:normal;
+}
+#toc ul.nest li.sub {  margin-left:10px}
+
+
+
+
+
+
+body {
+  height:100%;
+  margin:0;padding:0;
+}
+.container-fluid {
+   overflow:auto;
+   height:100%;
+   min-width:900px;
+   position:relative;
+}
+#left-pane {
+  position:fixed;
+  top:0;
+  width:20%;
+  min-width:180px;
+  height:100%;
+  overflow:auto;
+  background-color:#607848;
+}
+#novel {
+  position:relative;
+  top:0;
+  left:20%;
+  width:60%;
+  min-width:450px;
+  background:#FFF;
+}
+#novel > .inner {padding:15px 30px}
+#right-pane {
+  position:absolute;
+  top:0;
+  right:0;
+  width:20%;
+  height:100%;
+}
+footer {
+  clear:both;
+  padding:10px;
+}
+
+
+@media (max-width: 767px) {
+  #left-pane {display:none}
+  #novel {left:0}
+  #left-pane {width:50%; min-width:auto}
+}
+@media (max-device-width: 767px) {
+  #left-pane {display:none}
+  #novel {left:0}
+  #left-pane {width:50%; min-width:auto}
+}
+
+body.docs-0 #left-pane-off { background-color:#eee;}
+body.docs-0 ul.nav > li > a-off { background-color:#CCC }
+
+
+#version-notice h4 {
+  color:#FFF;
+  display:inline-block;
+  float:right;
+  padding:5px 15px;
+}
+#version-notice h4.error {background-color:#BD3737;}
+#version-notice h4.success {background-color:#789048;}
+
+#version-notice ul{ 
+  padding:15px 15px 0 0;
+  clear:right;
+  list-style:none;
+  text-align:right
 }

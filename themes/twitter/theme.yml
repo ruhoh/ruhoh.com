@@ -4,7 +4,12 @@
       "bootstrap.min.css",
       "style.css"
     ],
-   
+    
+    "docs-layout" : [
+      "bootstrap.min.css",
+      "style.css"
+    ],
+    
     "widgets" : {
       "google_prettify" : "sunburst-custom.css"
     }

@@ -9,21 +9,20 @@ layout : docs-layout
         <i class="icon-home icon-white"></i> home
       </a>
     </li>
-    {{#data.docs_2_navigation?to_pages?mark_active_page}}
+    {{#data.docs_1_navigation?to_pages?mark_active_page}}
       <li class="{{ id_class }} {{#is_active_page}}active{{/is_active_page}}">
         <a href="{{url}}">{{#icon}}<i class="{{.}} icon-white"></i>{{/icon}} {{title}}</a>
       </li>
-    {{/data.docs_2_navigation?to_pages?mark_active_page}}
+    {{/data.docs_1_navigation?to_pages?mark_active_page}}
   </ul>
 </div>
 <div id="right-pane">
   <div id="version-notice">
-    <h4 class="success">THIS VERSION IS CURRENT</h3>
+    <h4 class="error">THIS VERSION IS OUTDATED</h3>
     <ul>
       <li><a href="/docs/2">v2.x Latest Docs</a></li>
       <li><a href="/docs/1/setup">v1.x Docs</a></li>
       <li><a href="/docs/0/setup">v0.x Docs</a></li>
     </ul>
   </div>
-
 </div>
