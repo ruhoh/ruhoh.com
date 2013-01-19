@@ -1,6 +1,5 @@
 ---
 title: Setup
-layout: docs-2
 icon : icon-star
 ---
 
@@ -195,7 +194,6 @@ generate your RSS feed and other features. **This setting has nothing to do with
 
 # Next Steps
 
-<h2 style="border:0; text-align:center">Create some content!</h2>
-<p style="text-align:center">
-  <a href="/docs/2/pages" class="btn btn-warning btn-large">Create Content &rarr;</a>
-</p>  
+<a href="/docs/2/pages" class="btn btn-warning btn-large">Create Content &rarr;</a>
+
+

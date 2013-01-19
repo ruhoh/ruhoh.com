@@ -2,7 +2,6 @@
 title:
 description:
 
-layout: docs-2
 icon : icon-upload
 ---
 

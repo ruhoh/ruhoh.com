@@ -2,7 +2,7 @@
 title:
 description:
 
-layout: 0.3.0-docs
+layout: docs-0
 icon : icon-adjust
 ---
 

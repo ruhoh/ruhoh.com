@@ -1,7 +1,6 @@
 ---
-title: 2.x Docs
-layout: docs-2
-icon : icon-star
+title: Intro & Upgrading
+icon : icon-heart
 ---
 
 

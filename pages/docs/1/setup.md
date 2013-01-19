@@ -1,10 +1,7 @@
 ---
-title: 1.x Docs
-layout: docs
+layout: docs-1
 icon : icon-star
 ---
-
-Docs are for current version: **v1.1** - [View Deprecated 0.3.0 Documentation](/docs/0/setup)
 
 # Development Setup
 
@@ -222,7 +219,4 @@ Secondly, files contained in this directory have three vectors of specificity:
 
 # Next Steps
 
-<h2 style="border:0; text-align:center">Now you're ready to create some content!</h2>
-<p style="text-align:center">
-  <a href="/docs/1/create" class="btn btn-warning btn-large">Create Content &rarr;</a>
-</p>  
+<a href="/docs/1/create" class="btn btn-warning btn-large">Create Content &rarr;</a>

@@ -2,7 +2,6 @@
 title:
 description:
 icon: icon-plus-sign
-layout: docs-2
 ---
 
 
@@ -17,6 +16,7 @@ Widget directory structure:
 <ul class="folder-tree">
 {{> trees/widgets }}
 </ul>
+
 
 ## Using a widget
 

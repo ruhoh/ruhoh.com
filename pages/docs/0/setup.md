@@ -1,6 +1,5 @@
 ---
-title: 0.x Docs
-layout: 0.3.0-docs
+layout: docs-0
 icon : icon-star
 ---
 
@@ -52,7 +51,4 @@ This means as you update files, the updates are reflected immediately.
 
 View your blog at: [http://localhost:9292/](http://localhost:9292/)
 
-<h2 style="border:0; text-align:center">Now you're ready to create some content!</h2>
-<p style="text-align:center">
-  <a href="/docs/1/create" class="btn btn-warning btn-large">Create Content &rarr;</a>
-</p>  
+<a href="/docs/1/create" class="btn btn-warning btn-large">Create Content &rarr;</a>
