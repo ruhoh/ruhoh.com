@@ -9,3 +9,6 @@ tags_path: /tags.html
 
 posts:
   permalink: /blog/:categories/:title/
+
+pages:
+  layout: docs-2

@@ -22,9 +22,8 @@
       <div class="container" style="width:100%; padding:0 20px;">
         <a class="brand" href="/">{{ data.title }}</a>
         <ul class="nav">
-        {{# data.navigation?to_pages }}
-          {{> pages_list }}
-        {{/ data.navigation?to_pages }}
+          <li><a href="{{base_path}}docs/2">Documentation</a></li>
+          <li><a href="{{base_path}}latest-updates">Latest Updates</a></li>
         </ul>
         <ul class="nav social pull-right">
           <li><a href="https://github.com/ruhoh/ruhoh.rb/">Code on GitHub</a></li>

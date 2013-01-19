@@ -9,10 +9,9 @@ author :
 
 navigation :
   - docs/2/index.md
-  - docs/1/setup.md
   - latest-updates.html
   
-030_usage_navigation :
+docs_0_navigation :
   - docs/0/setup.md
   - docs/0/create.md
   - docs/0/configure.md
@@ -21,7 +20,7 @@ navigation :
   - docs/0/theming.md
   - docs/0/plugins.md
 
-usage_navigation :
+docs_1_navigation :
   - docs/1/setup.md
   - docs/1/create.md
   - docs/1/configure.md
@@ -31,7 +30,7 @@ usage_navigation :
   - docs/1/widgets.md
   - docs/1/plugins.md
   
-edge_usage_navigation :
+docs_2_navigation :
   - docs/2/index.md
   - docs/2/setup.md
   - docs/2/pages.md
