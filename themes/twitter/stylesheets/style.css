@@ -5,6 +5,14 @@ html, body, p, ul, a {
 p {
   font-size:1.1em;
   line-height:1.5em;
+  white-space: pre;           /* CSS 2.0 */
+  white-space: pre-wrap;      /* CSS 2.1 */
+  white-space: pre-line;      /* CSS 3.0 */
+  white-space: -pre-wrap;     /* Opera 4-6 */
+  white-space: -o-pre-wrap;   /* Opera 7 */
+  white-space: -moz-pre-wrap; /* Mozilla */
+  white-space: -hp-pre-wrap;  /* HP Printers */
+  word-wrap: break-word;      /* IE 5+ */
 }
 h1, h2, h3, h4, h5 {
   font-family: 'Voces', verdana, serif;
@@ -655,7 +663,6 @@ body {
   position:fixed;
   top:0;
   width:20%;
-  min-width:180px;
   height:100%;
   overflow:auto;
   background-color:#607848;
@@ -665,7 +672,6 @@ body {
   top:0;
   left:20%;
   width:60%;
-  min-width:450px;
   background:#FFF;
 }
 #novel > .inner {padding:15px 30px}
@@ -681,17 +687,42 @@ footer {
   padding:10px;
 }
 
+#nav-toggle{
+  z-index:10000000;
+  width:100%;
+  display:none;
+}
+#nav-toggle a {
+  display:block;
+  padding:0 10px;
+  height:40px;
+  line-height:40px;
+  background:#333;
+  color: #FFF;
+  text-align:right;
+  text-decoration:none;
+}
+#nav-toggle a:hover{ text-decoration:underline }
 
-@media (max-width: 767px) {
-  #left-pane {display:none}
-  #novel {left:0}
-  #left-pane {width:50%; min-width:auto}
+.fixed {
+  position:fixed;
 }
-@media (max-device-width: 767px) {
-  #left-pane {display:none}
-  #novel {left:0}
-  #left-pane {width:50%; min-width:auto}
+.hide { display:none }
+
+@media all and (max-width: 767px) {
+  #novel { left:0; width:100% }
+  #novel > .inner { padding:15px }
+  #left-pane {
+    width:100%; 
+    z-index:1000000;
+    display:none;
+    height:100%;
+    top:40px;
+  }
+  #right-pane { display:none }
+  #nav-toggle { display:block }
 }
+@media all and (min-width: 767px) { #left-pane {display:block !important }}
 
 body.docs-0 #left-pane-off { background-color:#eee;}
 body.docs-0 ul.nav > li > a-off { background-color:#CCC }
