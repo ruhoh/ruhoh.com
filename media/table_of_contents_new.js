@@ -4,12 +4,9 @@ var TocNew = {
   $wrapper : null,
 
   init : function(container, wrapper, active){
-    console.log(active);
-    console.log(container);
     this.$container = $(container);
     this.$wrapper = $(wrapper);
     this.$active = this.$container.find('.' + active);
-    console.log(this.$active);
     this.build();
     //this.toggle();
     //$(window).resize(function(){ this.toggle() })

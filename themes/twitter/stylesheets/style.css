@@ -714,13 +714,13 @@ footer {
   #novel > .inner { padding:15px }
   #left-pane {
     width:100%; 
-    z-index:1000000;
     display:none;
     height:100%;
-    top:40px;
+    position:relative;
   }
   #right-pane { display:none }
   #nav-toggle { display:block }
+  #toc li:first-child {display:none}
 }
 @media all and (min-width: 767px) { #left-pane {display:block !important }}
 
