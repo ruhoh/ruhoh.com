@@ -2,44 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} | ruhoh universal static blog generator</title>
   <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
-  {{{ stylesheets.all }}}
-  {{{ javascripts.all }}}
+  {{# stylesheets.load }}
+    bootstrap.min.css
+    style.css
+    google_prettify/sunburst-custom.css
+  {{/ stylesheets.load }}
   
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="{{ urls.media }}/jquery-1.9.0.js"><\/script>')</script>
+  
+  <script src="{{urls.media}}/table_of_contents_new.js"></script>
 </head>
-<body>
-
-  <div class="navbar">
-    <div class="navbar-inner" style="background:#F0F0D8; box-shadow: 0 0 0 0; border-bottom:1px solid #E0E4CC">
-      <div class="container" style="width:100%; padding:0 20px;">
-        <a class="brand" href="/">{{ data.title }}</a>
-        <ul class="nav">
-          <li><a href="{{base_path}}docs/2">Documentation</a></li>
-          <li><a href="{{base_path}}latest-updates">Latest Updates</a></li>
-        </ul>
-        <ul class="nav social pull-right">
-          <li><a href="https://github.com/ruhoh/ruhoh.rb/">Code on GitHub</a></li>
-          <li><a href="https://twitter.com/ruhohBlog" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @ruhohBlog</a></li>
-          <li><a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://ruhoh.com" data-hashtags="ruhoh" data-text="New static blog generator for the hacker in all of us &rarr;">Tweet</a></li>
-        </ul>
-      </div>
-    </div>
+<body class="{{page.sub_layout}}">
+  <div id="nav-toggle">
+    <a href="{{urls.base_path}}" style="position:absolute; top:0;">
+      <i class="icon-home icon-white"></i> home
+    </a>
+    <a href="#"><i class="icon-align-justify icon-white"></i> Menu</a>
   </div>
 
-  <div class="container" style="position:relative; top:50px">
-    <div class="content">
-      {{{ content }}}
+  {{{ content }}}
+
+  <div id="novel">
+    <div class="inner">
+      <div id="main-content" class="novel docs layout-{{page.layout}}">
+        <div class="inner">
+          {{{ page.content }}}
+        </div>
+      </div>
     </div>
 
-    <footer class="footer" style="text-align:center; margin:50px 0">
+    <footer class="footer" style="padding-left:30px; margin:20px 0">
       <p>
         {{> contact_list }}
       </p>
@@ -51,9 +51,9 @@
         All my work is <a href="http://www.opensource.org/licenses/mit-license.html">MIT licensed, Open and Free</a>. =D
       </p>
     </footer>
-
-  </div> <!-- /container -->
-
+  </div>
+  
+  
   <script type="text/javascript">
     WebFontConfig = {
       google: { families: [ 'Voces::latin' ] }
@@ -69,9 +69,11 @@
     })(); </script>
   
   <script src="{{urls.media}}/custom.js?v1"></script>
-  <script src="{{urls.media}}/table_of_contents.js"></script>
   <script>
     $(function(){
+      $("#nav-toggle").click(function(){
+        $("#left-pane").slideToggle('fast')
+      })
       Pc.init();
       
       $('ul.folder-tree').find('li.info').hide();
@@ -81,6 +83,8 @@
         e.preventDefault();
         return false;
       })
+      
+      TocNew.init('#toc','#novel', '{{page.url?to_slug}}');
     })
   </script>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
