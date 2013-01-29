@@ -12,3 +12,27 @@ posts:
 
 pages:
   layout: docs-2
+
+
+asset_pipeline:
+  enable: false
+
+widgets :
+
+  analytics :
+    use : getclicky
+    # -- config for google --
+    # tracking_id : 'UA-123-12'
+
+    # -- config for getclicky  --
+    site_id : 66563918
+
+  comments :
+    use : disqus
+    # -- config for disqus --
+    short_name : jekyllbootstrap # Change This!
+
+  google_prettify :
+    use : overloaded
+    linenums : true
+  

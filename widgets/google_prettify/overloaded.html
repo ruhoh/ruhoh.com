@@ -1,3 +1,6 @@
+---
+linenums: true
+---
 <!-- Overloaded Google Prettify -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
 <script>
@@ -8,7 +11,7 @@
     else if(pres[i].className === 'nolinenums')
       pres[i].className = "prettyprint";
     else
-      pres[i].className = "prettyprint {{# config.linenums }}linenums{{/config.linenums}}";
+      pres[i].className = "prettyprint {{# this_config.linenums }}linenums{{/this_config.linenums}}";
   }
   prettyPrint();
 </script>
