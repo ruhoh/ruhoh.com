@@ -9,11 +9,55 @@ layout : docs-layout
         <i class="icon-home icon-white"></i> home
       </a>
     </li>
-    {{#data.docs_2_navigation?to_pages}}
+    {{#data.docs_2_start?to_docs}}
       <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
-        <a href="{{url}}">{{#icon}}<i class="{{.}} icon-white"></i>{{/icon}} {{title}}</a>
+        <a href="{{url}}">{{title}}</a>
       </li>
-    {{/data.docs_2_navigation?to_pages}}
+    {{/data.docs_2_start?to_docs}}
+
+    <li><strong><i class="icon-pencil"></i> CONTENT</strong></li>
+    {{#data.docs_2_content?to_docs}}
+      <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
+        <a href="{{url}}">{{title}}</a>
+      </li>
+    {{/data.docs_2_content?to_docs}}
+
+    <li><strong><i class="icon-exchange"></i> VIEW</strong></li>
+    {{#data.docs_2_view?to_docs}}
+      <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
+        <a href="{{url}}">{{title}}</a>
+      </li>
+    {{/data.docs_2_view?to_docs}}
+
+    <li><strong><i class="icon-desktop"></i> PRESENTATION</strong></li>
+    {{#data.docs_2_presentation?to_docs}}
+      <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
+        <a href="{{url}}">{{title}}</a>
+      </li>
+    {{/data.docs_2_presentation?to_docs}}
+
+    <li><strong><i class="icon-upload"></i> PUBLISH</strong></li>
+    {{#data.docs_2_publish?to_docs}}
+      <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
+        <a href="{{url}}">{{title}}</a>
+      </li>
+    {{/data.docs_2_publish?to_docs}}
+
+    <li><strong><i class="icon-fighter-jet"></i> EXTRAS</strong></li>
+    {{#data.docs_2_extras?to_docs}}
+      <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
+        <a href="{{url}}">{{title}}</a>
+      </li>
+    {{/data.docs_2_extras?to_docs}}
+    
+    
+    <li><strong><i class="icon-cogs"></i> EXTEND</strong></li>
+    {{#data.docs_2_extend?to_docs}}
+      <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
+        <a href="{{url}}">{{title}}</a>
+      </li>
+    {{/data.docs_2_extend?to_docs}}
+    
   </ul>
 </div>
 <div id="right-pane">

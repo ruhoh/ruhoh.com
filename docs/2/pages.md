@@ -4,12 +4,12 @@ description:
 
 icon : icon-pencil
 ---
+# What is a Page?
 
-A **Page** in ruhoh is the base resource type for exposing content at a URL endpoint and having
-functionality like layouts, sub-layouts, custom permalink, categories, tags, etc.
+A **Page** in ruhoh is the base resource type for delivering content at a given URL. Usually this content is a literal file and by default the URL is just the 'clean' path to the file as it exists in your directory.
 
-In other words, we can make any resource **page-like** by inheriting from the base `Pages` resource.
-In this way, all "posts" are "page-like" -- they inherit from this page resource and share the same functionality.
+All page-like resources can have a layout, sub-layout, custom permalink, categories, tags and other
+features that make a page act like a page.
 
 # Create
 
@@ -143,13 +143,19 @@ or
 
 # Collection View
 
-The CollectionView class contains methods and logic that act on a resource's collection.
-The CollectionView is exposed to the mustache templating system via its resource namespace:
+All the pages you create are available as a **pages collection** in your View. The pages collection is modeled by its CollectionView class and contains methods and logic that act on that collection.
+
+In your templates it looks like this:
 
 {{#raw_code}}
 {{ pages.some_method }}
 {{/raw_code}}
 
+You can see that the methods are namespaced by the given collection. If you create posts you would access the posts collection like this:
+
+{{#raw_code}}
+{{ posts.some_method }}
+{{/raw_code}}
 
 
 ## pages.all
@@ -258,17 +264,95 @@ To return a specific tag, just call that tag by name: `pages.tags.my-tag-name`
 {{/raw_code}}
 
 
-# Model View
+## pages.latest
 
-The ModelView class contains methods and logic that act on a single resource instance.
-If a ModelView is defined, the CollectionView should return a collection of ModelView instances.
+The `pages.latest` helper method is the same as `pages.all` but is limited to the latest _n_ pages as configured
 
-A ModelView is also exposed to the view as the global `page` object if and when the resource being rendered
-has a ModelView. In other words if ruhoh is displaying a `post` the post in question is available at `page`
-where `page` is a proxy to a ..Posts::ModelView instance.
+Use mustache syntax to iterate over the array:
 
 {{#raw_code}}
-{{ page.some_method_in_post_model_view }}
+<ul>
+{{# pages.latest }}
+  <li>
+    <a href="{{url}}">{{title}}</a>
+    {{{ content }}}
+  </li>
+{{/ pages.latest }}
+</ul>
+{{/raw_code}}
+
+
+## pages.paginator
+
+The paginator method intelligently renders chunks of pages per a given page.
+It knows which page it is on so there is no need to pass a specific page number.
+
+To initiate the "root" page (page #1) use `pages.paginator`:
+
+
+{{#raw_code}}
+<h2>Paginated Pages</h2>
+
+{{# pages.paginator }}
+<div class="page">
+  <h3 class="title"><a href="{{url}}">{{title}}</a> <span class="date">{{ date }}</span></h3>
+
+  {{{ summary }}}
+
+  <div class="more">
+    <a href="{{url}}" class="btn">read more..</a>
+  </div>
+</div>
+{{/ pages.paginator }}
+{{/raw_code}}
+
+
+## pages.paginator_navigation
+
+Use `pages.paginator_navigation` to display the page navigation links:
+
+{{#raw_code}}
+<ul>
+{{#pages.paginator_navigation}}
+  <li>
+    {{^is_active_page}}
+      <a href="{{url}}">{{name}}</a>
+    {{/is_active_page}}
+    
+    {{#is_active_page}}
+      <a href="{{url}}" style="color:red">{{name}}</a>
+    {{/is_active_page}}
+  </li>
+{{/pages.paginator_navigation}}
+</ul>
+{{/raw_code}}
+
+
+The links link to special pagination pages which use (by default) the `paginator.html` layout,
+which just calls `pages.paginator` again but it internally knows which pagination chunk to show.
+
+See the paginator configuration docs below for more details.
+
+
+
+# Model View
+
+Each and every page you create is modeled in the View by a ModelView class for that given page-like resource.
+
+The collections should always return ModelView class instances if they are available:
+
+{{#raw_code}}
+  <ul>
+  {{# pages.all }}
+    <li><a href="{{url}}">{{title}}</a></li>
+    <!-- 
+      The methods called here are called on an instance of a page ModelView object.
+    -->
+    {{ date }}
+    {{ some_custom_method }}
+    ...
+  {{/ pages.all }}
+  </ul>
 {{/raw_code}}
 
 
@@ -378,7 +462,7 @@ Note the triple mustaches since we expect HTML to be output and do not want to e
 
 The `summary` helper method displays a summary of your page rendered by processing the first _n_ lines of the given page.
 
-Summary may be used within any block of iterated posts:
+Summary may be used within any block of iterated pages:
 
 {{#raw_code}}
   <ul>
@@ -510,10 +594,25 @@ Nothing is returned if there is no previous page.
 {{/raw_code}}
 
 
+## page.is\_active\_page
+
+Returns Boolean true/false for whether or not the page is the currently displayed page or "active page".
+
+This is useful for adding styling to denote the active element in a navigation list:
 
 
-
-
+{{#raw_code}}
+  <ul>
+{{# pages.all }}
+  {{# is_active_page }}
+    <li class="active"><a href="{{ url }}" class="active">{{ title }}</a></li>
+  {{/ is_active_page }}
+  {{^ is_active_page }}
+    <li><a href="{{ url }}">{{ title }}</a></li>
+  {{/ is_active_page }}
+{{/ pages.all }}
+  </ul>
+{{/raw_code}}
 
 
 
@@ -594,9 +693,15 @@ categories: ["default", "categories"]
 
 ## Permalink
 
-Currently all page permalinks simply model their respective physical filepaths.
+### Default Permalinks
 
-URLS are "pretty" by default; they omit the file extension e.g.: `/some-page` vs `/some-page.html` or `/some-page/index.html`.
+By default all normal pages URLs will simply model their respective physical filepaths:
+
+**FILE: pages/personal/about-me.md** =&gt; **URL: /pages/personal/about-me**
+
+URLs are "pretty" by default; they omit the file extension e.g.: 
+
+**/some-page** vs **/some-page.html** or **/some-page/index.html**.
 
 To preserve the "normal" style you can configure it in config.yml:
 
@@ -614,24 +719,166 @@ To preserve the "normal" style you can configure it in config.yml:
     permalink: 'preserve' # <-----------
     ---  
 
+
+### Custom Permalinks
+
+Pages may also define a custom permalink format:
+
+    # config.yml
+    
+    pages :
+      permalink : '/pages/:title'
+
+    posts :
+      permalink : '/:categories/:title'
+
+
+### Permalink Variables
+
+<table class="table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>:year</td>
+      <td>Year from the page’s filename</td>
+    </tr>
+    
+    <tr>
+      <td>:month</td>
+      <td>Month from the page’s filename</td>
+    </tr>
+    
+    <tr>
+      <td>:day</td>
+      <td>Day from the page’s filename</td>
+    </tr>
+    
+    <tr>
+      <td>:title</td>
+      <td>Title from the page’s filename</td>
+    </tr>
+
+    <tr>
+      <td>:path</td>
+      <td>The page file's path relative to the base of your website.</td>
+    </tr>
+
+    <tr>
+      <td>:relative_path</td>
+      <td>The page file's path relative to its name-spaced directory.</td>
+    </tr>
+
+    <tr>
+      <td>:filename</td>
+      <td>The page file's filename (path is not included).</td>
+    </tr>
+    
+    <tr>
+      <td>:categories</td>
+      <td>The specified categories for this page. If more than one category is set, only the first one is used. If no categories exist, the URL omits this parameter.</td>
+    </tr>
+    
+    <tr>
+      <td>:i_month</td>
+      <td>Month from the page’s filename without leading zeros.</td>
+    </tr>
+    
+    <tr>
+      <td>:i_day</td>
+      <td>Day from the page’s filename without leading zeros.</td>
+    </tr>
+    
+  </tbody>  
+</table>
+        
+
+### Permalink Examples
+
+Given the post filename: `2009-04-29-green-milk-tea.md`   
+with categories: `['california/food', 'dairy']`
+
+<table class="table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Permalink Format</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(default)</td>
+      <td>/2009/04/29/green-milk-tea.html</td>
+    </tr>
+    
+    <tr>
+      <td>/:categories/:title</td>
+      <td>/california/food/green-milk-tea/index.html</td>
+    </tr>
+    
+    <tr>
+      <td>/:month-:day-:year/:title.html</td>
+      <td>/04-29-2009/green-milk-tea.html</td>
+    </tr>
+    
+    <tr>
+      <td>/blog/:year/:month/:day/:title</td>
+      <td>/blog/2009/04/29/green-milk-tea/index.html</td>
+    </tr>
+
+  </tbody>  
+</table>
+
+### Per-Page Permalinks
+
+Set a custom permalink format on a _per-page_ basis via the pages's YAML meta-data:
+
+    # pages/my-cool-page.md
+    ---
+    title: My Cool Page
+    permalink: '/blog/:month/:year:/:title'
+    ---
+
+### Literal Per-Page Permalinks
+
+Set a **literal** permalink by omitting variable tokens:
+
+    # pages/my-cool-post.md
+    ---
+    title: My Cool Page
+    permalink: 'legacy-blog/123/RandomFolder/category/my_cool_page'
+    ---
+
+Literal permalinks are useful when importing legacy blog pages/posts from other blogging systems, since you'd want to preserve existing links.
+
+### NOTES
+
+Each node of a literal permalink is still passed through `CGI::escape()` to properly build a valid URL.
+Please let me know if this causes any problems, or does not fit your use-case.
+
+
+
+
 ## Layout
 
-All pages have a global default layout value that will be used when the layout parameter 
-is _not_ specifically set in the page file's YAML meta-data. The _default_ "default global layout value" for pages is set to: `page`.
+All pages have a global default layout value that will be used when the layout parameter  is _not_ specifically set in the page file's YAML meta-data. The _default_ "default global layout value" for pages is set to: `page`.
 
 Manually set a custom default layout in the config:
   
     pages :
       layout : 'custom-page-layout'
       
-Remember this is just a default. It allows you to not always have to specify a layout param in every page file.
-However layout values in page files always take precedence.
+Remember this is just a default. It allows you to not always have to specify a layout param in every page file. However layout values in page files always take precedence.
 
 
 ## Summary
 
-The summary is rendered using a "line count" parameter that will intelligently process the first n lines of your page. 
-A custom summary line-count may be specified in the config file:
+The summary is rendered using a "line count" parameter that will intelligently process the first n lines of your page.  A custom summary line-count may be specified in the config file:
 
     pages :
       summary_lines : 30   # default is 20
@@ -651,6 +898,56 @@ Optionally pass multiple values via Array:
 
 Strings get converted to a regular  expression using: `Regexp.new(str)` so encapsulating forward slashes are not needed.
 Remember to also escape necessary special characters.
+
+
+## Latest
+
+`pages.latest` displays the latest _n_ pages. Set a custom limit in the config file:
+
+    pages :
+      latest : 5   # default is 10
+
+
+
+## Paginator
+
+Currently the paginator only works with "posts" even though it should work with any resource.
+Also the configuration is not scoped the the "posts" resource; it uses its own configuration:
+
+    # config.yml
+    paginator:
+      namespace: "/posts/"
+      per_page: 2
+      root_page: "/"
+      layout: "paginator"
+
+
+<table class="table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>attribute</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>namespace</td>
+      <td>URL namespace for paginated pages e.g: /posts/1, /posts/2</td>
+    </tr>
+    <tr>
+      <td>per_page</td>
+      <td>Number of posts per page</td>
+    </tr>
+    <tr>
+      <td>root_page</td>
+      <td>Where the root page (page #1) is. Will be '/' assuming you want the traditional blog style.</td>
+    </tr>
+    <tr>
+      <td>layout</td>
+      <td>The layout to use for every paginated page.</td>
+    </tr>
+  </tbody>
+</table>
 
 
 

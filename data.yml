@@ -8,39 +8,56 @@ author :
   feedburner : feedname
 
 navigation :
-  - docs/2/index.md
+  - 2/index
   - latest-updates.html
   
 docs_0_navigation :
-  - docs/0/setup.md
-  - docs/0/create.md
-  - docs/0/configure.md
-  - docs/0/publish.md
-  - docs/0/templating.md
-  - docs/0/theming.md
-  - docs/0/plugins.md
+  - 0/setup
+  - 0/create
+  - 0/configure
+  - 0/publish
+  - 0/templating
+  - 0/theming
+  - 0/plugins
 
 docs_1_navigation :
-  - docs/1/setup.md
-  - docs/1/create.md
-  - docs/1/configure.md
-  - docs/1/publish.md
-  - docs/1/templating.md
-  - docs/1/theming.md
-  - docs/1/widgets.md
-  - docs/1/plugins.md
-  
-docs_2_navigation :
-  - docs/2/index.md
-  - docs/2/setup.md
-  - docs/2/pages.md
-  - docs/2/posts.md
-  - docs/2/drafts.md
-  - docs/2/views.md
-  - docs/2/themes.md
-  - docs/2/widgets.md
-  - docs/2/publish.md
-  - docs/2/plugins.md
+  - 1/setup
+  - 1/create
+  - 1/configure
+  - 1/publish
+  - 1/templating
+  - 1/theming
+  - 1/widgets
+  - 1/plugins
+
+docs_2_start :
+  - 2/index
+  - 2/setup
+  - 2/upgrading
+docs_2_content :
+  - 2/pages
+  - 2/posts
+  - 2/drafts
+  - 2/data
+  - 2/media
+docs_2_view :
+  - 2/views
+docs_2_presentation :
+  - 2/layouts
+  - 2/partials
+  - 2/stylesheets
+  - 2/javascripts
+  - 2/asset-pipeline
+  - 2/themes
+docs_2_extras :
+  - 2/widgets
+  - 2/widgets/comments
+  - 2/widgets/analytics
+  - 2/widgets/google-prettify
+docs_2_extend :
+  - 2/plugins
+docs_2_publish :
+  - 2/publish
 
     
 users :

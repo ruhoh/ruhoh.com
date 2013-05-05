@@ -9,11 +9,11 @@ layout : docs-layout
         <i class="icon-home icon-white"></i> home
       </a>
     </li>
-    {{#data.docs_0_navigation?to_pages}}
+    {{#data.docs_0_navigation?to_docs}}
       <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
         <a href="{{url}}">{{#icon}}<i class="{{.}} icon-white"></i>{{/icon}} {{title}}</a>
       </li>
-    {{/data.docs_0_navigation?to_pages}}
+    {{/data.docs_0_navigation?to_docs}}
   </ul>
 </div>
 <div id="right-pane">

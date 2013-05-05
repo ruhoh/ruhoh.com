@@ -1,6 +1,6 @@
 ---
 title: Setup
-icon : icon-star
+icon : icon-cog
 ---
 
 # Development Setup
@@ -93,7 +93,7 @@ generate your RSS feed and other features. **This setting has nothing to do with
 
 # Directory API
 
-## RuhohSpec v2.0 (pre) Directory Structure
+## RuhohSpec v2.0 Directory Structure
 
 <p>
   The following outlines your blog's directory structure and 
@@ -103,9 +103,9 @@ generate your RSS feed and other features. **This setting has nothing to do with
 <ul class="folder-tree">
   <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em class="config">config.yml</em></li>
   <li class="info">
-    <strong>[Required]</strong>
+    <strong>[Optional]</strong>
     The config file is written in YAML and contains site-wide configuration options.
-    <a href="/docs/1/configure">config documentation</a>
+    <a href="/docs/2/setup">config documentation</a>
   </li>
   <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>dash.html</em> </li>
   <li class="info">
@@ -118,7 +118,7 @@ generate your RSS feed and other features. **This setting has nothing to do with
     <strong>[Optional]</strong>
     The compiled folder is the default location the Compiler will output pages into.
     When you run the Compiler, your fully rendered blog will output to this folder.
-    <a href="/docs/1/publish#toc_8">compile documentation</a>
+    <a href="/docs/2/publish">compile documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em>media</em> 
@@ -130,7 +130,7 @@ generate your RSS feed and other features. **This setting has nothing to do with
     <strong>[Optional]</strong>
     The media folder holds global static media assets such as images, videos, pdfs, downloads, etc.
     Theme-specific assets should NOT exist in this media folder, but rather in the theme's media folder.
-    <a href="/docs/1/create#toc_10">media documentation</a>
+    <a href="/docs/2/media">media documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">pages</em> 
@@ -143,7 +143,7 @@ generate your RSS feed and other features. **This setting has nothing to do with
   <li class="info">
     <strong>[Optional]</strong>
     All files contained in the pages folder will be processed as pages.
-    <a href="/docs/1/create">pages documentation</a>
+    <a href="/docs/2/pages">pages documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em class="partial">partials</em> 
@@ -155,6 +155,7 @@ generate your RSS feed and other features. **This setting has nothing to do with
   <li class="info">
     <strong>[Optional]</strong>
     Partials are files which contain arbitrary layout code, usually HTML, that can be dynamically included into any page or layout.
+    <a href="/docs/2/partials">partials documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em>plugins</em> 
@@ -166,7 +167,7 @@ generate your RSS feed and other features. **This setting has nothing to do with
   <li class="info">
     <strong>[Optional]</strong>
     Plugins extend and/or overload the base ruhoh functionality. There are 3 types of plugins: mustache helpers, converters, and compiler tasks.
-    <a href="/docs/1/plugins">plugin documentation</a>
+    <a href="/docs/2/plugins">plugin documentation</a>
   </li>
   <li class="endpoint">
     <span class="ui-silk inline ui-silk-folder">.</span> <em class="post">posts</em> 
@@ -179,20 +180,21 @@ generate your RSS feed and other features. **This setting has nothing to do with
   <li class="info">
     <strong>[Optional]</strong>
     All files contained in the posts folder will be processed as posts.
-    <a href="/docs/1/create#toc_3">posts documentation</a>
+    <a href="/docs/2/posts">posts documentation</a>
   </li>
   <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>data.yml</em> </li>
   <li class="info">
     <strong>[Optional]</strong>
-    The site YAML file is used to specify site-wide data that can be used throughout your pages and layouts.
-    A useful example is defining a navigation array that the templater can use to create your primary navigation bar.
+    The data YAML file is used to specify data that can be used throughout your pages and layouts.
+    A useful example is defining a navigation array that the templates can use to create your primary navigation bar.
+    <a href="/docs/2/data">data documentation</a>
   </li>
 
 {{> trees/themes }}
 {{> trees/widgets }}
 </ul>
 
-# Next Steps
+# Creating Content
 
 <a href="/docs/2/pages" class="btn btn-warning btn-large">Create Content &rarr;</a>
 

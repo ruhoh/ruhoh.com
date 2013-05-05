@@ -2,7 +2,7 @@
 title:
 description:
 
-icon : icon-gift
+icon : icon-cogs
 ---
 
 # Overview

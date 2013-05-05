@@ -2,15 +2,24 @@
 title:
 description:
 
-icon : icon-list-alt
+icon : icon-columns
 ---
+
+# What is the View?
+
+The View is the programming layer that connects the content layer to the presentation layer.
+
+The View holds the majority of the actual programming logic that queries and manipulates your content in order to serve it to the presentation layer. The View uses a **_templating language_** to provide this programming interface.
+
+We call it a templating language because the templates (presentation layer) need a way to interface with your application's programming logic in order to access and manipulate all the content and data you've made.
+
+
 
 # Why Mustache
 
-Ruhoh uses [Mustache](http://mustache.github.com/) as its primary Templating system. 
+Ruhoh uses [Mustache](http://mustache.github.com/) as its primary Templating language.
 
-In Mustache you _cannot_ embed code logic in your views.
-This is the opposite of erb, haml, or any such system that dynamically processes embedded-code in views.
+In Mustache you _cannot_ embed code logic in your views. This is the opposite of erb, haml, or any such system that dynamically processes embedded-code in views.
 
 With views free of code-logic, the API footprint becomes manageable and most importantly, portable:
 
@@ -74,10 +83,10 @@ A cool post about stuff.
 {{/raw_code}}
 
 
-The post, having no layout defined, will implicitly load into the 'post.html' sub-layout.
+The post, having no layout defined, will implicitly load into the 'posts.html' sub-layout.
 
 
-**2. sub-layout: 'post.html'**
+**2. sub-layout: 'posts.html'**
 
 {{#raw_code}}
 &#045;&#045;&#045;
@@ -99,8 +108,7 @@ layout : 'default'
 
 The `page` method represents the 'current' page being rendered, which in this case is a "posts" resource pointing to the file: `cool-post.md`.
 
-`page` acts as a proxy to the resource's ModelView which conveniently exposes the method `content` among other things.
-To render the non-escaped content, note we use mustache's triple brackets syntax and call: `page.content` 
+`page` acts as a proxy to the resource's ModelView which conveniently exposes the method `content` among other things. To render the non-escaped content, note we use mustache's triple brackets syntax and call: `page.content` 
 
  
 **3. layout: 'default.html'**
@@ -111,8 +119,12 @@ To render the non-escaped content, note we use mustache's triple brackets syntax
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
-    {{{ stylesheets.all }}} 
-    {{{ javascripts.all }}} 
+    {{# stylesheets.load }}
+      style.css
+    {{/ stylesheets.load }}
+    {{# javascripts.load }}
+      app.js
+    {{/ javascripts.load }}
   </head>
   <body>
       <div class="content">
@@ -289,8 +301,12 @@ This includes any sub-layouts the page may be in as well as conversion of the ma
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
-    {{{ stylesheets.all }}} 
-    {{{ javascripts.all }}} 
+    {{# stylesheets.load }}
+      style.css
+    {{/ stylesheets.load }}
+    {{# javascripts.load }}
+      app.js
+    {{/ javascripts.load }}
   </head>
   <body>
       <div class="content">
@@ -392,157 +408,3 @@ We can can expand these page ids:
   </ul>
 {{/raw_code}}
 
-
-# Helpful Resource Views
-
-## media
-
-### Insert Images
-
-The media folder is used as a convenient place to store your blog's media:
-
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">media</em><br>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-picture">.</span> <em class="template">[...my-media-file...]</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
-
-Organize your files any way you wish, then use the special `urls.media` template variable to refer the media folder:
-
-{{#raw_code}}
-<img src="{{urls.media}}/my-media-file.jpg">
-{{/raw_code}}
-
-
-Using a dynamic url path is helpful when you want to switch to a CDN and or reorganize the way you handle your media.
-
-**NOTE** This is now a non-standard legacy API. Using the media resources should work like all other resources, e.g. `media.url`.
-Expect this to change in the future.
-
-## partials
-
-Partials are files which contain arbitrary layout code, usually HTML, that can be dynamically included
-into any page or layout.
-
-Partials are very useful when used in conjunction with the templating language as they can provide 
-standardized layouts for data-structures used throughout your blog.
-
-### Using Partials
-
-Mustache supports partials natively using the "greater than" character:
-
-{{#raw_code}}
-  {{> categories_list }}
-{{/raw_code}}
-
-
-### Create a Partial
-
-Create a *default_partial* by creating a file in the default partials folder at: 
-
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">posts</em></li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>[...your-partial-file...]</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
-    
-These partials should be theme independent.
-
-Additionally you may also create *theme_specific* partials by creating files at:
-
-<ul class="folder-tree">
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[ACTIVE-THEME]</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>[...your-partial-file...]</em> &larr;</li>
-            </ul>
-          </li>
-        </ul> 
-      </li>
-    </ul>
-  </li>
-</ul>
-
-Theme specific partials are useful when you want to include theme dependent HTML and/or css classes.
-
-### Overload a Partial
-
-Theme specific partials have a higher priority than default partials. That is they will overload default partials of the same name.
-
-
-## data
-
-`data` is a globally accessible object that contains all data from your `data.yml` file.
-This allows you to define arbitrary data you want access to throughout your templates such as navigational lists.
-
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em></li>
-  <li><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>data.yml</em> &larr;</li>
-</ul>
-
-### Example Usage
-
-    # data.yml
-    ---
-    author :
-      name : Jade Dominguez
-      email : blah@email.test
-      github : username
-      twitter : username
-      feedburner : feedname
-
-In your templates:
-
-{{#raw_code}}
-<ul>
-  <li>Author: {{ data.author.name }}</li>
-  <li>email: {{data.author.email }}</li>
-  <li>github: {{data.author.github }}</li>
-</ul>
-{{/raw_code}}
-
-
-## stylesheets
-
-The stylesheets resources manages all stylesheets in the system.
-
-When a theme registers stylesheets the paths are automatically managed and can be loaded like so:
-
-{{#raw_code}}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{{ page.title }}</title>
-    {{{ stylesheets.all }}} 
-  </head>
-</html>
-{{/raw_code}}
-
-
-## javascripts
-
-The javascripts resource manages all javascripts in the system.
-
-When a theme registers javascripts the paths are automatically managed and can be loaded like so:
-
-{{#raw_code}}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{{ page.title }}</title>
-    {{{ javascripts.all }}} 
-  </head>
-</html>
-{{/raw_code}}

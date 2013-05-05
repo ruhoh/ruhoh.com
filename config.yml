@@ -1,18 +1,16 @@
 ---
 RuhohSpec: '2.0.alpha'
-theme: 
-  name: twitter
-production_url: http://username.github.com
-archive_path: /archive.html
-categories_path: /categories.html
-tags_path: /tags.html
+
+production_url: http://ruhoh.com
+
+"twitter" : 
+  use : "theme"
+
+docs:
+  layout: docs-2
 
 posts:
   permalink: /blog/:categories/:title/
-
-pages:
-  layout: docs-2
-
 
 asset_pipeline:
   enable: false

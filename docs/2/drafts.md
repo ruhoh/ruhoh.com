@@ -2,7 +2,7 @@
 title:
 description:
 
-icon :  icon-file
+icon :  icon-file-alt
 ---
 
 # Create
