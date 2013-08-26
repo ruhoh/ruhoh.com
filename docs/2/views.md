@@ -48,7 +48,7 @@ Mustache takes in three main parameters when expanding a template:
   
   <dt>Payload</dt>
   <dd>[Hash] This is an arbitrary data object which becomes accessible in the Mustache Template. 
-    <br>In Ruhoh 2.0. every data-structure is dynamically loaded from ruhoh's database so the payload hash is no longer used.</dd>
+    <br>In Ruhoh 2.x every data-structure is dynamically loaded from ruhoh's database so the payload hash is no longer used.</dd>
 </dl>
 
 
@@ -146,45 +146,38 @@ You can see on a general level, each file just nests itself into its parent and 
 
 ## Mustache by Example
 
-Mustache allows for a very clean API within your templates. 
-To access any resource collection, you simply call its name; every registered resource dynamically adds its method to the MasterView. 
+Mustache allows for a very clean API within your templates. To access any collection, you simply call its name; every collection dynamically adds its method to the MasterView.
 This method acts as a namespace and proxies to the resource's CollectionView Class which contains the callable methods.
-
 
       class Masterview
         def posts
         end
-        
+
         def pages
         end
-        
+
         def stylesheets
         end
       end
 
+A sample CollectionView for a pages collection:
 
-A sample CollectionView for the "posts" resource collection:
+      module Ruhoh::Resources::Pages
+        class CollectionView < SimpleDelegator
+          include Ruhoh::Views::Helpers::Tags
+          include Ruhoh::Views::Helpers::Categories
 
-    module Ruhoh::Resources::Posts
-      class CollectionView < Ruhoh::Resources::Page::CollectionView
+          def all
+            dictionary.each_value.find_all { |model|
+              File.basename(File.dirname(model.id)) != "drafts"
+            }.sort
+          end
 
-        def all
-          posts = @ruhoh.db.posts.each_value.map { |val| val }
-          if @ruhoh.env == "production"
-            posts = posts.reject {|p| p["type"] == "draft"}
-          end  
-          posts.sort {|a,b| 
-            Date.parse(b['date']) <=> Date.parse(a['date'])
-          }.map {|data|
-            new_model_view(data)
-          }
+          #...
         end
-        
       end
-    end
-    
 
-In your mustache template, the `all` method of the posts `CollectionView` is available like so:
+In your mustache template, the `all` method is callable on a pages collection, say "posts":
 
 {{#raw_code}}
   <ul>
@@ -195,24 +188,23 @@ In your mustache template, the `all` method of the posts `CollectionView` is ava
 {{/raw_code}}
 
 
-Note also the nested methods `url` and `title`. 
-You can see `posts.all` returns an Array of Posts::ModelView instances of which we can also call methods on.
+Note also the nested methods `url` and `title`.  You can see `posts.all` returns an Array of ModelView instances of which we can also call methods on.
 
 ## Extend by Example
 
 While we are at it, here's how you'd extend the CollectionView to add arbitrary custom functionality:
 
-    module PostsCollectionViewAddons
+    module PagesCollectionViewAddons
       def greeting
         "Hello there! How are you?"
       end
-      
+
       def random
         all.sample
       end
     end
-    Ruhoh::Resources::Posts::CollectionView.send(:include, PostsCollectionViewAddons)
-    
+    Ruhoh.collections('pages').send(:include, PagesCollectionViewAddons)
+
 Now you can do:
 
 {{#raw_code}}
@@ -220,6 +212,25 @@ Now you can do:
 {{#posts.random}}
   <h2>{{title}}</h2>
 {{/posts.random}}
+{{/raw_code}}
+
+If you want to add methods on per-page basis (not collection) you'd include code on the ModelView:
+
+    module PagesModelViewAddons
+      def friendly_date
+        Time.parse(date).strftime("%b %d, %Y %l:%M %p")
+      end
+    end
+
+    Ruhoh.model('pages').send(:include, PagesModelViewAddons)
+
+Now you can do:
+
+{{#raw_code}}
+{{#pages.all }}
+  <h2>{{title}}</h2>
+  <date>{{ friendly_date }}</data>
+{{/ pages.all }}
 {{/raw_code}}
 
 
@@ -356,7 +367,17 @@ However, ruhoh should do a good job of internally resolving all links so you don
       <td>urls.paginator</td>
       <td>The url endpoint that the paginator uses to make pages.</td>
     </tr>
-    
+    <tr>
+      <td>urls.production</td>
+      <td>
+        The production url as set in config.yml. Note this has nothing to do with URL generation.
+        It's used for RSS and third-party services which need absolute links to resources.
+      </td>
+    </tr>
+    <tr>
+      <td>urls.production_url</td>
+      <td>Alias to urls.production</td>
+    </tr>    
   </tbody>
 </table>
 
@@ -393,10 +414,10 @@ This helper method takes in a single String page id or Array of page ids and exp
 Assume we define a navigation array in `data.yml`:
 
     navigation:
-      - index.md
-      - about.md
-      - projects/startup.html
-      - contact.md
+      - index
+      - about
+      - projects/startup
+      - contact
 
 We can can expand these page ids:
 

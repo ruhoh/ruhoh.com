@@ -1,15 +1,18 @@
 # Upgrading
 
+Below are some **notes** as to what has changed for 2.x. However I really recommend to start at [/docs/2](/docs/2) and go through it once over with a completely new blog.
 
-## Using the new 2.0.alpha version
+Honestly, some of these notes may be outdated but I've waited so ridiculously long to publish this I can't wait any longer.
+
+Thank you very much for your patience.
+
+## Using Ruhoh 2.x
 
 It's best to install the new gem via bundler so you can execute it locally relative to a specific project.
 
 Step by step instructions are available here:
 
-https://github.com/ruhoh/blog/tree/2.0.alpha#readme
-
-
+https://github.com/ruhoh/blog/#readme
 
 ## command line
 
@@ -24,14 +27,13 @@ When working with resources, you now have to namespace your command:
     $ ruhoh posts new
     
 
---ext no longer exists, in favor of [default ext per resource](/docs/2/pages#toc_31) in config.yml
+--ext no longer exists, in favor of [default ext per resource](/docs/2/pages#toc_39) in config.yml
 
-    
 ## config.yml
 
 **Most configuration formatting has changed.**
 
-Now all the resource specific configuration is namespaced by the resource name. See [Pages Configuration](/docs/2/pages#toc_30)
+Now all the resource specific configuration is namespaced by the resource name. See [Pages Configuration](/docs/2/pages#toc_38)
 
 ### Theme config
 
@@ -39,10 +41,17 @@ old:
   
     theme: "twitter"
     
-new:
-  
+ruhoh 2.0.alpha:
+
     theme:
       name: "twitter"
+
+The theme config is now like any other collection. You are telling the collection to use the "theme" class logic to act as a theme.
+
+ruhoh 2.x:
+
+    "twitter":
+      use: "theme"
 
 ### Exclude paths
 
@@ -61,7 +70,7 @@ e.g.
 
 Most all mustache methods have changed their API and implementation.
 
-We'll outline some here but it's probably best to download the new 2.0 blog scaffold and compare all the helpers.
+We'll outline some here but it's probably best to download the new 2.x blog scaffold and compare all the helpers.
 
 
 ### pages
@@ -245,7 +254,7 @@ Which means you can load javascripts at the end of the document if you want.
 
 ### urls
 
-The `urls` object has all different attribute names: see [View 'view urls' docs](/docs/2/views#toc_11)
+The `urls` object has all different attribute names: see [View 'view urls' docs](/docs/2/views#toc_12)
 
 ### site renamed to data
 
@@ -308,7 +317,7 @@ new:
     Ruhoh::Views::MasterView.send(:include, MasterViewAddons)
     
 Adding global methods is now discouraged. It is more likely you want resource-specific functionality.
-All resource-based helpers are namespaced and belong to the resource's CollectionView or ModelView.
+All resource-based helpers are name-spaced and belong to the resource's CollectionView or ModelView.
 
     module PagesCollectionViewAddons
       def greeting
@@ -321,7 +330,7 @@ All resource-based helpers are namespaced and belong to the resource's Collectio
         all.sample
       end
     end
-    Ruhoh::Resources::Pages::CollectionView.send(:include, PagesCollectionViewAddons)
+    Ruhoh.collections('pages').send(:include, PagesCollectionViewAddons)
 
 
 See [Plugin Docs](/docs/2/plugins) for more info.
@@ -367,7 +376,7 @@ the page is not an index.html page. To preserve the old style and include the .h
 
 ## post.ruhoh.com
 
-post.ruhoh.com DOES NOT support ruhoh 2.0 yet.
+post.ruhoh.com DOES NOT support ruhoh 2+ yet.
 
 
 

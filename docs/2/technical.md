@@ -177,7 +177,7 @@ As seen below the resource defines its own top-level namespace. Arbitrary view m
 {{/posts.tags.all}}
 {{/raw_code}}
     
-Internally, ruhoh 2.0 simply delegates method calls to the resource's collection view class.
+Internally, ruhoh 2.x simply delegates method calls to the resource's collection view class.
 
 
 # Compiling

@@ -2,7 +2,7 @@
 title: Universal Blog API
 description:
 
-layout: page
+layout: splash
 ---
 
 

@@ -11,6 +11,7 @@
 
   {{# stylesheets.load }}
     bootstrap.min.css
+    font-awesome.min.css
     style.css
     google_prettify/sunburst-custom.css
   {{/ stylesheets.load }}
@@ -43,8 +44,8 @@
       <p>
         {{> contact_list }}
       </p>
-      <p>Diligently authored by Jade Dominguez in 2012
-        with help from <a href="http://ruhoh.com" target="_blank" title="The Definitive Lean Blogging Framework">Ruhoh</a>,
+      <p>
+        Diligently authored by Jade Dominguez in 2012 with help from <a href="http://ruhoh.com" target="_blank" title="The Definitive Lean Blogging Framework">Ruhoh</a>,
         <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>, and countless humans.
       </p>
       <p>
@@ -88,6 +89,7 @@
     })
   </script>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <!-- google prettyify should be below-->
   {{{ widgets.google_prettify }}}
   {{{ widgets.analytics }}}
   

@@ -1,0 +1,48 @@
+= render partial: 'profiles/show/prev-next-profile', formats: [:html]
+.row
+  .span9
+    #friendly-score-wrapper.section
+      .row-fluid
+        .span8
+          .padding
+            %h3 GILD SCORE ANALYSIS
+            %small.caption
+              The size of the circle corresponds to the influence it has on the score.
+            %ul.criteria
+              %li Experience
+              %li Projects
+              %li Contributions
+              %li Education
+              %li Stackexchange
+              %li Influence
+
+        #score-bubbles.span4
+
+
+def score_explain
+  return {} if self['score_explain'].blank?
+  data =  self['score_explain']
+  reputation = data['details']["reputation_knowledge"] rescue nil
+  code = data['details']["code_knowledge"] rescue nil
+
+  {
+   "name" => "score",
+   "children" => [
+    {
+      "name" => "Bio Score", 
+      "size" => self['bio_score'].to_f,
+      "color" => "#2c57ca", # blue
+    },
+    {
+      "name" => "Reputation", 
+      "size" => reputation.to_f,
+      "color" => "#EE4831", # red
+    },
+    {
+      "name" => "Code",
+      "size" => code.to_f,
+      "color" => "#F5901C", # orange
+    },
+   ]
+  }
+end

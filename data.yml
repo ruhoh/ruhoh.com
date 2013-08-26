@@ -1,3 +1,4 @@
+LATEST_VERSION: '2.3'
 title : ruhoh
 tagline: Site Tagline
 author :
@@ -32,11 +33,11 @@ docs_1_navigation :
 
 docs_2_start :
   - 2/index
-  - 2/setup
+  - 2/how-ruhoh-works
+  - 2/configuration
   - 2/upgrading
 docs_2_content :
   - 2/pages
-  - 2/posts
   - 2/drafts
   - 2/data
   - 2/media

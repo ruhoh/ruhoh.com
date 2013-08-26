@@ -4,6 +4,7 @@ description:
 
 icon : icon-pencil
 ---
+
 # What is a Page?
 
 A **Page** in ruhoh is the base resource type for delivering content at a given URL. Usually this content is a literal file and by default the URL is just the 'clean' path to the file as it exists in your directory.
@@ -11,32 +12,55 @@ A **Page** in ruhoh is the base resource type for delivering content at a given 
 All page-like resources can have a layout, sub-layout, custom permalink, categories, tags and other
 features that make a page act like a page.
 
-# Create
+# Create a Page
 
-## Create Page
+Page stubs can be created using the Ruhoh command-line client. Here's the basic format:
 
-Page stubs can be created using the Ruhoh command-line client:
+    $ ruhoh <collection> <command> <argument 1> <argument 2>
 
-    $ ruhoh pages new about
+All collections default to _pages_ collections, so the `<collection>` argument can be anything you want.
+
+The format to create a new page:
+
+    $ ruhoh <collection> new <title>
+
+Example:
+
+    $ ruhoh essays new 'Hello world'
+
+If the `essays` collection doesn't exist, ruhoh will create it:
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em></li>
   <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>pages</em>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>essays</em>
     <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>about.md</em> &larr;</li>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>hello-world.md</em> &larr;</li>
     </ul>
   </li>
 </ul>
-    
+
+Notice the title automatically gets normalized to a filename.
+
+Create a page without specifying a title:
+
+    $ ruhoh essays new
+
+<ul class="folder-tree">
+  <li>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>essays</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>untitled.md</em> &larr;</li>
+    </ul>
+  </li>
+</ul>
+
 Create a page within a subdirectory:
 
     $ ruhoh pages new projects/android
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em></li>
   <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>pages</em>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>essays</em>
     <ul>
       <li>
         <span class="ui-silk inline ui-silk-folder">.</span> <em>projects</em>
@@ -48,8 +72,88 @@ Create a page within a subdirectory:
   </li>
 </ul>
 
+# Create a Draft
 
-Ruhoh will generate a file with content similar to:
+Drafts work exactly the same as a page except they are never included into your compiled (production) website. Conversely only published drafts are compiled.
+
+Drafts may be created by using the `draft` command of the collection's command-line tool:
+
+Create a page draft:
+
+    $ ruhoh pages draft
+
+Create a post draft:
+
+    $ ruhoh posts draft
+
+A file is created within the collection used named `untitled-draft-n` where n is an iterated number:
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>drafts</em>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>untitled-draft-1.md</em> &larr;</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+Optionally pass in a title:
+
+    $ ruhoh posts draft "The Greatest Draft Ever"
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>drafts</em>
+        <ul>
+          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>the-greatest-draft-ever.md</em> &larr;</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+## Publish Drafts
+
+To publish a draft, simply remove the file from its parent `drafts` folder.
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>the-greatest-draft-ever.md</em> &larr;</li>
+      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>drafts</em></li>
+    </ul>
+  </li>
+</ul>
+
+
+### Working with Drafts in Preview Mode
+
+<span class="label">since 2.1</span>
+
+Drafts are hidden from their collection's data but they are still accessible manually via their URL.
+
+Uses ruhoh's built in dashboard to view all your drafts: [http://localhost:9292/dash](http://localhost:9292/dash)
+
+## Draft Filenames
+
+Since draft files are automatically named untitled-1, untitled-2, and so forth, it quickly becomes annoying to have to manually update the filename to the draft's eventual title.
+
+Use the ruhoh command line client to convert all untitled-n files to their corresponding titles if set:
+
+    $ ruhoh pages titleize
+    ...
+    $ ruhoh posts titleize
+    
+This command looks for any resource file beginning with `untitled`, then attempts to rename it, but only if a title has been set.
+
+
+# YAML Metadata
+
+When creating a page ruhoh generates a file with content similar to:
 
     ---
     title:
@@ -57,18 +161,16 @@ Ruhoh will generate a file with content similar to:
     description:
     ---
 
+This metadata is known as **Top YAML Metadata** or YAML Front-Matter if you like that better (I don't =p)
 
-### Top YAML Metadata
+The YAML metadata is parsed as YAML so it **must be valid YAML**. [Validate your YAML](http://yamllint.com/) if you get YAML parse errors
 
-Note this metadata is known as **Top YAML Metadata** or YAML Front-Matter if you like that better (I don't =p)
-
-The YAML metadata is parsed as YAML so it **must be valid YAML**.
 
 ## Categories
 
 ### Add Categories
 
-Add one or more categories to a resource by including them into the resource's YAML meta-data.
+Add one or more categories to a page by including them into the page's YAML meta-data.
 This is the YAML block is at the top of the file:
 
     ---
@@ -85,7 +187,7 @@ This defines **one** category named `code/android/games`.
 Also note that `code`, and `code/android` **will not exist** unless you explicitly define them as categories themselves.
 
 
-To place the resource in multiple categories you'll need to pass in an Array:
+To place the page in multiple categories you'll need to pass in an Array:
 
     ---
     title: a nice title
@@ -106,7 +208,7 @@ or
 
 ### Add Tags
 
-Add one or more tags to a resource by including them into the resource's YAML meta-data.
+Add one or more tags to a page by including them into the page's YAML meta-data.
 This is the YAML block at the top of the file:
 
     ---
@@ -132,16 +234,7 @@ or
     ---
 
 
-
-
-
-
-
-
-
-
-
-# Collection View
+# Collection (view)
 
 All the pages you create are available as a **pages collection** in your View. The pages collection is modeled by its CollectionView class and contains methods and logic that act on that collection.
 
@@ -174,7 +267,7 @@ Use mustache syntax to iterate over the array:
 
 ## pages.categories
 
-`pages.categories` is a namespace for accessing categories defined on the given resource type.
+`pages.categories` is a namespace for accessing categories defined on the given page.
 
 ### pages.categories.all
 
@@ -220,7 +313,7 @@ To return a specific category, just call that category by name: `pages.categorie
 
 ## pages.tags
 
-`pages.tags` is a namespace for accessing tags defined on the given resource type.
+`pages.tags` is a namespace for accessing tags defined on the given page.
 
 ### pages.tags.all
 
@@ -335,9 +428,9 @@ See the paginator configuration docs below for more details.
 
 
 
-# Model View
+# Model (view)
 
-Each and every page you create is modeled in the View by a ModelView class for that given page-like resource.
+Each and every page you create is modeled in the View by a ModelView class for that given page.
 
 The collections should always return ModelView class instances if they are available:
 
@@ -415,7 +508,7 @@ The Model View holds a page's basic attributes as follows:
 
 ### Top YAML Metadata
 
-Note that any data added to a page's YAML meta-data will available in the `page` object.
+Note that any data added to a page's YAML meta-data is available in the `page` object.
 
     ---
     title: Oh Happy Day
@@ -492,9 +585,6 @@ contextual blocks and separated by blank lines. (This is also usually true for w
 Internally, ruhoh does not count blank lines against the "line count".
 Once the line count is reached ruhoh will only break on the "next blank line".
 This (theoretically) ensures that the summary outputs only whole blocks of content.
-
-[View Code](https://github.com/ruhoh/ruhoh.rb/blob/0.4.0/lib/ruhoh/templaters/base_helpers.rb#L17) for details.
-
 
 ## page.categories
 
@@ -654,31 +744,32 @@ Now generating pages produces:
 
 ## Scaffold
 
-The generation tasks outlined above clone a resource-specific "scaffold" file.
+The generation tasks outlined above clone a collection-specific "scaffold" file.
+Ruhoh looks in the currently used collection's folder for a file named `_scaffold.html` (the extension can be anything).
 
-The scaffold file for "posts" looks like this:
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em></li>
+  <li>
+    <span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em>
+    <ul>
+      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>_scaffold.html</em> &larr;</li>
+    </ul>
+  </li>
+</ul>
+
+The default scaffold file for all pages collections looks like this:
 
 {{#raw_code}}
 &#045;&#045;&#045;
 title:
 date: '{{DATE}}'
 description:
+tags: []
 &#045;&#045;&#045;
 {{/raw_code}}
 
-"scaffolds" is actually just another resource so you can overload the system level scaffold like so:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em></li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>scaffolds</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>post.html</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
-
-Specify any customizations you wish:
+You can specify any customizations you wish:
 
 {{#raw_code}}
 &#045;&#045;&#045;
@@ -689,6 +780,15 @@ categories: ["default", "categories"]
 &#045;&#045;&#045;
 <h1>For some reason I think all posts should have this header.</h1>
 {{/raw_code}}
+
+Now ruhoh will use your custom \_scaffold file to create new pages for that collection.
+
+You can also overwrite the global default pages `_scaffold.html` file by placing it in the base of your directory:
+
+<ul class="folder-tree">
+  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>_scaffold.html</em> &larr;</li>
+  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em></li>
+</ul>
 
 
 ## Permalink
@@ -911,16 +1011,22 @@ Remember to also escape necessary special characters.
 
 ## Paginator
 
-Currently the paginator only works with "posts" even though it should work with any resource.
-Also the configuration is not scoped the the "posts" resource; it uses its own configuration:
+All collections have their own paginator. The default settings are outlined in the config.yml example below:
 
     # config.yml
-    paginator:
-      namespace: "/posts/"
-      per_page: 2
-      root_page: "/"
-      layout: "paginator"
-
+    posts:
+      paginator:
+        enable: false
+        # The url your paginated pages will be located: e.g /posts/index/1, /posts/index/2, /posts/index/3
+        # Always start with a forward slash, as ruhoh will internally respect any base_path you set.
+        url: "/posts/index/"
+        per_page: 5
+        # Set the custom page you want page#1 of your posts paginator to link to. (default: /posts/index/1)
+        # Note the default is technically <paginator.url>/1 just as the other paginated pages.
+        # It is up to you to display the paginator_pagination links somewhere in this case.
+        #
+        # root_page has been set to the root for a more traditional style blog feel.
+        root_page: '/'
 
 <table class="table-striped table-bordered table-condensed">
   <thead>
@@ -931,8 +1037,12 @@ Also the configuration is not scoped the the "posts" resource; it uses its own c
   </thead>
   <tbody>
     <tr>
-      <td>namespace</td>
-      <td>URL namespace for paginated pages e.g: /posts/1, /posts/2</td>
+      <td>enable</td>
+      <td>true/false to enable/disable the paginator for the given collection. defaults to true.</td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>URL namespace for paginated pages e.g: /posts/index/1, /posts/index/2</td>
     </tr>
     <tr>
       <td>per_page</td>
@@ -949,6 +1059,18 @@ Also the configuration is not scoped the the "posts" resource; it uses its own c
   </tbody>
 </table>
 
+Remember to set configuration settings relative to the collection's config namespace.
 
+## RSS
 
+An RSS feed is automatically generated for each collection when compiling your blog. By default the latest 20 posts are added to the feed. Configure this amount using `rss`:
+
+    posts :
+      rss:
+        enable: true # set to false to disable rss
+        limit: 30   # default is 20
+        # The url to prepend to the rss.xml feed, e.g.: /posts/rss.xml
+        # Defaults to: "/<resource_name>/"
+        # Always start with a forward slash, as ruhoh will internally respect any base_path you set.
+        # url: "/posts/"
 

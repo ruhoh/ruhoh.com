@@ -69,8 +69,9 @@ To add methods to the pages CollectionView, just use some ruby magic:
         all.sample
       end
     end
-    Ruhoh::Resources::Pages::CollectionView.send(:include, PagesCollectionViewAddons)
-    
+
+    Ruhoh.collections('pages').send(:include, PagesCollectionViewAddons)
+
 Now you can do:
 
 
@@ -83,6 +84,24 @@ Now you can do:
 
 ## Model Views
 
+If you want to add methods on per-page basis (not collection) you'd include code on the ModelView:
+
+    module PagesModelViewAddons
+      def friendly_date
+        Time.parse(date).strftime("%b %d, %Y %l:%M %p")
+      end
+    end
+
+    Ruhoh.model('pages').send(:include, PagesModelViewAddons)
+
+Now you can do:
+
+{{#raw_code}}
+{{#pages.all }}
+  <h2>{{title}}</h2>
+  <date>{{ friendly_date }}</data>
+{{/ pages.all }}
+{{/raw_code}}
 
 ### Pro-tip:
 
@@ -122,12 +141,12 @@ Contextual helpers look exactly like block helpers, however the sub\_context for
 
     def to_categories(sub_context)
       Array(sub_context).map { |id|
-        self.context['db']['posts']['categories'][id] 
+        categories[id] 
       }.compact
     end
 
 Here we expect `sub_context` to be a String or Array of Strings that represent category names.
-The method then returns an Array of category objects from the dictionary.
+The method then returns an Array of category objects from the categories dictionary.
 
 Here's an example usage:
 

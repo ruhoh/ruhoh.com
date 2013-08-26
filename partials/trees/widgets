@@ -4,18 +4,12 @@
     <li>
       <span class="ui-silk inline ui-silk-folder">.</span> <em>some_widget_name</em>
       <ul>
-        <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em></li>
+        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>some-snippet.html</em></li>
+        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>alternate-snippet.html</em></li>
         <li>
           <span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em>
           <ul>
-            <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>some_widget_name.js</em></li>
-          </ul>
-        </li>
-        <li>
-          <span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
-          <ul>
-            <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>some_widget_name.html</em></li>
-            <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>alternative_view.html</em></li>
+            <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>some-script.js</em></li>
           </ul>
         </li>
       </ul>
@@ -23,8 +17,9 @@
   </ul>
 </li>
 <li class="info">
-  <strong>[Optional]</strong> Widgets define encapsulated mustache helpers to allow for customized
+  <strong>[Optional]</strong>
+  Widgets define encapsulated mustache helpers to allow for customized
   HTML snippets that can optionally run javascripts and take in arbitrary configuration parameters.
   Client-side comments, analytics, and syntax highlighting are some automatically provided widgets.
-  <a href="/docs/1/widgets">widget documentation</a>
+  <a href="/docs/2/widgets">widget documentation</a>
 </li>

@@ -597,16 +597,26 @@ ul.folder-key li {
   border-bottom:1px solid #607848;
   border-right:1px solid #607848;
 }
+#toc > li > strong { 
+  display: block;
+  padding:5px 10px;
+  background:#607848;
+  color:#333;
+}
+#toc > li > strong  i {
+
+}
 #toc > li > a {
   display:block;
   text-decoration:none;
-  padding:5px 10px;
+  padding:5px 30px;
   background-color:#789048;
   color:#F0F0D8;
 }
 
 #toc > li > a:hover { 
-  background:#607848;
+  background:#F0F0D8;
+  color:#607848;
 }
 #toc > li.active {
   background-color:#FFF;
@@ -618,8 +628,8 @@ ul.folder-key li {
 }
 #toc > li.active > a { 
   margin-bottom:10px;
-  background-color:#F0F0D8;
-  color:#607848;
+  background-color:#BD3737;
+  color:#F0F0D8;
 }
 
 #toc > li > a i.icon { 

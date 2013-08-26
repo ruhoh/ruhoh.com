@@ -1,5 +1,5 @@
 ---
-layout : page
+layout : splash
 ---
 
 ## Introduction
@@ -193,7 +193,6 @@ We can simplify the concept of data into three Global data types:
     
   </tbody>  
 </table>
-
 
 ## Vision
 

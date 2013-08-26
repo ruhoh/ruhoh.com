@@ -6,9 +6,6 @@ production_url: http://ruhoh.com
 "twitter" : 
   use : "theme"
 
-_root:
-  permalink: "/:relative_path/:filename"
-
 docs:
   layout: docs-2
 
