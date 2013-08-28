@@ -3,10 +3,13 @@ RuhohSpec: '2.0.alpha'
 
 production_url: http://ruhoh.com
 
-"twitter" : 
+"theme-ruhoh" : 
   use : "theme"
 
 docs:
+  layout: docs-2
+
+api:
   layout: docs-2
 
 posts:
