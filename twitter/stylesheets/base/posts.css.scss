@@ -1,0 +1,41 @@
+/* POST template */
+#post-header h1 {
+  padding-bottom:20px;
+}
+#post-wrapper h2 {
+  margin:0;
+  margin-bottom:20px;
+  padding-top:20px;
+  border-top:3px solid #F0F0D8;
+
+  h3 {
+    display:inline-block;
+    padding:3px 12px;
+    border-radius:3px;
+    background-color:#F0F0D8;
+  }
+
+  div.meta {
+    & > div {
+        padding-right:20px; 
+        text-align:right;
+    }
+    h4 {
+      color:#555;
+    }
+  }
+
+  .body > p, #post-wrapper .body > pre {
+    margin-bottom:15px;
+  }
+
+  .pagination {
+    padding:20px 0 ;
+    border-bottom:3px solid #F0F0D8;
+  }
+}
+
+.edge-table-of-contents {
+  position:relative;
+  top:-50px;
+}

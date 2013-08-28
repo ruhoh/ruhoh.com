@@ -1,0 +1,118 @@
+$dark: #607848; /*DARK GREEN  #607848 */
+$medium: #789048; /*GREEN     #789048 */
+$light: #F0F0D8; /*YELLOW     #F0F0D8 */
+
+/* documentation section -------------------------------------- */
+#main-content.docs {
+  h1 {
+    margin:25px 0;
+    padding:15px 0;
+    font-size:38px;
+    color:#221F26;
+  }
+
+  h2 {
+    border-top:3px solid #F0F0D8;
+    padding-top:10px;
+    margin-top:20px;
+    margin-bottom:10px;
+    color:#607848;
+  }
+}
+
+#main-content.edge {
+  h2 {
+    margin:40px 0 40px 0;
+    font-size:30px;
+    color:#221F26;
+    text-align:center;
+  }
+
+  h3 {
+    border-top:3px solid #F0F0D8;
+    padding-top:10px;
+    margin-top:20px;
+    margin-bottom:10px;
+    color:#607848;
+  }
+}
+
+table td.module {
+  width:120px;
+  font-weight:bold;
+  color:#604848;
+  vertical-align:top;
+
+  ul li{ 
+    color:#444;
+    font-weight:normal;
+  }
+}
+
+
+#toc {
+  list-style:none;
+  margin:0; padding:0;
+
+  a {
+    color:$dark;
+    text-decoration:underline;
+    font-size: 0.9em;
+    &.brand {
+      color: #F0F0D8;
+      text-decoration: none;
+    }
+  }
+
+  & > li { 
+    border-bottom:1px solid $dark;
+    border-right:1px solid $dark;
+    border:0;
+
+    & > a {
+      display:block;
+      padding:5px 30px;
+      color:$dark;
+
+      &.active {
+        background:transparent;
+        & > a { 
+          margin-bottom:10px;
+          background-color:$dark;
+          color:#F0F0D8;
+        }
+      }
+
+      &:hover { 
+        background-color:#789048;
+        color:#F0F0D8;
+      }
+      i.icon { 
+        opacity:0.8;
+      }
+    }
+    & > strong { 
+      display: block;
+      padding:10px 10px;
+
+      color:$dark;
+    }
+  }
+
+  ul.nest {
+    padding:0 10px 10px 30px;
+    margin:0;
+    list-style:none;
+
+    li { 
+      list-style:none;
+      margin-bottom:7px;
+      &.sub {  margin-left:30px}
+
+      strong { 
+        padding:3px 8px;
+        display:block;
+      }
+    }
+  }
+}

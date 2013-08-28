@@ -1,0 +1,545 @@
+/* Override some defaults */
+html, body, p, ul, a {
+  font-family:verdana;
+}
+p {
+  font-size:1.1em;
+  line-height:1.5em;
+  white-space: pre;           /* CSS 2.0 */
+  white-space: pre-wrap;      /* CSS 2.1 */
+  white-space: pre-line;      /* CSS 3.0 */
+  white-space: -pre-wrap;     /* Opera 4-6 */
+  white-space: -o-pre-wrap;   /* Opera 7 */
+  white-space: -moz-pre-wrap; /* Mozilla */
+  white-space: -hp-pre-wrap;  /* HP Printers */
+  word-wrap: break-word;      /* IE 5+ */
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Voces', verdana, serif;
+}
+h1 {
+  margin-bottom:15px;
+}
+pre, code {
+  overflow: auto !important;
+}
+ul.thumbnails div.thumbnail {
+}
+ul.thumbnails div.thumbnail a{ 
+  display:block;
+  font-size:30px;
+  line-height:120px;
+  color:#777;
+  background:#333;
+  border-radius:4px;
+  font-family: 'Voces', verdana, serif;
+}
+img {
+  order:3px solid #F0F0D8; order-radius:3px;
+}
+dl dd {
+  margin-bottom:10px;
+}
+h3 {
+  margin-bottom:10px;
+}
+table, pre {
+  margin-bottom:10px;
+}
+table thead th {
+  text-align:left;
+}
+table td, table th {
+  padding:15px;
+}
+hr {clear:both; border:0}
+
+/* top navigation --------------------------------------*/
+.navbar a.brand  {
+  color:#607848;
+  font-weight:bold;
+  font-family: 'Voces', verdana, serif;
+}
+.navbar ul.nav > li > a, 
+.navbar ul.nav > li > a:hover {
+  color:#607848;
+  font-family: verdana, serif;
+}
+.navbar ul.nav > li > a.active,
+.navbar ul.nav > li > a.active:hover {
+  background-color:#607848;
+}
+/* social */
+ul.social li iframe{
+  position:relative;
+  margin:0 10px;
+  top:10px;
+}
+.icon-github {
+  background-image:url('../media/github_white_black_cat_32.png') !important;
+  background-position:0 0;
+}
+
+
+.stripe {
+  background:#FFF url('../media/stripe.png') repeat;
+  border-radius:3px;
+  box-shadow:inset 0 0 5px #F0F0D8;
+}
+#user-list {
+  margin:0;
+  margin-bottom:20px;
+  padding:0;
+  list-style:none;
+}
+#user-list li {
+  display:inline;
+} 
+#user-list li img { 
+  border:1px solid #777;
+  background:#FFF;
+  border-radius:1px;
+}
+/* splash page */
+h1.splash-header {
+  text-align:center; font-size:38px; padding:30px;
+}
+
+div.box {
+  padding:40px 20px 20px 20px;
+  margin-bottom:20px;
+  border-left:2px solid #F0F0D8;
+}
+.splash-more h2 {
+  display:inline-block;
+  background:#F0F0D8;
+  padding:0 14px;
+  line-height:36px;
+  border-radius:3px;
+  font-size:16px;
+  position:relative;
+  top:20px;
+  margin:0 0 0px 0px;
+  box-shadow: inset 0px 0px 10px #C9C9B5;
+}
+.splash-more ul.feedback li{
+  line-height:2em;
+}  
+
+/* splash-message --------------------------------------*/
+.splash-message h3,
+.splash-message ul {
+  margin-bottom:20px;
+}
+.splash-message table td {
+  padding:7px;
+}
+
+/* splash install -------------------------------------- */
+.splash-install h1 {
+  font-size:28px;
+  text-align:center;
+}
+.splash-install div.wrapper {
+  padding:20px 0;
+  background:#F0F0D8;
+  order:1px solid #C0D860; 
+  border-radius:3px;
+  box-shadow:inset 0 0 10px #C0D860;
+  
+  order:1px solid #F0F0D8;
+  background:#FFF url('../media/stripe.png') repeat;
+  border-radius:3px;
+  box-shadow:inset 0 0 5px #F0F0D8;
+  
+}
+.splash-install div.wrapper > div {
+
+}
+.splash-install div.wrapper h3{ 
+  display:inline-block;
+  background:#C0D860;
+  padding:0 14px;
+  line-height:36px;
+  border-radius:3px;
+  font-size:16px;
+  margin:0 0 20px -30px;
+  box-shadow: inset 0px 0px 2px #789048;
+}
+.splash-install form {
+  vertical-align:middle;
+}
+.splash-install form,
+.splash-install table,
+.splash-install pre,
+.splash-install p.profit-content {
+  margin-bottom:20px
+}
+
+/* github table */
+.splash-install table {
+  width:100%;
+}
+.splash-install table td {
+  padding:10px 12px;
+  font-size:14px;
+  font-weight:bold;
+  vertical-align:center;
+}
+.splash-install .table-striped tbody tr:nth-child(odd) td,
+.splash-install .table-striped tbody tr:nth-child(odd) th {
+  background-color:#E0E4CC;
+}
+.splash-install .table-bordered,
+.splash-install .table-bordered th,
+.splash-install .table-bordered td {
+  border-color:#E0E4CC;
+}
+
+.splash-install button {
+  font-weight:bold;
+  font-size:14px;
+}
+
+
+
+/* contact-list --------------------------------------- */
+ul.contact-list {
+  margin:0;
+  padding:0;
+  margin-top:20px;
+}
+ul.contact-list li {
+  list-style:none;
+  display:inline-block;
+  line-height:28px;
+  width:30%;
+}
+ul.contact-list li.tweet iframe { position:relative; top:5px}
+
+
+/* tag_box --------------------------------------- */
+.tag_box {
+  list-style:none;
+  margin:0;
+  padding:5px 0 ;
+  overflow:hidden;
+}
+.tag_box li {
+  line-height:28px;
+}
+.tag_box.inline li {
+  float:left;
+}
+.tag_box a {
+  padding: 2px 4px;
+  margin: 2px;
+  background: #efefef;
+  color:#555;
+  border:1px dashed #ccc;
+  border-radius: 3px;
+  text-decoration:none;
+}
+.tag_box a span{
+  vertical-align:super;
+  font-size:0.8em;
+}
+.tag_box a.active {
+  background:#57A957;
+  border:1px solid #4C964D;
+  color:#FFF;
+}
+
+/* folder tree --------------------------------------- */  
+ul.folder-tree {
+  margin-left:0;
+  padding:10px;
+  ox-shadow:inset 0 0 5px #F0F0D8;
+}  
+ul.folder-tree, ul.folder-tree ul {
+  list-style:none;
+}
+ul.folder-tree li em , ul.folder-tree ul li em{ 
+  text-decoration:normal;
+  font-style:normal;
+  padding:1px 8px;
+  border-radius:3px;
+  background:#FFF;
+}
+
+ul.folder-tree > li.endpoint  {
+  position:relative;
+  margin-bottom:5px;
+  padding:5px 0;
+  border:1px solid #F0F0D8;
+  background:#FFF url('../media/stripe.png') repeat;
+  border-radius:3px;
+  box-shadow:inset 0 0 5px #F0F0D8;
+}
+ul.folder-tree > li.endpoint a {
+  position:absolute;
+  eft:-40px;
+  right:10px;
+  top:5px;
+}
+ul.folder-tree > li.info  { 
+  padding:10px 20px;
+  margin-bottom:5px;
+  background:#F5F0D0;
+  border:1px solid #D2CC65;
+  display:none;
+}
+ul.folder-tree > li > em {
+  font-weight:bold;
+}
+
+/* COLORS */ 
+/*
+ul.folder-tree li em.config, ul.folder-key li.config {
+  background-color:#FFA398;
+}
+ul.folder-tree li em.post, ul.folder-key li.post {
+  background-color:#FCE5C0;
+}
+ul.folder-tree li em.page, ul.folder-key li.page {
+  background-color:#9AD9D2;
+}
+ul.folder-tree ul.template em, ul.folder-tree em.template-light,
+ul.folder-key li.template {
+  background-color:#E9FFE1;
+}
+ul.folder-tree li em.template {
+  background-color:#D0F7A6;
+}
+ul.folder-tree ul.partial em, ul.folder-tree em.partial,
+ul.folder-tree li.partial em {
+  background-color:#C7F464;
+}
+
+*/
+ul.folder-key {
+  margin-left:0;
+  margin-bottom:10px;
+}
+ul.folder-key li {
+  display:inline;
+  padding:2px 8px;
+  margin-right:2px;
+  border-radius:3px;
+}
+
+
+/* 
+  Silk Sprites
+  http://xheo.com/silk?icons=422,442,443,505,507,607,608,609,610,617,619,623,628,635,636,643,646,652,656,674,704,756,990&size=25
+*/
+
+.ui-silk { width: 25px; height: 25px; display:block; background: transparent url(../media/silk-sprite.png?634672676400377835) no-repeat; text-indent: -99999px; overflow: hidden; }
+.ui-silk.gray, .ui-silk.gray, .ui-silk.hover { background-image: url(../media/silk-sprite-gray.png?634672676400377835); }
+*.ui-silk.inline{ display: inline-block; vertical-align: middle; border: 0; outline: 0; }
+
+.ui-silk.hover:hover{background-image: url(../media/silk-sprite.png?634672676400377835);}.ui-silk-folder { background-position: -0px -0px }
+.ui-silk-folder-page { background-position: -25px -0px }
+.ui-silk-folder-page-white { background-position: -50px -0px }
+.ui-silk-layout { background-position: -75px -0px }
+.ui-silk-layout-content { background-position: -100px -0px }
+.ui-silk-page { background-position: -125px -0px }
+.ui-silk-page-add { background-position: -150px -0px }
+.ui-silk-page-attach { background-position: -175px -0px }
+.ui-silk-page-code { background-position: -200px -0px }
+.ui-silk-page-gear { background-position: -225px -0px }
+.ui-silk-page-green { background-position: -250px -0px }
+.ui-silk-page-paintbrush { background-position: -275px -0px }
+.ui-silk-page-white { background-position: -300px -0px }
+.ui-silk-page-white-code { background-position: -325px -0px }
+.ui-silk-page-white-code-red { background-position: -350px -0px }
+.ui-silk-page-white-database { background-position: -375px -0px }
+.ui-silk-page-white-edit { background-position: -400px -0px }
+.ui-silk-page-white-gear { background-position: -425px -0px }
+.ui-silk-page-white-horizontal { background-position: -450px -0px }
+.ui-silk-page-white-text { background-position: -475px -0px }
+.ui-silk-picture { background-position: -500px -0px }
+.ui-silk-ruby { background-position: -525px -0px }
+.ui-silk-wrench { background-position: -550px -0px }
+
+
+
+
+
+
+/* Subnav */
+.subnav {
+  width: 100%;
+  height:39px;
+  background:#789048; /*GREEN*/
+  border:0;
+  border-bottom: 2px solid #607848; /*DARK GREEN*/
+}
+.subnav a.brand {
+  color:#F0F0D8; /*YELLOW*/
+  float:left;
+  line-height:38px;
+  margin-left:20px;
+}
+.subnav .nav {
+  margin-bottom: 0;
+  
+}
+
+.subnav a i.icon-white{ 
+  opacity:0.5
+}
+
+.subnav .nav > li > a {
+  margin: 0;
+  padding:13px;
+  border-left: 1px solid #607848;
+  border-right: 1px solid #607848;
+  color:#F0F0D8;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+.subnav .nav > li > a:hover {
+  background-color: #607848;
+}
+.subnav .nav > .active > a,
+.subnav .nav > .active > a:hover {
+  background-color: #F0F0D8;
+  color:#607848;
+  border:0;
+}
+
+.subnav .nav > .active > a i.icon-white {
+  background-image:url("../media/glyphicons-halflings.png") !important;
+}
+
+.subnav .nav > li:first-child > a,
+.subnav .nav > li:first-child > a:hover {
+  border-left: 0;
+  padding-left: 12px;
+}
+.subnav .nav > li:last-child > a {
+  border-right: 0;
+}
+
+
+/* Fixed subnav on scroll, but only for 980px and up (sorry IE!) */
+@media (min-width: 980px) {
+  .subnav-fixed {
+    position: fixed;
+    top: 40px;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+  }
+  .subnav-fixed .nav {
+    width: 938px;
+    margin: 0 auto;
+    padding: 0 1px;
+  }
+  .subnav .nav > li:first-child > a,
+  .subnav .nav > li:first-child > a:hover {
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+  }
+}
+
+
+
+body {
+  height:100%;
+  margin:0;padding:0;
+}
+.container-fluid {
+   overflow:auto;
+   height:100%;
+   min-width:900px;
+   position:relative;
+}
+#left-pane {
+  position:fixed;
+  top:0;
+  width:22%;
+  height:100%;
+  overflow:auto;
+  background:#FFF url('../media/stripe.png') repeat;
+}
+#novel {
+  position:relative;
+  top:0;
+  left:22%;
+  width:60%;
+  background:#FFF;
+}
+#novel > .inner {padding:15px 30px}
+#right-pane {
+  position:absolute;
+  top:0;
+  right:0;
+  width:20%;
+  height:100%;
+}
+footer {
+  clear:both;
+  padding:10px;
+}
+
+#nav-toggle{
+  z-index:10000000;
+  width:100%;
+  display:none;
+}
+#nav-toggle a {
+  display:block;
+  padding:0 10px;
+  height:40px;
+  line-height:40px;
+  background:#333;
+  color: #FFF;
+  text-align:right;
+  text-decoration:none;
+}
+#nav-toggle a:hover{ text-decoration:underline }
+
+.fixed {
+  position:fixed;
+}
+.hide { display:none }
+
+@media all and (max-width: 767px) {
+  #novel { left:0; width:100% }
+  #novel > .inner { padding:15px }
+  #left-pane {
+    width:100%; 
+    display:none;
+    height:100%;
+    position:relative;
+  }
+  #right-pane { display:none }
+  #nav-toggle { display:block }
+  #toc li:first-child {display:none}
+}
+@media all and (min-width: 767px) { #left-pane {display:block !important }}
+
+body.docs-0 #left-pane-off { background-color:#eee;}
+body.docs-0 ul.nav > li > a-off { background-color:#CCC }
+
+
+#version-notice h4 {
+  color:#FFF;
+  display:inline-block;
+  float:right;
+  padding:5px 15px;
+}
+#version-notice h4.error {background-color:#BD3737;}
+#version-notice h4.success {background-color:#789048;}
+
+#version-notice ul{ 
+  padding:15px 15px 0 0;
+  clear:right;
+  list-style:none;
+  text-align:right
+}

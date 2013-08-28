@@ -13,7 +13,7 @@ posts:
   permalink: /blog/:categories/:title/
 
 asset_pipeline:
-  enable: false
+  enable: true
 
 widgets :
 
