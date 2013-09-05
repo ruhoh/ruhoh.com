@@ -9,65 +9,66 @@ layout : docs-layout
         <i class="icon-home icon-white"></i> home
       </a>
     </li>
+    <div id="version-notice">
+      <h4 class="success"><i class="icon-ok"></i> v{{ data.LATEST_VERSION }} CURRENT</h3>
+    </div>
+
     {{#data.docs_2_start?to_docs}}
       <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
         <a href="{{url}}">{{title}}</a>
       </li>
     {{/data.docs_2_start?to_docs}}
 
-    <li><strong><i class="icon-pencil"></i> CONTENT</strong></li>
+    <li>
+      <a href="/docs/2/pages" class="heading">
+        <strong><i class="icon-pencil"></i> CONTENT</strong>
+      </a>
+    </li>
     {{#data.docs_2_content?to_docs}}
       <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
         <a href="{{url}}">{{title}}</a>
       </li>
     {{/data.docs_2_content?to_docs}}
 
-    <li><strong><i class="icon-exchange"></i> VIEW</strong></li>
-    {{#data.docs_2_view?to_docs}}
-      <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
-        <a href="{{url}}">{{title}}</a>
-      </li>
-    {{/data.docs_2_view?to_docs}}
+    <li class="docs-2-views">
+      <a href="/docs/2/views" class="heading">
+        <strong><i class="icon-exchange"></i> VIEW</strong>
+      </a>
+    </li>
 
-    <li><strong><i class="icon-desktop"></i> PRESENTATION</strong></li>
+    <li>
+      <a href="/docs/2/layouts" class="heading">
+        <strong><i class="icon-desktop"></i> PRESENTATION</strong>
+      </a>
+    </li>
     {{#data.docs_2_presentation?to_docs}}
       <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
         <a href="{{url}}">{{title}}</a>
       </li>
     {{/data.docs_2_presentation?to_docs}}
 
-    <li><strong><i class="icon-upload"></i> PUBLISH</strong></li>
-    {{#data.docs_2_publish?to_docs}}
-      <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
-        <a href="{{url}}">{{title}}</a>
-      </li>
-    {{/data.docs_2_publish?to_docs}}
+    <li class="docs-2-publish">
+      <a href="/docs/2/publish" class="heading">
+        <strong><i class="icon-upload"></i> PUBLISH</strong>
+      </a>
+    </li>
 
-    <li><strong><i class="icon-fighter-jet"></i> EXTRAS</strong></li>
+    <li>
+      <a href="/docs/2/widgets" class="heading">
+        <strong><i class="icon-fighter-jet"></i> EXTRAS</strong>
+      </a>
+    </li>
     {{#data.docs_2_extras?to_docs}}
       <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
         <a href="{{url}}">{{title}}</a>
       </li>
     {{/data.docs_2_extras?to_docs}}
-    
-    
-    <li><strong><i class="icon-cogs"></i> EXTEND</strong></li>
-    {{#data.docs_2_extend?to_docs}}
-      <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
-        <a href="{{url}}">{{title}}</a>
-      </li>
-    {{/data.docs_2_extend?to_docs}}
-    
-  </ul>
-</div>
-<div id="right-pane">
-  <div id="version-notice">
-    <h4 class="success">THIS VERSION IS CURRENT</h3>
-    <ul>
-      <li><a href="/docs/2">v{{ data.LATEST_VERSION }} Latest Docs</a></li>
-      <li><a href="/docs/1/setup">v1.x Docs</a></li>
-      <li><a href="/docs/0/setup">v0.x Docs</a></li>
-    </ul>
-  </div>
 
+    <li class="docs-2-plugins">
+      <a href="/docs/2/plugins" class="heading">
+        <strong><i class="icon-cogs"></i> PLUGINS</strong>
+      </a>
+    </li>
+
+  </ul>
 </div>

@@ -41,8 +41,6 @@ docs_2_content :
   - 2/drafts
   - 2/data
   - 2/media
-docs_2_view :
-  - 2/views
 docs_2_presentation :
   - 2/layouts
   - 2/partials
@@ -55,12 +53,7 @@ docs_2_extras :
   - 2/widgets/comments
   - 2/widgets/analytics
   - 2/widgets/google-prettify
-docs_2_extend :
-  - 2/plugins
-docs_2_publish :
-  - 2/publish
 
-    
 users :
   -
     url: http://abunsen.ruhoh.com/

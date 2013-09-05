@@ -9,20 +9,20 @@ layout : docs-layout
         <i class="icon-home icon-white"></i> home
       </a>
     </li>
+
+    <div id="version-notice">
+      <h4 class="error"><i class="icon-exclamation-sign"></i> v0.x OUTDATED</h3>
+      <ul>
+        <li><a href="/docs/2">v{{ data.LATEST_VERSION }} Latest Docs</a></li>
+        <li><a href="/docs/1/setup">v1.x Docs</a></li>
+        <li><a href="/docs/0/setup">v0.x Docs</a></li>
+      </ul>
+    </div>
+
     {{#data.docs_0_navigation?to_docs}}
       <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
         <a href="{{url}}">{{#icon}}<i class="{{.}} icon-white"></i>{{/icon}} {{title}}</a>
       </li>
     {{/data.docs_0_navigation?to_docs}}
   </ul>
-</div>
-<div id="right-pane">
-  <div id="version-notice">
-    <h4 class="error">THIS VERSION IS OUTDATED</h3>
-    <ul>
-      <li><a href="/docs/2">v{{ data.LATEST_VERSION }} Latest Docs</a></li>
-      <li><a href="/docs/1/setup">v1.x Docs</a></li>
-      <li><a href="/docs/0/setup">v0.x Docs</a></li>
-    </ul>
-  </div>
 </div>

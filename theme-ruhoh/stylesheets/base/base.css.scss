@@ -462,26 +462,29 @@ body {
 #left-pane {
   position:fixed;
   top:0;
-  width:22%;
+  width:16%;
   height:100%;
   overflow:auto;
+  background-color:#604848;
   background:#FFF url('../media/stripe.png') repeat;
+  border-right:1px solid #F0F0D8;
+}
+#outline-pane {
+  position:fixed;
+  top:0;
+  left:16%;
+  width:16%;
+  height:100%;
+  overflow:auto;
 }
 #novel {
   position:relative;
   top:0;
-  left:22%;
-  width:60%;
+  left:32%;
+  width:64%;
   background:#FFF;
 }
 #novel > .inner {padding:15px 30px}
-#right-pane {
-  position:absolute;
-  top:0;
-  right:0;
-  width:20%;
-  height:100%;
-}
 footer {
   clear:both;
   padding:10px;
@@ -518,7 +521,7 @@ footer {
     height:100%;
     position:relative;
   }
-  #right-pane { display:none }
+  #outline-pane { display:none }
   #nav-toggle { display:block }
   #toc li:first-child {display:none}
 }
@@ -530,16 +533,13 @@ body.docs-0 ul.nav > li > a-off { background-color:#CCC }
 
 #version-notice h4 {
   color:#FFF;
-  display:inline-block;
-  float:right;
-  padding:5px 15px;
+  display:block;
+  padding:3px 15px;
 }
 #version-notice h4.error {background-color:#BD3737;}
 #version-notice h4.success {background-color:#789048;}
 
 #version-notice ul{ 
-  padding:15px 15px 0 0;
-  clear:right;
+  adding:15px 15px 0 0;
   list-style:none;
-  text-align:right
 }

@@ -5,10 +5,15 @@ $light: #F0F0D8; /*YELLOW     #F0F0D8 */
 /* documentation section -------------------------------------- */
 #main-content.docs {
   h1 {
-    margin:25px 0;
+    margin:20px 0;
     padding:15px 0;
-    font-size:38px;
+    font-size:30px;
     color:#221F26;
+
+    &:first-child {
+      margin-top:0;
+      padding-top:0;
+    }
   }
 
   h2 {
@@ -69,50 +74,61 @@ table td.module {
     border-right:1px solid $dark;
     border:0;
 
+    &.active {
+      & > a { 
+        background-color:$medium;
+        color:$light;
+      }
+    }
+
     & > a {
       display:block;
-      padding:5px 30px;
+      padding:3px 30px;
       color:$dark;
 
-      &.active {
-        background:transparent;
-        & > a { 
-          margin-bottom:10px;
-          background-color:$dark;
-          color:#F0F0D8;
-        }
-      }
-
       &:hover { 
-        background-color:#789048;
-        color:#F0F0D8;
+        background-color:$dark;
+        color:$light;
       }
       i.icon { 
         opacity:0.8;
       }
     }
-    & > strong { 
+    & > a.heading:hover {
+      background-color:$dark;
+    }
+    & > a.heading { 
       display: block;
-      padding:10px 10px;
-
+      padding:5px 10px;
+      background-color:$light;
       color:$dark;
+      font-weight: normal;
+      text-decoration: none;
+      margin-bottom: 1px;
+      &:hover {
+        color:$light;
+      }
     }
   }
+}
 
-  ul.nest {
-    padding:0 10px 10px 30px;
-    margin:0;
+
+ul.nest {
+  font-size: 0.9em;
+  padding:15px 10px 10px 10px;
+  margin:0;
+  list-style:none;
+  li { 
     list-style:none;
+    &.sub {  margin-left:30px}
 
-    li { 
-      list-style:none;
-      margin-bottom:7px;
-      &.sub {  margin-left:30px}
+    strong { 
+      padding:1px 8px;
+      display:block;
+    }
 
-      strong { 
-        padding:3px 8px;
-        display:block;
-      }
+    a {
+      text-decoration: underline;
     }
   }
 }

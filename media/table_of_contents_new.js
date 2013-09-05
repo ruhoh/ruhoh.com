@@ -6,10 +6,8 @@ var TocNew = {
   init : function(container, wrapper, active){
     this.$container = $(container);
     this.$wrapper = $(wrapper);
-    this.$active = this.$container.find('.' + active);
+    this.$active = $("#outline-pane");
     this.build();
-    //this.toggle();
-    //$(window).resize(function(){ this.toggle() })
   },
 
   build : function(){
