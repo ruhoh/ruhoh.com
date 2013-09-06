@@ -10,8 +10,11 @@ layout: splash
   .version {padding:10px}
   #latest-header {text-align:center; margin-bottom:30px}
 </style>
-<script src="{{urls.media}}/mustache.js"></script>
-<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+
+{{# javascripts.load }}
+  mustache.js
+  http://widgets.twimg.com/j/2/widget.js
+{{/ javascripts.load }}
 
 <h1 id="latest-header">Latest Version: [[#latest]]  [[version]] Released: [[date]] [[/latest]]</h1>
 
