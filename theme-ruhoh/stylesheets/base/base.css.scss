@@ -465,9 +465,8 @@ body {
   width:16%;
   height:100%;
   overflow:auto;
-  background-color:#604848;
-  background:#FFF url('../media/stripe.png') repeat;
-  border-right:1px solid #F0F0D8;
+  background-color:#607848;
+  border-right:1px solid #607848;
 }
 #outline-pane {
   position:fixed;
@@ -481,7 +480,7 @@ body {
   position:relative;
   top:0;
   left:32%;
-  width:64%;
+  width:60%;
   background:#FFF;
 }
 #novel > .inner {padding:15px 30px}
@@ -531,15 +530,11 @@ body.docs-0 #left-pane-off { background-color:#eee;}
 body.docs-0 ul.nav > li > a-off { background-color:#CCC }
 
 
-#version-notice h4 {
+#version-notice {
   color:#FFF;
   display:block;
-  padding:3px 15px;
+  padding:2px 15px;
+  font-size:0.9em;
 }
-#version-notice h4.error {background-color:#BD3737;}
-#version-notice h4.success {background-color:#789048;}
-
-#version-notice ul{ 
-  adding:15px 15px 0 0;
-  list-style:none;
-}
+#version-notice.error {background-color:#BD3737;}
+#version-notice.success {background-color:#789048;}

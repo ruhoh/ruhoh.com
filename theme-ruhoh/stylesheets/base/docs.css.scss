@@ -6,7 +6,7 @@ $light: #F0F0D8; /*YELLOW     #F0F0D8 */
 #main-content.docs {
   h1 {
     margin:20px 0;
-    padding:15px 0;
+    padding:5px 0;
     font-size:30px;
     color:#221F26;
 
@@ -58,14 +58,16 @@ table td.module {
 #toc {
   list-style:none;
   margin:0; padding:0;
-
   a {
-    color:$dark;
-    text-decoration:underline;
+    color:$light;
+    text-decoration:none;
     font-size: 0.9em;
     &.brand {
       color: #F0F0D8;
       text-decoration: none;
+    }
+    &:hover {
+      text-decoration: underline;
     }
   }
 
@@ -76,37 +78,31 @@ table td.module {
 
     &.active {
       & > a { 
-        background-color:$medium;
-        color:$light;
+        &:before {
+          content: "* ";
+        }
       }
     }
 
     & > a {
       display:block;
       padding:3px 30px;
-      color:$dark;
-
-      &:hover { 
-        background-color:$dark;
-        color:$light;
-      }
+      color:$light;
       i.icon { 
         opacity:0.8;
       }
     }
-    & > a.heading:hover {
-      background-color:$dark;
-    }
     & > a.heading { 
       display: block;
       padding:5px 10px;
-      background-color:$light;
-      color:$dark;
+      background-color:$medium;
+      color:$light;
       font-weight: normal;
       text-decoration: none;
       margin-bottom: 1px;
+
       &:hover {
-        color:$light;
+        text-decoration: underline;
       }
     }
   }
@@ -129,6 +125,10 @@ ul.nest {
 
     a {
       text-decoration: underline;
+      color:$dark;
+      &:hover {
+        color:$medium;
+      }
     }
   }
 }

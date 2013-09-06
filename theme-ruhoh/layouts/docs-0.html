@@ -4,20 +4,20 @@ layout : docs-layout
 
 <div id="left-pane">
   <ul id="toc">
+    <li id="version-notice" class="error"><i class="icon-exclamation-sign"></i> v0.x OUTDATED</li>
     <li>
-      <a class="brand" href="{{urls.base_path}}" style="background-color:#444">
-        <i class="icon-home icon-white"></i> home
-      </a>
-    </li>
-
-    <div id="version-notice">
-      <h4 class="error"><i class="icon-exclamation-sign"></i> v0.x OUTDATED</h3>
       <ul>
         <li><a href="/docs/2">v{{ data.LATEST_VERSION }} Latest Docs</a></li>
         <li><a href="/docs/1/setup">v1.x Docs</a></li>
         <li><a href="/docs/0/setup">v0.x Docs</a></li>
       </ul>
-    </div>
+    </li>
+
+    <li>
+      <a class="brand" href="{{urls.base_path}}" style="background-color:#444">
+        <i class="icon-home icon-white"></i> home
+      </a>
+    </li>
 
     {{#data.docs_0_navigation?to_docs}}
       <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
