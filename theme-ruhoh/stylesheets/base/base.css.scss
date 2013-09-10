@@ -102,7 +102,10 @@ ul.social li iframe{
 }
 /* splash page */
 h1.splash-header {
-  text-align:center; font-size:38px; padding:30px;
+  text-align:center; 
+  font-size:38px;
+  padding:25px;
+  margin:0 !important;
 }
 
 div.box {
@@ -201,6 +204,31 @@ div.box {
   font-size:14px;
 }
 
+
+.container.default {
+  h1 {
+    margin:30px 0;
+  }
+  ol {
+    & > li {
+      margin-bottom: 7px;
+      strong {
+        display:block;
+        margin-bottom: 5px
+      }
+    }
+
+    ol {
+      margin-top: 7px;
+    }
+  }
+}
+#benefits-table { 
+  tr td:first-child {
+    color:#607848;
+  }
+  
+}
 
 
 /* contact-list --------------------------------------- */
@@ -538,3 +566,23 @@ body.docs-0 ul.nav > li > a-off { background-color:#CCC }
 }
 #version-notice.error {background-color:#BD3737;}
 #version-notice.success {background-color:#789048;}
+
+
+kbd {
+  padding: 0.1em 0.6em;
+  border: 1px solid #ccc;
+  font-size: 11px;
+  font-family: Arial,Helvetica,sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 0 0.1em;
+  text-shadow: 0 1px 0 #fff;
+  line-height: 1.4;
+  white-space: nowrap;}

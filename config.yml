@@ -15,6 +15,9 @@ api:
 posts:
   permalink: /blog/:categories/:title/
 
+font:
+  use: "ignore"
+
 asset_pipeline:
   enable: true
 

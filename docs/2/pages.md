@@ -151,7 +151,7 @@ Use the ruhoh command line client to convert all untitled-n files to their corre
 This command looks for any resource file beginning with `untitled`, then attempts to rename it, but only if a title has been set.
 
 
-# YAML Metadata
+# Top Metadata
 
 When creating a page ruhoh generates a file with content similar to:
 
@@ -161,9 +161,7 @@ When creating a page ruhoh generates a file with content similar to:
     description:
     ---
 
-This metadata is known as **Top YAML Metadata** or YAML Front-Matter if you like that better (I don't =p)
-
-The YAML metadata is parsed as YAML so it **must be valid YAML**. [Validate your YAML](http://yamllint.com/) if you get YAML parse errors
+This metadata is known as **Top Metadata**. This metadata is parsed as YAML so it **must be valid YAML**. [Validate your YAML](http://yamllint.com/) if you get YAML parse errors
 
 
 ## Categories
@@ -506,7 +504,7 @@ The Model View holds a page's basic attributes as follows:
 {{/raw_code}}
 
 
-### Top YAML Metadata
+### Top Metadata
 
 Note that any data added to a page's YAML meta-data is available in the `page` object.
 

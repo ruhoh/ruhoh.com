@@ -4,58 +4,52 @@ layout : docs-layout
 
 <div id="left-pane">
   <ul id="toc">
-    <li id="version-notice" class="success"><i class="icon-ok"></i> v{{ data.LATEST_VERSION }} CURRENT</li>
-
     <li>
       <a class="brand" href="{{urls.base_path}}" style="background-color:#444; padding-left:10px">
-        <i class="icon-home icon-white"></i> home
+        <i class="icon-home icon-white"></i> HOME
       </a>
     </li>
 
-    {{#data.docs_2_start?to_docs}}
-      <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
-        <a href="{{url}}">{{title}}</a>
-      </li>
-    {{/data.docs_2_start?to_docs}}
+    <li class="docs-2-views">
+      <a href="/docs/2" class="heading">1.&nbsp; READ FIRST</a>
+    </li>
+
+    <li class="docs-2-hello-world">
+      <a href="/docs/2/quickstart" class="heading">2.&nbsp; QUICKSTART</a>
+    </li>
 
     <li>
-      <a href="/docs/2/pages" class="heading"><i class="icon-pencil"></i> CONTENT</a>
+      <a href="/docs/2#toc_9" class="heading"><i class="icon-sitemap"></i> COLLECTIONS</a>
     </li>
-    {{#data.docs_2_content?to_docs}}
+    {{#data.docs_2_collections?to_docs}}
       <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
         <a href="{{url}}">{{title}}</a>
       </li>
-    {{/data.docs_2_content?to_docs}}
+    {{/data.docs_2_collections?to_docs}}
 
     <li class="docs-2-views">
       <a href="/docs/2/views" class="heading"><i class="icon-exchange"></i> VIEW</a>
     </li>
-
-    <li>
-      <a href="/docs/2/layouts" class="heading"><i class="icon-desktop"></i> PRESENTATION</a>
-    </li>
-    {{#data.docs_2_presentation?to_docs}}
-      <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
-        <a href="{{url}}">{{title}}</a>
-      </li>
-    {{/data.docs_2_presentation?to_docs}}
 
     <li class="docs-2-publish">
       <a href="/docs/2/publish" class="heading"><i class="icon-upload"></i> PUBLISH</a>
     </li>
 
     <li>
-      <a href="/docs/2/widgets" class="heading"><i class="icon-fighter-jet"></i> EXTRAS</a>
+      <a href="/docs/2/asset-pipeline" class="heading"><i class="icon-desktop"></i> ASSET PIPELINE</a>
+    </li>
+
+    <li class="docs-2-plugins">
+      <a href="/docs/2/plugins" class="heading"><i class="icon-cogs"></i> PLUGINS</a>
+    </li>
+
+    <li>
+      <a href="/docs/2/widgets" class="heading"><i class="icon-fighter-jet"></i> WIDGETS</a>
     </li>
     {{#data.docs_2_extras?to_docs}}
       <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
         <a href="{{url}}">{{title}}</a>
       </li>
     {{/data.docs_2_extras?to_docs}}
-
-    <li class="docs-2-plugins">
-      <a href="/docs/2/plugins" class="heading"><i class="icon-cogs"></i> PLUGINS</a>
-    </li>
-
   </ul>
 </div>

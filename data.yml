@@ -1,4 +1,4 @@
-LATEST_VERSION: '2.3'
+LATEST_VERSION: '2.4'
 title : ruhoh
 tagline: Site Tagline
 author :
@@ -36,23 +36,27 @@ docs_2_start :
   - 2/how-ruhoh-works
   - 2/configuration
   - 2/upgrading
-docs_2_content :
+docs_2_presentation :
+  - 2/asset-pipeline
+docs_2_extras :
+  - 2/widgets/comments
+  - 2/widgets/analytics
+  - 2/widgets/google-prettify
+
+docs_2_collections:
+  - 2/_root
   - 2/pages
-  - 2/drafts
+  - 2/dash
   - 2/data
   - 2/media
-docs_2_presentation :
   - 2/layouts
   - 2/partials
   - 2/stylesheets
   - 2/javascripts
-  - 2/asset-pipeline
   - 2/themes
-docs_2_extras :
   - 2/widgets
-  - 2/widgets/comments
-  - 2/widgets/analytics
-  - 2/widgets/google-prettify
+  - 2/ignore
+  - 2/static
 
 users :
   -

@@ -6,8 +6,8 @@
 Data is held in the `data.yml` file:
 
 <ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em></li>
-  <li><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>data.yml</em> &larr;</li>
+  <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em></li>
+  <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>data.yml</em> &larr;</li>
 </ul>
 
 ## Example Usage

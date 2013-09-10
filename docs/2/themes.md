@@ -1,5 +1,5 @@
 ---
-title:
+title: <theme>
 description:
 
 icon : icon-adjust
