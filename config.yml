@@ -24,7 +24,7 @@ asset_pipeline:
 widgets :
 
   analytics :
-    use : getclicky
+    use : "google"
     # -- config for google --
     # tracking_id : 'UA-123-12'
 
