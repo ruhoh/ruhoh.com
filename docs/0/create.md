@@ -15,54 +15,39 @@ Page stubs can automatically be created using the Ruhoh command-line client.
 
     $ ruhoh page about.md
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>_pages</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>about.md</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
-    
+
+{{# folder_tree }}
+  _posts
+  _pages
+    about.md
+{{/ folder_tree }}
+
+
 Create a page within a subdirectory:
 
     $ ruhoh page projects/android.md
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>_pages</em>
-    <ul>
-      <span class="ui-silk inline ui-silk-folder">.</span> <em>projects</em>
-      <ul>
-        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>android.md</em> &larr;</li>
-      </ul>
-    </ul>
-  </li>
-</ul>
-    
+
+{{# folder_tree }}
+  _posts
+  _pages
+    projects
+      android.md
+{{/ folder_tree }}
+
+
 Create a page with a "pretty" path:
 
     $ ruhoh page projects/android
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>_pages</em>
-    <ul>
-      <span class="ui-silk inline ui-silk-folder">.</span> <em>projects</em>
-      <ul>
-        <li>
-          <span class="ui-silk inline ui-silk-folder">.</span> <em>android</em>
-          <ul>
-            <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>index.md</em> &larr;</li>
-          </ul>
-        </li>
-      </ul>
-    </ul>
-  </li>
-</ul>
+
+{{# folder_tree }}
+  _posts
+  _pages
+    projects
+      andoid
+        index.md
+{{/ folder_tree }}
 
 ### Custom File Extensions.
 
@@ -72,19 +57,15 @@ The extension can be customized by passing a custom extension via `--ext`:
 
     $ ruhoh page projects/android --ext .html
     
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>_pages</em>
-    <ul>
-      <span class="ui-silk inline ui-silk-folder">.</span> <em>projects</em>
-      <ul>
-        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>android.html</em> &larr;</li>
-      </ul>
-    </ul>
-  </li>
-</ul>
-    
+
+{{# folder_tree }}
+  _posts
+  _pages
+    projects
+      android.html
+{{/ folder_tree }}
+
+
 # Posts
 
 **All posts must start out as drafts first.**
@@ -103,13 +84,11 @@ To create a draft, execute the following command in the working directory of you
 
 A file is created in the posts folder of your blog, named `untitled-n` where n is a just an iterated number:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>untitled-1.md</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  _posts
+    untitled-1.md
+{{/ folder_tree }}
+
 
 ## Preview Drafts
 
@@ -241,13 +220,11 @@ This will work similar to partials but be optimized for code.
 
 The media folder is used as a convenient place to store your blog's media:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_media</em><br>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-picture">.</span> <em class="template">[...my-media-file...]</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+
+{{# folder_tree }}
+  _media
+    my-media-file.jpg
+{{/ folder_tree }}
 
 Organize your files any way you wish, then use the special `paths.media` template variable to refer the media folder:
 

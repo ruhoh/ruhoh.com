@@ -13,9 +13,7 @@ The reasoning behind widgets is to allow the easy sharing of HTML and javascript
 
 Widget directory structure:
 
-<ul class="folder-tree">
 {{> trees/widgets }}
-</ul>
 
 
 ## Usage
@@ -60,32 +58,17 @@ Notice you can set arbitrary configuration settings via the snippet's top YAML m
 Aside from the widget snippets, widgets may package arbitrary files such as images, javascripts, web-fonts, etc.
 Link to these assets using `this_path`:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>widgets</em> 
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>some_widget_name</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>some-snippet.html</em></li>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>alternate-snippet.html</em></li>
-          <li>
-            <span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>some-script.js</em></li>
-            </ul>
-          </li>
-          <li>
-            <span class="ui-silk inline ui-silk-folder">.</span> <em>media</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>cool-icon.jpg</em></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  widgets
+    some_widget_name
+      some-snippet.html
+      alternate-snippet.html
+      javascripts
+        some-script.js
+      media
+        cool-icon.jpg
+{{/ folder_tree }}
+
 
 {{# raw_code }}
 &#045;&#045;&#045;

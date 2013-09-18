@@ -74,19 +74,15 @@ There are 4 modes in ruhoh. These modes are all embedded into ruhoh and work wit
 
 # Collections
 
+
+
 Given a sample site directory structure:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>pages</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>about.md</em></li>
-    </ul>
-  </li>
-  <li class="endpoint"><span class="ui-silk inline ui-silk-folder">.</span> <em>posts </em></li>
-  <li class="endpoint"><span class="ui-silk inline ui-silk-folder">.</span> <em>essays</em></li>
-</ul>
-
+{{# folder_tree }}
+  pages
+    about.md
+  posts
+{{/ folder_tree }}
 
 Every top-level sub-folder will define a *collection*. The above example generates collections for "pages", "posts", and "essays".
 
@@ -249,9 +245,10 @@ A **ModelView** wraps every resource so the methods "url" and "title" are actual
 
 The `config.yml` file is the primary interface for setting configuration parameters on both a global and per-collection basis.
 
-<ul class="folder-tree">
-  <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em> &larr;</li>
-</ul>
+{{# folder_tree }}
+  config.yml
+{{/ folder_tree }}
+
 
 ## Global level
 
@@ -370,113 +367,33 @@ View your blog at: [http://localhost:9292/](http://localhost:9292/)
 
 The following is a sample outline of a site directory structure and includes helpful information and links to full documentation.
 
-<ul class="folder-tree">
-  <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em class="config">config.yml</em></li>
-  <li class="info">
-    <strong>[Optional]</strong>
-    The config file is written in YAML and contains site-wide configuration options.
-    <a href="/docs/2/setup">config documentation</a>
-  </li>
-
-  <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>data.yml</em> </li>
-  <li class="info">
-    <strong>[Optional]</strong>
-    The data YAML file is used to specify data that can be used throughout your pages and layouts.
-    A useful example is defining a navigation array that the templates can use to create your primary navigation bar.
-    <a href="/docs/2/data">data documentation</a>
-  </li>
-
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">_root</em> 
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="page">index.md</em></li>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="page">about.md</em></li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="page">random-folder</em></li>
-    </ul>
-  </li>
-  <li class="info">
-    <strong>[Optional]</strong>
-    All files contained in the _root folder will be processed as pages and automatically served from the root URL.
-    <a href="/docs/2/pages">pages documentation</a>
-  </li>
-
-  <li class="endpoint"><span class="ui-silk inline ui-silk-folder">.</span> <em>compiled</em> </li>
-  <li class="info">
-    <strong>[Optional]</strong>
-    The compiled folder is the default location the Compiler will output pages into.
-    When you run the Compiler, your fully rendered blog will output to this folder.
-    <a href="/docs/2/publish">compile documentation</a>
-  </li>
-
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>dash</em> 
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>index.html</em></li>
-    </ul>
-  </li>
-  <li class="info">
-    <strong>[Optional]</strong>
-    dash provides a custom view of your dashboard, located at /dash in development mode.
-    dash is optional; ruhoh will use its system level view if dash/index.html is not provided.
-  </li>
-
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>media</em> 
-    <ul>
-      <li><span class="ui-silk inline ui-silk-picture">.</span> <em>my-hockey-stick-graph.jpg</em></li>
-    </ul>
-  </li>
-  <li class="info">
-    <strong>[Optional]</strong>
-    The media folder holds global static media assets such as images, videos, pdfs, downloads, etc.
-    Theme-specific assets should NOT exist in this media folder, but rather in the theme's media folder.
-    <a href="/docs/2/media">media documentation</a>
-  </li>
-
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="partial">partials</em> 
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="partial">pages_list</em></li>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="partial">pages_collate</em></li>
-    </ul>
-  </li>
-  <li class="info">
-    <strong>[Optional]</strong>
-    Partials are files which contain arbitrary layout code, usually HTML, that can be dynamically included into any page or layout.
-    <a href="/docs/2/partials">partials documentation</a>
-  </li>
-
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>plugins</em> 
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>kramdown.rb</em></li>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>tag_cloud.rb</em></li>
-    </ul>
-  </li>
-  <li class="info">
-    <strong>[Optional]</strong>
-    Plugins extend and/or overload the base ruhoh functionality. There are 3 types of plugins: mustache helpers, converters, and compiler tasks.
-    <a href="/docs/2/plugins">plugin documentation</a>
-  </li>
-
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="post">posts</em> 
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="post">open-source-is-good.md</em></li>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="post">hello-world.md</em></li>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="post">untitled-draft.md</em></li>
-    </ul>
-  </li>
-  <li class="info">
-    <strong>[Optional]</strong>
-    Any user-defined folder will automatically default to a pages collection.
-    Here the 'posts' directory may act like a traditional blog and hold your posts.
-    <a href="/docs/2/pages">pages documentation</a>
-  </li>
-
+{{# folder_tree }}
+  config.yml
+  data.yml
+  _root
+    index.md
+    about.md
+    random-folder
+  compiled
+  dash
+    index.html
+  media
+    my-hockey-stick-graph.jpg
+  partials
+    pages_list.html
+    pages_collate.html
+  plugins
+    kramdown.rb
+    tag_cloud.rb
+  posts
+    open-source-is-good.md
+    hello-world.md
+    drafts
+      untitled-draft.md
+{{/ folder_tree }}
 {{> trees/themes }}
 {{> trees/widgets }}
-</ul>
+
 
 # Next Steps
 

@@ -19,18 +19,13 @@ This is useful if you need configuration-type or helper directories for third-pa
 
 Given the above configuration and sample site structure: 
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>my-folder</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>config.json</em></li>
-    </ul>
-  </li>
-</ul>
-
+{{# folder_tree }}
+  my-folder
+    config.json
+{{/ folder_tree }}
 
 The generated site will NOT contain the folder:
 
-<ul class="folder-tree">
-  <li class="endpoint"><span class="ui-silk inline ui-silk-folder">.</span> <em>my-folder</em></li>
-</ul>
+{{# folder_tree }}
+  my-folder
+{{/ folder_tree }}

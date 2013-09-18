@@ -1,32 +1,14 @@
-<li class="endpoint">
-  <span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em>
-  <ul>
-    <li><span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em></li>
-    <li><span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
-      <ul>
-        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>default.html</em></li>
-        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>page.html</em></li>
-        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>post.html</em></li>
-      </ul>
-    </li>
-    <li><span class="ui-silk inline ui-silk-folder">.</span> <em>media</em></li>
-    <li>
-      <span class="ui-silk inline ui-silk-folder">.</span> <em class="partial">partials</em>
-      <ul>
-        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="partial">posts_collate</em></li>
-      </ul>
-    </li>
-    <li>
-      <span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em>
-      <ul>
-        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>default.css</em></li>
-        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>style.css</em></li>
-      </ul>
-    </li>
-  </ul>
-</li>
-<li class="info">
-  <strong>[Optional]</strong>
-  Presentational assets such as layouts, partials, stylesheets, media, and javascripts may be namespaced within their own "theme" folder.
-  <a href="/docs/2/themes">theme documentation</a>
-</li>
+{{# folder_tree }}
+  theme-twitter
+    javascripts
+    layouts
+      default.html
+      page.html
+      post.html
+    media
+    partials
+      posts_collate.html
+    stylesheets
+      default.css
+      style.css
+{{/ folder_tree }}

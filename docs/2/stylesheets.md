@@ -4,29 +4,17 @@ The stylesheets resources manages all stylesheets in the system.
 
 Stylesheets are placed either in the stylesheets folder at the base of your website, or preferably within your theme's stylesheets folder for modularity:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>base.css</em> &larr; blog-level stylesheet</li>
-    </ul>
-  </li>
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em> &larr; (your theme)
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em></li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>media</em></li>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>theme-specific.css</em> &larr; theme-level stylesheet</li>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>default.css</em></li>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>style.css</em></li>
-        </ul>
-      </li>
-    </ul> 
-  </li>
-</ul>
+{{# folder_tree }}
+  stylesheets
+    base.css
+  theme-twitter
+    javascripts
+    media
+    stylesheets
+      theme-specific.css
+      default.css
+      style.css
+{{/ folder_tree }}
 
 **Note that theme-level stylesheets will overload blog-level stylesheets.
 

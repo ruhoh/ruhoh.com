@@ -10,43 +10,23 @@ icon : icon-gift
 
 Plugins may be added by placing ruby files into the `_plugins` folder in the root of your blog directory:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_plugins</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-code">.</span> <em>helpers.rb</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  _plugins
+    helpers.rb
+{{/ folder_tree }}
+
 
 You can also place them in folders for better organization:
 
-<ul class="folder-tree">
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>_plugins</em>
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>template-helpers</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-code">.</span> <em>custom.rb</em></li>
-        </ul>
-      </li>
-      
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>converters</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-code">.</span> <em>kramdown.rb</em></li>
-        </ul>
-      </li>
-      
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>compiler-tasks</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-code">.</span> <em>rss.rb</em></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  _plugins
+    template-helpers
+      custom.rb
+    converters
+      kramdown.rb
+    compiler-tasks
+      rss.rb
+{{/ folder_tree }}
 
 # Mustache Helpers
 

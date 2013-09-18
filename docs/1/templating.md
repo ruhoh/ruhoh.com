@@ -135,10 +135,10 @@ Above, we've set special attributes `icon` and `days` which are now availble:
 `site` is a globally accessible object that contains all data from your `site.yml` file.
 This allows you to define arbitrary data you want access to throughout your templates such as navigational lists.
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em></li>
-  <li><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>site.yml</em> &larr;</li>
-</ul>
+{{# folder_tree }}
+  config.yml
+  site.yml
+{{/ folder_tree }}
 
 Additionally, the site object places everything found in `config.yml` at the key `site.config`.
 Now you can reference all your configuration data in your templates if you need to.
@@ -613,36 +613,22 @@ Mustache supports partials natively using the "greater than" character:
 
 Create a *default_partial* by creating a file in the default partials folder at: 
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">posts</em></li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>[...your-partial-file...]</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
-    
+{{# folder_tree }}
+  posts
+  partials
+    my-partial-file
+{{/ folder_tree }}
+
 These partials should be theme independent.
 
 Additionally you may also create *theme_specific* partials by creating files at:
 
-<ul class="folder-tree">
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[ACTIVE-THEME]</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>[...your-partial-file...]</em> &larr;</li>
-            </ul>
-          </li>
-        </ul> 
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  themes
+    [ACTIVE-THEME]
+      partials
+        my-partial-file
+{{/ folder_tree }}
 
 Theme specific partials are useful when you want to include theme dependent HTML and/or css classes.
 

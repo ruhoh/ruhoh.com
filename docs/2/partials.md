@@ -10,35 +10,20 @@ Partials are very useful when used in conjunction with the templating language a
 
 partials are placed either in the partials folder at the base of your website, or preferably within your theme's partials folder for modularity:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>posts_collate.html</em> &larr; blog-level partial</li>
-    </ul>
-  </li>
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em> &larr; (your theme)
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>table.html</em> &larr; theme-level partial</li>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>gallery.html</em></li>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>posts_list.html</em></li>
-          <li>
-            <span class="ui-silk inline ui-silk-folder">.</span> <em>nested</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>contact-me.html</em></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>media</em></li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em></li>
-    </ul> 
-  </li>
-</ul>
+
+{{# folder_tree }}
+  partials
+    posts_collate.html
+  theme-twitter
+    partials
+      table.html
+      gallery.html
+      posts_list.html
+      nested
+        contact-me.html
+    media
+    stylesheets
+{{/ folder_tree }}
 
 **Note that theme-level partials will overload blog-level partials.
 

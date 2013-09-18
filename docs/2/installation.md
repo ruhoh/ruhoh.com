@@ -13,14 +13,10 @@ If you are new to ruby or don't know if you have have a 1.9.2+ ruby interpreter 
 
 First we create a folder to hold your ruhoh-enabled site. We'll name it "ruhoh-site":
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>ruhoh-site</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>...</em></li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  ruhoh-site
+    ...
+{{/ folder_tree }}
 
 
 # Ruhoh Gem
@@ -50,14 +46,10 @@ If it's not found, install it:
 
 We need to create a [Gemfile][] that tells bundler which gems to bundle:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>ruhoh-site</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>Gemfile</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  ruhoh-site
+    Gemfile
+{{/ folder_tree }}
 
 Place the following contents inside the Gemfile:
 
@@ -76,16 +68,11 @@ Install the bundle by opening a terminal session, navigating to your "ruhoh-site
 
 Ruhoh uses the [Rack][] interface to run a local web-server so we'll need to define a config.ru file:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>ruhoh-site</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>config.ru</em> &larr;</li>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>Gemfile</em></li>
-    </ul>
-  </li>
-</ul>
-
+{{# folder_tree }}
+  ruhoh-site
+    config.ru
+    Gemfile
+{{/ folder_tree }}
 
 Place the following contents inside config.ru:
 
@@ -123,7 +110,7 @@ Note this will set `ruhoh` to the latest version so you can no longer easily swi
 
 # Next Steps
 
-You can now continue with the [Hello World tutorial](/docs/2/hello-world) but you already have the initialization files so skip that part.
+You can now continue with the [Quickstart Tutorial](/docs/2/quickstart) but you already have the initialization files so skip that part.
 
 
 

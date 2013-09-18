@@ -64,23 +64,15 @@ We can use [sprockets' directive processor](https://github.com/sstephenson/sproc
 
 These files will dynamically load whenever application.css is called. Note also how there is no need to specify file extensions.
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em></li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>media</em></li>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>application.css</em></li>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>default.css.scss</em></li>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>style.css.scss</em></li>
-        </ul>
-      </li>
-    </ul> 
-  </li>
-</ul>
+{{# folder_tree }}
+  twitter
+    javascripts
+    media
+    stylesheets
+      application.css
+      default.css.scss
+      style.css.scss
+{{/ folder_tree }}
 
 We can see above that both `default.css.scss` and `style.css.scss` are using [SASS](http://sass-lang.com/).
 Sprockets will automatically pre-process SASS and serve the resultant CSS in preview mode and for compiling.

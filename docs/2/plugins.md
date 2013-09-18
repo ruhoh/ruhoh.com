@@ -7,40 +7,28 @@ icon : icon-cogs
 
 # Overview
 
+
+**NEW:** [Community Plugins](/docs/2/plugins/community)
+
+
 **NOTE for security reasons, your plugins will not run when publishing to *.ruhoh.com.**
 
 Plugins may be added by placing ruby files into the `plugins` folder in the root of your blog directory:
-<ul class="folder-tree">
-  <li class="endpoint"><span class="ui-silk inline ui-silk-folder">.</span> <em>plugins</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-code">.</span> <em>pages\_collection\_view_addons.rb</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+
+{{# folder_tree }}
+  plugins
+    pages_collection_view_addons.rb
+{{/ folder_tree }}
 
 You can also place them in folders for better organization:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>plugins</em>
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>converters</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-code">.</span> <em>kramdown.rb</em></li>
-        </ul>
-      </li>
-      
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>compiler-tasks</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-code">.</span> <em>rss.rb</em></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
+{{# folder_tree }}
+  plugins
+    converters
+      kramdown.rb
+    compiler-tasks
+      rss.rb
+{{/ folder_tree }}
 
 There is no plugin framework. To add and extend functionality, you would do it just as you would in normal ruby:
 

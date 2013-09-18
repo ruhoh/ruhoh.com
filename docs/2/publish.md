@@ -20,9 +20,11 @@ The ruhoh command-line client can be used to compile your blog:
     
 Your blog is generated and output into the compiled directory:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>compiled</em></li>
-</ul>
+
+{{# folder_tree }}
+  compiled
+{{/ folder_tree }}
+
 
 ### Compile to custom directory
 

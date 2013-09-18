@@ -21,52 +21,33 @@ Your active theme will be the theme specified in `_config.yml`.
 
 The theme structure is as detailed below:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
-    <ul class="template">
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template">partials</em></li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em><br>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em>css</em></li>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em>images</em></li>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template">layouts</em><br>
-                <ul>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">default.html</em></li>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">page.html</em></li>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">post.html</em></li>
-                </ul>
-              </li>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template">partials</em><br>
-                <ul>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em class="template">posts_collate</em></li>
-                </ul>
-              </li>
-            </ul> 
-          </li>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>another-theme</em></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+
+{{# folder_tree }}
+  _templates
+    partials
+    themes
+      twitter
+        css
+        images
+        layouts
+          default.html
+          page.html
+          post.html
+        partials
+          posts_colalte
+      another-theme
+{{/ folder_tree }}
+
 
 ## Install New Theme
 
 To install a new theme just download the folder and place it in the "themes" directory:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
-    <ul class="template">
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em><br>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[...NEW-THEME-NAME...]</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  _templates
+    themes
+      [NEW-THEME-NAME]
+{{/ folder_tree }}
 
 Then update your `_config.yml` to set the theme to this new theme name
 
@@ -81,18 +62,11 @@ The Ruhoh command-line client can automatically create scaffolding for building 
 
 Scaffolding for _new-theme-name_ will be available at:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
-    <ul class="template">
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em><br>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>new-theme-name</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
+{{# folder_tree }}
+  _templates
+    themes
+      new-theme-name
+{{/ folder_tree }}
 
 # Layouts
 
@@ -111,25 +85,13 @@ The Ruhoh command-line client can automatically create layouts for the active th
 
 The command will create a file at:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">_templates</em><br>
-    <ul class="template">
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[ACTIVE-THEME]</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
-                <ul>
-                  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>splash.html</em> &larr;</li>
-                </ul>
-              </li>
-            </ul>  
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  _templates
+    themes
+      [ACTIVE-THEME]
+        layouts
+          splash.html
+{{/ folder_tree }}
 
 Edit your layout as desired, then make sure to specify your new layout within the pages' YAML Front Matter:
 

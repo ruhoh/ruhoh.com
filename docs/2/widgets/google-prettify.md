@@ -6,11 +6,9 @@ Google Prettify is implemented via the widgets API. Have a look at the [widgets 
 
 Syntax highlighting is enabled by default using [Google Prettify](http://google-code-prettify.googlecode.com/svn/trunk/README.html). Content specified in `<pre></pre>` blocks will be automatically highlighted. Prettify tries to automatically detect the language and highlight the syntax appropriately.
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em> &larr;
-  </li>
-</ul>
+{{# folder_tree }}
+  config.yml
+{{/ folder_tree }}
 
     widgets :
       google_prettify :

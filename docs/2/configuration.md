@@ -2,9 +2,9 @@
 
 The `config.yml` file holds your blog's global configuration settings.
 
-<ul class="folder-tree">
-  <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em> &larr;</li>
-</ul>
+{{# folder_tree }}
+  config.yml
+{{/ folder_tree }}
 
 ## base_path
 

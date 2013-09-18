@@ -1,25 +1,8 @@
-<li class="endpoint">
-  <span class="ui-silk inline ui-silk-folder">.</span> <em>widgets</em> 
-  <ul>
-    <li>
-      <span class="ui-silk inline ui-silk-folder">.</span> <em>some_widget_name</em>
-      <ul>
-        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>some-snippet.html</em></li>
-        <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>alternate-snippet.html</em></li>
-        <li>
-          <span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em>
-          <ul>
-            <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>some-script.js</em></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</li>
-<li class="info">
-  <strong>[Optional]</strong>
-  Widgets define encapsulated mustache helpers to allow for customized
-  HTML snippets that can optionally run javascripts and take in arbitrary configuration parameters.
-  Client-side comments, analytics, and syntax highlighting are some automatically provided widgets.
-  <a href="/docs/2/widgets">widget documentation</a>
-</li>
+{{# folder_tree }}
+  widgets
+    some_widget_name
+      some-snippet.html
+      alternate-snippet.html
+      javascripts
+        some-script.js
+{{/ folder_tree }}

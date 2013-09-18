@@ -13,38 +13,23 @@ layout: post
 
 I prefer the pretty urls over the .html format. Previously this meant making all my pages like this:
 
-<ul class="folder-tree">
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">_pages</em>
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">about</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>index.md</em></li>
-        </ul>
-      </li>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">contact</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>index.md</em></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>      
+{{# folder_tree }}
+  _pages
+    about
+      index.md
+    contact
+      index.md
+{{/ folder_tree }}
 
 But I grew increasingly annoyed that all my pages are named `index`. Also it just feels bloated.
 Much better if I can do this:
 
-<ul class="folder-tree">
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">_pages</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>about.md</em></li>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>contact.md</em></li>
-    </ul>
-  </li>
-</ul>
+
+{{# folder_tree }}
+  _pages
+    about.md
+    contact.md
+{{/ folder_tree }}
 
 but still have the urls export to `/about` and `/contact`
 

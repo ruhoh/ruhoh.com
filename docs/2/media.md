@@ -4,29 +4,18 @@
 
 Content-based media is placed in the media folder at the base of your website. Note all theme specific media should be placed into the theme's media folder:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>media</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-picture">.</span> <em >[...my-media-file...]</em> &larr; blog-level media</li>
-    </ul>
-  </li>
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em> &larr; (your theme)
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em></li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em></li>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>media</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-picture">.</span> <em>icons.jpg</em> &larr; theme-level media</li>
-          <li><span class="ui-silk inline ui-silk-picture">.</span> <em>cool-pic.jpg</em></li>
-          <li><span class="ui-silk inline ui-silk-picture">.</span> <em>sunset.jpg</em></li>
-        </ul>
-      </li>
-    </ul> 
-  </li>
-</ul>
+
+{{# folder_tree }}
+  media
+    my-media-file.jpg
+  theme-twitter
+    javascripts
+    stylesheets
+    media
+      icons.jpg
+      cool-pic.jpg
+      sunset.jpg
+{{/ folder_tree }}
 
 **Note that theme-level media will overload blog-level media, so be sure to define unique names are group media into logical folders.
 

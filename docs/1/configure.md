@@ -11,9 +11,10 @@ icon : icon-cog
 
 The `config.yml` file holds your blog's global configuration settings.
 
-<ul class="folder-tree">
-  <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em> &larr;</li>
-</ul>
+{{# folder_tree }}
+  config.yml
+{{/ folder_tree }}
+
 
 **NOTE:** All settings for comments, analytics, and syntax highlighting are now encapsulated into their respective widget modules.
 Read the [Widgets Documentation](/docs/1/widgets) for more information.

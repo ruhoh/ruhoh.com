@@ -12,11 +12,7 @@ Ruhoh comes with a default dashboard in the system folder available here: https:
 
 You can re-implement a custom dashboard by overloading the index file on your site or theme level:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>dash</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>index.html</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  dash
+    index.html
+{{/ folder_tree }}

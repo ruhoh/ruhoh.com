@@ -15,26 +15,16 @@ Since every collection is necessarily a sub-folder, it can be annoying to realiz
 
 Given the site structure: 
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>_root</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>about.md</em></li>
-    </ul>
-  </li>
-</ul>
-
+{{# folder_tree }}
+  _root
+    about.md
+{{/ folder_tree }}
 
 The generated site will contain the file:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>about</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>index.html</em></li>
-    </ul>
-  </li>
-</ul>
-
+{{# folder_tree }}
+  about
+    index.html
+{{/ folder_tree }}
 
 with the generated URL: **/about**

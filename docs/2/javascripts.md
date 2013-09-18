@@ -1,32 +1,21 @@
 # Javascripts
 
+
 The javascripts resources manages all javascripts in the system.
 
 Javascripts are placed either in the javascripts folder at the base of your website, or preferably within your theme's javascripts folder for modularity:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>base.js</em> &larr; blog-level javascript</li>
-    </ul>
-  </li>
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em> &larr; (your theme)
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>theme-specific.js</em> &larr; theme-level javascript</li>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>default.js</em></li>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>app.js</em></li>
-        </ul>
-      </li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>media</em></li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em></li>
-    </ul> 
-  </li>
-</ul>
+{{# folder_tree }}
+  javascripts
+    base.js
+  theme-twitter
+    javascripts
+      theme-specific.js
+      default.js
+      app.js
+    media
+    stylesheets
+{{/ folder_tree }}
 
 **Note that theme-level javascripts will overload blog-level javascripts.
 

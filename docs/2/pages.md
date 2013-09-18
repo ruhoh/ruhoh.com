@@ -30,14 +30,10 @@ Example:
 
 If the `essays` collection doesn't exist, ruhoh will create it:
 
-<ul class="folder-tree">
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>essays</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>hello-world.md</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  essays
+    hello-world.md
+{{/ folder_tree }}
 
 Notice the title automatically gets normalized to a filename.
 
@@ -45,32 +41,23 @@ Create a page without specifying a title:
 
     $ ruhoh essays new
 
-<ul class="folder-tree">
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>essays</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>untitled.md</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+
+{{# folder_tree }}
+  about
+    untitled.md
+{{/ folder_tree }}
 
 Create a page within a subdirectory:
 
     $ ruhoh pages new projects/android
 
-<ul class="folder-tree">
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>essays</em>
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>projects</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>android.md</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+
+{{# folder_tree }}
+  essays
+    projects
+      android.md
+{{/ folder_tree }}
+
 
 # Create a Draft
 
@@ -88,46 +75,33 @@ Create a post draft:
 
 A file is created within the collection used named `untitled-draft-n` where n is an iterated number:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>drafts</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>untitled-draft-1.md</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  posts
+    drafts
+      untitled-draft-1.md
+{{/ folder_tree }}
+
 
 Optionally pass in a title:
 
     $ ruhoh posts draft "The Greatest Draft Ever"
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>drafts</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>the-greatest-draft-ever.md</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+
+{{# folder_tree }}
+  posts
+    drafts
+      the-greatest-draft-ever.md
+{{/ folder_tree }}
 
 ## Publish Drafts
 
 To publish a draft, simply remove the file from its parent `drafts` folder.
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>the-greatest-draft-ever.md</em> &larr;</li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>drafts</em></li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  posts
+    the-greatest-draft-ever.md
+    drafts
+{{/ folder_tree }}
 
 
 ### Working with Drafts in Preview Mode
@@ -724,36 +698,26 @@ Now generating pages produces:
 
     $ ruhoh pages new projects/android
     
-      
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em></li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>pages</em>
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>projects</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>android.txt</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+
+
+{{# folder_tree }}
+  posts
+  pages
+    projects
+      android.txt
+{{/ folder_tree }}
+
 
 ## Scaffold
 
 The generation tasks outlined above clone a collection-specific "scaffold" file.
 Ruhoh looks in the currently used collection's folder for a file named `_scaffold.html` (the extension can be anything).
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em></li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>_scaffold.html</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  posts
+  pages
+    _scaffold.html
+{{/ folder_tree }}
 
 The default scaffold file for all pages collections looks like this:
 
@@ -783,10 +747,10 @@ Now ruhoh will use your custom \_scaffold file to create new pages for that coll
 
 You can also overwrite the global default pages `_scaffold.html` file by placing it in the base of your directory:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>_scaffold.html</em> &larr;</li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>posts</em></li>
-</ul>
+{{# folder_tree }}
+  _scaffold.html
+  posts
+{{/ folder_tree }}
 
 
 ## Permalink

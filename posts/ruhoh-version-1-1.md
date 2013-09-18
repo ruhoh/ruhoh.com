@@ -39,18 +39,12 @@ Once the console is running you can inspect your data and run commands:
 When you generate drafts, posts, pages, and layouts from the command line ruhoh uses it's built in [file scaffolds](https://github.com/ruhoh/ruhoh.rb/tree/master/system/scaffolds).
 You can now override these files with your custom blog-level scaffolds:
 
-<ul class="folder-tree">
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">pages</em>
-  </li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">scaffolds</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>draft.html</em> &larr;</li>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>post.html</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  pages
+  scaffolds
+    draft.html
+    post.html
+{{/ folder_tree }}
 
 {{#raw_code}}
 &#35; scaffolds/post.html
@@ -93,19 +87,13 @@ This fixes a bug where pages would not be found if a user did not include a trai
 
 Partial files may now have extensions but will still be referenced by name excluding extension.
 
-<ul class="folder-tree">
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">pages</em>
-  </li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="page">partials</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>pages_list.html</em> &larr;</li>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>posts_collate.html</em> &larr;</li>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>posts_list.html</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  pages
+  partials
+    pages_list.html
+    posts_collate.html
+    posts_list.html
+{{/ folder_tree }}
 
 ### Default partials now embedded into ruhoh gem.
 

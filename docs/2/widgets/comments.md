@@ -7,11 +7,9 @@ Comments are implemented via the widgets API. Have a look at the [widgets docume
 To enable commenting you will need to have setup an account with one of these providers.
 In the `config.yml` you should see configuration parameters as shown below: 
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em> &larr;
-  </li>
-</ul>
+{{# folder_tree }}
+  config.yml
+{{/ folder_tree }}
 
     widgets :
       # Settings for comments widget
@@ -80,16 +78,8 @@ To use a custom provider:
 1. Place the snippet file into the widget's namespace so it can be found.
 1. Specify the new snippet name in config.yml under `use` e.g. `use: custom_comments`.
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>widgets</em> 
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>comments</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_comments.html</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  widgets
+    comments
+      custom_comments.html
+{{/ folder_tree }}

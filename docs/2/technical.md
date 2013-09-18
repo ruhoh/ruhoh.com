@@ -38,18 +38,13 @@ used in conjunction with the given resource. Mappings come in a few flavors:
 Once a namespace is registered, files within that namespace become mapped to that resource.
 The glob expression will be used to fine resources for the resource namespace:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>pages</em></li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>posts </em> &larr; "posts" resource namespace
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>about.md</em> &larr; a resource for "posts".</li>
-    </ul>
-  </li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em></li>
-</ul>
+{{# folder_tree }}
+  pages
+  posts
+    about.md
+  partials
+{{/ folder_tree }}
 
-    
 ### Config
 
 A mapping to user configuration is provided using the resources's namespace within config.yml
@@ -64,16 +59,12 @@ A mapping to user configuration is provided using the resources's namespace with
 
 A singular resource is typically mapped to individual files within your blog, relative to the resource's namespace:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>pages</em></li>
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>posts </em> &larr; "posts" resource namespace
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>about.md</em> &larr; a resource for "posts".</li>
-    </ul>
-  </li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em></li>
-</ul>
+{{# folder_tree }}
+  pages
+  posts
+    about.md
+  partials
+{{/ folder_tree }}
 
 ## Pointers
 

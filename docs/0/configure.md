@@ -11,11 +11,12 @@ icon : icon-cog
 
 Set the permalink format in the `_config.yml` file:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>_config.yml</em> &larr;</li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_posts</em></li>
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>...</em></li>
-</ul>
+{{# folder_tree }}
+  _config.yml
+  _posts
+  ...
+{{/ folder_tree }}
+
 
     permalink: /:categories/:title
 
@@ -145,17 +146,11 @@ In the example above, the **disqus** provider will be used and will be provided 
 
 To use a custom provider, set `provider: custom`, then create a partial in the default partials folder:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_templates</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_comments</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  _templates
+    partials
+      custom_comments
+{{/ folder_tree }}
 
 This file will load wherever the theme has included its comments so you can inject your own widget code via this file.
 
@@ -206,17 +201,11 @@ In the example above, the **google** provider will be used and will be provided 
 
 To use a custom provider, set `provider: custom`, then create a partial in the default partials folder:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_templates</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_analytics</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  _templates
+    partials
+      custom_analytics
+{{/ folder_tree }}
 
 This file will load wherever the theme has included its analytics so you can inject your own widget code via this file.
 
@@ -264,25 +253,16 @@ In the example above, the **google_prettify** provider will be used and will be 
 All styling rules are maintained in their own theme-specific CSS file.
 These files are name-spaced by the specific syntax highlighting provider you've chosen:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>_templates</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>syntax</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>google_prettify</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>default.css</em></li>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>desert.css</em></li>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>sons-of-obsidian.css</em></li>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>sunburst.css</em></li>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>twitter-bootstrap.css</em> &larr; (default)</li>
-            </ul>  
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  _templates
+    syntax
+      google_prettify
+        default.css
+        desert.css
+        sons-of-obsidian.css
+        sunburst.css
+        twitter-bootstrap.css
+{{/ folder_tree }}
 
 Ruhoh blogs come with all four of Google Prettify's [user-submitted themes](http://google-code-prettify.googlecode.com/svn/trunk/styles/index.html) as well as 
 the code-highlighting theme packaged with [Twitter Bootstrap](http://twitter.github.com/bootstrap/base-css.html#code)

@@ -5,10 +5,10 @@
 
 Data is held in the `data.yml` file:
 
-<ul class="folder-tree">
-  <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em></li>
-  <li class="endpoint"><span class="ui-silk inline ui-silk-page-white-database">.</span> <em>data.yml</em> &larr;</li>
-</ul>
+{{# folder_tree }}
+  config.yml
+  data.yml
+{{/ folder_tree }}
 
 ## Example Usage
 

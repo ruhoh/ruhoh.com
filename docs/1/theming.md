@@ -15,9 +15,7 @@ A theme is simply a collection of layouts, partials, and assets such as styleshe
 
 The theme structure is as detailed below:
 
-<ul class="folder-tree">
 {{> trees/themes }}
-</ul>
 
 ## Configuration (theme.yml)
 
@@ -42,22 +40,12 @@ The Ruhoh command-line client can automatically create layouts for the active th
 
 The command will create a file at:
 
-<ul class="folder-tree">
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[ACTIVE-THEME]</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>splash.html</em> &larr;</li>
-            </ul>
-          </li>
-        </ul>  
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  themes
+    [ACTIVE-THEME]
+      layouts
+        splash.html
+{{/ folder_tree }}
 
 Edit your layout as desired, then make sure to specify your new layout within the pages' YAML meta-data:
 
@@ -90,22 +78,14 @@ layout: default
 
 All stylesheets should be placed into the theme's stylesheets folder:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">themes</em>
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em></li>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>media</em></li>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>theme.yml</em></li>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em> &larr;</li>
-        </ul> 
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  themes
+    twitter
+      javascripts
+      media
+      theme.yml
+      stylesheets
+{{/ folder_tree }}
 
 Themes should manage stylesheet dependencies using `theme.yml`:
 
@@ -160,22 +140,14 @@ Note manually referencing stylesheets is discouraged because they will be unregi
 
 All javscripts should be placed into the theme's javascripts folder:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">themes</em>
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em> &larr;</li>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>media</em></li>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>theme.yml</em></li>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em></li>
-        </ul> 
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  themes
+    twitter
+      javascripts
+      media
+      theme.yml
+      stylesheets
+{{/ folder_tree }}
 
 Themes should manage javascript dependencies using `theme.yml`:
 
@@ -229,22 +201,14 @@ Note manually referencing javascripts is discouraged because they will be unregi
 
 All theme specific media should be placed into the theme's media folder:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">themes</em>
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>javascripts</em></li>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>media</em> &larr;</li>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>theme.yml</em></li>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em></li>
-        </ul> 
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  themes
+    twitter
+      javascripts
+      media
+      theme.yml
+      stylesheets
+{{/ folder_tree }}
 
 Reference media in stylesheet files using relative paths `../media`
 
@@ -281,23 +245,12 @@ Theme partials have a higher priority than default partials so they will overloa
 
 ## Create a Theme Partial
 
-<ul class="folder-tree">
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[ACTIVE-THEME]</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>partials</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>[...your-partial-file...]</em> &larr;</li>
-            </ul>
-          </li>
-        </ul> 
-      </li>
-    </ul>
-  </li>
-</ul>
-
+{{# folder_tree }}
+  themes
+    [ACTIVE-THEME]
+      partials
+        my-partial-file
+{{/ folder_tree }}
 
 # Widgets
 
@@ -310,14 +263,10 @@ TODO =/
 
 To install a new theme just download the folder and place it in the "themes" directory:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[...NEW-THEME-NAME...]</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  themes
+    [NEW-THEME-NAME]
+{{/ folder_tree }}
 
 Then update your `config.yml` to set the theme to this new theme name
 
@@ -332,11 +281,7 @@ The Ruhoh command-line client can automatically create scaffolding for building 
 
 Scaffolding for _new-theme-name_ will be available at:
 
-<ul class="folder-tree">
-  <li>
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>themes</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>new-theme-name</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  themes
+    new-theme-name
+{{/ folder_tree }}

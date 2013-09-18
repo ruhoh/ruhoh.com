@@ -12,9 +12,7 @@ Widgets define encapsulated mustache helpers to allow for customized HTML snippe
 
 Widget directory structure:
 
-<ul class="folder-tree">
 {{> trees/widgets }}
-</ul>
 
 ## Using a widget
 
@@ -65,19 +63,13 @@ Ruhoh provides widget codes for [Disqus](http://disqus.com), [Intense Debate](ht
 To enable commenting for your blog you will need to have setup an account with one of these providers.
 In the `config.yml` you should see configuration parameters as shown below: 
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>widgets</em> 
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>comments</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+
+{{# folder_tree }}
+  widgets
+    comments
+      config.yml
+{{/ folder_tree }}
+
 
     # Settings for comments widget
     # Set 'layout' to the comment provider you want to use.
@@ -109,25 +101,13 @@ In the example above, the **disqus** provider will be used and will be provided 
 
 To use a custom provider, create a layout with widget code for that provider and specify the new layout name in `layout`, e.g.: `layout: custom_comments`.
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>widgets</em> 
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>comments</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em></li>
-          <li>
-            <span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_comments.html</em> &larr;</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  widgets
+    comments
+      config.yml
+      layouts
+        custom_comments.html
+{{/ folder_tree }}
 
 ## Disable Comments
 
@@ -154,19 +134,11 @@ Ruhoh provides analytics codes for [Google](http://google.com/analytics), and [G
 To enable analytics for your blog you will need to have setup an account with one of these providers.
 In the `config.yml` you should configuration parameters as shown below:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>widgets</em> 
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>analytics</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  widgets
+    analytics
+      config.yml
+{{/ folder_tree }}
 
     # Settings for analytics helper
     # Set 'layout' to the analytics provider you want to use.
@@ -190,25 +162,14 @@ In the example above, the **google** layout will be used and will be provided wi
 
 To use a custom provider, create a layout with widget code for that provider and specify the new layout name in `layout`, e.g.: `layout: custom_analytics`.
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>widgets</em> 
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>analytics</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em></li>
-          <li>
-            <span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
-            <ul>
-              <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>custom_analytics.html</em> &larr;</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+
+{{# folder_tree }}
+  widgets
+    analytics
+      config.yml
+      layouts
+        custom_analytics.html
+{{/ folder_tree }}
 
 
 ## Disable Analytics
@@ -240,19 +201,11 @@ Prettify tries to automatically detect the language and highlight the syntax app
 
 In the `config.yml` you should see a configuration params as shown below:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>widgets</em> 
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>google_prettify</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>config.yml</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  widgets
+    google_prettify
+      config.yml
+{{/ folder_tree }}
 
     linenums : true
 
@@ -264,20 +217,13 @@ Widgets cannot specify their own stylesheets. All styling is handled by the them
 
 Your installed theme will/should specify a stylesheet to load for the `google_prettify` widget:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">themes</em>
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>theme.yml</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-    
+{{# folder_tree }}
+  themes
+    twitter
+      theme.yml
+{{/ folder_tree }}
+
+
     # The twitter-bootstrap.css stylesheet will load when google_prettify is enabled.
     # NOTE: 
     #   Stylesheets will load automatically, without needing to specify this config,
@@ -296,41 +242,22 @@ Your installed theme will/should specify a stylesheet to load for the `google_pr
       }
     }
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em class="template-light">themes</em>
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-gear">.</span> <em>theme.yml</em></li>
-          <li><span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em></li>
-          <li>
-            <span class="ui-silk inline ui-silk-folder">.</span> <em>widgets</em>
-            <ul>
-              <li>
-                <span class="ui-silk inline ui-silk-folder">.</span> <em>google_prettify</em>
-                <ul>
-                  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em></li>
-                  <li>
-                    <span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em>
-                    <ul>
-                      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>default.css</em></li>
-                      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>desert.css</em></li>
-                      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>sons-of-obsidian.css</em></li>
-                      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>sunburst.css</em></li>
-                      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>twitter-bootstrap.css</em> &larr;</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul> 
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  themes
+    twitter
+      theme.yml
+      stylesheets
+      widgets
+        google_prettify
+          layouts
+            stylesheets
+              default.css
+              desert.css
+              sons-of-obsidian.css
+              sunburst.css
+              twitter-bootstrap.css
+{{/ folder_tree }}
+
 
 Ruhoh's default "twitter" theme comes with all four of Google Prettify's [user-submitted themes](http://google-code-prettify.googlecode.com/svn/trunk/styles/index.html) as well as 
 the code-highlighting theme packaged with [Twitter Bootstrap](http://twitter.github.com/bootstrap/base-css.html#code)

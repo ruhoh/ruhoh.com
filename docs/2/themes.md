@@ -31,9 +31,7 @@ A theme has load priority and will overload blog-level and system level files of
 
 ## Structure 
 
-<ul class="folder-tree">
 {{> trees/themes }}
-</ul>
 
 
 ## Configuration
@@ -49,9 +47,9 @@ Here I've specified the collection (folder) `twitter-bootstrap` should use the c
 
 To install a new theme just download the folder into your blog's root directory:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>[...NEW-THEME-NAME...]</em> &larr;</li>
-</ul>
+{{# folder_tree }}
+  theme-new-theme-name
+{{/ folder_tree }}
 
 Then update your `config.yml` with the new theme name:
 

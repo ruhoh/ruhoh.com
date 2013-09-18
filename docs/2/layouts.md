@@ -11,29 +11,18 @@ This makes it possible for a page to have a sub-layout and a master-layout. Howe
 
 Layouts are placed either in the layouts folder at the base of your website, or preferably within your theme's layouts folder for modularity:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>common.html</em> &larr; blog-level layout</li>
-    </ul>
-  </li>
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em> &larr; (your theme)
-    <ul>
-      <li>
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>default.html</em> &larr; theme-level layout</li>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>posts.html</em></li>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>pages.html</em></li>
-        </ul>
-      </li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>media</em></li>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>stylesheets</em></li>
-    </ul> 
-  </li>
-</ul>
+{{# folder_tree }}
+  layouts
+    common.html
+  theme-twitter
+    layouts
+      default.html
+      posts.html
+      pages.html
+    media
+    stylesheets
+{{/ folder_tree }}
+
 
 **Note that theme-level layouts will overload blog-level layouts.
 
@@ -46,17 +35,11 @@ The Ruhoh command-line client can automatically create layouts for the active th
 
 The command will create a file at:
 
-<ul class="folder-tree">
-  <li><span class="ui-silk inline ui-silk-folder">.</span> <em>twitter</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-folder">.</span> <em>layouts</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>splash.html</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  theme-twitter
+    layouts
+      splash.html
+{{/ folder_tree }}
 
 Edit your layout as desired, then make sure to specify your new layout within the pages' YAML meta-data:
 

@@ -41,20 +41,11 @@ You won't see any content because "ruhoh-site" doesn't contain any =)
 
 To add an index page we'll use the "_root" collection and add index.md:
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>ruhoh-site</em>
-    <ul>
-      <li class="endpoint">
-        <span class="ui-silk inline ui-silk-folder">.</span> <em>_root</em>
-        <ul>
-          <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>index.md</em> &larr;</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
+{{# folder_tree }}
+  ruhoh-site
+    _root
+      index.html
+{{/ folder_tree }}
 
 We can write some sample markdown inside index.md:
 
@@ -102,14 +93,10 @@ Ensure you are still in the root of the "ruhoh-site" directory then run:
 
 Next we have to update `config.yml` to tell ruhoh to model this folder with the collection modeler "theme":
 
-<ul class="folder-tree">
-  <li class="endpoint">
-    <span class="ui-silk inline ui-silk-folder">.</span> <em>ruhoh-site</em>
-    <ul>
-      <li><span class="ui-silk inline ui-silk-page-white-text">.</span> <em>config.yml</em> &larr;</li>
-    </ul>
-  </li>
-</ul>
+{{# folder_tree }}
+  ruhoh-site
+    config.yml
+{{/ folder_tree }}
 
 Add the following content to config.yml:
 
