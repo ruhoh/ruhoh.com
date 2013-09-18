@@ -137,6 +137,9 @@ When creating a page ruhoh generates a file with content similar to:
 
 This metadata is known as **Top Metadata**. This metadata is parsed as YAML so it **must be valid YAML**. [Validate your YAML](http://yamllint.com/) if you get YAML parse errors
 
+## JSON
+
+{{> json_metadata }}
 
 ## Categories
 

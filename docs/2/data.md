@@ -3,7 +3,7 @@
 
 `data` is a special collection for modeling abstract data in your Views for direct usage in your templates. For example you might want to define an ordered navigation list or iterate through a list of contacts.
 
-Data is held in the `data.yml` file:
+Data is held in the `data.yml` or `data.json` file:
 
 {{# folder_tree }}
   config.yml
@@ -20,6 +20,26 @@ Data is held in the `data.yml` file:
       github : username
       twitter : username
       feedburner : feedname
+
+
+<span class='label'>since 2.4</span>
+
+Data now supports JSON:
+
+{{# folder_tree }}
+  data.json
+{{/ folder_tree }}
+
+    {
+      "author": {
+        "twitter": "username", 
+        "github": "username", 
+        "feedburner": "feedname", 
+        "name": "Jade Dominguez", 
+        "email": "blah@email.test"
+      }
+    }
+
 
 In your templates:
 

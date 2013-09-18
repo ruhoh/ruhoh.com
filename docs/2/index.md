@@ -249,6 +249,13 @@ The `config.yml` file is the primary interface for setting configuration paramet
   config.yml
 {{/ folder_tree }}
 
+<span class='label'>since 2.4</span>
+
+config now supports JSON:
+
+{{# folder_tree }}
+  config.json
+{{/ folder_tree }}
 
 ## Global level
 
@@ -330,7 +337,36 @@ Note Ruhoh can only recognize this metadata if the format is valid.
 
 If a file does not use metadata, the collection level configuration is used. Note also there are default values for certain attributes like "layout" which may be used.
 
+### JSON
 
+<span class='label'>since 2.4</span>
+
+Top Metadata can now be written in JSON:
+
+
+    {
+      "layout": "yay", 
+      "description": null, 
+      "tags": [
+        "apple", 
+        "orange"
+      ], 
+      "date": "2012-12-12", 
+      "title": "Hello", 
+      "categories": [
+        "random"
+      ]
+    }
+
+    ... The rest of the page body is here ...
+
+**Format requirements:**
+
+1. The syntax `{` starts the top metadata block and must be the very first line at the very first character position.
+2. The resultant object **must be valid JSON**. [Validate your JSON](http://jsonlint.com/) if you get JSON parse errors.
+3. The syntax `}` ends the JSON object.
+
+Note Ruhoh can only recognize this metadata if the JSON format is valid.
 
 # Terminal 
 
