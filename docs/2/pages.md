@@ -528,9 +528,9 @@ Note the triple mustaches since we expect HTML to be output and do not want to e
 
 ## page.summary
 
-The `summary` helper method displays a summary of your page rendered by processing the first _n_ lines of the given page.
+Special thanks to [@stebalien](https://github.com/Stebalien) for the summary implementation =).
 
-Summary may be used within any block of iterated pages:
+The `summary` helper method displays a summary of your page's contents. Summary may be used within any block of iterated pages:
 
 {{#raw_code}}
   <ul>
@@ -551,15 +551,30 @@ Summary may also be used for the _current_ page object:
 {{{ page.summary }}}
 {{/raw_code}}
 
+### Usage
 
-### How it Works
+**summary_lines**
 
-Summary is optimized for markdown files where content is structured largely into 
-contextual blocks and separated by blank lines. (This is also usually true for well-written HTML)
+By default ruhoh will do a basic line-count truncation. The summary will be made up of the first n lines of your page. Ruhoh does "smart" truncation in that it will break only after the last full HTML DOM node is returned.
 
-Internally, ruhoh does not count blank lines against the "line count".
-Once the line count is reached ruhoh will only break on the "next blank line".
-This (theoretically) ensures that the summary outputs only whole blocks of content.
+See the configuration section at the end of this page for summary configuration parameters.
+
+
+**Explicit DOM node**
+
+Specify an explicit "summary" DOM node and ruhoh will return that as the summary instead. 
+
+Wrap any content within an HTML tag with class "summary":
+
+    In the days when everybody started fair, ...
+
+    <div class="summary">
+      Quick Summary of my post!
+    </div>
+
+    ... Best Beloved, the Leopard lived in a place called the High Veldt.
+
+Note this HTML node can be anywhere in the page, it does not have to be at the beginning.
 
 ## page.categories
 
@@ -946,8 +961,16 @@ Remember this is just a default. It allows you to not always have to specify a l
 The summary is rendered using a "line count" parameter that will intelligently process the first n lines of your page.  A custom summary line-count may be specified in the config file:
 
     pages :
+      stop_at_header: false # default is false
       summary_lines : 30   # default is 20
 
+### stop\_at\_header
+
+If stop\_at\_header is set it takes precedence over summary_lines.
+
+If stop\_at\_header is true the summary will stop before the first header element (h1, h2, h3, h4, h5, header, hgroup). This allows you to add a small introductory paragraph at the start of your pages.
+
+If stop\_at\_header is a number the summary will stop before the nth header element.
 
 ## Exclude
 
