@@ -53,7 +53,7 @@ To install a new theme just download the folder into your blog's root directory:
 
 Then update your `config.yml` with the new theme name:
 
-    "new-theme-name" :
+    "theme-new-theme-name" :
       use : "theme"
 
 Restart the preview server for it to take effect.
