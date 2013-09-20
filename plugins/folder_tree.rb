@@ -156,17 +156,13 @@ module FolderTree
   def flat_array_to_nested_array(nodes)
     output = []
     nodes.each do |node|
-      if node[:depth].zero?
-        output << node
-      else
-        reference = output
-        node[:depth].times {
-          reference.last[:children] ||= []
-          reference = reference.last[:children]
-        }
+      reference = output
+      node[:depth].times {
+        reference.last[:children] ||= []
+        reference = reference.last[:children]
+      }
 
-        reference << node
-      end
+      reference << node
     end
 
     output
