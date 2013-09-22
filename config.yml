@@ -36,7 +36,6 @@ widgets :
     # -- config for disqus --
     short_name : jekyllbootstrap # Change This!
 
-  google_prettify :
-    use : overloaded
-    linenums : true
-  
+  syntax :
+    enable: true
+    use: "prettify"
