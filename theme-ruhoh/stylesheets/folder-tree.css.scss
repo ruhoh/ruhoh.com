@@ -2,10 +2,10 @@ ul.folder-tree {
   margin:0;
   padding:10px;
   list-style:none; 
-
   li {
     list-style:none;
     line-height:2em;
+    font-family: inherit;
     span.name {
       background: #FFF;
     }
@@ -20,7 +20,9 @@ ul.folder-tree {
       }
     }
   }
-
+  ul {
+    font-family: inherit;
+  }
   & > li {
     position:relative;
     margin-bottom:5px;
@@ -43,6 +45,7 @@ ul.folder-tree {
       position:absolute;
       right:10px;
       top:5px;
+      font-family: inherit;
     }
   }
 }

@@ -13,6 +13,7 @@
     font-awesome.min.css
     style.css
     google_prettify/sunburst-custom.css
+    http://fonts.googleapis.com/css?family=Maven+Pro:400,700
   {{/ stylesheets.load }}
 
   {{# javascripts.load }}
@@ -59,21 +60,6 @@
     </footer>
 
   </div> <!-- /container -->
-
-  <script type="text/javascript">
-    WebFontConfig = {
-      google: { families: [ 'Voces::latin' ] }
-    };
-    (function() {
-      var wf = document.createElement('script');
-      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-      wf.type = 'text/javascript';
-      wf.async = 'true';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(wf, s);
-    })(); </script>
-
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   {{{ widgets.syntax }}}
   {{{ widgets.analytics }}}

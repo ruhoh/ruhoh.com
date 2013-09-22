@@ -1,9 +1,12 @@
 /* Override some defaults */
-html, body, p, ul, a {
-  font-family:verdana;
+html, body, p, ul {
+  font-family: 'Maven Pro', sans-serif;
+  font-size:15px;
+}
+a {
+  font-size: inherit;
 }
 p {
-  font-size:1.1em;
   line-height:1.5em;
   white-space: pre;           /* CSS 2.0 */
   white-space: pre-wrap;      /* CSS 2.1 */
@@ -15,32 +18,31 @@ p {
   word-wrap: break-word;      /* IE 5+ */
 }
 h1, h2, h3, h4, h5 {
-  font-family: 'Voces', verdana, serif;
+  font-weight: 700;
+  font-family: 'Maven Pro', sans-serif;
 }
 h1 {
   margin-bottom:15px;
+  font-size: 28px;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 18px;
+  margin-bottom:10px;
+}
+h4, h5 {
+  font-size: 16px;
 }
 pre, code {
   overflow: auto !important;
-}
-ul.thumbnails div.thumbnail {
-}
-ul.thumbnails div.thumbnail a{ 
-  display:block;
-  font-size:30px;
-  line-height:120px;
-  color:#777;
-  background:#333;
-  border-radius:4px;
-  font-family: 'Voces', verdana, serif;
+  font-size:14px;
 }
 img {
   order:3px solid #F0F0D8; order-radius:3px;
 }
 dl dd {
-  margin-bottom:10px;
-}
-h3 {
   margin-bottom:10px;
 }
 table, pre {
@@ -104,7 +106,7 @@ ul.social li iframe{
 h1.splash-header {
   text-align:center; 
   font-size:38px;
-  padding:25px;
+  padding:20px;
   margin:0 !important;
 }
 
@@ -113,97 +115,6 @@ div.box {
   margin-bottom:20px;
   border-left:2px solid #F0F0D8;
 }
-.splash-more h2 {
-  display:inline-block;
-  background:#F0F0D8;
-  padding:0 14px;
-  line-height:36px;
-  border-radius:3px;
-  font-size:16px;
-  position:relative;
-  top:20px;
-  margin:0 0 0px 0px;
-  box-shadow: inset 0px 0px 10px #C9C9B5;
-}
-.splash-more ul.feedback li{
-  line-height:2em;
-}  
-
-/* splash-message --------------------------------------*/
-.splash-message h3,
-.splash-message ul {
-  margin-bottom:20px;
-}
-.splash-message table td {
-  padding:7px;
-}
-
-/* splash install -------------------------------------- */
-.splash-install h1 {
-  font-size:28px;
-  text-align:center;
-}
-.splash-install div.wrapper {
-  padding:20px 0;
-  background:#F0F0D8;
-  order:1px solid #C0D860; 
-  border-radius:3px;
-  box-shadow:inset 0 0 10px #C0D860;
-  
-  order:1px solid #F0F0D8;
-  background:#FFF url('../media/stripe.png') repeat;
-  border-radius:3px;
-  box-shadow:inset 0 0 5px #F0F0D8;
-  
-}
-.splash-install div.wrapper > div {
-
-}
-.splash-install div.wrapper h3{ 
-  display:inline-block;
-  background:#C0D860;
-  padding:0 14px;
-  line-height:36px;
-  border-radius:3px;
-  font-size:16px;
-  margin:0 0 20px -30px;
-  box-shadow: inset 0px 0px 2px #789048;
-}
-.splash-install form {
-  vertical-align:middle;
-}
-.splash-install form,
-.splash-install table,
-.splash-install pre,
-.splash-install p.profit-content {
-  margin-bottom:20px
-}
-
-/* github table */
-.splash-install table {
-  width:100%;
-}
-.splash-install table td {
-  padding:10px 12px;
-  font-size:14px;
-  font-weight:bold;
-  vertical-align:center;
-}
-.splash-install .table-striped tbody tr:nth-child(odd) td,
-.splash-install .table-striped tbody tr:nth-child(odd) th {
-  background-color:#E0E4CC;
-}
-.splash-install .table-bordered,
-.splash-install .table-bordered th,
-.splash-install .table-bordered td {
-  border-color:#E0E4CC;
-}
-
-.splash-install button {
-  font-weight:bold;
-  font-size:14px;
-}
-
 
 .container.default {
   h1 {
@@ -391,7 +302,7 @@ body {
   position:relative;
   top:0;
   left:32%;
-  width:60%;
+  width:62%;
   background:#FFF;
 }
 #novel > .inner {padding:15px 30px}
@@ -469,3 +380,7 @@ kbd {
   text-shadow: 0 1px 0 #fff;
   line-height: 1.4;
   white-space: nowrap;}
+
+.navbar a {
+  font-size:14px;
+}

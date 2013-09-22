@@ -7,7 +7,7 @@ $light: #F0F0D8; /*YELLOW     #F0F0D8 */
   h1 {
     margin:20px 0;
     padding:5px 0;
-    font-size:30px;
+
     color:#221F26;
 
     &:first-child {
@@ -58,10 +58,10 @@ table td.module {
 #toc {
   list-style:none;
   margin:0; padding:0;
+  font-size: 14px;
   a {
     color:$light;
     text-decoration:none;
-    font-size: 0.9em;
     &.brand {
       color: #F0F0D8;
       text-decoration: none;
@@ -110,7 +110,7 @@ table td.module {
 
 
 ul.nest {
-  font-size: 0.9em;
+  font-size: 14px;
   padding:15px 10px 10px 10px;
   margin:0;
   list-style:none;
@@ -126,9 +126,21 @@ ul.nest {
     a {
       text-decoration: underline;
       color:$dark;
+      line-height: 1.5em;
       &:hover {
         color:$medium;
       }
     }
   }
 }
+
+blockquote {
+  margin:20px 0; 
+  padding:20px; 
+  font-weight:bold; 
+  border-top:1px solid #ccc; 
+  border-bottom:1px solid #ccc;
+  background-color:#eee;
+  font-size: 1em;
+}
+
