@@ -3,15 +3,108 @@ title: Introduction
 ---
 
 
-# READ FIRST
+# QuickStart
 
-**NOTE** Use the [QuickStart](/docs/2/quickstart) if you just want to take ruhoh for a test drive and don't care (yet) how ruhoh works.
+> The Quickstart assumes you have a basic understanding of **git**, **ruby** and **bundler**.
+If you are new to ruby you might need to read the more verbose [Installation](/docs/2/installation) docs first.
 
-The following outline is a full conceptual overview of how ruhoh works and why it works that way.
+## Launch
 
-You will learn important terminology, understand core design, and gain the "big picture" of ruhoh enabling you to feel at home in the system.
+Make a new directory to hold your fresh website:
 
-Let's get started!
+    $ mkdir ruhoh-site
+
+Next we need to load ruhoh as a ruby gem. The proper way to install ruby gems is via bundler as it will save you versioning headaches later on.
+
+Create a file inside "ruhoh-site" named Gemfile, with the following contents:
+
+    source "https://rubygems.org"
+    gem 'ruhoh', "~> 2"
+
+You can do this right on the command-line:
+
+    $ cd ruhoh-site
+    $ touch Gemfile
+    $ echo "source \"https://rubygems.org\"" >> Gemfile
+    $ echo "gem 'ruhoh', \"~> 2\"" >> Gemfile
+
+
+Ensure you are still in the "ruhoh-site" directory, then install the bundle:
+
+    $ bundle install
+
+Once the bundle is complete you can use the ruhoh command-line utility to start the local web-server:
+
+    $ bundle exec ruhoh server 9292
+
+**Success!**
+
+You are now running a ruhoh enabled website previewable locally at: [http://localhost:9292](http://localhost:9292)
+
+The default homepage shows you how to quickly create pages in ruhoh.
+
+## Add Content
+
+<span class='label'>since 2.5</span>
+
+Viewing the [homepage](http://localhost:9292) or any other page not yet created in ruhoh will show you exactly how to quickly create a page for that URL.
+
+Examples:
+
+- [http://localhost:9292/about-me](http://localhost:9292/about-me)
+- [http://localhost:9292/pages/my-projects](http://localhost:9292/pages/my-projects)
+- [http://localhost:9292/essays/drafts/hell-world](http://localhost:9292/essays/drafts/hell-world)
+
+
+Ruhoh tries to be as close to a normal website workflow as possible so no other dependencies or configurations are required.
+
+Read the [Pages documentation](/docs/2/pages) for more in-depth info regarding page creation.
+
+
+## Add Theme
+
+**RECOMMENDED**
+
+Themes are a great way to learn how to build pages, use layouts, javascripts, stylesheets, and the mustache syntax. Additionally they give you default structure, styling and page stubs to quickly get a basic site up.
+
+Starting out, you should install a theme so you have files to play with and test things out. You can easily remove the theme later by deleting the theme folder.
+
+Finally, every theme-level file can be overwritten by providing the same file within your site directory "ruhoh-site".
+
+### How To
+
+
+We'll use git to clone the default ruhoh theme into our site in the folder "theme-bootstrap-2"
+
+Ensure you are still in the root of the "ruhoh-site" directory then run:
+
+    $ git clone git@github.com:ruhoh/theme-bootstrap-2.git theme-bootstrap-2
+
+Next we have to update `config.yml` to tell ruhoh to model this folder with the collection modeler "theme":
+
+{{# folder_tree }}
+  ruhoh-site
+    config.yml
+{{/ folder_tree }}
+
+Add the following content to config.yml:
+
+    "theme-bootstrap-2" :
+      "use" : "theme"
+
+
+The rack previewer must be restarted in order for this to take affect.
+Kill the running process by pressing <kbd>ctrl</kbd>+<kbd>c</kbd> then run:
+
+    $ bundle exec rackup -p 9292
+
+
+Reload the page at [http://localhost:9292](http://localhost:9292) and you should see your new theme along with more default files!
+
+[More about Themes](/docs/2/themes)
+
+
+> **Hey!** The rest of this document is a full conceptual overview of how ruhoh works. You will learn important terminology, understand core design, and gain the "big picture" of ruhoh enabling you to feel at home in the system. **It's very important to read this!**
 
 
 # Design Philosophy
@@ -112,13 +205,15 @@ Collections transparently interface with the configuration files so you can cust
 
 There are some folder names that have special meanings. When you create these folders they automatically default to their special collection class:
 
-- layouts
-- partials
-- javascripts
-- stylesheets
-- data
-- media
-- \<theme\>
+{{# folder_tree }}
+  layouts
+  partials
+  javascripts
+  stylesheets
+  data
+  media
+  &lt;theme&gt;
+{{/ folder_tree }}
 
 These collections are for the most part self-explanatory and can be further studied in their individual sections.
 
@@ -171,9 +266,12 @@ A theme is a collection so it is defined by a sub-folder. However this sub-folde
 
 For example:
 
-- `twitter-bootstrap/layouts`
-- `twitter-bootstrap/javascripts`
-- `twitter-bootstrap/partials` 
+{{# folder_tree }}
+  twitter-bootstrap
+    layouts
+    javascripts
+    partials
+{{/ folder_tree }}
 
 are all valid places to load and manage these respective collection files.
 
@@ -433,4 +531,10 @@ The following is a sample outline of a site directory structure and includes hel
 
 # Next Steps
 
-[QuickStart](/docs/2/quickstart)
+Hopefully you are excited to start creating content!
+
+- Understand the different collection modelers outlined to the right.
+- [Learn how layouts, templates, Views, and mustache work together](/docs/2/views).
+- [Learn how to publish](/docs/2/publish).
+- [Learn how to add Plugins](/docs/2/plugins).
+

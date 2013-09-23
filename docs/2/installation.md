@@ -23,11 +23,11 @@ First we create a folder to hold your ruhoh-enabled site. We'll name it "ruhoh-s
 
 Ruhoh is packaged as a ruby gem which depends on:
 
-- **rack** - for web-server integration
-- **directory\_watcher** - for watching files for updates in realtime.
-- **mustache** - for templating.
-- **redcarpet** - for Markdown parsing.
-- **nokogiri** - for DOM traversal and RSS support.
+- [rack](http://rubygems.org/gems/rack) - for web-server integration
+- [directory\_watcher](http://rubygems.org/gems/directory_watcher) - for watching files for updates in realtime.
+- [mustache](http://rubygems.org/gems/mustache) - for templating.
+- [redcarpet](http://rubygems.org/gems/redcarpet) - for Markdown parsing.
+- [nokogiri](http://rubygems.org/gems/nokogiri) - for DOM traversal and RSS support.
 
 # Bundler
 
@@ -66,32 +66,22 @@ Install the bundle by opening a terminal session, navigating to your "ruhoh-site
 
 # Rack
 
-Ruhoh uses the [Rack][] interface to run a local web-server so we'll need to define a config.ru file:
 
-{{# folder_tree }}
-  ruhoh-site
-    config.ru
-    Gemfile
-{{/ folder_tree }}
+Ruhoh uses the [Rack][] interface to run a local web-server but it is now built-in so all you need to do is, from within the "ruhoh-site" directory, run:
 
-Place the following contents inside config.ru:
-
-    require 'rack'
-    require 'ruhoh'
-    run Ruhoh::Program.preview
-
-
-# Run Ruhoh
-
-Once the bundle is complete and we have our rackup file, from within the "ruhoh-site" directory, we can run:
-
-    $ bundle exec rackup -p 9292
+    $ bundle exec ruhoh server 9292
 
 This starts a web server that serves your site here: [http://localhost:9292](http://localhost:9292)
 
-To access the bundled ruhoh version you'll need precede your commands with `bundle exec`:
+# Terminal
+
+
+To access the bundled ruhoh version you'll need precede your commands with `bundle exec ruhoh`:
 
     $ bundle exec ruhoh help
+    $ bundle exec ruhoh console
+
+`ruhoh` is the command-line-interface or CLI that interfaces with the ruhoh gem.
 
 ## Run without Bundler
 
