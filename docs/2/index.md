@@ -477,24 +477,43 @@ Once the gem is installed your system should have an executable named `ruhoh`.
 
 The command-line tool will be part of your primary workflow. View the help to see the available commands:
 
-    $ ruhoh help
+    $ bundle exec ruhoh help
 
-### New Blog
 
-You can clone a new blog scaffold at any time using ruhoh:
+## Preview
 
-    $ ruhoh new myblog
+Ruhoh has a built-in web-server to preview your site:
 
-### Blog Preview
+    $ bundle exec ruhoh server
 
-    $ cd myblog
-    $ rackup -p 9292
+The web-server pragmatically loads your site's pages in real-time. This means as you update files, the updates are reflected immediately. View your site at: [http://localhost:9292/](http://localhost:9292/)
 
-Using the `rackup` command spawns a web-server that pragmatically loads your blog's pages in real-time.
-This means as you update files, the updates are reflected immediately.
+## Console
 
-View your blog at: [http://localhost:9292/](http://localhost:9292/)
+Launch an [interactive ruby session](http://www.ruby-doc.org/stdlib-2.0/libdoc/irb/rdoc/IRB.html) (irb):
 
+    $ bundle exec ruhoh console
+
+The variable `ruhoh` is available and can be used to analyze the system and its collections:
+
+    > pp ruhoh.collection('pages').all
+    > pp ruhoh.routes.all
+
+## Compile
+
+Compile your site:
+
+    $ bundle exec ruhoh compile
+
+Read [Publish Documentation](/docs/2/publish) for more info.
+
+## Publish
+
+Ruhoh supports a variety of automatic publishing strategies:
+
+    $ bundle exec ruhoh publish rsync
+
+Read [Publish Documentation](/docs/2/publish) for more info.
 
 
 # Directory Structure
