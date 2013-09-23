@@ -1,2 +1,4 @@
-_compiled/
-_deploy.yml
+compiled/
+publish.json
+publish.yml
+Gemfile.lock
