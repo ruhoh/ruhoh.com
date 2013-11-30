@@ -20,13 +20,14 @@ Create a file inside "ruhoh-site" named Gemfile, with the following contents:
 
     source "https://rubygems.org"
     gem 'ruhoh', "~> 2"
+    gem 'json'
 
 You can do this right on the command-line:
 
     $ cd ruhoh-site
     $ touch Gemfile
     $ echo "source \"https://rubygems.org\"" >> Gemfile
-    $ echo "gem 'ruhoh', \"~> 2\"" >> Gemfile
+    $ echo -e "gem 'ruhoh', \"~> 2\"\ngem 'json'" >> Gemfile
 
 
 Ensure you are still in the "ruhoh-site" directory, then install the bundle:
