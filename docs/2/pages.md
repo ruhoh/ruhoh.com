@@ -514,6 +514,18 @@ Above, we've set special attributes `icon` and `days` which are now availble:
   </tbody>
 </table>
 
+Now we can access these attributes with the following Mustache tags:
+
+{{#raw_code}}
+  <h1>{{ page.title }}</h1>
+  <img title="{{ page.icon }}" src="{{ media.url }}/{{ page.icon }}.png"</img>
+  <p>It will be sunny on the following days:</p>
+  <ul>
+    {{# page.days }}
+    <li>{{ . }}</li> <!-- the '.' accesses the current element/item of the 'page.days' array/list -->
+    {{/page.days}}
+  </ul>
+{{/raw_code}}
 
 ## page.content
 
