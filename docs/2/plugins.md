@@ -112,12 +112,19 @@ A mustache block helper is a method that acts on the encapsulated block of conte
 
 Here we are calling the method `raw_code` which will be passed the block content as its argument:
 
-    def raw_code(sub_context)
-      code = sub_context.gsub('{', '&#123;').gsub('}', '&#125;').gsub('<', '&lt;').gsub('>', '&gt;')
-      "<pre><code>#{code}</code></pre>"
+    module MasterViewAddons
+      def raw_code(sub_context)
+        code = sub_context.gsub('{', '&#123;').gsub('}', '&#125;').gsub('<', '&lt;').gsub('>', '&gt;')
+        "<pre><code>#{code}</code></pre>"
+      end
     end
+    
+    # now make add the plugin globally available
+    Ruhoh::Views::MasterView.send(:include, MasterViewAddons)
 
 Block helpers should return a String.
+
+For more information see the [2.x View Helper Plugins upgrade instructions](http://ruhoh.com/docs/2/upgrading/#toc_17).
 
 ## Contextual Helpers
 
