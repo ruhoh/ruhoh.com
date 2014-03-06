@@ -1,4 +1,3 @@
-
 # Why a static site?
 
 In  terms of publishing textual content and images, a static site is much faster, more secure, costs less, and is highly scalable -- it won't slow to a crawl or crash due to increased traffic.
@@ -47,7 +46,7 @@ Knowledge of ruby is not required, but since ruby can be a pain to install, it's
 
 Ruhoh is pretty technical, but the goal is to be accessible and _intuitive_ for beginners.
 
-Beginners are welcomed and encouragd to grow with ruhoh's functionality as experience and curiousity dictates. Experts can _immediately_ take full advantage of ruhoh's modular architecture and straightforward APIs. Nearly all features are powered by standalone "service libraries" that can be overloaded or swapped.
+Beginners are welcomed and encouraged to grow with ruhoh's functionality as experience and curiousity dictates. Experts can _immediately_ take full advantage of ruhoh's modular architecture and straightforward APIs. Nearly all features are powered by standalone "service libraries" that can be overloaded or swapped.
 
 # Core Goals
 
