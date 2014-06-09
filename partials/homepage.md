@@ -25,7 +25,7 @@ Use HTML, CSS, and javascript like you would naturally, but have the _power_ of 
 Ruhoh is language-agnostic, it's not strictly tied to any one language so you don't need to know ruby or do any programming if you don't want to. However, it turns out to be a good way to learn.
 
 **Focus on _Web Publishing_ and nothing else.**
-Ruhoh prioritizes web-publishing specific optimizations like SEO-optimized permalink structures, cononical redirects, microformats, RSS/ATOM feed generation, robust internationalization, textual search, comments, and so on.
+Ruhoh prioritizes web-publishing specific optimizations like SEO-optimized permalink structures, canonical redirects, microformats, RSS/ATOM feed generation, robust internationalization, textual search, comments, and so on.
 
 **Onions**
 Ruhoh should be _immediately_ usable and effective for beginners and experts alike. All functionality should be intuitive and simple to uncover and learn. As your experience grows and you dive deeper into customizations, the layers of power, functionality, and extensibility should elegantly peel away from ruhoh like an onion. You don't have to use them, but they will be there.
