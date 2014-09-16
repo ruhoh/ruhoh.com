@@ -55,7 +55,7 @@ Beginners are welcomed and encouragd to grow with ruhoh's functionality as exper
 1. **Prioritize Web Publishing.**
   Work will focus on delivering the best publishing experience and utilizing the web's latest standards for maintaining published content on the Internet.
 1. **Beginner Friendly.**
-  Simplicity will be the highest meausure of success. Publishing should be modeled from _standard_ HTML, CSS, and javascript workflows.
+  Simplicity will be the highest measure of success. Publishing should be modeled from _standard_ HTML, CSS, and javascript workflows.
   Ruhoh should be a transparent layer that enables _power_, _automation_, and _extensibility_ but only when desired.
 1. **Language-agnostic.**
   A language-specific workflow _places focus on the tool rather than the content_. Therefore ruhoh's core design and interface should be completely free from language-dependent knowledge or paradigms.
